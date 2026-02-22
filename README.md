@@ -28,6 +28,11 @@ Tarihin tozlu raflarındaki ölü dillerden (UnrealScript), roket fırlatan fels
 * [LLVM IR](1.%20D%C3%BC%C5%9F%C3%BCk%20Seviyeli%20Diller%20%28Makineye%20En%20Yak%C4%B1n%29/LLVM%20IR.md)
 * [PTX](1.%20D%C3%BC%C5%9F%C3%BCk%20Seviyeli%20Diller%20%28Makineye%20En%20Yak%C4%B1n%29/PTX.md)
 
+## 1.5. Ara Kod ve Derlenmiş Yığın Dilleri (Intermediate Representations)
+* [Hexadecimal (Hex)](1.5.%20Ara%20Kod%20ve%20Derlenmi%C5%9F%20Y%C4%B1%C4%9F%C4%B1n%20Dilleri%20%28Intermediate%20Representations%29/Hexadecimal%20%28Hex%29.md)
+* [Bytecode](1.5.%20Ara%20Kod%20ve%20Derlenmi%C5%9F%20Y%C4%B1%C4%9F%C4%B1n%20Dilleri%20%28Intermediate%20Representations%29/Bytecode.md)
+* [IL (Intermediate Language)](1.5.%20Ara%20Kod%20ve%20Derlenmi%C5%9F%20Y%C4%B1%C4%9F%C4%B1n%20Dilleri%20%28Intermediate%20Representations%29/IL%20%28Intermediate%20Language%29.md)
+
 ## 2. Tarihi, Kritik ve Kısıtlı Sistem Dilleri
 * [Forth](2.%20Tarihi%2C%20Kritik%20ve%20K%C4%B1s%C4%B1tl%C4%B1%20Sistem%20Dilleri/Forth.md)
 * [Fortran](2.%20Tarihi%2C%20Kritik%20ve%20K%C4%B1s%C4%B1tl%C4%B1%20Sistem%20Dilleri/Fortran.md)
@@ -210,7 +215,7 @@ Tarihin tozlu raflarındaki ölü dillerden (UnrealScript), roket fırlatan fels
 * [Handlebars (Mustache)](24.%20Web%20%C5%9Eablonlama%20%28Templating%29%20Dilleri/Handlebars%20%28Mustache%29.md)
 
 ## 25. Masaüstü Otomasyon ve Fare/Klavye Betikleri
-* [AutoHotkey (AHK)](25.%20Masa%C3%BCst%C3%BC%20Otomasyon%20ve%20Fare_/_Klavye%20Betikleri/AutoHotkey%20%28AHK%29.md)
+* [AutoHotkey (AHK)](25.%20Masa%C3%BCst%C3%BC%20Otomasyon%20ve%20Fare_Klavye%20Betikleri/AutoHotkey%20%28AHK%29.md)
 
 ## 26. Araç Kontrol ve Sistem Görev Betikleri
 * [TCL (Tool Command Language)](26.%20Ara%C3%A7%20Kontrol%20ve%20Sistem%20G%C3%B6rev%20Betikleri/TCL%20%28Tool%20Command%20Language%29.md)
@@ -218,9 +223,4 @@ Tarihin tozlu raflarındaki ölü dillerden (UnrealScript), roket fırlatan fels
 ## 27. Oyun Modlama ve Şablon Betikleri (Modding)
 * [Papyrus](27.%20Oyun%20Modlama%20ve%20%C5%9Eablon%20Betikleri%20%28Modding%29/Papyrus.md)
 * [UnrealScript](27.%20Oyun%20Modlama%20ve%20%C5%9Eablon%20Betikleri%20%28Modding%29/UnrealScript.md)
-
-## 1.5. Ara Kod ve Derlenmiş Yığın Dilleri (Intermediate Representations)
-* [Hexadecimal (Hex)](1.5.%20Ara%20Kod%20ve%20Derlenmi%C5%9F%20Y%C4%B1%C4%9F%C4%B1n%20Dilleri%20%28Intermediate%20Representations%29/Hexadecimal%20%28Hex%29.md)
-* [Bytecode](1.5.%20Ara%20Kod%20ve%20Derlenmi%C5%9F%20Y%C4%B1%C4%9F%C4%B1n%20Dilleri%20%28Intermediate%20Representations%29/Bytecode.md)
-* [IL (Intermediate Language)](1.5.%20Ara%20Kod%20ve%20Derlenmi%C5%9F%20Y%C4%B1%C4%9F%C4%B1n%20Dilleri%20%28Intermediate%20Representations%29/IL%20%28Intermediate%20Language%29.md)
 
