@@ -210,7 +210,7 @@ Tarihin tozlu raflarındaki ölü dillerden (UnrealScript), roket fırlatan fels
 * [Handlebars (Mustache)](24.%20Web%20%C5%9Eablonlama%20%28Templating%29%20Dilleri/Handlebars%20%28Mustache%29.md)
 
 ## 25. Masaüstü Otomasyon ve Fare/Klavye Betikleri
-* [AutoHotkey (AHK)](25.%20Masa%C3%BCst%C3%BC%20Otomasyon%20ve%20Fare/Klavye%20Betikleri/AutoHotkey%20%28AHK%29.md)
+* [AutoHotkey (AHK)](25.%20Masa%C3%BCst%C3%BC%20Otomasyon%20ve%20Fare_/_Klavye%20Betikleri/AutoHotkey%20%28AHK%29.md)
 
 ## 26. Araç Kontrol ve Sistem Görev Betikleri
 * [TCL (Tool Command Language)](26.%20Ara%C3%A7%20Kontrol%20ve%20Sistem%20G%C3%B6rev%20Betikleri/TCL%20%28Tool%20Command%20Language%29.md)
