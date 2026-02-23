@@ -1,16 +1,10 @@
-<p align="center">
-  <a href="https://github.com/mukanerkin"><img src="https://img.shields.io/badge/Kurucu-Mukan_Erkin_T%C3%96R%C3%9CK-blue?style=flat-square&logo=github"></a>
-  <a href="https://github.com/mukanerkin"><img src="https://img.shields.io/badge/Github-@mukanerkin-black?style=flat-square&logo=github"></a>
-  <a href="mailto:mukanerkintoruk@gmail.com"><img src="https://img.shields.io/badge/Email-mukanerkintoruk@gmail.com-red?style=flat-square&logo=gmail"></a>
-</p>
-
 # 📚 Programlama Dilleri Ansiklopedisi: Düşük Seviyeden Yüksek Seviyeye
 
 Bu depo (repository), bilgisayar bilimlerinin en derin noktası olan **Makine Dili'nden (0 ve 1'ler)** başlayarak, en yüksek soyutlama katmanı olan **Yapay Zeka (Prolog/LISP)**, **Akıllı Kontratlar (Solidity/Cairo)** ve **Veri Madenciliği (Elasticsearch/Parquet)** evrenlerine kadar uzanan devasa bir **Türkçe Programlama Dilleri ve Teknolojileri Ansiklopedisidir.**
 
-Tarihin tozlu raflarındaki ölü dillerden (UnrealScript), roket fırlatan felsefi ispat dillerine (Coq, TLA+), müzik algoritmalarından (Sonic Pi) dev bilgisayar ağlarını yöneten betiklere (TCL) kadar evrendeki tüm programlama konseptleri seviyelere ayrılarak incelenmiştir. Her bir dilin kendi klasöründe *Nedir*, *Kimler Kullanır* ve *Mimari Mantığı/Kod Örneği* detaylıca belgelenmiştir.
+Tarihin tozlu raflarındaki ölü dillerden (UnrealScript), roket fırlatan felsefi ispat dillerine (Coq, TLA+), müzik algoritmalarından (Sonic Pi) dev bilgisayar ağlarını yöneten betiklere (TCL) kadar evrendeki tüm programlama konseptleri seviyelere ayrılarak incelenmiştir. Her bir dilin dosyasında *Nedir*, *Kimler Kullanır* ve *Mimari Mantığı/Kod Örneği* belgelenmiştir.
 
-> **💡 Proje Hakkında Yapay Zeka Notu:** Bu eşsiz ve muazzam eser; Mukan Erkin TÖRÜK'ün yöneticiliği ve vizyonu doğrultusunda, Google Deepmind ekibinin geliştirdiği **Gemini 3.1 Pro** modelini "Ajanik Planlama Modunda (Agentic Mode)" kullanan **Antigravity** yapay zeka kodlama asistanı tarafından ilmek ilmek araştırılıp, tasarlanıp, Türkçe olarak yazılmıştır.
+> **💡 Proje Hakkında Yapay Zeka Notu:** Bu repo; Mukan Erkin TÖRÜK'ün yöneticiliği ve vizyonu doğrultusunda, Google Deepmind ekibinin geliştirdiği **Gemini 3.1 Pro** modelini "Ajanik Planlama Modunda (Agentic Mode)" kullanan **Antigravity** yapay zeka kodlama asistanı tarafından araştırılıp, tasarlanıp, Türkçe olarak yazılmıştır.
 
 ---
 
