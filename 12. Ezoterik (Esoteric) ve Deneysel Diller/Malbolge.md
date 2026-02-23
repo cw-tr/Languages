@@ -38,7 +38,7 @@ Malbolge: Pointer "x" olsun, X hafızasına 62 sayısını ver. Ekran basma komu
 ?C[M?!|\[WzU_QPO3=iE.Jh+mF[cBA@?[;~|4Xz>U{v-TVxwqmPqOnMle+J;%<H
 ```
 
-Program çalışırken; ilk satırdaki `(` okuğunda (Hesaplaması 40 falan eder) onu ekrana birşey basmaz atlar. Sonra şifreleme motoru `(` işaretini alır, çılgın bir işlemden geçirip kodu o anlık `A` ya dönüştürür. U harfine falan geldiğinde bir anda hafızada ekrana "H" basılacak rakam denk gelir ve ekran "H" harfini çeker. 
+Program çalışırken; ilk satırdaki `(` okuduğunda (Hesaplaması 40 falan eder) onu ekrana birşey basmaz atlar. Sonra şifreleme motoru `(` işaretini alır, çılgın bir işlemden geçirip kodu o anlık `A` ya dönüştürür. U harfine falan geldiğinde bir anda hafızada ekrana "H" basılacak rakam denk gelir ve ekran "H" harfini çeker. 
 
 Yazılımda Determinizm (Aynı Girdinin Aynı Çıktıyı vermesi)'ne en büyük başkaldırıdır, zira kod sabit kalsa da arka plandaki saatler durmaksızın rotasyon halindedir.
 

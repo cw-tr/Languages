@@ -23,13 +23,13 @@ Tam bir Assembly diline benzemez, ama tipik bir insan programlama diline de benz
 Siz C dilinde `int c = a + b;` yazarsınız, Clang (LLVM'in derleyicisi) bunu `%3 = add i32 %1, %2` ("1. Register ile 2. Registeri toplayıp 3'e at, bu da 'i32' tipi yani tam sayı" diyerek IR formatına hapseder. Bütün diller bu köprüde diz çöker.
 
 ### Örnek Bir LLVM IR Kodu: 10 + 20'yi Toplayan Saf Araf Motoru
-Yazılımcıların asla açıp da manuel yazmadığı (C veya Rust tarafından otomatik üretilen), "TİPLİ, SONSUZ REGİSTERLI" ve "% işareti kullanilan" Assembly evriminin ta kendisi:
+Yazılımcıların asla açıp da manuel yazmadığı (C veya Rust tarafından otomatik üretilen), "TİPLİ, SONSUZ REGİSTERLI" ve "% işareti kullanılan" Assembly evriminin ta kendisi:
 
 ```llvm
 ; LLVM IR'de yorum satırları ; (Noktalı Virgül) ile başlar.
-; "@" işareti Global(Açık) foksiyon, "%" işareti Lokal (İç) Fonksiyon/Register'dır.
+; "@" işareti Global (Açık) fonksiyon, "%" işareti Lokal (İç) Fonksiyon/Register'dır.
 
-; "main" ana C fonksiyonun İçi-Dışı Tip tanımlı(i32 = Int32) olarak baştan oluşturulması:
+; "main" ana C fonksiyonunun İçi-Dışı Tip tanımlı(i32 = Int32) olarak baştan oluşturulması:
 define i32 @main() {
 
   ; İLK BLOK (Entry):
@@ -40,12 +40,12 @@ entry:
   %1 = alloca i32
   store i32 10, i32* %1  ; (Sanal %1 ibresi artik %100 oraninda Int(10)'dur!)
 
-  ; i32 tipli 20 rakamını BAŞKA BIR SIFIR(%2) sanal Bellekle kitle:
+  ; i32 tipli 20 rakamını BAŞKA BİR SIFIR(%2) sanal Bellekle kitle:
   %2 = alloca i32
   store i32 20, i32* %2
 
   ; MATEMATİK ZAMANI (Load and Add): 
-  ; Değerleri ibrelerden GERCİ ÇEKİP(Load edip), %3 ve %4 diye YEPYENI Registerlara SSA Mimarisiyle AKTARIYORUZ
+  ; Değerleri ibrelerden GERİ ÇEKİP(Load edip), %3 ve %4 diye YEPYENI Registerlara SSA Mimarisiyle AKTARIYORUZ
   %3 = load i32, i32* %1
   %4 = load i32, i32* %2
   

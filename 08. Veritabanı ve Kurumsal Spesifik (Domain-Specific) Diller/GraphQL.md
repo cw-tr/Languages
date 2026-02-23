@@ -10,7 +10,7 @@ Facebook (Trilyonlarca Datası olduğu için) bu mobil veri isyanını durdurmak
 
 **Ne İşe Yarar?**
 * **Mobil Uygulama Optimizasyonu:** Mobil cihazlar (Ağ gecikmesi yüksek olan 3G/4G şebekeleri) çok fazla istek atıp veri indirmesin diye, Tek 1 İstekte Müşterinin tam istediği Gramajda veriyi döndürüp İnternet performansını uzaya fırlatır.
-* **Agility (Hızlı ÖnYüz Geliştirme):** Front-end gelişticisi "Abi şu endpoint'e kullanıcının Soyadını da Eklersenize!" diye Arka-Plan (Backend) mühendisine yalvarmak zorunda kalmaz. Front-End'ci doğrudan Çektiği Sorguya `soyad` yazar ve anında gelir, Backend kodunu güncellemeye Gerek kalmaz!
+* **Agility (Hızlı ÖnYüz Geliştirme):** Front-end geliştiricisi "Abi şu endpoint'e kullanıcının Soyadını da Eklersenize!" diye Arka-Plan (Backend) mühendisine yalvarmak zorunda kalmaz. Front-End'ci doğrudan Çektiği Sorguya `soyad` yazar ve anında gelir, Backend kodunu güncellemeye Gerek kalmaz!
 
 ## Dilin Mantığı ve Kod Yapısı
 GraphQL'in tam anlamıyla bir Veritabanı (Database) OLMADIĞINI akılda tutmak gerekir (O bir Sorgu dilidir, Arka planda yine SQL veya MongoDB çalışabilir).
@@ -20,7 +20,7 @@ GraphQL'in tam anlamıyla bir Veritabanı (Database) OLMADIĞINI akılda tutmak 
 
 **Örnek İşleyiş:**
 Klasik REST: `https://api.site.com/users/5/friends` (10 İstek atmanız gerekebilir).
-GraphQL: Tek `https://api.site.com/graphql` adeline şu Sorguyu atarsınız: Mükemmel JSON döner.
+GraphQL: Tek `https://api.site.com/graphql` adresine şu Sorguyu atarsınız: Mükemmel JSON döner.
 
 ### Örnek Bir GraphQL Kodu: İstek Atma Mimarisi (Müşteri Gözünden)
 Örneğin siz Frontend Geliştiricisiniz ve Bir E-Ticaret / Sosyal Medya sayfasında "Kullanıcı Ali'nin Adını, Ve Ali'nin Arkadaşlarından "SADECE İsimlerini" Çekmek istiyorsunuz (Arkadaşların şifreleri, yaşları vs lazim degil zira Ekrana Sigmaz!):
@@ -41,7 +41,7 @@ query KullaniciProfiliveArkadaslariniCek {
     # Bu adamin Arkadas Listesini (Array) bana Don!
     friends(durdur: 5) { # Sadece Ilk 5 Arkadasini cek
         
-      # Gelen 5 Aarkdasin da SADECE isim ve Resmini Getir(Arkadasin Baska Verisini indirme)!
+      # Gelen 5 Arkadasin da SADECE isim ve Resmini Getir(Arkadasin Baska Verisini indirme)!
       isim
       profilResmi
       
@@ -50,7 +50,7 @@ query KullaniciProfiliveArkadaslariniCek {
 }
 ```
 
-Eğer Yukarıdaki İsteği (Tek 1 Satır JSON/HTTP ile) Sunucuya şutlarsanız, Sunucunun Size Döneceği 1 Milisaniyelik O Pürüzsüz Veri Formatı Şuduuur:
+Eğer Yukarıdaki İsteği (Tek 1 Satır JSON/HTTP ile) Sunucuya şutlarsanız, Sunucunun Size Döneceği 1 Milisaniyelik O Pürüzsüz Veri Formatı Şudur:
 
 ```json
 {
@@ -67,9 +67,9 @@ Eğer Yukarıdaki İsteği (Tek 1 Satır JSON/HTTP ile) Sunucuya şutlarsanız, 
   }
 }
 ```
-Hiçbir Gereksiz Byte Yüklenmedi. Hiçbir Exra Array İndirilmedi. Kusursuz bir "Ne İstediysen Onu Altın Tepside Aldın" Mimarisi. (Bu Yüzden Adı Graph Query Languagedir).
+Hiçbir Gereksiz Byte Yüklenmedi. Hiçbir Ekstra Array İndirilmedi. Kusursuz bir "Ne İstediysen Onu Altın Tepside Aldın" Mimarisi. (Bu Yüzden Adı Graph Query Languagedir).
 
 ## Kimler Kullanır?
 * Evrendeki bütün Şirketlerin **Modern API Tasarım Şefleri, Full-Stack Developerlar**. (React Geliştiricileri Apollo GraphQL kancasını kullanarak REST'in axios'undankurtulur).
-* Eskiden Github API'si sadece REST ti. Sırf performans çöktüğü İşin GitHub bile 2017'lerde (V4 ile) Tamamen GrahQL'e geçti ve Dedi ki "API'mi sömürenler, Sadece ne istiyorsa o sütun adlarını belirtsin, Sunucumu Yormasın". 
+* Eskiden Github API'si sadece REST'ti. Sırf performans çöktüğü için GitHub bile 2017'lerde (V4 ile) Tamamen GraphQL'e geçti ve Dedi ki "API'mi sömürenler, Sadece ne istiyorsa o sütun adlarını belirtsin, Sunucumu Yormasın". 
 * **Shopify, X(Twitter), Facebook, Pinterest;** milyonlarca İlişkisel Çizge(Graph) datasının Ekrandan Sorgulanması İçin Gözü kapalı bunu kullanır. REST API mimarisinin En güçlü Celladıdır.

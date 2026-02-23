@@ -10,54 +10,54 @@ O dönemde Python popüler değildi. Mühendisler her C programı için uyduruk,
 John Ousterhout dediki: **Öyle bir Dil(TCL) yapacağım ki; Gidip bunu Saniyeler İçinde kendi C/C++ programınızın İÇİNE GÖMEBİLECEKSİNİZ! (Embeddable). Üstelik Bu dilin Matematikten(Integer) falan haberi olmayacak. Koddaki her şey Düz Yazı(String) olacak!**
 
 **Ne İşe Yarar?**
-* **Elektronik Çip Tasarımı (EDA):** Bugün Synopsys, Cadence veya Mentor Graphics gibi milyar dolarlık İşlemci(Çip/Devre) çizim programlarında, donanım mühendislerinin "Bu 10.000 adet transistörü Rastgele Şuraya Kopyala/Test Et" dediği makro komutları İstisnasız TCL diliyle yazılır.
-* **Ağ (Network) Cihazları:** Cisco marka Switch veya IP Telefonlarına uzakttan Makro/Ayar yollarken, Cihazın içindeki kabuk(Shell) `tcl` komutlarını okur. `expect` isimli efsanevi eklentisi sayesinde SSH veya Telnet üzerinden Karşı Cihazı "Bekleyip-Yanıt Mekenizmasıyla" Tıpkı Bir İnsanmış Gibi Otonom Hekler.
+* **Elektronik Çip Tasarımı (EDA):** Bugün Synopsys, Cadence veya Mentor Graphics gibi milyar dolarlık İşlemci (Çip/Devre) çizim programlarında, donanım mühendislerinin "Bu 10.000 adet transistörü Rastgele Şuraya Kopyala/Test Et" dediği makro komutları İstisnasız TCL diliyle yazılır.
+* **Ağ (Network) Cihazları:** Cisco marka Switch veya IP Telefonlarına uzaktan Makro/Ayar yollarken, Cihazın içindeki kabuk (Shell) `tcl` komutlarını okur. `expect` isimli efsanevi eklentisi sayesinde SSH veya Telnet üzerinden Karşı Cihazı "Bekleyip-Yanıt Mekanizmasıyla" Tıpkı Bir İnsanmış Gibi Otonom Haklar (Otomatikleştirir).
 
 ## Dilin Mantığı ve Kod Yapısı
 Tamamen **Komut (Command)** ve **Argüman (Strings)** odaklıdır.
-Eğer siz TCL'de `set a 5` yazarsanız, TCL `5` sayısını Rakam(Integer) olarak algılamaz. Onu `5` karaktari (String) olarak algılar. Matematik Yapmak isterseniiz `expr` (Expression-MatematikYap) komutuu Çagirmank Zorundasinizi!
+Eğer siz TCL'de `set a 5` yazarsanız, TCL `5` sayısını Rakam (Integer) olarak algılamaz. Onu `5` karakteri (String) olarak algılar. Matematik Yapmak isterseniz `expr` (Expression - Matematik Yap) komutunu Çağırmak Zorundasınız!
 
 ### Örnek Bir TCL Kodu: Otomasyon ve Bekleme Makrosu (Networkçülerin Gözdesi)
-Basit Bir Değişken Tanımlamsi ve Matematik Çilelesi (Her şeyin String olmasindan Kaynaklanan Tuhaflık):
+Basit Bir Değişken Tanımlaması ve Matematik Çilesi (Her şeyin String olmasından Kaynaklanan Tuhaflık):
 
 ```tcl
-# BU BIR TCL KODUDUR (Yorum Satiri Diez'dir)
+# BU BİR TCL KODUDUR (Yorum Satırı Diyez'dir)
 
-# 1. DEGISKEN ATAMA (DİKKAT: "=" eşittir semblü YoKtuUR! Komut olarak yazlir!)
+# 1. DEĞİŞKEN ATAMA (DİKKAT: "=" eşittir sembolü yoktur! Komut olarak yazılır!)
 set sayi1 10
 set sayi2 20
 
-# 2. DEGİSKEKNI CAGGIRMA (Dolar İsaretilyedir!)
-# Ekranda 1020 cikar! Cunkı Bunlar Metin(StrinG!dir Yanyana Yapistiririir!!
+# 2. DEĞİŞKENİ ÇAĞIRMA (Dolar İşaretiyledir!)
+# Ekranda 1020 çıkar! Çünkü Bunlar Metin (String) dir, Yanyana Yapıştırılır!!
 puts "$sayi1$sayi2" 
 
-# 3. MATEMATİYE CEVIIRMME(Expr KOMUTUU)
-# Köseli PAranızler(Command Subsitituin) "İceridkeiki Komutu Calistiirp Sonuucu Cikarr" demeketir.
+# 3. MATEMATİĞE ÇEVİRME (Expr KOMUTU)
+# Köşeli Parantezler (Command Substitution) "İçerideki Komutu Çalıştırıp Sonucu Çıkar" demektir.
 set toplam [expr $sayi1 + $sayi2]
 
-# Artik Sonucu(30) Dğru Basar!
-puts "Toplam Sayi Sesi : $toplam"
+# Artık Sonucu (30) Doğru Basar!
+puts "Toplam Sayı Sesi : $toplam"
 
 
 #-----------------------------------------------------------
-# 4. Asil Sihir: EXPECT (Cihazlarla Konusn Robot) Kutuphnesi!
-# Bir Lİnux SunuCuya (Ya dA Router'a CihAzninaa) Sifresiini Girripp Baglkalanan OtomasyoN:
+# 4. Asıl Sihir: EXPECT (Cihazlarla Konuşan Robot) Kütüphanesi!
+# Bir Linux Sunucuya (Ya da Router/Cihazına) Şifresini Girip Bağlanan Otomasyon:
 
-spawn ssh root@10.0.0.5     ;# SSH Cihazna İsaeGini FIRLAT VEE Basltt!
+spawn ssh root@10.0.0.5     ;# SSH Cihazına İsteğini FIRLAT VE Başlat!
 
-# Cihazin Ekrana(Termialne) "password" Yazmaiisini BEEKLE(Expect)!!
+# Cihazın Ekranına (Terminaline) "password" Yazmasını BEKLE (Expect)!!
 expect "password:"          
 
-# Paswpord Yazssini Gorfugun Andaa Sifreyi(123445) Yollla ve \r(Enter TusunNaB Bas!)
+# Password Yazısını Gördüğün Anda Şifreyi (123456) Yolla ve \r (Enter Tuşuna Bas!)
 send "123456\r"             
 
-# Baglatni Kurludkta Sira Cihadxda Rourt Ayarloaninni(Ifconfig Vss) Ypaaavs cikK!
-expect "#"                  ;# Root Sİmgeesni (Bashnladngincii BEkje)
-send "ifconfig eth0 down\r" ;# SunuCunuN İNtnernerinnI KESS(Hakckler Yda DevOps otmoasunu)!
+# Bağlantı Kurulduğunda Sıra Cihazda Router Ayarlarını (Ifconfig vs) Yapıp Çık!
+expect "#"                  ;# Root Simgesini (Başlangıcı Bekle)
+send "ifconfig eth0 down\r" ;# Sunucunun İnternetini KES (Hacker ya da DevOps otomasyonu)!
 ```
 
-`expect` Eklentisi o kadar Güçlüdrür Ki; TCL adını Unutturmuş, Hackerlerın Veya Veritabanını Kuruculaın "Şifre Sorma Ekranlar"nda (Interactive Prompts) İnsanin Yapanaciğı İsleri Bİlgisayarin Klavyeyi Ele GEcreereK kendieeninden Yzaamasinini Sąğalayan Yüce Bior Güç Olusmuşstur.
+`expect` Eklentisi o kadar Güçlüdür Ki; TCL adını Unutturmuş, Hackerların Veya Veritabanı Kurucularının "Şifre Sorma Ekranları"nda (Interactive Prompts) İnsanın Yapacağı İşleri Bilgisayarın Klavyeyi Ele Geçirerek Kendiliğinden Yazmasını Sağlayan Yüce Bir Güç Oluşturmuştur.
 
 ## Kimler Kullanır?
-* Evrenndeki **Network / Ağ Sİstem Uzmanları**, Sysadmine'ler VE IoT (Router/Modem) Cihazı Geliştiricileri.
-* Çip(Motherboard/İşlemcİ) Tasarımcıları Olan **Donanım (Hardware/EDA) Mühendisleri**. Silikon vadsndind Çip tasarmlarini "Build/Compile" Ederken Cmake Yerine Tcl Scripiylye Cİhezi Atesleyeeller. Yaşlı ama asla ölmeyen , Çok Spedsifi Bir Kabuk dilidriir.
+* Evrendeki **Network / Ağ Sistem Uzmanları**, Sysadmin'ler VE IoT (Router/Modem) Cihazı Geliştiricileri.
+* Çip (Anakart/İşlemci) Tasarımcıları Olan **Donanım (Hardware/EDA) Mühendisleri**. Silikon Vadisinde Çip tasarımlarını "Build/Compile" Ederken CMake yerine Tcl Scriptiyle Cihazı Ateşlerler. Yaşlı ama asla ölmeyen, Çok Spesifik Bir Kabuk dilidir.

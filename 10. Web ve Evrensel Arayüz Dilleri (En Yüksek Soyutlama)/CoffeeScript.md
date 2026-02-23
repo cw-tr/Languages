@@ -23,13 +23,13 @@ Eski JS: `var kare_hesapla = function(x) { return x * x; };`
 CoffeeScript Mucizesi: `kare_hesapla = (x) -> x * x` (Bu kadar! Arkaplanda kendisi function ekler).
 
 ### Örnek Bir CoffeeScript Kodu: "Function" ve "Prototype" Eziyetini Çöpe Atmak
-O dönemin en kanser JavaScript eylemlemlerini; Sanki Ruby veya Python yazıyormuş gibi akıcı bir Edebiyata döken Transpile Sihiri:
+O dönemin en kanser JavaScript eylemlerini; Sanki Ruby veya Python yazıyormuş gibi akıcı bir Edebiyata döken Transpile Sihiri:
 
 ```coffeescript
 # CoffeeScript dilinde Yorum Satirlari Kare/Hashtag (#) ile baslar (Ruby/Python gibi)!
 
 # 1. DEĞİŞKEN (VAR) ATAMALARINI VE ARRAYLERİ TEMİZLEME
-# Asla var, let, const yazmazsiniz! CoffeeScript onu cevriirken kendi ekler.
+# Asla var, let, const yazmazsiniz! CoffeeScript onu cevirirken kendi ekler.
 uygulamaIsmi = "Uzay Kesif Portali"
 
 # Arrayleri arka arkaya diz, (virgul kullanmasan bile anlar - bazen)
@@ -49,7 +49,7 @@ for gezegen in gezegenler
     console.log "Rota Olusturuluyor: " + gezegen
 
 
-# 3. YALANCI NESNE YÖNELİMİ (CLASS MİMARSİ EKLENTİSİ)
+# 3. YALANCI NESNE YÖNELİMİ (CLASS MİMARİSİ EKLENTİSİ)
 # JS'de (Fonksiyon Prototipleri) ile eziyet veren sinif yaratmayi Python zarafetine tasir!
 class UzayGemisi
     
@@ -71,7 +71,7 @@ gemim.hizlan(2)
 
 ```
 
-Bu kodu dosyaya kaydettiğiniz zaman, Geliştirici klasöründeki  Compiler bunu yakalar ve bir saniyede (Sizin C tabanlı Browser'lar okuyabilsin diye) binlerce satırlık `var gemim = ... UxayGemisi.prototype.hizlan = function() { ... }` JS iğrençliğine dönüştürür.
+Bu kodu dosyaya kaydettiğiniz zaman, Geliştirici klasöründeki Compiler bunu yakalar ve bir saniyede (Sizin C tabanlı Browser'lar okuyabilsin diye) binlerce satırlık `var gemim = ... UzayGemisi.prototype.hizlan = function() { ... }` JS iğrençliğine dönüştürür.
 
 ## Kimler Kullanır?
 * Evrendeki bütün **Ruby on Rails** Geliştiricileri (2010 - 2017 dönemi). Rails paketinin içine gömülü (Default) gelirdi, tüm Web Full-Stack developerlar JS yerine mecburi/gönüllü Coffee içerdi.

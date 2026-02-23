@@ -28,7 +28,7 @@ Günümüzdeki herhangi bir dilin String Manipülasyon gücünü 60'lı yıllard
 ```snobol
 * SNOBOL dilinde Yorumlar yildiz (*) harfi ve bosluk ile baslar!
 
-        * DEGİSKEN ATANMASI (Tirnak ici string)
+        * DEĞİŞKEN ATANMASI (Tırnak içi string)
         MESAJ = "DIKKAT: BU MESAJ GIZLI BIR SIFRE BARINDIRIYOR."
 
         * PATTERN (Şablon) Yaratilmasi:
@@ -36,7 +36,7 @@ Günümüzdeki herhangi bir dilin String Manipülasyon gücünü 60'lı yıllard
         * boslugu 'ARB' (Arbitrary - Herhangi bir metin) ile SUC_KELIMESI'ne ata!
         AVCI_SABLON = "GIZLI " ARB . SUC_KELIMESI " BARINDIRIYOR"
 
-        * SİHİRLİ İŞLEM BURADA KOPUYOR: (Esayiti yok, Fonksiyon yok)
+        * SİHİRLİ İŞLEM BURADA KOPUYOR: (Eşitliği yok, Fonksiyon yok)
         * Ana metin ile Avcı Şablonu birleştir ve VUR:
 ARAMA   MESAJ AVCI_SABLON                     :S(BULUNDU) F(YOK)
         
@@ -48,7 +48,7 @@ BULUNDU
         :(SON)
 
 YOK     
-        OUTPUT = "Malesef, bu kelimenin icinde Şablon yasamiyor."
+        OUTPUT = "Maalesef, bu kelimenin icinde Şablon yasamiyor."
         :(SON)
 
 SON     

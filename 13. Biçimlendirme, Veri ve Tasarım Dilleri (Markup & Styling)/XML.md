@@ -17,14 +17,14 @@ W3C, "HTML gibi Küçüktür/Büyüktür `< >` Oklarına Sahip olan, AMA İsteye
 ## Dilin Mantığı ve Kod Yapısı
 Mantığı HTML'e saniyesinde benzer, ama KATI kuralları vardır:
 1. XML Asla kendi kendine bir şey çizmez, O sadece Çıplak bir DATA(Metin) hamalıdır.
-2. HTML'de kapanmayan etiketler `<img src="">` hata vermez çalışır. XML'de, eğer Açtığın Etiketi `<kitap>` anında Kapatmazsan `</kitap>`, Kod ANINDA Patalar / Ölür (Well-Formed Zorunluluğu). Küçücük bir sintaks eksiği bütün Trilyonluk Banka Transferini Durdurur (XSD Validasyonu).
+2. HTML'de kapanmayan etiketler `<img src="">` hata vermez çalışır. XML'de, eğer Açtığın Etiketi `<kitap>` anında Kapatmazsan `</kitap>`, Kod ANINDA Patlar / Ölür (Well-Formed Zorunluluğu). Küçücük bir sintaks eksiği bütün Trilyonluk Banka Transferini Durdurur (XSD Validasyonu).
 
 **Örnek İşleyiş (Sembolik Olarak):**
 CSV'de Data: `Ali, 25, Yazilimci` (Okuyan kisi bunun Yas mı ayakkabi nuasi mi oldugunu sutun sirasindan bilir/Karışabilir).
 XML'de Data: `<Calisanlar><Kisi><Ad>Ali</Ad><Yas>25</Yas></Kisi></Calisanlar>` (1000 yıl geçse de neyin Verisi/Metni olduğunu Unutamazsınız, Açıklaması Boynundadır/Semantiktir).
 
 ### Örnek Bir XML Kodu: Kütüphane Kitap Aktarım API'si (Sözleşmesi)
-Eğer Amazon.com'dan Kendi sitenize bir Kitap Datası Entekre/API ile çekiyorsanız Sistem C# uygulamanıza bu String (XML) hamal ağacını fırlatır:
+Eğer Amazon.com'dan Kendi sitenize bir Kitap Datası Entegre/API ile çekiyorsanız Sistem C# uygulamanıza bu String (XML) hamal ağacını fırlatır:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

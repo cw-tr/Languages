@@ -4,14 +4,14 @@
 D dili (Dlang), 2000'li yılların başlarında C++ dilinin en iyi bilinen özelliklerini (Donanım/Sistem erişim gücü ve OOP kapasitesi) koruyup, ona eziyet olan tarihi 1970 kalıntılarını (header dosyaları, karmaşık makrolar, çıldırmış pointer bellek yönetimleri) kazıyıp devirerek "C++'ın olması gereken temiz geleceği" hayaliyle yaratılmış modern bir dildir.
 
 ## Nedir ve Ne İşe Yarar?
-1999 yılında efsanevi C++ derleyici mühendisi Walter Bright, "Artık C++ derleyicisi (compiler) kodlamak imkansız hale geliyor, dil çok kirlendi ve hantallaştı. Biz C++ enerjisine sahip; Java veya C# gibi modüllerle (klasörler, importlar) pürüssüz derlenen, her projenin çorba olmadığı yepyeni bir evren yaratmalıyız" dedi ve D dilini inşa etti.
+1999 yılında efsanevi C++ derleyici mühendisi Walter Bright, "Artık C++ derleyicisi (compiler) kodlamak imkansız hale geliyor, dil çok kirlendi ve hantallaştı. Biz C++ enerjisine sahip; Java veya C# gibi modüllerle (klasörler, importlar) pürüzsüz derlenen, her projenin çorba olmadığı yepyeni bir evren yaratmalıyız" dedi ve D dilini inşa etti.
 
 C++ komut setiyle adeta evrimi iki nesil ileri sarmıştır.
 
 **Ne İşe Yarar?**
 * **Oyun Motorları / Yüksek Performanslı İşlemler:** Remake (Yeniden Yapım) oyun motorları tasarlanırken (Alan Wake Engine vb. alt araçları) çok yoğun matematik işlemlerinde Garbage Collector ile (veya isterseniz kapatarak saf tahsisata geçerek) C++ gücünde çalışır.
 * **Üretkenlik (Mühendislik Pratiği):** C++ dilinde `Header (.h)` dosyalarını dahil etmek projenizde bir kabustur (Binlerce kere aynı dosya tekrar derlenir, makrolar isim çakışmasına girer, proje derlenmesi 1 saat falan sürer). D Dilinde `import` mantığı vardır; Java gibidir, devasa yüz bin satırlık program 2 saniyede tık diye derlenir, çuvallamaz.
-* **Compile-Time Fonction Execution (CTFE):** En devrimsel gücü "Derleme Zamanı Fonksiyon Çalıştırma"dır. Yazdığınız kod "Daha siz EXE (Çalıştırılabilir dosya) butonuna bastığınız anda" bilgisayar arka planda karmaşık fonksiyon testlerini derleyicinin İÇİNDE çözüp sonucunu EXE'ye hapseder. Orijinal yazılım kullanıcının elindeyken artık o yorucu hesabı yapmaz bile.
+* **Compile-Time Function Execution (CTFE):** En devrimsel gücü "Derleme Zamanı Fonksiyon Çalıştırma"dır. Yazdığınız kod "Daha siz EXE (Çalıştırılabilir dosya) butonuna bastığınız anda" bilgisayar arka planda karmaşık fonksiyon testlerini derleyicinin İÇİNDE çözüp sonucunu EXE'ye hapseder. Orijinal yazılım kullanıcının elindeyken artık o yorucu hesabı yapmaz bile.
 
 ## Dilin Mantığı ve Kod Yapısı
 D dili, aynı C/C++ gibi aşağı katmanlara indiğinizde pointer (Gösterici) kullanmanıza, Assembly kodlarını araya yazmanıza (Inline-ASM) aynen izin verir. Fakat sizi buna mecbur bırakmaz.
@@ -30,19 +30,19 @@ import std.stdio;   // Standart I/O modülü
 
 // Bir nesne/sınıf yaratalım. Tıpkı C++ veya Java gibidir ama daha sadedir:
 class UzayGemisi {
-    private string  ism;
+    private string  isim;
     private int     hiz;
 
     // "this" anahtar kelimesi ile D dilinin "Yapici" (Constructor) tanimi
     this(string isim, int maxHiz) {
-        this.ism = isim;
+        this.isim = isim;
         this.hiz = maxHiz;
     }
 
     void gazVer() {
         // C ve C++ daki karmaşık printf veya cout string birleştirmeleri yerine
         //writeln fonksiyonu direkt Java ya da C# estetiğinde çıktı verir.
-        writeln(ism, " gemisi hizlaniyor! Su an: ", hiz, " isik hizi!");
+        writeln(isim, " gemisi hizlaniyor! Su an: ", hiz, " isik hizi!");
     }
 }
 
@@ -56,14 +56,14 @@ void main() {
 
     // D'NİN GİZLİ GÜCÜ (@nogc Örneği):
     // Eger siz C veya Rust gibi "Burada cop toplayici asla duraksama (Lag) yapamaz, oyun kasar!" 
-    // derseniz diye manuel bellek tahsis özgürlüğünü de hala elinzde tutarsiniz:
+    // derseniz diye manuel bellek tahsis özgürlüğünü de hala elinizde tutarsiniz:
     
     import core.stdc.stdlib : malloc, free; // Doğrudan Saf C'den ithal edersin (C kütüphanesi uyumu Mükemmeldir)
     
-    // Tamamen manuel, C++ gibi tehlikeli ve saf CPU hızında donanum pointer'ı:
+    // Tamamen manuel, C++ gibi tehlikeli ve saf CPU hızında donanım pointer'ı:
     int* c_bellek_alani = cast(int*) malloc(int.sizeof * 10);
     if(c_bellek_alani != null) {
-        free(c_bellek_alani); // Burayı BİZZAT siz serbest birakmak ZORUNDASİNİZ !
+        free(c_bellek_alani); // Burayı BİZZAT siz serbest birakmak ZORUNDASINIZ !
     }
 }
 ```

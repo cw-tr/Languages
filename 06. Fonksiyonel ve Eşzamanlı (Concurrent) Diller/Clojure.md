@@ -53,7 +53,7 @@ Klasik `for` döngülerinin olmadığı, verinin sadece matematiksel `map/filter
 ;; "def" : Degismez (Immutable) bir kume tanimlari
 (def sayilar [1 2 3 4 5 6 7 8 9 10])
 
-;; Clojure'un Muhtesem 'Boru/Zinzirleme Yöneltme (Thread-last)' Makrosu `->>`:
+;; Clojure'un Muhtesem 'Boru/Zincirleme Yöneltme (Thread-last)' Makrosu `->>`:
 ;; Sayilari al, once ÇİFT mü diye filtrele, sonra Karesi ile Çarp (Haritala/Map)
 
 (def sonuclar 

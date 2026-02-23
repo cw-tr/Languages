@@ -4,7 +4,7 @@
 F# (F-Sharp); Microsoft Research (Don Syme) öncülüğünde 2005'lerde geliştirilen, fonksiyonel programlamanın o muhteşem güvenlikli matematik dünyasını (OCaml altyapısını) doğrudan **Microsoft'un Devasa .NET (C#) Altyapısının** üzerine giydiren hibrit, şık ve inanılmaz veri-odaklı (Data-Driven) efsanevi bir dildir.
 
 ## Nedir ve Ne İşe Yarar?
-Eğer Windows/Microsoft dünyasındaysanız C#'ın krallığında kod yazarsınız. Ancak şirketiniz bir gün "Bize öyle bir yazılım lazım ki finansal milyonlar işlem sular gibi hatsız aksın, fonksiyonel (çökmeyen) mimariyle paralel çalışsın ve aynı C++ veya Scala gibi tip zırhıyla kaplı olsun" derse C# buna tam tekil-katkısız ve saf olarak cevap veremez.
+Eğer Windows/Microsoft dünyasındaysanız C#'ın krallığında kod yazarsınız. Ancak şirketiniz bir gün "Bize öyle bir yazılım lazım ki finansal milyonlar işlem sular gibi hatasız aksın, fonksiyonel (çökmeyen) mimariyle paralel çalışsın ve aynı C++ veya Scala gibi tip zırhıyla kaplı olsun" derse C# buna tam tekil-katkısız ve saf olarak cevap veremez.
 
 Microsoft'un bu talebe cevabı (Clojure'un Java'daki görevini .NET dünyası için üstlenen) **F#** olmuştur. F#, saf matematiksel ve fonksiyonel (Haskell / OCaml) dili gibi temizken, ihtiyaç olduğunda yan odadan C#'ın Web sunucu (ASP.NET) kütüphanelerini çağırıp onu bir saniyede tam boyutlu bir modern uygulamaya dönüştürür.
 
@@ -15,7 +15,7 @@ Microsoft'un bu talebe cevabı (Clojure'un Java'daki görevini .NET dünyası i�
 ## Dilin Mantığı ve Kod Yapısı
 Girinti tabanlıdır (Indentation), Python gibi tertemiz okunur, C# ve Java'nın o `}` veya `;` cehennemi yoktur.
 
-Haskell gibi **Fonksiyoneldir**; Tipi belli değikenleri `val` ile değiştirilemez yapar (Immutability default'tur), bu sayede eşzamanlı Thread (İplik) işlemlerinde "Aman biri sildi, kilitlendi" korkusu yaşatmaz. 
+Haskell gibi **Fonksiyoneldir**; Tipi belli değişkenleri `val` ile değiştirilemez yapar (Immutability default'tur), bu sayede eşzamanlı Thread (İplik) işlemlerinde "Aman biri sildi, kilitlendi" korkusu yaşatmaz. 
 
 Ancak en büyük farkı **Pragmatik Hibrit** yapısıdır. Eğer isterseniz F# size "Ben tamamen Fonksiyonelim (Safım) " deyip işi yokuşa sürmek yerine "Al istersen OOP (Nesne Yönelimi - Class) kullan, ya da değişebilen değişkenler (Mutable) kullan" (örneğin UI çiziminde ihtiyaç olabilir) diye mühendise rahat serbestlik verir.
 
@@ -36,7 +36,7 @@ type OdemeYontemi =
     | ApplePay            // Gerek yok, bos kalir
     | Nakit of int        // Icine pesin Nakit Tutar girilmeli
 
-// Matematiksel ve Pürüssüz Fonksiyon Tanimi (Parantez Eziyeti Yok)
+// Matematiksel ve Pürüzsüz Fonksiyon Tanimi (Parantez Eziyeti Yok)
 let OdemeKabulEt (isim: string) (odeme: OdemeYontemi) =
     // Pattern Matching (Desen Eşleştirme): Erlang/Scala zekası devreye girer
     match odeme with

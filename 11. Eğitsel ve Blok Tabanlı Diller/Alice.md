@@ -1,7 +1,7 @@
 # Alice
 
 ## Özet
-Alice; 1999 yılında Carnegie Mellon Üniversitesi (Dr. Randy Pausch - "Son Konuşma" efsanevi kitabının yazarı) liderliğindeki araştırmacılar tarafından, Nesne Yönelimli Programlamanın (OOP) temel direklerini (Sınıflar, Nesneler, Metotlar) lise ve üniversite öğrencilerine "Sıkıcı siyah metin ekranlarında değil; **3 Boyutlu Karakterlerin ve Dünyaların olduğu bir Masal Simülasyonunda Blokları Sürükterek**" anlatmak için devrimsel olarak geliştirilen 3D eğitim/betik sistemidir.
+Alice; 1999 yılında Carnegie Mellon Üniversitesi (Dr. Randy Pausch - "Son Konuşma" efsanevi kitabının yazarı) liderliğindeki araştırmacılar tarafından, Nesne Yönelimli Programlamanın (OOP) temel direklerini (Sınıflar, Nesneler, Metotlar) lise ve üniversite öğrencilerine "Sıkıcı siyah metin ekranlarında değil; **3 Boyutlu Karakterlerin ve Dünyaların olduğu bir Masal Simülasyonunda Blokları Sürükleyerek**" anlatmak için devrimsel olarak geliştirilen 3D eğitim/betik sistemidir.
 
 ## Nedir ve Ne İşe Yarar?
 1990'ların sonunda üniversitelerde Java ve C++ öğrenen gençler ilk dönemi "Ekrana Not Ortalaması Hesaplayan Yazıları(Konsol)" basarak geçiriyordu ve sınıftan sıkılıp kaçıyorlardı. Üstelik bir "Kapsülleme (Encapsulation)" veya "Nesne(Object)"'in ne demek olduğunu soyut olduğu için hayal edemiyorlardı.
@@ -10,7 +10,7 @@ Dr. Randy Pausch, "Öğrencilere Nesne (Object) nedir anlatmamız için, onlara 
 
 **Ne İşe Yarar?**
 * **Görsel Nesne Yönelimli Programlama (Visual OOP Eğitim):** Öğrenciler bilgisayarın arkasındaki o Soyut C++/Java kodlama eyleminin Aslında ne ifade ettiğini Kafalarında net bir fizik kuralları ile 3 boyutlu algılarlar. 
-* **3D Hikaye/Oyun Anlatıcılığı:** Öğrenciler korkutucu hata metinleriyle(Exception) uğraşmak yerine, sahnede 3D modelleri hareket ettirip küçük film ve hikayeler kurarken arka planda "Döngü(While)"leri , "Paralele Eylemleri (Do Together)" öğrenir.
+* **3D Hikaye/Oyun Anlatıcılığı:** Öğrenciler korkutucu hata metinleriyle(Exception) uğraşmak yerine, sahnede 3D modelleri hareket ettirip küçük film ve hikayeler kurarken arka planda "Döngü(While)"leri , "Paralel Eylemleri (Do Together)" öğrenir.
 
 ## Dilin Mantığı ve Kod Yapısı
 Alice'te klasik manada (Klavye ile yazılan) bir sintaks/harf kodu YAZILMAZ (Özellikle Alice 2 ve 3). Scratch'e benzer şekilde **Sürükle-Bırak (Drag&Drop)** menüleri vardır, ama Alice çok daha "Java/C++" kılıklıdır. 
@@ -41,7 +41,7 @@ public void myFirstMethod() {
     
     // 2. PARALEL İŞLEM (MULTI-THREADING / ASYNC) EGITIMI (DO TOGETHER)
     // Sadece Üniversitede gorulen Eşzamanlı İslem (Senkronizasyon) mantigini blokla ögretir!
-    // Asagidaki tum emirleri AYNI AYNA Saniyede gerçekleştir:
+    // Cagidaki tum emirleri AYNI ANDA Saniyede gerçekleştir:
     
     doTogether {
         
@@ -51,7 +51,7 @@ public void myFirstMethod() {
         // Pervanesi(Geminin alt objesi/Nesne hiyerarsisi) 2 Kere kendi etrafında Dönsun
         this.UzayGemisi.Pervane.roll(RollDirection.RIGHT, 2.0);
         
-        // Uzayli Karaketi "Ha ha ha!" desin!
+        // Uzayli Karakteri "Ha ha ha!" desin!
         this.UzayliKarakteri.say("Ha Ha Ha!");
         
     } // DoTogether Bitişi
@@ -66,7 +66,7 @@ public void myFirstMethod() {
     }
 }
 ```
-Öğrenci bu bloklardan tek bir süslü parantezi unutma korkusu yaşamadığı için; doğrudan "Obje nedir? Argüman nedir? Döngü Nedir? Metot ve Kalıtım nedir?" gibi mühendilsik dillerinin(C++/Java) çekirdeğini 3D animatörlük yaparak çözer.
+Öğrenci bu bloklardan tek bir süslü parantezi unutma korkusu yaşamadığı için; doğrudan "Obje nedir? Argüman nedir? Döngü Nedir? Metot ve Kalıtım nedir?" gibi mühendislik dillerinin(C++/Java) çekirdeğini 3D animatörlük yaparak çözer.
 
 ## Kimler Kullanır?
 * Evrendeki yenilikçi **Programlama Eğitmenleri, Liseler, Ortaokullar ve Üniversitelerin CS101 (Bilgi. Bilimlerine Giriş)** sınıfları.

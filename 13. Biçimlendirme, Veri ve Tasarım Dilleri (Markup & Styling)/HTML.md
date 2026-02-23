@@ -62,7 +62,7 @@ Günümüzde bir web sitesi tasarlanırken kod dosyasının (`index.html`) için
     <!-- href (Hedef Referansi) niteligi nereye gidilecegini gosterir: -->
     <a href="https://www.google.com" target="_blank">Google'a Zıpla!</a>
     
-    <!-- Gorsel/Resim Cekme (Kapatici etkieti(</img) olmayan nadir tekil etiketlerden (Image)) -->
+    <!-- Gorsel/Resim Cekme (Kapatici etiketi(</img) olmayan nadir tekil etiketlerden (Image)) -->
     <img src="kedi_resmi.jpg" alt="Sevimli bir kedi">
 
 </body>
@@ -73,4 +73,4 @@ Bu kodu boş bir Not Defterine yazıp uzantısını `.html` olarak kaydedip "Çi
 ## Kimler Kullanır?
 * Evrendeki bütün **Front-End (Önyüz) Web Geliştiricileri**, UI/UX Tasarımcıları.
 * Sadece modern React veya Vue çerçeveleri(Framework) yazsanız da, o "süslü" JS kodunuzun arkaplanda Tarayıcıya zorunlu fırlattığı derlenmiş Metin yine (DOM'a eklenen) "HTML" elementleridir (Div, Span).
-* Bir metin yazarı/blogcuysanız (WordPress kullanırken bile) arka plandaki sekmeye geçip "Ya şuraya bir H2 Başlığı atalım, veya Strong(Kalın) etiketine sokalım" diye HTML ile müdahale ederseniz internette hayatta kalırsınız. "Hello World" ten bile kolay, Eğlenceli ve her insanın temel dijital kütüpanesidir.
+* Bir metin yazarı/blogcuysanız (WordPress kullanırken bile) arka plandaki sekmeye geçip "Ya şuraya bir H2 Başlığı atalım, veya Strong(Kalın) etiketine sokalım" diye HTML ile müdahale ederseniz internette hayatta kalırsınız. "Hello World" ten bile kolay, Eğlenceli ve her insanın temel dijital kütüphanesidir.

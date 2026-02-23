@@ -11,29 +11,29 @@ Siz devasa İşlemi kendi Bilgisayarınızda veya StarkWare'in Sunucusunda (Off-
 İşte **Cairo Dili**, Sen O hesaplamayı Yaparken Arkadan Küçücük Matematiksel bir "Proof (Kanıt - O Zarfı Kapalıyken Çözdüğünü İspatlayan Formül)" yaratır. Siz Bu Ufacık Kanıtı(300 Byte) Ethereum Ağına Yollarsanız, Ethereum Sizin o 1 Ay süren Hesabın doğruluğunu (Kodun çalışmasını Tekrar Oynatmadan) 1 Milisaniyede Ve Cüzzi bir Ücretle Doğrular!!!
 
 **Ne İşe Yarar?**
-* **Rollups (Ethereum Ölçeklemesi - Layer 2):** 10.000 Kişinin Borsadaki Alım ve Satım (Trade) verisini Alır, Bilgisayarda tek bir Matematiksel ZK-Kanıt Yumağı (Cairo Proof) yapar. Onu Ana Ağa(Ethereum'a) göderirir. Eskiden Ethereum 10.000 İşlem Başına 50.000 Dolar alrken, Starknet'in Cairo Kanıtı sayesinde TOPLAM 1 Dolar'a bu devasa Yük Onaylatılır. İnterneti Hızlandırmanın Saf Matematiğidir.
+* **Rollups (Ethereum Ölçeklemesi - Layer 2):** 10.000 Kişinin Borsadaki Alım ve Satım (Trade) verisini Alır, Bilgisayarda tek bir Matematiksel ZK-Kanıt Yumağı (Cairo Proof) yapar. Onu Ana Ağa(Ethereum'a) gönderir. Eskiden Ethereum 10.000 İşlem Başına 50.000 Dolar alırken, Starknet'in Cairo Kanıtı sayesinde TOPLAM 1 Dolar'a bu devasa Yük Onaylatılır. İnterneti Hızlandırmanın Saf Matematiğidir.
 * **Gizlilik Oyunları ve ZK-Gaming:** Satranç oynuyorsunuz (Onchain). Hamlenizi yaparsınız, Lakin Karşı taraf Hamlenizin Ne olduğunu Görmez (Zero-Knowledge), Sadece Matematiksel olarak "Hamlenin Kutsal Kurallara Uyduğunu" Onaylayan bir Cairo İspatı Görür (Açık Kartla Gizli Poker oynanır).
 
 ## Dilin Mantığı ve Kod Yapısı
 Cairo ilk çıktığında (Cairo 0), C++ ve Assembly karışımı Saf Dehşet verici, okuması insan beynine aykırı CPU Sicil (Register) hafızaları kullanan Bir Kabustu.
-Ancak **Cairo 1.0 (2023 Güncellemesi) ile Tamamen "Rust" Dilinin Klonunu (Sintaksşını) aldılar**. Rust gibi Pattern Matching, Vektörler Ve Option/Result dönüşleri kullanılarak Geliştiricileri Rahatlattılar.
+Ancak **Cairo 1.0 (2023 Güncellemesi) ile Tamamen "Rust" Dilinin Klonunu (Sintaksını) aldılar**. Rust gibi Pattern Matching, Vektörler Ve Option/Result dönüşleri kullanılarak Geliştiricileri Rahatlattılar.
 
 **Sihri Nerededir?**
 Derleyicisi (Sierra adı verilen Bir Ara katman), Siz yazıyı yazarken "O Komutun Kriptografik Polinomlarını (Denklemini)" çıkartır. Yani sizin yazdığını `if-else` sadece bir kod değil, Evrensel bir Matematik Cebir denklemine dönüşür!
 
-### Örnek Bir Cairo Kodu: Doğrulanabilir (İspat Cıkartan) Toplama Kontratı Makinesi
-Starknet Ağı üzerine Yollanıp, İnsanların Toplam Matematigini Kanitla Yabipilecegi (Rust Kokulu) Modern Cairo Kontratı:
+### Örnek Bir Cairo Kodu: Doğrulanabilir (İspat Çıkartan) Toplama Kontratı Makinesi
+Starknet Ağı üzerine Yollanıp, İnsanların Toplam Matematiğini Kanıtla Yapabileceği (Rust Kokulu) Modern Cairo Kontratı:
 
 ```rust
 // BU BIR CAIRO (Starknet ZK-Kontrat) KODUDUR (.cairo)
 
 // 1. STARKNET OZELLIKLERI (Attribute)
-// Derleyiciye bunun Bir Kontrat oldugunu Soluyoruz!
+// Derleyiciye bunun Bir Kontrat oldugunu Söylüyoruz!
 #[starknet::interface]
 trait IBasitKasa<TContractState> {
-    // Kasa'nin Bakesyini Ogrenme(View)
+    // Kasa'nin Bakiyesini Ogrenme(View)
     fn bakiye_getir(self: @TContractState) -> u128;
-    // Bakiye(Ekleme) Fonskiyonu - Bu Calistiginda Arkada Kripto Isapt Uretilir
+    // Bakiye(Ekleme) Fonksiyonu - Bu Calistiginda Arkada Kripto İspat Uretilir
     fn bakiye_arttir(ref self: TContractState, miktar: u128);
 }
 
@@ -41,10 +41,10 @@ trait IBasitKasa<TContractState> {
 #[starknet::contract]
 mod BasitKasa {
     
-    // 2. HAFIZA (Storage - Blockchain uerinde Tutulacak Veriler)
+    // 2. HAFIZA (Storage - Blockchain üzerinde Tutulacak Veriler)
     #[storage]
     struct Storage {
-        bakiye: u128,  // Cok basir, Kasadaki para.
+        bakiye: u128,  // Cok basit, Kasadaki para.
     }
 
     // 3. UYGULAMA(IMPLEMENTASYON) - Arayuzun İcerigini dolduralim
@@ -56,14 +56,14 @@ mod BasitKasa {
             self.bakiye.read()
         }
 
-        // DEGISIKLIK YAPACAK FUNCSIYON (ref self - Yani Durumu Degistiricek İzin var)
+        // DEGISIKLİk YAPACAK FONKSİYON (ref self - Yani Durumu Değiştirecek İzin var)
         fn bakiye_arttir(ref self: ContractState, miktar: u128) {
             
             // Su anki bakiyeyi Oku
             let simdiki_bakiye = self.bakiye.read();
             
             // Uzerine Ekleyip Mute Et Ve Storage'a YAZ(Write)! 
-            // (Iste Tam bu islem Starknet Prover tarafindan Matematiksek Kanita ZK-Kanitina Donusturlur!)
+            // (Iste Tam bu islem Starknet Prover tarafindan Matematiksel Kanıta ZK-Kanıtına Dönüştürülür!)
             self.bakiye.write(simdiki_bakiye + miktar);
         }
     }

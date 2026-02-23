@@ -10,12 +10,12 @@ Microsoft bu zorluğu "Görsel (Visual)" kelimesiyle parçaladı. Sol tarafa bir
 
 **Ne İşe Yarar?**
 * **Hızlı Karalama / Prototipleme (RAD):** Şirketlerin iç muhasebe otomasyonları, depo kayıt ekranları veya anlık şifreleme/çözme panelleri gibi "Çok hızlı ekrana çıkmalı" dediği 2000'lerin başlarındaki bütün ticari B2B Windows projeleri (Özellikle VB6 ile) yazıldı.
-* **Microsoft .NET Ekosisti (VB.NET):** 2002'lerden sonra orijinal VB (VB6) öldürüldü ve yerine C#'ın alt motorunu birebir kullanan ama İngilizce yazım kuralına (`{}` yerine `End Sub` barındıran) devam eden devasa Güçlü (OOP) **Visual Basic .NET** çıkarıldı.
+* **Microsoft .NET Ekosistemi (VB.NET):** 2002'lerden sonra orijinal VB (VB6) öldürüldü ve yerine C#'ın alt motorunu birebir kullanan ama İngilizce yazım kuralına (`{}` yerine `End Sub` barındıran) devam eden devasa Güçlü (OOP) **Visual Basic .NET** çıkarıldı.
 
 ## Dilin Mantığı ve Kod Yapısı
 Evrendeki en okunabilir (Neredeyse düz metin/İngilizce) kurguya sahiptir. Süslü parantezler `{ }` VEYA noktalı virgüller (`;`) YOKTUR. Onların yerine İngilizce bitiş kelimeleri (`End If`, `End Sub`, `Next`) kullanılır.
 
-Harf büyüklüğüne veya küçüklüğüne (Case-Sensitivity) DAKAKT ETMEZ. Siz `mesaj` isimli bir değişken yaratıp aşağıda `MESAJ = 5` yazarsanız C dili çökerken, VB bunu anında tolere edip IDE'nin içinde (Visual Studio) ikisinin de harflerini kendisi otomatik düzenler ve çalışır. Yazılımcıyı şımartan ve işkenceden kurtaran bir dosttur.
+Harf büyüklüğüne veya küçüklüğüne (Case-Sensitivity) DİKKAT ETMEZ. Siz `mesaj` isimli bir değişken yaratıp aşağıda `MESAJ = 5` yazarsanız C dili çökerken, VB bunu anında tolere edip IDE'nin içinde (Visual Studio) ikisinin de harflerini kendisi otomatik düzenler ve çalışır. Yazılımcıyı şımartan ve işkenceden kurtaran bir dosttur.
 
 **Örnek İşleyiş (Sembolik Olarak):**
 C# dilindeki sert ve köşeli if döngüsü: `if (sayi == 5) { Console.WriteLine("Evet"); }`
@@ -34,10 +34,10 @@ Imports System.Windows.Forms
 Public Class AnaPencere
 
     ' Biz Windows Ekranina (Forma) Form-Tasarlayıcı araciligiyla buton koyariz 
-    ' Cift Tikladigimizda Bizim Adimziza BU KOD BLOGU Uretilir (Subroutine - Sub)
+    ' Cift Tikladigimizda Bizim Adimiza BU KOD BLOGU Uretilir (Subroutine - Sub)
     Private Sub TiklaButonu_Click(sender As Object, e As EventArgs) Handles TiklaButonu.Click
         
-        ' KURAL: Dimenstion(Boyut/Degisken). 'Dim' kelimesiyle degisken yaratilir.
+        ' KURAL: Dimension(Boyut/Degisken). 'Dim' kelimesiyle degisken yaratilir.
         ' Noktalı virgül (;) ve Süslü Parantez ({) ASLA kullanilmaz!
         Dim kullaniciAdi As String = "Kral Geliştirici"
         Dim hesapla As Integer
@@ -48,7 +48,7 @@ Public Class AnaPencere
         If hesapla > 1000 Then
             
             ' MessageBox (MsgBox), C dilinde binlerce satir suren grafik API cizimini 
-            ' Microsoft'un bizim isin tek kelimeye hapsetmesidir: 
+            ' Microsoft'un bu işi tek kelimeye hapsetmesidir: 
             MessageBox.Show("Sistem Basariyla Kuruldu! " & kullaniciAdi, "Bilgi Ekrani")
             
         Else

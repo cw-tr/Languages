@@ -1,7 +1,7 @@
 # Bash (Bourne Again SHell)
 
 ## Özet
-Bash; 1989'da Brian Fox tarafından (GNU projesi için) işletim sisteminin tam kalbine, komut satırı (Command-Line) ara yüzüne yazılmış; dünyanın dünyasını yöneten tüm Linux, macOS ve Unix işletim sistemlerinin vazgeçilmez kök (Root) kabuk ve otomasyon betik/scripting dilidir.
+Bash; 1989'da Brian Fox tarafından (GNU projesi için) işletim sisteminin tam kalbine, komut satırı (Command-Line) ara yüzüne yazılmış; bütün dünyayı yöneten tüm Linux, macOS ve Unix işletim sistemlerinin vazgeçilmez kök (Root) kabuk ve otomasyon betik/scripting dilidir.
 
 ## Nedir ve Ne İşe Yarar?
 Eğer bir işletim sisteminde Fare (Mouse) ile klasör açıyor, içindeki metin dosyasının sonuna bir kelime ekliyor ve sonra bu dosyayı internette bir klasöre yüklüyorsanız (Sürükle-Bırak/Arayüz kullanarak), muhtemelen bunu yapmak 2-3 dakikanızı almıştır.
@@ -30,11 +30,11 @@ Python'da olsaydınız "İşletim Sisteminin Harddisk kütüphanesini import et,
 # İlk satir MUCİZESİ (Shebang): 
 # İşletim sistemine, "Bu dosyayi (betigi) buldugun an altindakileri BASH motoruna gonder calistir" fermanidir.
 
-# Değişken Atama: (Eşittir isaretinin etrafinda BOSHUK OLAMAZ, yoksa sitem "Hedef" diye komut arar cöker)
+# Değişken Atama: (Eşittir isaretinin etrafinda BOSLUK OLAMAZ, yoksa sistem "Hedef" diye komut arar cöker)
 HEDEF_KLASOR="/var/log"
 YEDEK_DIZINI="/home/user/log_yedekleri"
 
-# TARIH degiskenini (Dinamik), Sstemin arka komutu olan $(date) emrinden alıp Yil-Ay-Gun formatinda yapistiralim:
+# TARIH degiskenini (Dinamik), Sistemin arka komutu olan $(date) emrinden alıp Yil-Ay-Gun formatinda yapistiralim:
 TARIH=$(date +%Y-%m-%d)
 YEDEK_DOSYASI="yedek_$TARIH.tar.gz"
 
@@ -47,7 +47,7 @@ if [ -d "$YEDEK_DIZINI" ]; then
     echo "Yedekleme klasoru zaten var, sorun yok."
 else
     echo "Klasor yok, Otomatik Yaratiliyor..."
-    # Asil is: mkdir (Make Directory - Klasor Ac) Emrini arka planda İsletim Sistemine Yolla!
+    # Asil is: mkdir (Make Directory - Klasor Ac) Emrini arka planda İşletim Sistemine Yolla!
     mkdir -p "$YEDEK_DIZINI"
 fi 
 # DİKKAT: "if" kosulunu kapatmak icin ters yazilisi olan "fi" kullanilir. BASH estetigidir.

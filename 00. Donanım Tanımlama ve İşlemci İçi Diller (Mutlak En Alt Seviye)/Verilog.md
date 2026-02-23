@@ -8,7 +8,7 @@ Tıpkı rakibi VHDL gibi Verilog da bir yazılım geliştirme aracı değil, don
 
 **Ne İşe Yarar?**
 * **Çip (IC) Tasarımı:** Kullandığımız akıllı telefonların, bilgisayarların işlemcilerinin, bellek yongalarının veya ağ kontrolcülerinde akan elektronik devre mantığının sıfırdan oluşturulmasını sağlar.
-* **Test ve Simülasyon:** "Testbench" adı verilen modüller arcılığıyla; tasarım halindeki çipe sanal ortamda binlerce farklı voltaj senaryosu (elektrik sinyali) gönderilerek, devrenin üretime gitmeden önce çökme yapıp yapmayacağı (Verification) test edilir. 
+* **Test ve Simülasyon:** "Testbench" adı verilen modüller aracılığıyla; tasarım halindeki çipe sanal ortamda binlerce farklı voltaj senaryosu (elektrik sinyali) gönderilerek, devrenin üretime gitmeden önce çökme yapıp yapmayacağı (Verification) test edilir. 
 * **Pragmatik Çözümler:** Aşırı sıkı kuralcı VHDL diline kıyasla, hataları daha hızlı tolere eder, daha az kod yazmayı (boilerplate eksikliği) sağlayarak tasarıma hız katar.
 
 ## Dilin Mantığı ve Kod Yapısı
@@ -16,7 +16,7 @@ Verilog, çip üzerindeki parçaları `module` (modül) adı verilen birbirinden
 
 VHDL eşzamanlılığa ve tiplere karşı aşırı katı iken, C diline çok benzeyen sözdizimi sayesinde Verilog yazılımcılara donanımı çok daha esnek modelleme imkânı sunar.
 
-**Örnek İsleyiş (Sembolik Olarak):**
+**Örnek İşleyiş (Sembolik Olarak):**
 Yine standart iki girişli bir "VE" (AND) kapısı devresi hayal edelim. Verilog bu donanım ünitesini kapsüllenmiş bir modül kutusu içine alır. Kutuya 2 dış bağlantı pini girdiğini, içerideki bir kablonun 2 kabloyu AND kapısı mantığıyla birleştirdiğini (lehimlediğini) beyan eder ve tek bir kabloyu dış pinden çıkarır.
 
 ### Örnek Bir Verilog Kodu: Basit AND Kapısı
@@ -36,7 +36,7 @@ module AND_kapisi (
 
 endmodule
 ```
-Buradaki `assign` anahtar kelimesi, donanımda eşzamanlılığı temsil eder. Yazılım programlarındaki `Y = A + B` matematğinin aksine; Verilog'da `assign` yapıldığında, A veya B pinindeki elektrik düzeyi değiştiği o milisaniye içinde, saat darbeleriyle (clock pulse) birlikte Y değerine bu durum donanımsal yapısı gereği anında uygulanır.
+Buradaki `assign` anahtar kelimesi, donanımda eşzamanlılığı temsil eder. Yazılım programlarındaki `Y = A + B` matematiğinin aksine; Verilog'da `assign` yapıldığında, A veya B pinindeki elektrik düzeyi değiştiği o milisaniye içinde, saat darbeleriyle (clock pulse) birlikte Y değerine bu durum donanımsal yapısı gereği anında uygulanır.
 
 ## Kimler Kullanır?
 * Silikon Vadisi ve küresel donanım devlerindeki (Apple, Nvidia, Qualcomm, Broadcom vb.) çip (IC) ve donanım tasarım mühendisleri.

@@ -10,17 +10,17 @@ Tom Preston-Werner, bu girinti belasına İsyan etti. Dediki: "Neden çok eski (
 TOML Böyle doğdu. Sürpriz yapmaz, Okuyan Kişiye şaka yapmaz. Adı Üstünde Apaçık (Obvious) ve nettir.
 
 **Ne İşe Yarar?**
-* **Modern Sistemlerin Yeni Konfigürasyon Kralıdır:** Rust Programlama dilution devasa Paket Yöneticisi olan **Cargo** kütüphanesi Ayarlarını (Bagımlılıklarını) %100 TOML `Cargo.toml` ile çizer. Aynı şekilde Python evreni (Eski setup.py çöplerini bırakıp) Proje ayarlarını Resmi olarak `pyproject.toml` standartına devretmiştir.
+* **Modern Sistemlerin Yeni Konfigürasyon Kralıdır:** Rust Programlama dilinin devasa Paket Yöneticisi olan **Cargo** kütüphanesi Ayarlarını (Bagımlılıklarını) %100 TOML `Cargo.toml` ile çizer. Aynı şekilde Python evreni (Eski setup.py çöplerini bırakıp) Proje ayarlarını Resmi olarak `pyproject.toml` standartına devretmiştir.
 
 ## Dilin Mantığı ve Kod Yapısı
-JSON gibi Tırnaklar Yoktur, YAML Gibi Boşluk Cezası Yoktur. `.INI` formtından Tek Farkı (Stringleri Tırnaklamak ve İç ice Objeleri kolayca Noktayla Cizebillmaktir). 
+JSON gibi Tırnaklar Yoktur, YAML Gibi Boşluk Cezası Yoktur. `.INI` formatından Tek Farkı (Stringleri Tırnaklamak ve İç ice Objeleri kolayca Noktayla Cizebilmektir). 
 
 Kavramlar:
 *  Atamalar Eşittir (`=`) ile yapılır. 
 *  Kategori / Gruplamalar Köşeli parantez `[SunucuAyarlari]` ile başlıklandırılır.
 
 ### Örnek Bir TOML Kodu: Python Veya Rust Projesi Bağımlılık Ayarı!
-Aşağıda Bir Sunucunun veya Yazılımın Bütün Ayarlarının, Programlamayla alakasi olmayan Bir sekreter tarafindan bile okundugunda Hatasız anlanması amaciyla tasaralanan Yalinligi Cizilmektedir:
+Aşağıda Bir Sunucunun veya Yazılımın Bütün Ayarlarının, Programlamayla alakasi olmayan Bir sekreter tarafindan bile okundugunda Hatasız anlanması amaciyla tasarlanan Yalinligi Cizilmektedir:
 
 ```toml
 # BU BIR TOML (Ayar/Config) DOSYASIDIR!
@@ -39,12 +39,12 @@ aktifler = [ 8000, 8001, 8002 ]  # Dizi (Array) JSON'la Aynidir
 max_baglanti = 5000
 aciklama = "Eslestirme Sunucu Portlari"
 
-# Array Objeleri Cift Koseli Panratzzle [[]] (Listeler Temsil Eder):
-[[kullancilar]]
+# Array Objeleri Cift Koseli Parantezle [[]] (Listeler Temsil Eder):
+[[kullanicilar]]
 isim = "Ali"
 yetki = "Admin"
 
-[[kullancilar]]
+[[kullanicilar]]
 isim = "Ayse"
 yetki = "SuperUser"
 ```

@@ -11,11 +11,11 @@ Eğer Ali, Mehmet'e "100 Dolar yollarsa ve Maç sonu Fenerbahçe Yenerse; O 100 
 **Ne İşe Yarar?**
 * **DeFi (Merkeziyetsiz Finans - Uniswap / PancakeSwap):** Banka müdürü olmadan insanların Kredi Çektiği, Faize Para yatırdığı uygulamaların (DApps) kalbi Solidity'dir. Kod, parayı güvene alır.
 * **NFT'ler (Değiştirilemez Tokenlar):** Dünyaca ünlü Milyon Dolarlık o Pikselli Maymun JPEG'lerinin (Bored Ape Yacht Club vb.) "Sahiplik Sertifikası", ERC-721 formatında bir Solidity kontratı tarafından mühürlenir.
-* **DAO'lar (Merkeziyetsiz Otonom Organizasyonlar):** "Aşiret" gibi kodlanan şirketlerde; Toplanan Vergiler Yönetim Kuruluna(CEO) değil; Solidity kodundaki Hİssedarların (Kripto cüzdanı sahiplerinin) Oy Çokluğu Koduna göre (If %51 EVET -> Parayı Yolla) Otomatik olarak Harcanır.
+* **DAO'lar (Merkeziyetsiz Otonom Organizasyonlar):** "Aşiret" gibi kodlanan şirketlerde; Toplanan Vergiler Yönetim Kuruluna(CEO) değil; Solidity kodundaki Hissedarların (Kripto cüzdanı sahiplerinin) Oy Çokluğu Koduna göre (If %51 EVET -> Parayı Yolla) Otomatik olarak Harcanır.
 
 ## Dilin Mantığı ve Kod Yapısı
 Solidity Görsel olarak JavaScript ve C++'in Çocuğu gibidir. Ama Mimarisi Tıpkı Cihaz Geliştiren **Hard-Realtime (C/Rust)** Dilleri kadar Şizofreniktir:
-Çünkü, Solidity'de yazdığınz her kodun Bilgisayarda çalışma **Maliyeti Vardır (Gas Fee)**! Eğer Siz array (döngü) içinde 1 Milyon defa Dönen bir kod yazarsanız; Kod Çalıştığında Ethereum Ağı (Miners/Madenciler) Kullanıcıdan YÜZLERCE DOLAR (Gerçek Para/Ether) Keser. Solidity programcısı, *Damlaya Kıyamayan Cimri Mimar* olmalıdır. Optimizasyon hayattır.
+Çünkü, Solidity'de yazdığınız her kodun Bilgisayarda çalışma **Maliyeti Vardır (Gas Fee)**! Eğer Siz array (döngü) içinde 1 Milyon defa Dönen bir kod yazarsanız; Kod Çalıştığında Ethereum Ağı (Miners/Madenciler) Kullanıcıdan YÜZLERCE DOLAR (Gerçek Para/Ether) Keser. Solidity programcısı, *Damlaya Kıyamayan Cimri Mimar* olmalıdır. Optimizasyon hayattır.
 
 ### Örnek Bir Solidity Kodu (Basit Bir Bağış/Kumbara Kontratı)
 Açık kaynak olarak yayımlanan Ve İçine "Ethereum (Bakiye/Para)" kabul eden, Sadece Kontratı Yaratan Adamın İstediğinde Parayı Çekebildiği Kod:
@@ -31,17 +31,17 @@ pragma solidity >=0.8.0 <0.9.0;
 contract GizliKumbara {
     
     // Durum Degiskenleri (Blockchain Ağına/Servera KAZINACAK ve Asla Silinmeyecek Veriler):
-    address payable public owner;    // Kumbarainin Sahbi (Onun Cüzdan Adresi: 0x12..3Ac)
+    address payable public owner;    // Kumbaranın Sahibi (Onun Cüzdan Adresi: 0x12..3Ac)
     uint256 public toplamBagis;      // Kumbaradaki Toplam Para Miktari (Unsigned Int)
 
-    // 3. KURUCU (CONSTRUCTOR): Bu kod Agda(Internette) ilk yayinlandginda Sadece 1 Kere Calistir!
+    // 3. KURUCU (CONSTRUCTOR): Bu kod Agda(Internette) ilk yayınlandığında Sadece 1 Kere Calistir!
     constructor() {
         // Kontrati agda kim Yayinladiysa(msg.sender), KUMBARANIN SAHIBI O'dur!
         owner = payable(msg.sender); 
     }
 
     // 4. PARA YATIRMA FONKSIYONU (Payable Mührü Cok Kritik!)
-    // 'payable' demek = Bu fonksiyon Cagirnida içine GERCEK ETHER (Kripto Para) Koyabiliirm demek!
+    // 'payable' demek = Bu fonksiyon Çağrıldığında içine GERCEK ETHER (Kripto Para) Koyabilirim demek!
     function bagisYap() public payable {
         
         // Eger adam Fonksiyona 0'dan buyuk para Atmissa kabul et:
@@ -51,12 +51,12 @@ contract GizliKumbara {
         toplamBagis += msg.value;
     }
 
-    // 5. PARAYI CEKME FOKSIYONNU (Sadece Sahibi Cekebilir)
-    function kumbarayiPatlat() public {
+    // 5. PARAYI CEKME FONKSİYONU (Sadece Sahibi Cekebilir)
+    function kumbarayi_Patlat() public {
         
-        // GUVENLIK: Suan bu fonsinyotu cagiran Cüzdan(msg.sender), Sahibiyle(Owner) Ayni Kisi mi?! 
+        // GUVENLIK: Suan bu fonksiyonu cagiran Cüzdan(msg.sender), Sahibiyle(Owner) Ayni Kisi mi?! 
         // Degilse Hata firlat ve Geri Dönder (Hack girisimini Engelle!)
-        require(msg.sender == owner, "Sen Patorn Degilsin, Hirsizsin Parayi Cekemezsin!");
+        require(msg.sender == owner, "Sen Patron Degilsin, Hirsizsin Parayi Cekemezsin!");
         
         // Kontratin Iclerinde biriken TUM PARAYI(address(this).balance) -> Sahibe (Owner'a) Transfer et!
         owner.transfer(address(this).balance);

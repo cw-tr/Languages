@@ -41,7 +41,7 @@ DATA Klinik_Hastalar;
    * Sisteme verilerin TIPLERINI tanit: Hasta_ID (Sayi), Yas (Sayi), Cinsiyet (Karakter - $) ve Ilac_Gucu (Sayi);
    INPUT Hasta_ID Yas Cinsiyet $ Ilac_Gucu;
    
-   * Yeni Bir KURAL/Stun Yarat!: "Eger Hasta 50 Yasindan buyukse onu YUKSEK RISK kategorisine Ata!";
+   * Yeni Bir KURAL/Sütun Yarat!: "Eger Hasta 50 Yasindan buyukse onu YUKSEK RISK kategorisine Ata!";
    IF Yas > 50 THEN Risk_Grubu = 'YUKSEK';
    ELSE Risk_Grubu = 'NORMAL';
    
@@ -72,7 +72,7 @@ RUN;
 * EKSTRA PROC: FREKANS RAPORU!
 * Kim YUKSEK RISKLI kim NORMAL riskli? Proc Freq (Frequency) sayım raporu yapsın:;
 PROC FREQ DATA=Klinik_Hastalar;
-   TABLES Risk_Grubu * Cinsiyet; * Tablonun X ve Y kordinatina hangi Sütunlarin Sayisi Gelsin? ;
+   TABLES Risk_Grubu * Cinsiyet; * Tablonun X ve Y koordinatina hangi Sütunlarin Sayisi Gelsin? ;
    TITLE 'Risk Gruplari ve Cinsiyet Dagilimi Matrisi';
 RUN;
 ```

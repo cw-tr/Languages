@@ -11,7 +11,7 @@ Norveçli bilim adamları devasa bir uyanış yaşadı: "Dünya dümdüz kodlard
 İşte Simula, C++ veya Java ortada yokken "KALITIM (Inheritance), SINIF (Class), ve POLYMORPHISM" kavramlarını tümüyle o gün keşfedip dil olarak yazan efsanedir.
 
 **Ne İşe Yarar?**
-* **Olay Odaklı Simülasyon (Discrete Event Simulation):** Lojistik depoların yönetim planı veya Nükleer tepkimelerin modellenmesindeki nesneleri kendi özellikleriyle ayaktatutar. Zaten adını (Simulation Language) kelimelerinden alır.
+* **Olay Odaklı Simülasyon (Discrete Event Simulation):** Lojistik depoların yönetim planı veya Nükleer tepkimelerin modellenmesindeki nesneleri kendi özellikleriyle ayakta tutar. Zaten adını (Simulation Language) kelimelerinden alır.
 * **C++'ın İlham Kaynağı:** C++ dilinin yaratıcısı Bjarne Stroustrup, doktora tezini yazarken "Simula'nın Muazzam Sınıf/Nesne zekasını keşke C'nin hızıyla birleştirebilseydim" deyip *"C with Classes"* (Sonradan adı C++ oldu) modelini icat etmiştir.
 
 ## Dilin Mantığı ve Kod Yapısı
@@ -37,7 +37,7 @@ BEGIN
       PROCEDURE KornaCal;
       BEGIN
          OutText("Bip Biip!");
-         OutImage; ! OutImage Simula'da ekrana basi ve satiri yeniler ;
+         OutImage; ! OutImage Simula'da ekrana basar ve satırı yeniler ;
       END KornaCal;
    END Araba;
 
@@ -67,7 +67,7 @@ BEGIN
    ! Objelerin Icindeki Nokta(.) Operatörü ile Fonksiyon Cagirma ;
    benimArabam.KornaCal;
    
-   ! Ralli arabasi hem kendi metodunu, hem de Babadan (Araba'dan) caldigikornayi calabilir! ;
+   ! Ralli arabasi hem kendi metodunu, hem de Babadan (Araba'dan) çaldığı kornayı calabilir! ;
    ralliArabam.HizGor;
    ralliArabam.KornaCal;
 

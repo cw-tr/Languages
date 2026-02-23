@@ -1,7 +1,7 @@
 # Ada
 
 ## Özet
-Ada; 1980'lerde ABD Savunma Bakanlığı (DoD) tarafından yaratılan, dünyadaki **en güvenilir, arıza toleransı(Fault Tolerance) tarihte kanıtlanmış bir şekilde sıfır olan** görev-kritik (mission-critical) gömülü sistem programlama dilidir. Adını programlamanın teorik ilk kurucusu Ada Lovelace'den alır.
+Ada; 1980'lerde ABD Savunma Bakanlığı (DoD) tarafından yaratılan, dünyadaki **en güvenilir, arıza toleransı (Fault Tolerance) tarihte kanıtlanmış bir şekilde sıfır olan** görev-kritik (mission-critical) gömülü sistem programlama dilidir. Adını programlamanın teorik ilk kurucusu Ada Lovelace'den alır.
 
 ## Nedir ve Ne İşe Yarar?
 1970'lerde Amerikan ordusunun envanterindeki tanklar, füzeler, denizaltılar ve radarların her biri farklı donanımlarla, 450'den fazla farklı alt sınıf programlama diliyle devasa bir kaos ordusu şeklinde çalışıyordu. Sistemlerin birbirleri ile çökmeden bütünleşik entegre çalışması imkânsızdı. 
@@ -13,7 +13,7 @@ Savunma birimleri "Öyle bir dil yapın ki; hatayı daha derleme aşamasında f�
 * **Katı Matematik ve Eşzamanlılık (Concurrency):** Füze havada 3000 km hızla giderken aynı milisaniyede 15 sensörden (hava, ivme, ısı) veri okunup işleniyorsa, dildeki süreç senkronizasyonu hatasız olmalıdır (Ada'daki 'Tasking' mekanizması).
 
 ## Dilin Mantığı ve Kod Yapısı
-Ada, kelimenin tam anlamıyla bir "Katı Tip Dağı (Strongly Typed)" dilidir. Bir değişkene `Elma` türü verip sonra ona `Armut` sayısını (sayısal olarak aynı büyüklükte dahi olsa) "zorla çevirip" atayamazsınız, dil reddeder.
+Ada, kelimenin tam anlamıyla bir "Katı Tipli (Strongly Typed)" dildir. Bir değişkene `Elma` türü verip sonra ona `Armut` sayısını (sayısal olarak aynı büyüklükte dahi olsa) "zorla çevirip" atayamazsınız, dil reddeder.
 
 Örneğin, C'de kilometre olan bir sayıyı litre olan bir hız fonksiyonuna atarsanız komut çalışır (ve Mars Climate Orbiter görevi fırlatışındaki gibi roketin milyon dolar olup infilak etmesine yol açar). Ada, değişkenlerin değer sınırlarını kesin hatlarla böler: "1 den 10'a kadar geçerli olan basınç rakamları" diye bir tip uydurursunuz, eğer o değişkene 11 değeri gelirse program anında bunu sistem güvenliği subabına fırlatır.
 
@@ -37,15 +37,15 @@ procedure Ucak_Motor_Kontrol_Sistemi is
     Anlik_Sicaklik : Motor_Isisi;
 
 begin
-    -- Varsayalım ki sensörden normal bir okuma aldik
+    -- Varsayalım ki sensörden normal bir okuma aldık
     Anlik_Sicaklik := 850; 
     Put("Motor Isisi Normal Seviyede: ");
     Put(Integer(Anlik_Sicaklik));
     New_Line;
 
     -- SENSÖR HASAR GORDU (Kisa devre yapti veya sahte veri verdi)
-    -- Asagidaki satir DERLEYİCİ DE KABUL ETSE, CALİŞİRKEN ANINDA GUVENLIGI DEVREYE SOKAR:
-    -- C dili olsa bunu 1500 kabul edip ucagi belki patlatacak hesaplar yaptiracakti:
+    -- Asagidaki satir DERLEYİCİ DE KABUL ETSE, ÇALIŞIRKEN ANINDA GÜVENLİĞİ DEVREYE SOKAR:
+    -- C dili olsa bunu 1500 kabul edip uçağı belki patlatacak hesaplar yaptiracakti:
     
     Anlik_Sicaklik := 1500; -- Sistem sinirini(1200) astigi icin Constraint_Error firlatir
 
@@ -55,7 +55,7 @@ begin
 exception
     when Constraint_Error =>
         Put_Line("!!! ACIL DURUM !!!");
-        Put_Line("Sensor Verisi Fiziksel Sinirlar Disinda! Yedek Sensore Geciniliyor!");
+        Put_Line("Sensör Verisi Fiziksel Sınırlar Dışında! Yedek Sensöre Geçiliyor!");
 end Ucak_Motor_Kontrol_Sistemi;
 ```
 Böylece kod asla sessizce hata yapmaz, sınır (range) kontrolü o sistemin DNA'sındadır.

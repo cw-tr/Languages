@@ -7,7 +7,7 @@ Hexadecimal (On altılık sayı sistemi); aslında bir programlama dili değil, 
 Bilgisayar sadece 0 ve 1'i anlar (Binary). Örneğin `A` harfi `01000001` demektir.
 Eğer bir "Uygulama.exe" veya "Resim.jpg" dosyasının İÇİNDEKİ kodlara (Binary veriye) bakmak isterseniz ve ekrana 0 ile 1'leri basarsanız; Gözleriniz kanar. 8 haneli o `01000001` kodunu akılda tutmak imkansızdır!
 
-İşte Matematik ve Bilgisayar Bilimi dediki: **İkilik Sistemi (Base-2) Onaltılık Sisteme (Base-16) Yuvarlayalım!**
+İşte Matematik ve Bilgisayar Bilimi dedi ki: **İkilik Sistemi (Base-2) Onaltılık Sisteme (Base-16) Yuvarlayalım!**
 Her 4 adet (0 ve 1) biti, Tek Bir HEX karakterine denk gelir!
 - `0000` = `0`
 - `1010` = `A` (On)
@@ -23,9 +23,9 @@ Yazılımcılar `41 42 43` gördüklerinde bunun `ABC` olduğunu anlarlar. Dosya
 ## Dilin Mantığı ve Kod Yapısı
 Tamamen Tablo tabanlıdır. Dosyalar açıldığında Sol tarafta Dosyanın İçindeki Konum (Offset), Ortada "Hex Kodları (Makine Dili)", Sağda ise onun "Müşteri Tarafındaki Metin Karşılığı (ASCII)" görünür.
 
-### Örnek Bir Hex Düzenlemisi (Bir PNG Resminin Gizli İmzası!):
+### Örnek Bir Hex Düzenlemesi (Bir PNG Resminin Gizli İmzası!):
 Eğer bir Resim dosyasının (foto.png) "Uzantısını yanlışlıkla .mp3 yapsanız bile", Bilgisayar Düzgün açar! Neden?
-Çünkü bilgisayarlar Dosya Uzantısını (.png) UMURSAMAZ. ONlar İçindeki İLK HEX KELİMESİNE (Magic Number / Sihirli Baytlar) Bakar!
+Çünkü bilgisayarlar Dosya Uzantısını (.png) UMURSAMAZ. Onlar İçindeki İLK HEX KELİMESİNE (Magic Number / Sihirli Baytlar) Bakar!
 
 Örneğin Bir PNG Resminin Hex Editor'de İlk Başlangıcı Her Zaman Şöyledir:
 ```text
@@ -34,7 +34,7 @@ Offset(Adres) |  Hex (Makine/16lik)      | Metin Çevirisi (ASCII)
 00000008      | 00 00 00 0D 49 48 44 52  | ....IHDR
 ```
 En baştaki o `89 50 4E 47` Sabittir (Magic Number). `50 4E 47` = `PNG` Harflerine Tekabül eder. 
-Eğer Siz Gidip O `89`'u `FF` Yaparsınız (Hex Edtitörle) Dosya Bozulur(Corrupt) Ve AÇILMAZ! Virus analistleri şüpheli bir EXE yi açtıklarında İçindeki "MZ" (4D 5A) Başlığına bakarlar (Tüm Windows Exelerin Kralı Mark Zbikowski'nin adıdır). 
+Eğer Siz Gidip O `89`'u `FF` Yaparsanız (Hex Editörle) Dosya Bozulur (Corrupt) Ve AÇILMAZ! Virus analistleri şüpheli bir EXE yi açtıklarında İçindeki "MZ" (4D 5A) Başlığına bakarlar (Tüm Windows Exelerin Kralı Mark Zbikowski'nin adıdır). 
 
 ## Kimler Kullanır?
 * C/C++'taki Segmentasyon Hatalarını(Core Dump) okurken, Belleğin tam o anki fotoğrafını (Hex Dump) tarayarak Hangi Satırda Patlandığını Bulan **Sistem/Çekirdek (Kernel) Hata Ayıklayıcıları (Debuggers)**.

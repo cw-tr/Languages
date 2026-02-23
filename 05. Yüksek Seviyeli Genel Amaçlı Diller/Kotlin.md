@@ -19,7 +19,7 @@ Felsefesinde **"Null Güvenliği (Null Safety)"** yatar. Tıpkı Swift dilindeki
 İkinci büyük felsefesi **Eziyet Veren Söz Dizimini Kısaltmaktır.** Java'da 60 satır süren "Data Class" tanımları Kotlin'de tek satırdır. Noktalı virgül (`;`) yoktur. Değişkenleri yaratırken tipini uzun uzun yazmazsınız (`val x = 5` yeterlidir). `new` kelimesine ihtiyaç yoktur. 
 
 **Örnek İşleyiş (Sembolik Olarak):**
-Java'da "Kullanıcı" adında bir objeyi ve ona ait İsim/Yaş/Şifre bilgilerini saklamak, ekrana bastırmak için satırlarca kod yazarsınız. Kotlin'de ise başlık açar gibi tek bir parantez içi kod yazarsınız; derleyici (compiler) arka planda yüzlerce satır Java Byteccode'unu sizin için 1 saniyede otomatik üretir!
+Java'da "Kullanıcı" adında bir objeyi ve ona ait İsim/Yaş/Şifre bilgilerini saklamak, ekrana bastırmak için satırlarca kod yazarsınız. Kotlin'de ise başlık açar gibi tek bir parantez içi kod yazarsınız; derleyici (compiler) arka planda yüzlerce satır Java Bytecode'unu sizin için 1 saniyede otomatik üretir!
 
 ### Örnek Bir Kotlin Kodu: Data Class ve Null Kalkanı
 Kotlin'in neden Java'nın tahtını bu kadar hızlı aldığını kanıtlayan, hem "Data Sınıfı" hem de boş (Null) verilere karşı güvenli harika bir Android/Backend tarzı model örneği görelim:
@@ -60,7 +60,7 @@ fun main() {
     }
 }
 ```
-Yukarıdaki kısacık ve temiz kod yüzünden Android Developer dünyası Java dilini tamamen geride bırakmış, Google de bunu standart bir kural olarak tasdiklemiştir.
+Yukarıdaki kısacık ve temiz kod yüzünden Android Developer dünyası Java dilini tamamen geride bırakmış, Google da bunu standart bir kural olarak tasdiklemiştir.
 
 ## Kimler Kullanır?
 * Milyarlarca cihaza inen oyun, e-ticaret ve medya Uygulamalarını baştan aşağı Android Studio'da tasarlayan Front-end Mobil Geliştiricileri.

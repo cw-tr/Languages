@@ -15,7 +15,7 @@ Evan You dedi ki: "Angular'ın o Html Sayfalara veri yapıştırma güzelliğini
 * Progresive Framework (Aşamalı): Bir projeye Vue Eklemek için React'taki gibi Bütün Kod mimarisini Sıfırdan Yıkmanıza gerek Yoktur. Dümdüz Bir `<script>` tagı (Eskiden HTML kafaına) olarak sayfaya zımbalayıp, "Sadece şu Div/kutu bölgesine Reaktif Animasyon kat" diyebilmesini inanılmaz derecede "Aşamalı/Barışçıl" eklenti formatında yapar.
 
 ## Dilin Mantığı ve Kod Yapısı
-Vue.js'in React'a Asla Benzeyemen (ve Milyonlarca Web Geliştiricisini Klasik döneme aşık eden) Temel Zekası: **.vue (Single File Component - SFC)** dosyasıdır. Vue dedi ki "React herşeyi karıştırıyor. Bizim tek dosyamız olacaak ama 3 Net Bloktan oluşacak":
+Vue.js'in React'a Asla Benzeyemeyen (ve Milyonlarca Web Geliştiricisini Klasik döneme aşık eden) Temel Zekası: **.vue (Single File Component - SFC)** dosyasıdır. Vue dedi ki "React herşeyi karıştırıyor. Bizim tek dosyamız olacak ama 3 Net Bloktan oluşacak":
 
 1. `<template>`: Klasik Dümdüz HTML'ini Buraya yaz! (İçine If/Else için v-if, Döngüler için v-for yazılır ki Angular Klonudur).
 2. `<script setup>`: Saf Javascript veya Typesriptini Buraya Yaz! Değişken Tutar (State).
@@ -45,7 +45,7 @@ Tıklanma Zekası (Direktifler) : `@click="GirisYap"` veya `v-on:click`
         // 2. Gorevleri tutacak Dizi (Array) Başta 'Vue Ogren' Var!
         const yapilacaklarListesi = ref([ { id: 1, metin: 'Vue Ögrencek ve Krallık kuracan' } ])
 
-        // Islem Gorgen FonskiyoN: (Ekle Butonuna Basildiginda:)
+        // Islem Gorgen Fonksiyon: (Ekle Butonuna Basildiginda:)
         function listeyeEkletOglum() {
             // Eger kullanici bosluk girmedisye:
             if (yeniGorevMesaji.value.trim() !== '') { 
@@ -68,7 +68,7 @@ Tıklanma Zekası (Direktifler) : `@click="GirisYap"` veya `v-on:click`
 <template>
   <div class="kutu-tasarimi">
 
-    <!-- IKI YONLU VERI BAGLAMA (v-model MUCİLESİ):  -->
+    <!-- IKI YONLU VERI BAGLAMA (v-model MUCİZESİ):  -->
     <!-- V-Model sunu der: Aşağidaki Metin Kutusuna Adam ne daktillo(Yazıyorsa),  -->
     <!-- Üsteki JS'deki Const (yeniGorevMesaji) Degikseniye aninda(Milisaniye) ESLE (Sync)! -->
     <input 
@@ -93,7 +93,7 @@ Tıklanma Zekası (Direktifler) : `@click="GirisYap"` veya `v-on:click`
 
 <!-- ============================================== -->
 
-<!-- 3. TASARIM / MAKAYJ STili (CSS) -->
+<!-- 3. TASARIM / MAKYAJ STili (CSS) -->
 <!-- "scoped" Yazarsaniz bu CSS Asla diğer Componentlerin (Header vs) Tasarımina SIZMAZ ve Bozmaz! -->
 <style scoped>
   input { border: 2px solid green; padding: 10px; }
@@ -104,6 +104,6 @@ Tıklanma Zekası (Direktifler) : `@click="GirisYap"` veya `v-on:click`
 Üç Parçalı(SFC) mimarinin Getirdiği O Saf "Mühendislik Düzeni"; React'in kod çorbasında hüsrana boğulmuş Orta-(Ve Solo/Kendi kendine şirket kuran) Geliştiricilerin adeta cennetidir. Ayrıca Vite'in de Yaratıcısı yine Evan You'dur.
 
 ## Kimler Kullanır?
-* Türkiye'de, Avrupa'da ve Özellikle Çin Piyasasında; React'ın tek gerçek, sevimli (Ve hatta geliştirici anketi memnuniyetlerinde en Yüksek olan) **Vue.js FrontEnd Yzılımcılarıdır**.
+* Türkiye'de, Avrupa'da ve Özellikle Çin Piyasasında; React'ın tek gerçek, sevimli (Ve hatta geliştirici anketi memnuniyetlerinde en Yüksek olan) **Vue.js FrontEnd Yazılımcılarıdır**.
 * Eski Tip PHP (Laravel Ecosystem) Geliştiricileri. Laravel (Taylor Otwell) resmi olarak Vue.js ile aşk yaşadığını (Entegrasyonu desteklediğini) duyurduğundan Beri, PHP yazılımcılarının Frontend'e geçerken kullandığı O muazzam kılıçtır. 
-* Tıpkı React -> Next.js evrimi gibi; **Vue.js -> Nuxt.js** adında bir Meta-Framework evrimi geçirmiş olup (SEO ve SSR Renderları) o tarafa aktarmıştır. Çoğu kişi React'tan daha basit ve "Kurulumu Temiz" olduğu için projelerine Aşamaşılı (Progresive) Vue takar.
+* Tıpkı React -> Next.js evrimi gibi; **Vue.js -> Nuxt.js** adında bir Meta-Framework evrimi geçirmiş olup (SEO ve SSR Renderları) o tarafa aktarmıştır. Çoğu kişi React'tan daha basit ve "Kurulumu Temiz" olduğu için projelerine Aşamalı (Progresive) Vue takar.

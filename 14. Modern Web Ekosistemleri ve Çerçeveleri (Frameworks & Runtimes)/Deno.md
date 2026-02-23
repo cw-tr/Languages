@@ -1,13 +1,13 @@
 # Deno
 
 ## Özet
-Deno (De-No / Node hecelerinin Ters çevrilmiş Hali); 2018 yılında (Node.js'in de Yaratıcısı Olan) Ryan Dahl tarafından, Node.js'de Geçmişte yaptığı *Mimari Hataları Düzelmek* Vİzyonuyla sıfırdan ve Çekirdeği (C++ yerine) **Rust / V8 Engine** kullanılarak inşa edilen; Doğuştan %100 **TypeScript** destekleyen, NPM(Modül/Dosya) Gezegenini ve `package.json` Kabusunu kökünden yok eden Işık hızında İzolasyonlu(Secure) bir Arka-Plan **JavaScript / TypeScript Runtime (Çalıştırma)** Ekosistemidir.
+Deno (De-No / Node hecelerinin Ters çevrilmiş Hali); 2018 yılında (Node.js'in de Yaratıcısı Olan) Ryan Dahl tarafından, Node.js'de Geçmişte yaptığı *Mimari Hataları Düzeltmek* Vizyonuyla sıfırdan ve Çekirdeği (C++ yerine) **Rust / V8 Engine** kullanılarak inşa edilen; Doğuştan %100 **TypeScript** destekleyen, NPM(Modül/Dosya) Gezegenini ve `package.json` Kabusunu kökünden yok eden Işık hızında İzolasyonlu(Secure) bir Arka-Plan **JavaScript / TypeScript Runtime (Çalıştırma)** Ekosistemidir.
 
 ## Nedir ve Ne İşe Yarar?
 Ryan Dahl, Node.js'i piyasaya sürdüğünde 10 yıl boyunca Milyarlarca Kullanıcıya Ulaştı. Ama Bir gün Çıktı ve "Node.js Hakkında Pişman Olduğum 10 Şey" diye bir Kavramlar Konuşması (Tövbe Seansı) Yaptı. Pişmanlıkları Şunlardı:
 1. Node.js'te Güvenlik Yoktu. Bir adamın yazdığı NPM paketini kurarsanız, O paket SİZDEN İZİN ALMADAN Bilgisayarınızdaki (C:\Belgelerim) Klasörünü Okuyup İnternete Sızdırabilirdi.
 2. `node_modules` klasörü o kadar Eziyet (Devasa Ağır) idi ki, Bilgisayarda Karadelik oluşturuyordu. 1 Paket 1000 Pakete dayanıyor her şey `package.json` ile kitleniyordu.
-3. TypeScript yazmak için "Araya Transpiler(Tsc) koyup, JS'ye derleyip, Sonra Çalıştırmak" Eziyeti wardı.
+3. TypeScript yazmak için "Araya Transpiler(Tsc) koyup, JS'ye derleyip, Sonra Çalıştırmak" Eziyeti vardı.
 
 **ÇÖZÜM: DENO!** Dahl dedi ki: Yeniden Yazıyoruz!
 **Ne İşe Yarar?**
@@ -16,14 +16,14 @@ Ryan Dahl, Node.js'i piyasaya sürdüğünde 10 yıl boyunca Milyarlarca Kullan�
 
 ## Dilin Mantığı ve Kod Yapısı
 Deno bir "Dil" Değildir. O Doğrudan **TypeScript(TS) ve JavaScript(JS)** okuyan bir Makinedir. 
-Lakin Prensibleri (İnterneti Algılayışı) Tarayıcı gibidir.
+Lakin Prensipleri (İnterneti Algılayışı) Tarayıcı gibidir.
 
 **Devrimi 1: Güvenlik İzolasyonu (Sandbox Model)**
 Deno kodunuzu Terminalde `deno run app.ts` Diye Çalıştırırsanız **Eğer Kodun İçinde MAkine Ağ Adresine Baglanmak Veya C Diskini Okumak Varsa** Sistem Deno Motoru Taradından Çöktürülür(Izin Verilmez). Çalışması için SİZİN ONA KONSOLDAN Acıkça `deno run --allow-net --allow-read app.ts` Diye Özel Kapı (Yetki) Açmanız GEREKIR! (iOS Tarzı İzin Mekanizması).
 
 **Devrimi 2: NPM (node_modules) Çöplüğünün Ölümü! (URL Tabanlı Import)**
-Node.js De Başkasının Kodunu Kullanacaskaniz Önce `npm install express` İndirindiniz. KLasörler Şişerdi.
-Deno Der ki: İnternet Tarayıcısı (Chrome) Nasıl İnternetten Scripti Url İle anında cekiyorsa, BEN DE HTTP ile İndirirm! Herhangi Modül Yok!
+Node.js De Başkasının Kodunu Kullanacaksanız Önce `npm install express` İndirirdiniz. Klasörler Şişerdi.
+Deno Der ki: İnternet Tarayıcısı (Chrome) Nasıl İnternetten Scripti Url İle anında cekiyorsa, BEN DE HTTP ile İndiririm! Herhangi Modül Yok!
 
 ### Örnek Bir Deno (TypeScript) Kodu: Kurulumsuz ve Dosyasız Sunucu Açmak 
 Hiçbir NPM indirmesi yada Paket Yapılandırması olmadan, Direkt Terminalden Doğrudan İçe-Aktarım (URL Import) Modeliyle API (Sunucu) Açmak:

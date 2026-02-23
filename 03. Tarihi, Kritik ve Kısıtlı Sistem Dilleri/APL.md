@@ -25,7 +25,7 @@ Kesinlikle ama kesinlikle **Döngü (Loop / For / While)** kullanılmaz. R ve MA
 Bu dili klavyende yazamayacağınız için özel bir APL idesi (Dyalog APL vb.) kullanılır. Matrislerin o sembolik dili:
 
 ```apl
-⍝ APL dilinde yorumlar Lambe sembolünün ucuna konan isaretle ⍝ başlar!
+⍝ APL dilinde yorumlar Lamba sembolünün ucuna konan isaretle ⍝ başlar!
 ⍝ Bu kodlar normal klavyeyle değil "APL Klavyesi" font destegiyle basilir. Asagi ok (←) vb.
 
 ⍝ 1'den 10'a KADAR BIR DIZI YARAT VE (İyota - ι) ile Değişkene Ata!

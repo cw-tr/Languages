@@ -6,7 +6,7 @@ Objective-C (Obj-C); 1984 yılında Brad Cox ve Tom Love tarafından C diline Sm
 ## Nedir ve Ne İşe Yarar?
 1980'lerde programcılar düz C dilini kullanırken donanım hızı muazzamdı ancak devasa grafik arayüzlü (GUI) uygulamalar yazarken C'nin OOP (Sınıf/Nesne) eksikliği projeleri çöktürüyordu.  Bjarne Stroustrup, C'nin üzerine katı sınıflar ekleyerek "C++"ı yarattı. 
 
-Ancak Cox ve Love farklı bir yol seçti. Onlar C dilinin kalbine Smalltalk'ın o esnek, dinamik ve çalışma zamanında asılı(Runtime) "Nesnelerin Birbirine Mesaj Yollama (Message Passing)" dinamiğini lehimlediler. Objective-C, temelde "İçinde Smalltalk mesajları uçuşan saf C dili"dir. Hatta o kadar esnektir ki; Obj-C dosyasının (`.m` uzantılı) içine dümdüz standart C kodu da yazabilirsiniz, sistem tıkır tıkır ikisini birlikte çalıştırır.
+Ancak Cox ve Love farklı bir yol seçti. Onlar C dilinin kalbine Smalltalk'ın o esnek, dinamik ve çalışma zamanında asılı (Runtime) "Nesnelerin Birbirine Mesaj Yollama (Message Passing)" dinamiğini lehimlediler. Objective-C, temelde "İçinde Smalltalk mesajları uçuşan saf C dili"dir. Hatta o kadar esnektir ki; Obj-C dosyasının (`.m` uzantılı) içine dümdüz standart C kodu da yazabilirsiniz, sistem tıkır tıkır ikisini birlikte çalıştırır.
 
 **Ne İşe Yarar?**
 * **Apple Ekosistemi (macOS ve iOS):** 2014 yılında Swift dili çıkana kadar, dünyadaki bütün iPhone, iPad ve Mac uygulamaları (WhatsApp'tan Instagram'a, Safari'den sistem çekirdeğine) %100 Objective-C ile yazılırdı. 
@@ -28,7 +28,7 @@ C dilinin saf Hızını ve Pointer(`*`) zekasını, Smalltalk'ın o Köşeli Par
 ```objective-c
 // Objective-C de yorumlar C tabanli dillerdeki gibi '//' kullanilarak yapilir.
 
-// Apple'in Ana Kutubhanesini Iceri Aktar (Header)
+// Apple'in Ana Kütüphanesini Iceri Aktar (Header)
 #import <Foundation/Foundation.h>
 
 // 1. ADIM: ARAYUZ / HEADER TANIMLAMA (@interface)
@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
     // Hafizada Objelerin dagilmamasi icin Otomatik Referans Sayici blogunu (Autoreleasepool) acariz
     @autoreleasepool {
         
-        // MUCİZE BATIYO ALIMI (Mesaj Gonderme - Smalltalk Kurgusu):
+        // MUCİZEVİ İŞLEM ADIMI (Mesaj Gonderme - Smalltalk Kurgusu):
         // 1. Sınıfa 'alloc' (Hafizada yer ac) mesaji yolla
         // 2. Olusan hafizaya da 'init' (Baslat) mesaji yolla!
         KahveMakinesi *makinem = [[KahveMakinesi alloc] init];

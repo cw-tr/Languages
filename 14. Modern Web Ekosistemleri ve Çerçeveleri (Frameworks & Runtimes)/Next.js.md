@@ -30,13 +30,13 @@ Kullanıcının tarayıcısında (Chrome'da) Değil; Server'da (Bulutta) tetikle
 ```tsx
 /* BUNA DİKKAT: YUKARIDA "use client" YAZMİYORSA BU NEXTJS'DE BIR "SERVER KOMPONENTIDIR!"
    Yani Tarayıcı (Customer) Bu JavaScript kodunu ASLA görmez (Guvenlidir, Api Şifrelerin çalınmaz).
-   Sunucu bunu calistirir ve Musteriye Doly Cıktı Yollar.
+   Sunucu bunu calistirir ve Musteriye Dolu Cıktı Yollar.
 */
 
 // Modern Async Bilesen (Eskiden React Fonksiyonlarina async atilamazdi! SSR Mimarisi gucu)
 export default async function UrunlerSayfasi() {
     
-    // SERVER'IN İÇİNDEYİZ(Bulut): Doğrudan Amazon/Trendyol Veritababından REST API Cekisi! (1 Milisaniye Sürer, Musteri Beklemez).
+    // SERVER'IN İÇİNDEYİZ(Bulut): Doğrudan Amazon/Trendyol Veritabanından REST API Cekisi! (1 Milisaniye Sürer, Musteri Beklemez).
     const apiIstegi = await fetch('https://bizim-gizli-db.com/api/satislar', {
          // Next.Js Cache Gucu: Bu veriyi Sunucu Kendi Hafizasina Cachesin(Ortsun) her gelene saniyede ayni sayfayi firlatsin (ISR/SSG gucu):
          cache: 'force-cache' 

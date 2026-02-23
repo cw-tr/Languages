@@ -51,7 +51,7 @@ def sahte_yapay_zeka_tahmini(musteri_yasi, maasi):
         # Standart hesap
         return maasi * 0.5 
 
-# PYTHON'DA DEĞİŞKENLER: Tipi asla belirtilmmez, Python kendisi (arka planda C objesi) bulur.
+# PYTHON'DA DEĞİŞKENLER: Tipi asla belirtilmez, Python kendisi (arka planda C objesi) bulur.
 hasta_listesi = ["Ahmet", "Mehmet", "Ayşe"]  # Bu bir Liste (Array)
 veritabani_sözlügü = {"ad": "Mars", "hiz": 24000} # Bu bir Sözlük (Dictionary/JSON) mantığı
 
@@ -65,7 +65,7 @@ Bütün kodlar bu kadar insansı bir akış ve İngilizce metin görünümünded
 
 ## Kimler Kullanır?
 * Evrendeki bütün Yapay Zeka Geliştiricileri (AI Developers), Veri Bilimi Uzmanları, Data Analyst'ler. (OpenAI, Google DeepMind mühendisleri dâhil).
-* Backend Web Geliştiricileri (Instagram ve Spotify'ın sunucu devrenleri bu kodu taşır).
+* Backend Web Geliştiricileri (Instagram ve Spotify'ın sunucu devleri bu kodu taşır).
 * Finans analistleri (Otomatik Borsa algoritmaları ve borsa botları yazanlar).
-* Güvenlik uzmanları (Hack araçları, Network Tarayıcılar), Sistem Adminleri (Sunucu otomatizasyonu için Bash yerine).
+* Güvenlik uzmanları (Hack araçları, Network Tarayıcılar), Sistem Adminleri (Sunucu otomasyonu için Bash yerine).
 * Yeni programlamaya başlayan 10 yaşındaki bir çocuk ve oyun/robot prototipleyen donanım mühendisleri (Raspberry Pi üzerinden).

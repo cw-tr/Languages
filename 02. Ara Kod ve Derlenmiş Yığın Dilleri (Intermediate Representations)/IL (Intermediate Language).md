@@ -10,11 +10,16 @@ Microsoft "Common Language Runtime (CLR - Ortak Dil Çalışma Zamanı)" dediği
 O Çıkan program Müşterinin (Kullanıcının) Bilgisayarına Atılıp Çift Tıklandığı Saniye (JIT - Just in Time Compiler Tarafından), O bilgisayarın Gerçek RAM/İşlemcisine uygun "ÖZEL SAF DİLE (Native)" Işık hızında çevrilir ve Çiçek gibi Başlar.
 
 **Ne İşe Yarar?**
-* **Diller-Arası Kusursuz Özgürlük (Language Interoperability):** F# (Fonksiyonel Dil) ile bir "Matematik Motoru" (.dll) yazarsınız. O motor derlendiğinde .NET aradiline(IL) girmiş olur. Takım arkadaşınız Gidip C# (Nesne Yönelimli) Projesiyle sizin Matemetk Engine'i sanki C# mış gbii Gözü Kapalı Cagırıp Kullanabilir! Çünki "Firma Mülklerini(Classları) İngilizce'de (IL de)" Birleştimiştir.
+1995'te Java Devrimi Oldu. Java dedi ki: **Sizin Makinenize (Windows/Linux) göre EXE üretmeyeceğim! Ben (Bytecode) adında Kendi Sanal Bilgisayarımın dilini üreteceğim.**
+Siz Java (veya Python) kodu yazdığınızda Arka planda bir `Bytecode` Üretilir. Bu bytecode Cihaza Bağlı DEĞİLDİR! O bytecode'u Mac'e de atsanız, Buzdolabına da (Eğer Cihazın içinde JRE- Java Sanal Makinesi Yüklüyse) sorunsuz ve hatasız çalışır!
+
+...
+**Ne İşe Yarar?**
+* **Diller-Arası Kusursuz Özgürlük (Language Interoperability):** F# (Fonksiyonel Dil) ile bir "Matematik Motoru" (.dll) yazarsınız. O motor derlendiğinde .NET ara diline (IL) girmiş olur. Takım arkadaşınız Gidip C# (Nesne Yönelimli) Projesiyle sizin Matematik Engine'i sanki C# mış gibi Gözü Kapalı Çağırıp Kullanabilir! Çünkü "Firma Mülklerini (Classları) İngilizce'de (IL'de)" Birleştirmiştir.
 
 ## Dilin Mantığı ve Kod Yapısı
-Tam bir Jargondur. Bytecode'un Aksine Okunması "insana Çok daha Yakındır". Metinsel Bir Assembly'e (ILDASM - İl Disassembler) benzer. 
-İÇinden Şaşalı `class`, `public` gibi Yüksek Seviyeli Mimarliklar Akatar; Bu yüzden "Tersine Mühendislikte(Crack/Hackde) .NET Uygulamalarını Kırmak" (ILSpy / dnSpy proglramlariyla) C++ UYglulamlairni Kirmaktna Kat VE Kat Daha Kolaydir! Adamn C# Kodunun Aynisi Geri Alinabilriir(Decompile).
+Tam bir Jargondur. Bytecode'un Aksine Okunması "İnsana Çok Daha Yakındır". Metinsel Bir Assembly'ye (ILDASM - IL Disassembler) benzer. 
+İçinden Şaşaalı `class`, `public` gibi Yüksek Seviyeli Mimariler Akar; Bu yüzden "Tersine Mühendislikte (Crack/Hack'de) .NET Uygulamalarını Kırmak" (ILSpy / dnSpy programlarıyla) C++ Uygulamalarını Kırmaktan Kat VE Kat Daha Kolaydır! Adamın C# Kodunun Aynısı Geri Alınabilir (Decompile).
 
 ### Örnek Bir MSIL / CIL Kodu (C#'da Nasıl Yazılır, Neye Dönüşür?)
 C# Dilinde Yazılan Klasik (Aşağıdaki) Ekrena "Selam" Basma Kodumuz:

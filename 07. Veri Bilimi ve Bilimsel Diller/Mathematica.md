@@ -13,9 +13,9 @@ Fakat Mathematica ve onun çekirdeği olan **Wolfram Language**; sayısal DEĞİ
 * **Wolfram Alpha (Arama Motoru):** Google'dan farklı çalışan, sorduğunuz denklemleri veya "New York'un 1995'deki nem oranı ile İstanbul'un nufusu grafiği" sorusunu KENDİ KENDİNE HESAPLAYIP YAPAY ZEKAYLA ÇİZEN Efsanevi Motorun kendi ana dilidir! (Apple Siri, sorularını arka planda bu dil üzerinden matematiğe dökerek cevaplar).
 
 ## Dilin Mantığı ve Kod Yapısı
-Tamamen (Parantezleri azaltılmış) **Kökten Lisp**'tir lakin syntaxı tamamen matematiktir. Bütün dahili fonksiyon isimleri BÜYÜK HARFLE (Örn: `Plot`, `Integrate`, `Solve`) ve argümanları her aman **KÖŞELİ PARANTEZ `[ ]`** ile verilir (Çünkü yuvarlak parantezler Lisedeki gibi dümdüz matematiksel çarpım kıyaslaması içindir).
+Tamamen (Parantezleri azaltılmış) **Kökten Lisp**'tir lakin syntaxı tamamen matematiktir. Bütün dahili fonksiyon isimleri BÜYÜK HARFLE (Örn: `Plot`, `Integrate`, `Solve`) ve argümanları her zaman **KÖŞELİ PARANTEZ `[ ]`** ile verilir (Çünkü yuvarlak parantezler Lisedeki gibi dümdüz matematiksel çarpım kıyaslaması içindir).
 
-Her şey fonksiyonel ve her şey "Pattern Matching (Şablon eşleştirme)" üzerine kuruludur. Ayrıca o kadar devrismeldir ki Notebook (Defter/Hücre) kavramını ilk getiren sistemdir. Siz bir koda "Bana grafik çiz ve 3D Gezegen yap" dersiniz, kodun hemen altında saniyesinde çevirebildiğiniz kocaman bir 3D Evren Topu belirir (Jupyter Notebooks, fikrini 15 yıl sonra Mathematica'dan kopyalamış/çalmıştır).
+Her şey fonksiyonel ve her şey "Pattern Matching (Şablon eşleştirme)" üzerine kuruludur. Ayrıca o kadar devrimseldir ki Notebook (Defter/Hücre) kavramını ilk getiren sistemdir. Siz bir koda "Bana grafik çiz ve 3D Gezegen yap" dersiniz, kodun hemen altında saniyesinde çevirebildiğiniz kocaman bir 3D Evren Topu belirir (Jupyter Notebooks, fikrini 15 yıl sonra Mathematica'dan kopyalamış/çalmıştır).
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Python Döngüsü: Denklemi çözmek için sympy paketi yüklemek ve satırlar atamak.
@@ -45,7 +45,7 @@ integralSembolikCikinti = Integrate[a x^2 + b, x]
 
 
 (* 2. YAPAY ZEKA VE VERİ SÖMÜRME (Dahili Ansiklopedi - Wolfram Knowledgebase) *)
-(* Dilin icinde EVRENDEKI her seyin verisi(Internete bagli) gomuledur! Apilere ihtiyaciniz yoktur.*)
+(* Dilin icinde EVRENDEKI her seyin verisi(Internete bagli) gomuludur! Apilere ihtiyaciniz yoktur.*)
 
 (* Soru : Bana Dunyadaki Tum Gezegenlerin "Agirlik / Kutle" LİSTESİNİ Ver (EntityValue): *)
 gezegenKutleleri = EntityValue[EntityClass["Planet", "All"], "Mass"]

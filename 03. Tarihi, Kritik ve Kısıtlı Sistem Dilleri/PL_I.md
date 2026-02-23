@@ -1,7 +1,7 @@
 # PL/I
 
 ## Özet
-PL/I (Programming Language One); 1964 yılında dev tekelleşici IBM tarafından, zamanın paramparça olmuş "İş dünyası (COBOL)" ve "Bilim Dünyası (Fortran)" kodlama kamplarını birleştirip **"Her Şeyi Yapabilen Tek Bir İsviçre Çakısı"** efsane dil kurmak amacıyla agresif ve çılgınca tasarlanan, devasa karmaşıklıktaki anıtsal programlama dilidir.
+PL/I (Programming Language One); 1964 yılında dev tekelci IBM tarafından, zamanın paramparça olmuş "İş dünyası (COBOL)" ve "Bilim Dünyası (Fortran)" kodlama kamplarını birleştirip **"Her Şeyi Yapabilen Tek Bir İsviçre Çakısı"** efsane dil kurmak amacıyla agresif ve çılgınca tasarlanan, devasa karmaşıklıktaki anıtsal programlama dilidir.
 
 ## Nedir ve Ne İşe Yarar?
 1960'larda Bilgisayar biliminde keskin bir ırk ayrımı vardı: Şirket muhasebecileri Amerikan Dolarını hesaplamak için COBOL dili kullanıyordu, Akademik bilim insanları füzelerin rotasını hesaplamak için Fortran kullanıyordu. İkisi bir araya gelemiyor, aynı bilgisayar sisteminde bile donanım kavgaları yaşanıyordu.
@@ -40,7 +40,7 @@ HELLO: PROCEDURE OPTIONS(MAIN);
   PUT SKIP LIST('--- FATURA VE HESAP SISTEMI ---');
 
   /* KUSURSUZ (EXCEPTION) HATA YAKALAMA MIMARISI (ON X) */
-  /* Eğer asagida sifira bolme ('ZERODIVIDE') atasi yaparsan, cökmeden bu blogu aninda islet! */
+  /* Eğer asagida sifira bolme ('ZERODIVIDE') hatasi yaparsan, cökmeden bu blogu aninda islet! */
   ON ZERODIVIDE 
   BEGIN;
     PUT SKIP LIST('KRIZ!: Bir sayi sifira bolunmeye calisildi! Bakiye 0 yapiliyor.');

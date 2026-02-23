@@ -17,7 +17,7 @@ Rich Harris dedi ki: "Neden Kütüphane (Library) gönderiyoruz ki? Adamın tara
 Tıpkı Vue.js gibi Svelte de **`.svelte`** uzantılı Tek-Dosya Bileşeni (SFC - Single File Component) yaklaşımını Kullanır. 
 Üstte `<script>`, Ortada HTML, Altta `<style>`.
 
-Ancak Svelte'in En İnanılmaz Sihri "Reactivity (Tepkisellik)" dir. React'ta Eğer Bir değişkene Bağımlı Birlkaça Matmetatiksel islem yapcasanız Çok zorlu Olaylar `useEffect` ler dönerr. Svelte'te Eğer Değişkenin başına `$: ` (Gözetleme İkonu - Dollar Label) koyarsanız, o değişken Sayfadaki herkesle anında Etkileşime geçer.
+Ancak Svelte'in En İnanılmaz Sihri "Reactivity (Tepkisellik)" dir. React'ta Eğer Bir değişkene Bağımlı Birkaç Matematiksel islem yapacaksanız Çok zorlu Olaylar `useEffect` ler döner. Svelte'te Eğer Değişkenin başına `$: ` (Gözetleme İkonu - Dollar Label) koyarsanız, o değişken Sayfadaki herkesle anında Etkileşime geçer.
 
 ### Örnek Bir Svelte Kodu: Sayacı Arttırmak ve Reaktif Çarpım
 Dünyanın (Angular veya React'a Göre) En basit, Saf (Vanilla) kılıklı Geliştirici-Dostu Front-End Tıklama Komponenti:
@@ -27,14 +27,14 @@ Dünyanın (Angular veya React'a Göre) En basit, Saf (Vanilla) kılıklı Geli�
 
 <!-- 1. JAVASCRIPT / STATE MANTIGI (Hicbir Kütüphane IMPORT Etmeye Gerek Yok!) -->
 <script>
-    // Dümdüz Bir Degisken Tanimla (React'taki const [sayi, setSayi] = useState() AMeleliği Yok!)
+    // Dümdüz Bir Degisken Tanimla (React'taki const [sayi, setSayi] = useState() Ameleliği Yok!)
     let sayi = 0;
 
     // Reactivity (Tepkisellik) Mührü: $: 
     // Bu Cizgili Dolar isareti Derleyiciye Sunu der: "Eger Sayi degisirse, İkiKati'ni ANINDA Otomatik Guncelle!"
     $: ikiKati = sayi * 2;
 
-    // Tiklama Fonksiyonu (Yine dümdüz JavaScript fonskiyonu)
+    // Tiklama Fonksiyonu (Yine dümdüz JavaScript fonksiyonu)
     function arttirOglum() {
         sayi += 1;
     }
@@ -57,11 +57,11 @@ Dünyanın (Angular veya React'a Göre) En basit, Saf (Vanilla) kılıklı Geli�
 <main>
     <h1>Svelte Sanal DOM(Virtual DOM) Kullanmaz!</h1>
     
-    <!-- Degiskenleri (Let) Html İcine Gommek İcin Sadece Surclu { } Yeterlidir -->
+    <!-- Degiskenleri (Let) Html İcine Gommek İcin Sadece Suslu { } Yeterlidir -->
     <p>Su anki Degeriniz: {sayi}</p>
     <p>O Sayinin Otomatik Iki Kati: {ikiKati}</p>
     
-    <!-- Tiklanilma Olayini 'on:click' seklinde JS funcisyonua Bagla! -->
+    <!-- Tiklanilma Olayini 'on:click' seklinde JS fonksiyonuna Bagla! -->
     <button on:click={arttirOglum}>
         Arttirmak Icin Tikla
     </button>
@@ -74,4 +74,4 @@ Gördüğünüz gibi, Müşterinin tarayıcına İnen sey REACT Motoru değil, S
 
 ## Kimler Kullanır?
 * React'ın "Hook, useEffect, Memo, Callback" cehenneminden yorulmuş Tüm **Modern Frontend Geliştiricileri**. Piyasada Öğrenme Süresi (Learning Curve) En hızlı Olan framework'tür (HTML ve JS bilen biri 2 Saatte Svelte Öğrenir).
-* Şirketlerde yavaş yavaş **SvelteKit** (Next.js'in Svelte Dünyasındaki Rakibi - SSR ve SEO canavarı) altyapısıyla Dev projeler Kurulmaya başlanmıştır (The New York Times, Spotify, vs bazi panellerinde kulllanir). Geleceğin En Parlak Yıldıızdır.
+* Şirketlerde yavaş yavaş **SvelteKit** (Next.js'in Svelte Dünyasındaki Rakibi - SSR ve SEO canavarı) altyapısıyla Dev projeler Kurulmaya başlanmıştır (The New York Times, Spotify, vs bazi panellerinde kullanir). Geleceğin En Parlak Yıldızıdır.

@@ -1,7 +1,7 @@
 # Chisel
 
 ## Özet
-Chisel (Constructing Hardware In a Scala Embedded Language); 2012 yılında Berkeley Üniversitesi'ndeki araştırmacılar (Risk-V mimarisinin yaratıcıları) tarafından geliştirilen, Verilog/VHDL'in ilkel ve manuel eziyetinden kurtulmak için **modern Scala dili üzerine (JVM) inşa edilmiş**, parametrik ve yeni nesil yüksek seviyeli Donanım Üretme (Hardware Construction) dilidir.
+Chisel (Constructing Hardware In a Scala Embedded Language); 2012 yılında Berkeley Üniversitesi'ndeki araştırmacılar (RISC-V mimarisinin yaratıcıları) tarafından geliştirilen, Verilog/VHDL'in ilkel ve manuel eziyetinden kurtulmak için **modern Scala dili üzerine (JVM) inşa edilmiş**, parametrik ve yeni nesil yüksek seviyeli Donanım Üretme (Hardware Construction) dilidir.
 
 ## Nedir ve Ne İşe Yarar?
 Donanım tasarımı dünyası (Verilog/VHDL) 30 yıldır bir çeşit duraklama içindeydi. Apple M1 işlemcisi veya NVIDIA GPU'su gibi devasa karmaşık zekadaki sistemler için Verilog kodlamak, binlerce kabloyu (Wire) tek tek elle bağlamaya benzetiliyordu ve C/C++'ın hızlandıran otomasyonları (Generics) burada yoktu.
@@ -29,7 +29,7 @@ Kod içerisinde modüller (Devre Kutuları) yaratmak için Scala Sınıfları `c
 // JVM uzerinden Chisel Donanim Kutuphanelerini Iceri aktar (Import)
 import chisel3._
 
-// 1. ADIM: Donanım Sınıfını (Module) Scala Klası olarak Tanimlamak
+// 1. ADIM: Donanım Sınıfını (Module) Scala Sınıfı olarak Tanimlamak
 class MuxDevresi extends Module {
     
     // 2. ADIM: Donanımın IO (Input / Output) Pinlerini (Kablolarını) "Bundle(Kutu)" icine Mühürlemek

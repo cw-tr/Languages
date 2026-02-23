@@ -32,7 +32,7 @@ Eskiden Apache sunucuları, PHP Kurulumları XAMPP panelleri kovalayıp C++ ile 
 const http = require('http');
 
 
-// 2. SERVER (SUNUCU) MUCUZESISI (Callback Hell / Event Dinleme)
+// 2. SERVER (SUNUCU) MUCİZESİ (Callback Hell / Event Dinleme)
 // CreateServer fonksiyonu, dunyanin herhangi bir yerinden Senin IP-Adresine Giren Biri olduugunda "Tetiklenir" ve su ok(=>) fonskiyonunu Cagirir!
 const sunucu = http.createServer((istek_client, cevap_server) => {
     
@@ -41,7 +41,7 @@ const sunucu = http.createServer((istek_client, cevap_server) => {
     
     // Adamın Tarayacisina(Ekrana) "Arka taraftan - Veritabanindan" String bas(Yolla!):
     cevap_server.write("<h1>🚀 Selam Dunya! Node.js Arka-Plan Sisteminden Selam.</h1>");
-    cevap_server.write("<p>Artik C# veya PHP'ye muhtac degilziniz. JS Her Yere Hukmetti.</p>");
+    cevap_server.write("<p>Artik C# veya PHP'ye muhtac degilsiniz. JS Her Yere Hukmetti.</p>");
     
     // Baglantiyi kapat ve Musteriye(Clienta) HTML Dokumanini paketleyip Kargo et:
     cevap_server.end();
@@ -53,7 +53,7 @@ const sunucu = http.createServer((istek_client, cevap_server) => {
 const CIKIS_PORTU = 3000;
 
 sunucu.listen(CIKIS_PORTU, () => {
-    // Bu Cikiti sadece Bizim (Windows DOS Terminalimizde/Konsolumuzda) arka planda Gozukur
+    // Bu Cikti sadece Bizim (Windows DOS Terminalimizde/Konsolumuzda) arka planda Gozukur
     console.log(`Sunucu Ayaga Kalkti! HTTP istegi su adresten bekleniyor: http://localhost:${CIKIS_PORTU}`);
 });
 ```
@@ -63,5 +63,5 @@ Bu belgeyi `server.js` olarak kaydedip Komut İstemcisine (Terminal) çıkıp "n
 ## Kimler Kullanır?
 * Evrendeki modern **Full-Stack / Backend Developer (Node.js/Express) Geliştiricileri**.
 * Özellikle Netflix, Uber, PayPal gibi devasa kurumsal şirketler saniyedeki Milyarlarca Kullanıcı Ağ-(I/O Data) Requestini ve Canlı veri akışını (Streaming) idare ederken Çökmemek / RAM Tıkamamak için Java'dan bile Node'a (Kısmen MicroServisler için) Göçmüşlerdir.
-* IoT (Akıllı Cihaz) backend otomasyonlarında yüngülük (Lightweight) için kurulur.
+* IoT (Akıllı Cihaz) backend otomasyonlarında hafiflik (Lightweight) için kurulur.
 * Günümüzde Node.js'e rakip olarak (yine aynı kafadan ve kendi yaratıcısı Ryan Dahl'dan çıkan) daha güvenli **Deno** ve C++'tan çok Zig+Rust karışımı ışık hızındaki **Bun** runtime'ı çıksa da, NPM pazarının Devasa tekel kütüphanesi nedeniyle Node uzun yıllar Backendin Krallarındandır.

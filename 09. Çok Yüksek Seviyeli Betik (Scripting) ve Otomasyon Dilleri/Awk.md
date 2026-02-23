@@ -10,7 +10,7 @@ AWK; veriyi (Metni) bir excel tablosu gibi "Satır (Record)" ve "Sütun (Field)"
 
 **Ne İşe Yarar?**
 * **Satır (Sütun) Parçalayıcı Veri İşleme:** Linux'da `/etc/passwd` (Sistem kullanıcı kayıtları - İki nokta üst üste ayrılmış veri) dosyalarındaki Milyonlarca satırdan, SADECE gerçek kullanıcı isimlerini veya İki kolonu çarpıp toplamlarını hesaplamak (CSV dosyaları) için Terminal'de en çok kullanılan 1 Satır (One-Liner) Ninja Komutudur.
-* Log Dosyası Crahslarini anında özetle, grep/sed'in çok zayıf (Algoritmik Matematik yapamayan) kaldığı yerde AWK ile "Kolondaki sayı 100'ü aşıyorsa C dili benzeri İf-Else" ile matematiğe sığın.
+* Log Dosyası Crash'lerini anında özetle, grep/sed'in çok zayıf (Algoritmik Matematik yapamayan) kaldığı yerde AWK ile "Kolondaki sayı 100'ü aşıyorsa C dili benzeri İf-Else" ile matematiğe sığın.
 
 ## Dilin Mantığı ve Kod Yapısı
 Awk aslında C Syntaxı andıran (Kıvrırcık Parantezli `{}`) minik bir dildir. Temel felsefesi Olay-Sürücülü (Data-Driven / Event) kurgudur: 
@@ -18,14 +18,14 @@ Awk aslında C Syntaxı andıran (Kıvrırcık Parantezli `{}`) minik bir dildir
 Awk arkada SİZ GÖRMEDEN bir For döngüsü açar ve Satırları (Record) tek tek okur.
 
 En muazzam sihiri **Dolar ($) Sembolleridir**. PHP'den farklı olarak Dolar, değişken DEĞİL; **Sütun numarasıdır**!
-- `$0` : Cümleinin/Satırın Kendisi (Tamamı).
+- `$0` : Cümlenin/Satırın Kendisi (Tamamı).
 - `$1` : İlk Boşluğa (Veya Virgüle) kadar olan 1. Kelime/Sütun.
 - `$3` : 3. Sütun (Kolon).
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Elinizde şöyle bir metin var: *Ahmet 45 Istanbul*
 Sadece maaşları toplamak ve basmak için Bash komutuna tek ok: `awk '{ print $2 }' txtdosyasi`
-Siz ona For/While demezsiniz. O tüm satırları ezer geçer ve "$2 (Yani 2. sütundaki - 45)" sayiların tamamını basar.
+Siz ona For/While demezsiniz. O tüm satırları ezer geçer ve "$2 (Yani 2. sütundaki - 45)" sayılarının tamamını basar.
 
 ### Örnek Bir Awk Kodu: CSV Log Tablosundan Matematik (One-Liner / Script Blokları)
 Grep'in matematik yapamadığı; sadece Linux terminal komut satırına tırnak içine fırlatılan efsanevi Kısa-Syntax! Diyelim ki elimizde satıcılar var `("İsim,SatisMiktari")`
@@ -47,7 +47,7 @@ BEGIN {
 }
 
 # 2. ANA KALP DONGUSU (Hic isim (Begin/End) verilmemis olan Blok) 
-# Dosyada kaş satır varsa Sistem Bu Kıvrırcık() Blogun Icine Okadar GİRİP ÇIKAR (Gizli Array For):
+# Dosyada kaç satır varsa Sistem Bu Kıvırcık() Blogun Icine O kadar GİRİP ÇIKAR (Gizli Array For):
 
 # SADECE (Kosul / REGEX): İkinci sütunundaki miktar ($2) 50'den Büyük olan Satırlarda Çalış:
 $2 > 50 { 
@@ -62,8 +62,8 @@ $2 > 50 {
     Toplam_Satis_Ucreti += $2
 }
 
-# 3. END BLOGU: Milyonlarca satır taranıp bittğinde (Ve For dongusu kırıldıgında)
-# En son kapida cıkarken rapor/Sonuc basma yeri (Sadece Cikis aninda calsiır)!
+# 3. END BLOGU: Milyonlarca satır taranıp bittiğinde (Ve For dongusu kırıldıgında)
+# En son kapida cıkarken rapor/Sonuc basma yeri (Sadece Cikis aninda calisır)!
 END {
     print "---------------------------------------"
     print "TUM SISTEM TARANDI VE MILYON DOLAR TOPLANDI. "
@@ -73,5 +73,5 @@ END {
 `awk -f kodumuz.awk magaza_verileri.csv` komutuyla Terminalden ateşlersiniz. Sed/Grep sadece String bulabilirken, Awk resmen İçerideyken `C` Programlamanın (Matematik/IF/While) omurgasını kullanıp satır satır veriyi parçalayan/manipüle eden devasa bir makinedir. 
 
 ## Kimler Kullanır?
-* Evrendeki bütün **Sistem Yöneticileri, Bash (Kabuk) Programcıları ve Hacklerlar / Sızma Testi Uzmanları (Pentester)**. Çünkü Awk her Linux / Mac OS sisteminde gömülü (Built-in) gelir. Python yüklemeyeceğiniz sunucularda anında metinleri kırpar.
+* Evrendeki bütün **Sistem Yöneticileri, Bash (Kabuk) Programcıları ve Hackerlar / Sızma Testi Uzmanları (Pentester)**. Çünkü Awk her Linux / Mac OS sisteminde gömülü (Built-in) gelir. Python yüklemeyeceğiniz sunucularda anında metinleri kırpar.
 * Veri Bilimi uzmanlarının (Python/Pandas açmak zor geldiğinde) devasa 10 Gigabyte'lık bir veriyi ram şişmeden hızla bölüp CSV yapmak için başvurdukları "Süper Kılıçtır". Awk olmasaydı *Perl, Python ve Unix* borulama (Piping `|`) sisteminin çehresi çok zayıf kalırdı.

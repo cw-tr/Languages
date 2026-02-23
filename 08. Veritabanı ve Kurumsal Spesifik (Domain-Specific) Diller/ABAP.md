@@ -32,7 +32,7 @@ REPORT z_fatura_raporu. " Programin adi 'REPORT' ile baslar. Nokta ile biter.
 DATA: it_faturalar TYPE TABLE OF vbak,  " Veritabanindan Cekilen Veriyi Tutacak Bellek Tablosu
       wa_fatura    TYPE vbak.           " Döngü için kullanılacak bir Okuma Satırı (Work Area)
 
-" 2. ADIM: VERITABANINA DOGRUDAN SORGGU (Open SQL Entegrasyonu)
+" 2. ADIM: VERITABANINA DOGRUDAN SORGU (Open SQL Entegrasyonu)
 " Java veya C#'ın aksine, ABAP içinden direk SQL atarsınız, kütüphane gerekmez.
 " VBELN(Fatura No), ERDAT(Tarih), NETWR(Tutar) kolonlarını SAP DB'den SELECT ile çeker.
 SELECT vbeln erdat netwr
@@ -55,7 +55,7 @@ IF sy-subrc = 0. " sy-subrc, 'Son komut basarili mi?' diyen SAP Sistem Degiskeni
   ENDLOOP. " Donguyu Kapat
   
 ELSE.
-  " Eger sonuc yoksa hata mesaji (Message) kullaniciya popup oarak patlatilir
+  " Eger sonuc yoksa hata mesaji (Message) kullaniciya popup olarak patlatilir
   MESSAGE 'Bu tutarin uzerinde kimse siparis vermemis!' TYPE 'I'.
   
 ENDIF.

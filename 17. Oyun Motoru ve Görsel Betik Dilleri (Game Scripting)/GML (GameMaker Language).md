@@ -1,7 +1,7 @@
 # GML (GameMaker Language)
 
 ## Özet
-GML (GameMaker Language); Yoyo Games tarafından üretilen, Dünyanın en köklü ve En Başarılı Bağımsız (Indie) 2D oyun Motorlarından biri olan **GameMaker Studio**'nun arkasında çalışan, C, JavaScript ve Pascal karışımı esnek bir yapıya sahip olan; Oyun Objelerinin (Objects) olaylarını (Events) tetiklemek için tasarlanmış Çok hızlı ve Öğrenmesi Mükkemmel Derecede kolay bir **Oyun Betik Dili'dir.**
+GML (GameMaker Language); Yoyo Games tarafından üretilen, Dünyanın en köklü ve En Başarılı Bağımsız (Indie) 2D oyun Motorlarından biri olan **GameMaker Studio**'nun arkasında çalışan, C, JavaScript ve Pascal karışımı esnek bir yapıya sahip olan; Oyun Objelerinin (Objects) olaylarını (Events) tetiklemek için tasarlanmış Çok hızlı ve Öğrenmesi Mükemmel Derecede kolay bir **Oyun Betik Dili'dir.**
 
 ## Nedir ve Ne İşe Yarar?
 1999 yılında Mark Overmars, "Çocuklar bile oyun yapabilsin" diyerek GameMaker programını ürettiğinde, insanlar oyunlarını "Sürükle-Bırak (Drag&Drop)" tuşlarıyla yapıyordu. Ancak oyunlar Karmaşıklaştıkça (Suni zeka, Matematik, Envanter sistemleri eklendikçe) sürükle-bırak yetmedi.
@@ -27,7 +27,7 @@ Bir `obj_Gemi` isimli Oyun nesnesinin "Her Saniye(Frame) tetiklenen Update/Step"
 ```gml
 /* BU BIR GML (GameMaker Language) STEP EVENT KODUDUR */
 
-// 1. GEMININ YUZUNU(ACISINI) MAUSE İMECİNE DOĞRU ÇEVİRME:
+// 1. GEMININ YUZUNU(ACISINI) MOUSE İMLECİNE DOĞRU ÇEVİRME:
 // point_direction(x1,y1, x2,y2) Özel bir GML Matematik Fonksiyonudur:
 var fareyeCevir_Acisi = point_direction(x, y, mouse_x, mouse_y);
 
@@ -38,12 +38,12 @@ image_angle = fareyeCevir_Acisi;
 // 2. TIKLANMA KONTROLU (Eğer Farenin Sol Tuşuna(Mb_Left) Basılırsa)
 if (mouse_check_button_pressed(mb_left)) {
    
-   // 3. MERMI OLUSTUR ("obj_mermi" ismindeki baska nesneyi Gemnin burnun ucunda Yarat!)
+   // 3. MERMI OLUSTUR ("obj_mermi" ismindeki baska nesneyi Geminin burnunun ucunda Yarat!)
    // (instance_create_layer Cok Klasik modern GameMaker Cihazidir)
    var yeni_mermi = instance_create_layer(x, y, "Mermiler_Katmani", obj_mermi);
    
-   // MERMININ HIZINI VE YONUNU (Geminin yuzunu dondugu Yone Dogru) FIKSELE!
-   // 'with' anahtari Muazzam bir GML ozelligidr (Secilen Diger objenin Icine Girip onun degisknelerini editlersin!)
+   // MERMININ HIZINI VE YONUNU (Geminin yuzunu dondugu Yone Dogru) FİKSELE!
+   // 'with' anahtari Muazzam bir GML özelliğidir (Secilen Diger objenin Icine Girip onun değişkenlerini editlersin!)
    with (yeni_mermi) {
        speed = 15;                       // Mermiye Atesleme hizi ver!
        direction = other.image_angle;    // (other. = Mermiyi Yaratanın/Geminin kendi acisi) Merminin gidis Yönüne eşitle
@@ -55,8 +55,8 @@ if (mouse_check_button_pressed(mb_left)) {
 }
 ```
 
-Bu kadar kısa bir kod, "Fareyi takip eden, Basınca Silah sıkan ve Ses çıkaran" Tıklanabilir (Hotline Miami vari) Bir Uzay Gemisini Ekrana pürüzsüz Cizer! `with` blokları gibi yapılar, Başka yazılım dillerinde Pointerlarla/Refernasla Cebelleşeceğiniz yerlerde İnanılmaz "Tatlı" bir Geliştirici Deneymi sunar.
+Bu kadar kısa bir kod, "Fareyi takip eden, Basınca Silah sıkan ve Ses çıkaran" Tıklanabilir (Hotline Miami vari) Bir Uzay Gemisini Ekrana pürüzsüz Cizer! `with` blokları gibi yapılar, Başka yazılım dillerinde Pointerlarla/Refernasla Cebelleşeceğiniz yerlerde İnanılmaz "Tatlı" bir Geliştirici Deneyimi sunar.
 
 ## Kimler Kullanır?
 * Ekibi olmayan, Tek başına(Solo) Yıllarca Odasına Kapanıp Milyon dolarlık Hayalinin Arkasından Giden **Solo Indie Oyun Geliştiricileri**.
-* Özellikle Yeni Başlayan Lise/Üniversite öğrencileri; C++ ve Unity C#'ın Devasa Class hiyerarşilerinde Boğulmadan, Direkt Ekrana Odaklanıp "Oyunun Eğlence Mantığnı" Kodlamak istediklerinde, Dünyadaki 2D Motorların Tartışmasız Babası Olan GameMaker'a Ve Onun Can suyu GML'ye Sarılırlar. Psikolojik Porselen olarak Çok Esnek ve Başarlıdır.
+* Özellikle Yeni Başlayan Lise/Üniversite öğrencileri; C++ ve Unity C#'ın Devasa Class hiyerarşilerinde Boğulmadan, Direkt Ekrana Odaklanıp "Oyunun Eğlence Mantığını" Kodlamak istediklerinde, Dünyadaki 2D Motorların Tartışmasız Babası Olan GameMaker'a Ve Onun Can suyu GML'ye Sarılırlar. Psikolojik Porselen olarak Çok Esnek ve Başarılıdır.

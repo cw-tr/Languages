@@ -10,7 +10,7 @@ JavaScript'in C tarzı `{}` süslü sözdizimine karşı; VBScript düz İngiliz
 
 **Ne İşe Yarar?**
 * **1990'ların ASP(Eski Klasik) Web Mimarisi:** PHP veya C# gelmeden önce; Microsoft sunucularında Web sitesi yaratan (Veritabanından tablo çeken) orijinal **Classic ASP** (Active Server Pages) kodları baştan ayağa %100 VBScript ile yazılırdı `<% ... %>` tagları arasında!
-* **Windows'un Meşhur Zararlıları (Malware):** Windows `.vbs` uzantılı bir doyanın içine tıklandığında, Kod gidip (FileSystemObject aracılığıyla) Outlook Maillerini açma ve klasör silme yeteneğine sahipti. Tarihin efsanevi bilgisayar çökerten ("Seni Seviyorum" - I Love you Virüsü) tamamen VBScript ile kodlanmış bir şakadır. 
+* **Windows'un Meşhur Zararlıları (Malware):** Windows `.vbs` uzantılı bir dosyanın içine tıklandığında, Kod gidip (FileSystemObject aracılığıyla) Outlook Maillerini açma ve klasör silme yeteneğine sahipti. Tarihin efsanevi bilgisayar çökerten ("Seni Seviyorum" - I Love you Virüsü) tamamen VBScript ile kodlanmış bir şakadır. 
 
 ## Dilin Mantığı ve Kod Yapısı
 Tam bir **Visual Basic 6 (VB6) Klonudur**, fakat hafifletilmişidir. Tipler Ciddi Değildir (Strict Typing Yoktur). Integer, String, Array diye bir şey deklare edemezsiniz; bütün tipler meşhur **`Variant` (Ne gelirse O olur)** adlı hayalet bir tip ile tanımlanmak zorundadır.
@@ -40,12 +40,12 @@ Set fsoBilgisayarSistemi = CreateObject("Scripting.FileSystemObject")
 
 
 ' 3. SİSTEMİ ÇALIŞTIRMA (C diskine Dosya Bas):
-' Belirtilen yola Text (Txt) dosya yarat (True = Eger onceki varsa Üstune Yazma Vurus Yapi):
+' Belirtilen yola Text (Txt) dosya yarat (True = Eger onceki varsa Üstune Yazma Vurus Yap):
 Set sistemRaporDosyasi = fsoBilgisayarSistemi.CreateTextFile("C:\Logs\WindowsVBScript_Test.txt", True)
 
 ' Dosyanın icini yaz!
 sistemRaporDosyasi.WriteLine("VBScript Tarafindan Otomatik Bir Islemdir.")
-sistemRaporDosyasi.WriteLine("Bu dil Javascriptin kani olarak Microsof tarafindan Internet Explorerda dayatilmistri!")
+sistemRaporDosyasi.WriteLine("Bu dil Javascriptin kani olarak Microsoft tarafindan Internet Explorerda dayatilmistir!")
 
 ' Dosyayi kapat ki Windows Bellekten(RAM'den) dusursun
 sistemRaporDosyasi.Close
@@ -66,7 +66,7 @@ Else
 
 End If ' Donguyu Sonlandir!
 ```
-Bu dosya uzantısını `Test.vbs` yapıp masaüstünde tıkladığınızda; Arkaplanda Siyah Terminal Asla gözükmez, bilgisayar anında bir saniyede Text dosyasını açar ve sizin karşınıza renkli/sesli "Sistem Başarılı!" MsgBox kutusu (Dınk!) sesiyle çıkartır. Bu yüzden Virüs yazarlarının efsanevi gözdesidi oldu.
+Bu dosya uzantısını `Test.vbs` yapıp masaüstünde tıkladığınızda; Arkaplanda Siyah Terminal Asla gözükmez, bilgisayar anında bir saniyede Text dosyasını açar ve sizin karşınıza renkli/sesli "Sistem Başarılı!" MsgBox kutusu (Dınk!) sesiyle çıkartır. Bu yüzden Virüs yazarlarının efsanevi gözdesi oldu.
 
 ## Kimler Kullanır?
 * Klasik **Eski Kurumsal Microsoft Sistem (Aktif Dizin/Active Directory) Adminleri**, VBScript ile personellerin sabah bilgisayarlarını açtıklarında "Ağa Otomatik bağlanma" Login scriptleri yazarlardı. 

@@ -9,7 +9,7 @@ Geliştiricisi Andrew Kelley, C dilindeki tarihi kalıntılardan ve gizli makro 
 Zig felsefesinde "Açıklık ve Şeffaflık" vardır: "Eğer kodunuzun bir satırında RAM istendiği (Allocation), bir veri akışı sağlandığı yazmıyorsa; arka planda *gizli* hiçbir makro, fonksiyon veya sihir çalışamaz." 
 
 **Ne İşe Yarar?**
-* **Gömülü Sistemler (Embedded):** İşletim sistemsiz ortamlar, mikrokontrolcüler ve minik elektronik beyniler için (C'nin aksine) sıfırdan "Standart Kütüphanesiz" (freestanding) devasa boyutta hızlı kodlar yazar.
+* **Gömülü Sistemler (Embedded):** İşletim sistemsiz ortamlar, mikrokontrolcüler ve minik elektronik beyinler için (C'nin aksine) sıfırdan "Standart Kütüphanesiz" (freestanding) devasa boyutta hızlı kodlar yazar.
 * **C ile Kusursuz Uyumluluk:** Dünyadaki tüm C/C++ derleyicilerinin yerini alabilen bir "Çapraz Derleyici (Cross-Compiler)" harikasıdır. Zig kullanarak on yıllanmış C kodu kütüphanelerini zerre değişiklik yapmadan programınıza anında import edebilirsiniz.
 * **Oyun Geliştirme:** Makineye tam erişim ve sıfır gecikme sayesinde modern indie (ve büyük ölçekli) motor kodlamalarında, makrolar içinde boğulmadan geliştirme yapma imkanı sunar.
 
@@ -36,8 +36,8 @@ pub fn main() !void {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator(); 
     
-    // RAM yığıtımdan (Heap) 100 sayılık bir dizi (array) için açıkça yer istiyoruz.
-    // "try" komutu Zig'in hata denetimidir. Eğe RAM dolmuşsa anında 'catch' edip çökmeyi önler.
+    // RAM yığınından (Heap) 100 sayılık bir dizi (array) için açıkça yer istiyoruz.
+    // "try" komutu Zig'in hata denetimidir. Eğer RAM dolmuşsa anında 'catch' edip çökmeyi önler.
     var numbers = try allocator.alloc(u32, 100);
     
     // İŞTE ZİG ERDEMİ: Bellek silme (free) işlemini yazıp "defer" kelimesiyle işaretliyoruz.

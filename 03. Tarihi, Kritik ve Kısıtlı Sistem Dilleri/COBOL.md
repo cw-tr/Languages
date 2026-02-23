@@ -20,7 +20,7 @@ COBOL, programları `Bölümlere (Divisions)` ayırır. Tıpkı bir şirketin de
 Komutlarda süslü parantezler `{` yerine tamamen İngilizce gramer hakimdir. Satırların sonunda tıpkı normal bir cümledeki gibi nokta `.` konur. Bir sayıyı değişkene atamak için `=` işareti yerine `ADD 5 TO BANKA-HESABI` şeklinde cümle kurulur.
 
 **Örnek İşleyiş (Sembolik Olarak):**
-Eğer günümüzdeki C veya Python dilinde "Maaştan vergi oranını çıkarıp Net Maaşı bul" demek isteseydik `netMas = brütMaas - (brütMaas * 0.20)` gibi matematiksel simgeler kullanırdık. COBOL'da ise kelimenin tam anlamıyla "Brüt Maaş'ı 0.20 ile çarp Vergi'ye at, sonra Vergi'yi Brüt Maaş'tan çıkar Net Maaş'a at" şeklinde bir kompost kurulur.
+Eğer günümüzdeki C veya Python dilinde "Maaştan vergi oranını çıkarıp Net Maaşı bul" demek isteseydik `netMaas = brütMaas - (brütMaas * 0.20)` gibi matematiksel simgeler kullanırdık. COBOL'da ise kelimenin tam anlamıyla "Brüt Maaş'ı 0.20 ile çarp Vergi'ye at, sonra Vergi'yi Brüt Maaş'tan çıkar Net Maaş'a at" şeklinde bir kompozisyon kurulur.
 
 ### Örnek Bir COBOL Kodu: İşlem ve Para Aktarımı
 Okuması tamamen doğal İngilizce roman gibi gelen, iki şirket arası para transferi yapan, veriyi işleyen tipik (eski usul) bir şirket içi `Procedure` parçası:

@@ -46,8 +46,8 @@ kadin(ayse).
 
 % 2. BOLUM: KURALLAR (Rules - AI Engine)
 % Simdi Sisteme Bilgelik ekleyelim.
-% ":-" isareti (EGER / SUPPONISE) anlamina gelir. BÜYÜK HARFLER Degiskendir.
-% Okunusu: "EGER; X, y'nin babası ise VE (,) X ayni zamanda erkeksi, X Y'nin Ogludur iddasi dogrudur!"
+% ":-" isareti (EGER / SUPPOSE) anlamina gelir. BÜYÜK HARFLER Degiskendir.
+% Okunusu: "EGER; X, y'nin babası ise VE (,) X ayni zamanda erkekse, X Y'nin Ogludur iddiası dogrudur!"
 
 oglan_cocugu(Y, X) :- 
     baba(X, Y), 

@@ -4,66 +4,66 @@
 TLA+ ; 1999 yılında Turing Ödülü sahibi Efsanevi Bilgisayar Bilimcisi **Leslie Lamport** (Aynı Zamanda LaTeX sisteminin 'La' kısmının Yaratıcılarındandır!) tarafından icat edilen; Dünyadaki devasa dağınık sistemlerde (Örneğin Amazon'un Kıtalararası Sunucu Sistemleri), Kodu Çalıştırmadan BİLE **"Kodun Altyapısı / Mimarisinin (Dizaynı) İçerisinde Evrenin Çökebileceği Paralel (Eşzamanlılık) Zaman Hataları (Race Conditions) ve Kilitlenmeler(Deadlocks) Var Mı"** sorusunu; Matematiksel Kümeler teorisi ve Zaman Mantığı (Temporal Logic) kullanarak tarayan, Mimarilerin Çöküş İhtimalini Yok eden Muazzam Bir **Model Denetleyicisi ve Tasarım (Specification) Dilidir**.
 
 ## Nedir ve Ne İşe Yarar?
-Diyelim ki C++ ile veya Java ile bir Program (Veritabanı Senkrozonisyonu) Veya Blockchain Ağı yazdınız. Aynı ANDA(Milisaniyede) Müşterilerin 2 tanesi Para Çekmeye Basarsa ne olacağını TEST edebilirsini(!). Ancak sisteminiz 1 Milyar Kullanıcıyla Büyüyüp 200 Sunucu arasına Dağıldığında (Distributed Systems);  3 Numaralı Cihaz, 8 Numaralı Makineye Komut Göndeririken **Tam Saniyenin 1/Trilyonu hızında Kesintiye (Elektrik vs) uğrarsa Algoritmalar Nasıl Bir ATEŞE düşer?** Bu "Beklenmedik Zaman (Concurrency) Hataları"; Milyonda Bir çıkar Ama Çıkdığında Sistemi Havaya Uçurur. (Bknz: Kriptopara Hacklarl, AWS cökmeleri).
+Diyelim ki C++ ile veya Java ile bir Program (Veritabanı Senkronizasyonu) Veya Blockchain Ağı yazdınız. Aynı ANDA (Milisaniyede) Müşterilerin 2 tanesi Para Çekmeye Basarsa ne olacağını TEST edebilirsiniz(!). Ancak sisteminiz 1 Milyar Kullanıcıyla Büyüyüp 200 Sunucu arasına Dağıldığında (Distributed Systems); 3 Numaralı Cihaz, 8 Numaralı Makineye Komut Gönderirken **Tam Saniyenin 1/Trilyonu hızında Kesintiye (Elektrik vs) uğrarsa Algoritmalar Nasıl Bir ATEŞE düşer?** Bu "Beklenmedik Zaman (Concurrency) Hataları"; Milyonda Bir çıkar Ama çıktığında Sistemi Havaya Uçurur. (Bknz: Kriptopara Hackleri, AWS çökmeleri).
 
-Leslie Lamport Derki: **Kodlama bir Eziyettir. Biz KODU Yazmadan Önce; Algoritmanın Tasarımını "Tahtada MATEMATİKSEL MANTIKLA" Dizecegiz !**
-Siz Sistemin Tasarımını (Mesela Bir ATM PArA Cekme algoritmyasını) TLA+ formülüne dökersininz. Arkasındaki Model Deneteyeci (TLC Motoru), Sizin algoritmanızın "Bütün Olası Evrenlerini (State Machine)" Açar ve "Bak Bak, Şurada Aynı Milisanide 2 Kisi Basaersa VE Veritbnaı Cöekerse SAyfalat Boş Gelebirili" diyip BUGI YÜZÜNÜZE TOKAT GİBİ VURUR.
+Leslie Lamport Derki: **Kodlama bir Eziyettir. Biz KODU Yazmadan Önce; Algoritmanın Tasarımını "Tahtada MATEMATİKSEL MANTIKLA" Dizeceğiz!**
+Siz Sistemin Tasarımını (Mesela Bir ATM Para Çekme algoritmasını) TLA+ formülüne dökersiniz. Arkasındaki Model Denetleyici (TLC Motoru), Sizin algoritmanızın "Bütün Olası Evrenlerini (State Machine)" Açar ve "Bak Bak, Şurada Aynı Milisanide 2 Kişi Basarsa VE Veritabanı Çökerse Sayfalar Boş Gelebilir" deyip BUG'ı YÜZÜNÜZE TOKAT GİBİ VURUR.
 
 **Ne İşe Yarar?**
-* **Amazon Web Services (AWS) - DinamoDB:** Dünyanını İnternetini(Bulutunu) tutam Amanzon, 2011 lerde kendi iç Altyapılarını TLA+ Motruna Soktuğunda "Yıllaca Hiç Kİsmenin Fark etmediği", Üstelik Aylar Süren Unit/Milyon Trilyon Tesstlerde (QA) ASLA Ortaya Şıkamayn **Devasa Gizli Dizayn Hataları** Bulnups Sistemler O Htalardan Kuratırlnmıştır!.
-* Havacılık / Otomativ (Rover Araçları): Yazılım Mimarları TLA+ yi C# Coderlara vermez; "Mimarlara" verir. Arkmadas Senin Tasarımın Daha Başatan Hatalı! Demek İçni.
+* **Amazon Web Services (AWS) - DynamoDB:** Dünyanın İnternetini(Bulutunu) tutan Amazon, 2011'lerde kendi iç Altyapılarını TLA+ Motoruna Soktuğunda "Yıllarca Hiç Kimsenin Fark etmediği", Üstelik Aylar Süren Unit/Milyon Trilyon Testlerde (QA) ASLA Ortaya Çıkmayan **Devasa Gizli Dizayn Hataları** Bulunup Sistemler O Hatalardan Kurtarılmıştır!
+* Havacılık / Otomotiv (Rover Araçları): Yazılım Mimarları TLA+ yi C# Coderlara vermez; "Mimarlara" verir. Arkadaş Senin Tasarımın Daha Baştan Hatalı! Demek İçin.
 
 ## Dilin Mantığı ve Kod Yapısı
 Çizimler, Mantık Kapıları (VE/VEYA) ve Küme teorisidir(Set Theory). 
 Çok Aşırı Akademiktir. "Zaman İçindeki Gidişat (Next State)" Kavramı TLA+ nın Kalbidiri (Temporal Logic).
 
-Süslü Oklar, `=>` (Implies - Şunu Gerektiriir), `/\` (Mantıksal VE - AND), `\/` (Mantksal VEYA) gibi Sembollerle Kağıt uzerindeki Filozof Fikirleri İnşa edlierilir.. TLA+ nın Kendoi Bir IDE si (Arauzu/Araci Vardir ve Kod Yazip O İdnein Güzüne(TLC Cihaziinaa) atarsınız.
+Süslü Oklar, `=>` (Implies - Şunu Gerektirir), `/\` (Mantıksal VE - AND), `\/` (Mantıksal VEYA) gibi Sembollerle Kağıt üzerindeki Filozof Fikirleri İnşa edilebilir.. TLA+'nın Kendi Bir IDE'si (Arayüzü/Aracı) Vardır ve Kod Yazıp O IDe'nin Gözüne (TLC Cihazına) atarsınız.
 
-### Örnek Bir TLA+ Spesifikasyonu: İki Tane "İş Parçacığının" (Yazılımın) Veritabaınada İhtilafa (Race Conditiona) Düşmeden Aynı Sayıyı Duzenleybilme Matematigi Tasarimi!
+### Örnek Bir TLA+ Spesifikasyonu: İki Tane "İş Parçacığının" (Yazılımın) Veritabanında İhtilafa (Race Condition'a) Düşmeden Aynı Sayıyı Düzenleyebilme Matematiği Tasarımı!
 
-Aşağıda Bir Para Transfşerinin Kitleyici Tasarımı (TLA+ Spesifikysyn Formülze eedemişi) Görüülmektedir:
+Aşağıda Bir Para Transferinin Kilitleyici Tasarımı (TLA+ Spesifikasyonu Formülize edilmişi) Görülmektedir:
 
 ```tla
 ----------------------- MODULE ParaTransferSistemi -----------------------
 
-EXTENDS Integers  \* Integer(Tam SAyi) Kutuphanresii Cek, Matematige Basliyoruz!
+EXTENDS Integers  \* Integer(Tam Sayı) Kütüphanesini Çek, Matematiğe Başlıyoruz!
 
-(* DEGISKENLERIN (Sistemin Durumnlari) BEYANI *)
+(* DEGISKENLERIN (Sistemin Durumları) BEYANI *)
 VARIABLES bakiye_Ali, bakiye_Veli, pc  
-\* pc = (Program Counter - Makine o an Isllemdin Hangi Asamasinsa (Sateinde))
+\* pc = (Program Counter - Makine o an İşlemin Hangi Aşamasında (State'inde))
 
 
-(* 1. INIT(ILK DURUM): SİSTEMİN BASLANGIC KURULUMLARI (Cihazilk Actlııgında Ne Halde?) *)
+(* 1. INIT(ILK DURUM): SİSTEMİN BAŞLANGIÇ KURULUMLARI (Cihaz ilk Açıldığında Ne Halde?) *)
 Init == 
-    /\ bakiye_Ali = 100               \* Alinin Baslangicta 100 Dollari var  (DİNKAT!! /\ İSaretleri 'Mantıksal VE' Demektir!)
-    /\ bakiye_Veli = 50               \* Veliniin Basşlangicta 50 Dolari Var
-    /\ pc = "Başlangıç"               \* Sistem Su an Başangcta Uyumada Duruyor.
+    /\ bakiye_Ali = 100               \* Alinin Başlangıçta 100 Doları var  (DİKKAT!! /\ İşaretleri 'Mantıksal VE' Demektir!)
+    /\ bakiye_Veli = 50               \* Velinin Başlangıçta 50 Doları Var
+    /\ pc = "Başlangıç"               \* Sistem Şu an Başlangıçta Uyumada Duruyor.
 
 
-(* 2. OPERASYON / EYLEM (Action): Ali'den Veliye 30 Dolar Yollanmasi Gidişatti *)
+(* 2. OPERASYON / EYLEM (Action): Ali'den Veliye 30 Dolar Yollanması Gidişatı *)
 TransferOperasyonu == 
-    /\ pc = "Başlangıç"               \* ŞART: Bu İslemi Ypamasi icn Programin O an Bashlaginc Durumuda(Firesiz) Olmması Gerekir!
-    /\ bakiye_Ali >= 30               \* ŞART 2: Alinin İçerdeki pariasi Mutalaka ama MOtlka 30 Dah veYa Buyuk Olanbilsin! (Eksiye Dussmesisn!)
-    /\ bakiye_Ali' = bakiye_Ali - 30  \* DEGİSİM (Kesme İšareiti( ' ) 'Next State/Gelecek Zanman' demekkttir!!. Yani ALİNİN GELECEKTEKİ PARASİ = Eskii Parasindan 30 eksiltilmis OLACAKTIR!!)
-    /\ bakiye_Veli' = bakiye_Veli + 30\* Velininin GElckteki Yebni Parsi == ESki parssina 30 Elkemnsidir.
-    /\ pc' = "Transfer_Bitti"         \* GEllcktieiki Zamnada Prgormanin Durmus Halaii ("Trafnser Bttit)" Oloarak Dgisir!
+    /\ pc = "Başlangıç"               \* ŞART: Bu İşlemi Yapması için Programın O an Başlangıç Durumunda (Firesiz) Olması Gerekir!
+    /\ bakiye_Ali >= 30               \* ŞART 2: Alinin İçerdeki parası Mutlaka ama Mutlaka 30'dan veya Büyük Olabilsin! (Eksiye Düşmesin!)
+    /\ bakiye_Ali' = bakiye_Ali - 30  \* DEĞİŞİM (Kesme İşareti ( ' ) 'Next State/Gelecek Zaman' demektir!!. Yani ALİNİN GELECEKTEKİ PARASI = Eski Parasından 30 eksiltilmiş OLACAKTIR!!)
+    /\ bakiye_Veli' = bakiye_Veli + 30 \* Velinin Gelecekteki Yeni Parası == Eski parasına 30 Eklenmesidir.
+    /\ pc' = "Transfer_Bitti"         \* Gelecekteki Zamanda Programın Durmuş Hali ("Transfer_Bitti") Olarak Değişir!
 
 
-(* 3. GELECEK(NEXT STATE) TANIMLAMASI : Bütün Sistsein Ne Yöne Akacanigin BElrtiemsidiri *)
+(* 3. GELECEK(NEXT STATE) TANIMLAMASI : Bütün Sistemin Ne Yöne Akacağının Belirtilmesidir *)
 Next == 
-    \/ TransferOperasyonu  \* Ya BU Transfer İšlemi Yaslanir (Mantıksal VEYZ - \/  sembolu)
-    \/ (pc = "Transfer_Bitti" /\ UNCHANGED <<bakiye_Ali, bakiye_Veli, pc>>) \* VEYSDA, İşlkmem zatte BİTMİŞTİ R Ve Sistem DAha da Harkeket Etmez(UNCHANGED Donar Kalir).
+    \/ TransferOperasyonu  \* Ya Bu Transfer İşlemi Uygulanır (Mantıksal VEYA - \/ sembolü)
+    \/ (pc = "Transfer_Bitti" /\ UNCHANGED <<bakiye_Ali, bakiye_Veli, pc>>) \* VEYA, İşlem zaten BİTMİŞTİR Ve Sistem Daha da Hareket Etmez (UNCHANGED Donar Kalır).
 
 
-(* TEMEL SPESYFIYKSAON(Sartname - Kapsayucu Felseefe) - SİTEMİN TÜM YUKUMLLLUGU *)
-====> İLk Durumla(Init) BAslar, Ve Zamzn(Teomproal Ok- >) Icinde "NExt" İslemelriyle Devmm edeer !!
+(* TEMEL SPESİFİKASYON (Şartname - Kapsayıcı Felsefe) - SİSTEMİN TÜM YÜKÜMLÜLÜĞÜ *)
+====> İlk Durumla(Init) Başlar, Ve Zaman (Temporal Ok ->) İçinde "Next" İşlemleriyle Devam eder !!
 Spec == Init /\ [][Next]_<<bakiye_Ali, bakiye_Veli, pc>>
 
 --------------------------------------------------------------------------
 ```
 
-Bu kod "TLC Model Deneteyicisi"Ne Verildiğinda; TLC Mototru Butun Zamansal Olaszılkrı Ve Pararlel (3 Kisi aynna ANda Girdi) ihtimlareinii (Milyoralraca İhtimal) 2 Dnkkada Acacaek. Eeğer Sistem Cokmuyosa "TASAIIMIN KUSURSUZ (Deadlocok YOK)!" Diyeck. EGe Cökerseb sana Yol Haritisai cikaartackt "Ali Aynnanda SAaniyernun trilonuda 1inde Basarss Veli de  Basara Para Buharlasararak Kaybolduğunu Tespti EttiTimm!!" Diycek!
-Sen Tasraminu(Speckfikoyasnnu) düzellttiken SOnra Kodcyaral (C++/JAva cularraı) Cagirip; "BEYLER BU FORMULLÜN GERÇEĞİNI KODLAYIN YIKILAMAZ BIR KALE KURYTUK " Diueckeisin!
+Bu kod "TLC Model Denetleyicisi"ne Verildiğinde; TLC Motoru bütün zamansal olasılıkları ve paralel (3 kişi aynı anda girdi) ihtimallerini (Milyarlarca ihtimal) 2 dakikada açacak. Eğer sistem çökmüyorsa "TASARIMIN KUSURSUZ (Deadlock YOK)!" diyecek. Eğer çökerse sana yol haritası çıkartacak "Ali aynı saniyenin trilyonda birinde basarsa Veli de basarsa paranın buharlaşarak kaybolduğunu tespit ettim!!" diyecek!
+Sen Tasarımını (Spesifikasyonunu) düzelttikten sonra kodcuları (C++/Java'cıları) çağırıp; "BEYLER BU FORMÜLÜN GERÇEĞİNİ KODLAYIN YIKILAMAZ BİR KALE KURDUK" diyeceksin!
 
 ## Kimler Kullanır?
-* C/C++/Java Geliştirici Coderların Başinda Durup O Kodların "Yol ve Dizayn Haritasını Çİzen" Yüce Dağlardaki **Distrubted Systems (Dagıtık Sistemler) Kademeli (Senir/Staff Yöneticisni) Yazılım Mimari, Akademisyenleri, Microsoft(Azzure/Xbox Cekirdegi) Ve Amzon (Bulut Altyapsii)**.  Maliyeten Kacaraktan "Biz Tasarima İhtiyacc Duymuruyiz" diyen Kurumun, Gününn Sonuna Buluktakin Patlaklarka Tirmıalyan Acısını Çözen; Mİlyon Dolarlık Hatalrı 3 Sayffaliıik "Felseffi(TLA Formulleriu)" yle İptal Endem , Dünyanini EN Zekice ve EN zor Sanatlarından Biridir..
+* C/C++/Java Geliştirici Coderların Başında Durup O Kodların "Yol ve Dizayn Haritasını Çizen" Yüce Dağlardaki **Distributed Systems (Dağıtık Sistemler) Kademeli (Senior/Staff Yöneticisi) Yazılım Mimarları, Akademisyenleri, Microsoft (Azure/Xbox Çekirdeği) ve Amazon (Bulut Altyapısı)**. Maliyetten Kaçaraktan "Biz Tasarıma İhtiyaç Duymuyoruz" diyen Kurumun, Günün Sonunda Buluttaki Patlaklarla Tırmalayan Acısını Çözen; Milyon Dolarlık Hataları 3 Sayfalık "Felsefi (TLA Formülleri)" yle İptal Eden, Dünyanın En Zekice ve En Zor Sanatlarından Biridir.

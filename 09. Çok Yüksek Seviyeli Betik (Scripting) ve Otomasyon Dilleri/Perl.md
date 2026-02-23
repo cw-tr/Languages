@@ -22,13 +22,13 @@ Değişkenler Tiplerle değil, **Sembollerle (Sigils)** başlar:
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Python Döngü: `for kelime in liste: print(kelime)`
-Perl Mükemmelliği (Sembol Çorbası): `print "$_\n" foreach @liste;` (`$_` Perl'de "Mevcut olan şey (Default Variable)" anlama gelen Özel ve ürkütücü bir karanlık semboldür!).
+Perl Mükemmelliği (Sembol Çorbası): `print "$_\n" foreach @liste;` (`$_` Perl'de "Mevcut olan şey (Default Variable)" anlamına gelen Özel ve ürkütücü bir karanlık semboldür!).
 
 ### Örnek Bir Perl Kodu: Regex ile Log Dosyası Katili 
 Ekrana basiti göstermek yerine; 1995'lerde Sistem Adminlerinin C++'ı çöpe atıp Perl'e taptığı o muazzam Regex (Pattern Matching) entegrasyonu:
 
 ```perl
-# Perl dilinde yorum listeleri Diez/Hashtag (#) ile baslar
+# Perl dilinde yorum satırları Diyez/Hashtag (#) ile baslar
 
 # 1. SEMBOLLER VE DEĞİŞKENLER (SIGILS)
 # Dolar ($) Tekillik, Et (@) Cogulluk belirtir:
@@ -37,7 +37,7 @@ my @log_satirlari = (
     "ERROR: Saat 10:00 - Disk Doldu",
     "INFO: User Ali giris yapti",
     "ERROR: Saat 10:15 - RAM Tespit Edilemedi!",
-    "WARNING: CPU Sicakligi Yksek"
+    "WARNING: CPU Sicakligi Yuksek"
 );
 
 
@@ -47,7 +47,7 @@ print "\n--- $sistem_adi LOG ANALIZI (SADECE HATALAR) ---\n";
 # Foreach dongusu, Dizi(@log_satirlari) icinde doner.
 foreach my $satir (@log_satirlari) {
     
-    # 3. REGULAR EXPRESSION (REGEX) MUCUZESİ (Dilin Kalbine Gomulü)
+    # 3. REGULAR EXPRESSION (REGEX) MUCİZESİ (Dilin Kalbine Gomulü)
     # Bashdaki Grep veya C'deki Kutuphanelere gerek yok! 
     # =~ m/.../ (Match Operatoru) ile Metni saniyesinde Kes:
     
@@ -55,12 +55,12 @@ foreach my $satir (@log_satirlari) {
         
         # Perl Cokusleri (Hafizada Asili Kalan Regex Sonuclari: $1 $2 $3)
         # 1. Parantezin Ici (Saat): $1 'e
-        # 2. Parantezin Ici (Hatanin Kendizi) : $2 'ye OTOMATİK DÜŞER!
+        # 2. Parantezin Ici (Hatanin Kendisi) : $2 'ye OTOMATİK DÜŞER!
         my $saat = $1;
         my $hata_nedeni = $2;
         
         # Nokta (.) isareti ile String(Metin)'ler birbirine Birlesir (+ degil)!
-        print "HATA BULUNDU! Kordinat Saat: " . $saat . " | Mevzu: " . $hata_nedeni . "\n";
+        print "HATA BULUNDU! Koordinat Saat: " . $saat . " | Mevzu: " . $hata_nedeni . "\n";
     }
 }
 
@@ -75,6 +75,6 @@ print "SISTEMI UYAR: Izinsiz Giris Var!\n" if $izinsiz_giris == 1;
 Perl C kodunu aratmayan Hızı; Regex motorunun kalbine gömülü olmasıyla o kadar pratikti ki, CGI(Web) dünyasının tartışılmaz lideri olmuştu. (Fakat kodu okumak 6 ay sonra kendiniz yazsanız bile aşırı zordu).
 
 ## Kimler Kullanır?
-* Klasik donanım ve Ağ altayapı **Sistem Yöneticileri (SysAdmins)** Unix/Linux sunucularda metinleri "sed/awk" dan daha temiz birleştirmek için Hala Perl yazarlar. (`.pl` dosyaları).
-* Biyoinformatik (Bioinformatics) alanında, Milyarlarca Harflik DNA dizilimlerini (A-T-G-C stringlerini) Pytjhondan çok daha hızlı taradığı ve RegEx ile böldüğü için çok popüler kalmıştır.
+* Klasik donanım ve Ağ altyapı **Sistem Yöneticileri (SysAdmins)** Unix/Linux sunucularda metinleri "sed/awk" dan daha temiz birleştirmek için Hala Perl yazarlar. (`.pl` dosyaları).
+* Biyoinformatik (Bioinformatics) alanında, Milyarlarca Harflik DNA dizilimlerini (A-T-G-C stringlerini) Python'dan çok daha hızlı taradığı ve RegEx ile böldüğü için çok popüler kalmıştır.
 * Günümüz WEB programcılığında PHP, Ruby ve Python'a karşı savaşı %100 kaybetmiştir. "Eski" ve bakımı zor (Legacy) kod olarak kabul edilir; fakat Regex dünyasına getirdiği o pratik mühür tüm modern diller tarafından arakalanmıştır.

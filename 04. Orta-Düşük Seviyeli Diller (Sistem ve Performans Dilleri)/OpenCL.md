@@ -6,7 +6,7 @@ OpenCL (Open Computing Language); NVIDIA'nın "sadece benim donanımımla çalı
 ## Nedir ve Ne İşe Yarar?
 Eğer süper hesaplama (yapay zeka, 3D Render vb.) yapmak istiyorsanız ve elinizde NVIDIA GPU yoksa (Örneğin Apple'ın Mac M1/M2/M3 çipleri, Sony PlayStation'un AMD GPU'su, ya da standart bir Intel Dahili Grafik yongası varsa) o sistemde **CUDA çalışmaz**. Ne yazık ki donanım kilitlidir.
 
-İşte tam burada OpenCL devreye girer. Bir standart (API spesifikasyonu ve dil hibriti) olarak OpenCL, ister Intel işlemciniz olsun ister oyun konsollarınızdaki AMD GPU olsun; kodunuzun sistemdeki **sondaşabilecek bütün paralel işlemcilerde (CPU/GPU/FPGA ayrımı yapmaksızın)** aynı anda asimetrik çalışmasını sağlar (Heterojen Hesaplama).
+İşte tam burada OpenCL devreye girer. Bir standart (API spesifikasyonu ve dil hibriti) olarak OpenCL, ister Intel işlemciniz olsun ister oyun konsollarınızdaki AMD GPU olsun; kodunuzun sistemdeki **erişilebilecek bütün paralel işlemcilerde (CPU/GPU/FPGA ayrımı yapmaksızın)** aynı anda asimetrik çalışmasını sağlar (Heterojen Hesaplama).
 
 **Ne İşe Yarar?**
 * **Cihazlardan Bağımsız (Hardware Agnostic) Hesaplama:** Yazılan bir OpenCL kodu hem akıllı telefonun ARM çipinde, hem masaüstü AMD Radeon ekran kartında, hem de bir yapay zeka sunucusunda aynen derlenir ve paralel çalışır.
@@ -18,7 +18,7 @@ OpenCL tıpkı rakibi CUDA gibi, standart *C (ve C++)* dili üzerine inşa edilm
 1. **Host Programı (Konak):** Sistem RAM'inde çalışan ve ekran kartına (veya hedefe) emri/veriyi hazırlayan C/C++ programı.
 2. **Kernel Programı (Çekirdek - Device Code):** Yalnızca o cihazın (GPU'nun) içerisinde yüzlerce işçiye bölünerek çalışacak ana "Paralel C Kodu".
 
-En büyük teknik fark, *Çalışma Zamanında Derleme (JIT Compilation)* yapmasıdır. CUDA kodları `nvcc` ile sisteme gömülürken hazır makine (PTX) formatına getirilmiştir; OpenCL ise kernel kodunu tıpkı standart bir "Düz Metin (String)" gibi okuyup, o saniye bilgisayardaki mevcut AMD veya Intel donatısının driver (sürücü) özelliklerine göre sıfırdan derleyip karta yükler. Bu da ona devasa bir cihaz taşınabilirliği verir.
+En büyük teknik fark, *Çalışma Zamanında Derleme (JIT Compilation)* yapmasıdır. CUDA kodları `nvcc` ile sisteme gömülürken hazır makine (PTX) formatına getirilmiştir; OpenCL ise kernel kodunu tıpkı standart bir "Düz Metin (String)" gibi okuyup, o saniye bilgisayardaki mevcut AMD veya Intel donanımının driver (sürücü) özelliklerine göre sıfırdan derleyip karta yükler. Bu da ona devasa bir cihaz taşınabilirliği verir.
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Yine CUDA örneğindeki 1 milyonluk vektör toplamasını yapalım. OpenCL'de Host (Bilgisayar tarafı) bir C dili dizesine String formatında `A = B + C` yazar. Bunu API üzerinden ekran kartına iletir. Sürücü o andaki karta göre binlerce çekirdeğe `get_global_id` vererek şimşek hızında işi donanıma dağıtır.

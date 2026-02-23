@@ -51,6 +51,6 @@ Ekranda bir kedi figürü vardır ve biz Boşluk (Space) tuşuna basınca havaya
 Bu kadar basittir. Değişken yaratmak, Can puanı tutmak, Puanı ekrana yazdırmak hepsi Lego takmak gibidir. Çocuklar "Syntax Error on Line 15" diye bir kâbus görmezler.
 
 ## Kimler Kullanır?
-* Dünyadaki tüm İlkokul ve Ortaokulların **Bilişim Teknolojileri / Yazılım Öğretmenleri**. Algoritma eğitiminin giriş kapısıdır (Dünyada 100 Milyondan fazla kayılı kullanıcısı vardır).
+* Dünyadaki tüm İlkokul ve Ortaokulların **Bilişim Teknolojileri / Yazılım Öğretmenleri**. Algoritma eğitiminin giriş kapısıdır (Dünyada 100 Milyondan fazla kayıtlı kullanıcısı vardır).
 * Kodlamaya meraklı 8-16 yaş arası çocuklar.
 * Daha sonra kendi oyununu yapmak isteyen Maker/Robotik heveslileri (Scratch'ın blok bağlantıları mBot veya Arduino gibi donanımların da çocuklara öğretilmesinde kullanılır - mBlock vs). Kesinlikle Ticari/Endüstriyel bir dil değildir, ancak eğitim evreninin tartışmasız kralıdır.

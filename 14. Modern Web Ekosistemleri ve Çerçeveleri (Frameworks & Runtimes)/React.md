@@ -1,7 +1,7 @@
 # React
 
 ## Özet
-React (veya React.js); 2013 yılında **Facebook (Meta)** Mühendisi Jordan Walke tarafından icat edilen, İnternet sayfalarındaki Tuşların/Kutuların (Bileşenlerin / Components) birbirine karışmasını engelleyen ve Veriyi anında (Sayfayı yenilemeden) ekranda Işık Hızıyla senkronize eden, Dünyanın en devasa, en popüler, Tek-Sayfa Açılımlı (SPA - Single Page Application) Ön-Yüz (Front-End) **UI Kütüphanesidir**. (Kendisi bir tam teşekküllü MVC Framework değildir lakin öyleymişcesine muammele görür).
+React (veya React.js); 2013 yılında **Facebook (Meta)** Mühendisi Jordan Walke tarafından icat edilen, İnternet sayfalarındaki Tuşların/Kutuların (Bileşenlerin / Components) birbirine karışmasını engelleyen ve Veriyi anında (Sayfayı yenilemeden) ekranda Işık Hızıyla senkronize eden, Dünyanın en devasa, en popüler, Tek-Sayfa Açılımlı (SPA - Single Page Application) Ön-Yüz (Front-End) **UI Kütüphanesidir**. (Kendisi bir tam teşekküllü MVC Framework değildir lakin öyleymişçesine muamele görür).
 
 ## Nedir ve Ne İşe Yarar?
 Eski zamanlarda Facebook'a bir Fotoğraf yüklediğinizde veya Biri mesaj attığında Onu (Bildirim Sayacını Kırmızı *1*) yapabilmek için "Sayfayı F5 atıp Tüm Web Sitesini baştan (Yenilemeniz / Reload) Yüklemeniz" gerekiyordu. jQuery veya eski JS ile Ekrandaki Düğmelerin İçinde yatan Cümleleri (`innerHTML`) değiştirmek sayfayı kasıyor ve kodları çorbaya çeviriyordu (Amelelikti). Spagetti kodu doğuyordu.
@@ -10,15 +10,15 @@ Facebook Mühendisleri dedi ki: "Bizim Ana Bir Verimiz (State - Durum) olsun. (M
 
 **Ne İşe Yarar?**
 * **Dinamik, Kompleks ve Reaktif UI Çizimi:** Instagram (Web), Netflix, Twitter (X) gibi sayfayı asla yenilemeden aşağıya kaydırdıkça(Scroll) yeni verileri arkaplandan (Fetch/Axios) anında çekip pürüzsüz animasyonlarla (DOM çökmeden) ekrana basan modern internet mimarileridir.
-* **Component (Lego) Mimarisi Sayesinde Kod Tekrarsızlığı:** Bir "Özel Siyah Login (Giriş) Butonu" Tasarlarsınız (Kodu 200 Satırdır). İlerleyen günlerde o butonu Web Sitersinin başka 5 Ayrı sayfasında kullanmak istediğinizde Kopya Yapıştır İğrençliği YAPMAZSINIZ! ` <OzelSiyahLoginBtn/>  ` diyerek (Kendi yaptığınız HTML Kılıklı Etiketi) oraya enjekte edersiniz. 
+* **Component (Lego) Mimarisi Sayesinde Kod Tekrarsızlığı:** Bir "Özel Siyah Login (Giriş) Butonu" Tasarlarsınız (Kodu 200 Satırdır). İlerleyen günlerde o butonu Web Sitesinin başka 5 Ayrı sayfasında kullanmak istediğinizde Kopya Yapıştır İğrençliği YAPMAZSINIZ! ` <OzelSiyahLoginBtn/>  ` diyerek (Kendi yaptığınız HTML Kılıklı Etiketi) oraya enjekte edersiniz. 
 
 ## Dilin Mantığı ve Kod Yapısı
 Tamamen **JavaScript (ES6+)** veya **TypeScript** yazılır. Ama en büyük ve Korkunç Buluşu: **JSX (JavaScript XML)** Tır.
 
-Eskiden Front-end Mimarisi Şöyle derdi: "HTML iskeletin, CSS Makyajın, JS Sinir Sistemindir, Hepsini ayrı doymalarda Ayrı Ayrı Tut" (Evrensel kural buydu).
+Eskiden Front-end Mimarisi Şöyle derdi: "HTML iskeletin, CSS Makyajın, JS Sinir Sistemindir, Hepsini ayrı dosyalarda Ayrı Ayrı Tut" (Evrensel kural buydu).
 React dedi ki: "**HAYIR! Bir Ekrana Çizilecek Tuş Tıklanabilir (JS) degilse ÖLÜDÜR. O Halde KODU VE HTML Tasarımını Aynı JavaScript Dosyası (Function) İçine Gömüyorum!**"
 
-JSX Sayesinde, JavaScript Kodlarının Ta kalbine / Dönüş (Return) Emirlerine Doğrudan Dümdüz Html Çakılır ( `<div/>` gibi). Bu başlarda C++ yazılımcılarına "Lanet Tıklanmalık Bir Küfür (İğrençlik)" gelmiş, sonradan "Veri Ekranla Nasıl Bu Kadar Pratik Birleşebillir" diyerek Tapanları trilyonlarca artırmıştır.
+JSX Sayesinde, JavaScript Kodlarının Ta kalbine / Dönüş (Return) Emirlerine Doğrudan Dümdüz Html Çakılır ( `<div/>` gibi). Bu başlarda C++ yazılımcılarına "Lanet Tıklanmalık Bir Küfür (İğrençlik)" gelmiş, sonradan "Veri Ekranla Nasıl Bu Kadar Pratik Birleşebilir" diyerek Tapanları trilyonlarca artırmıştır.
 
 **Örnek İşleyiş (Eski vs React):**
 Eski JS: `document.getElementById('mesajKutu').innerText = "Ali";`
@@ -43,7 +43,7 @@ function SayacButonuMenu() {
     const [tiklamaSayisi, setTiklamaSayisi] = useState(0);
 
     
-    // 3. JAVASCRIPT LOGIC (MANTIK) ISLEMI (Ok Fonksiyni)
+    // 3. JAVASCRIPT LOGIC (MANTIK) ISLEMI (Ok Fonksiyonu)
     const kutuTiklandiginda = () => {
         // Hafızadaki rakami (Eski var olanin uzerine +1 Ekleyip) Guncelle/Ekrana At!
         setTiklamaSayisi(tiklamaSayisi + 1);
@@ -57,7 +57,7 @@ function SayacButonuMenu() {
             
             <h1>Sihirli Reaktif Counter(Sayac)</h1>
             
-            {/* JSX Icine Kirvircik Parantez { } İle Canli JavasCript Degiskenlerini Zerk Ederiz: */}
+            {/* JSX Icine Kivircik Parantez { } İle Canli JavasCript Degiskenlerini Zerk Ederiz: */}
             <p>Butona Su Ana Kadar TAM OLARAK: {tiklamaSayisi} Kere Bastiniz.</p>
             
             {/* HTML EVENT (onClick) 'ine Yukarida Yarattigimiz JS Fonksiyonunu (kutuTiklanginida) YAPIŞTIR */}
@@ -78,4 +78,4 @@ Bu Kod Chrome'da çalıştığında; Button'a Bastığınız an *Sayfa Yenilenme
 ## Kimler Kullanır?
 * Evrendeki ve Silikon Vadisindeki **Web (Front-End) / Single-Page Application (SPA)** İlanlarının %70'inden fazlasını domine eden **React Developer**'lar (Milyonlarca Frontend Geliştirici).
 * Native Mobil Geliştirmeyi bitiren **React Native** Sayesinde; Cep telefonundaki (Android/iOS) Aynı mantıkla (Ufak değişimlerle) mobil uygulama çıkaran Cross-Platform Yazılımcıları.
-* Günümüzde doğrudan saf React (Vite/CRA) Kurulumu, SEO (Arama Motoru indeksleme) dezavatajı yarattığı için **Next.js** Kapsülü içinde Ana omurga (Rendering) olarak kullanılmaya Evrimleşmiştir (Levelin Sıradaki Dilidir).
+* Günümüzde doğrudan saf React (Vite/CRA) Kurulumu, SEO (Arama Motoru indeksleme) dezavantajı yarattığı için **Next.js** Kapsülü içinde Ana omurga (Rendering) olarak kullanılmaya Evrimleşmiştir (Levelin Sıradaki Dilidir).

@@ -4,7 +4,7 @@
 RPG (Report Program Generator); 1959 yılında dev IBM tarafından, şirketlerin Punch-Card (Delikli Kartlar - Bilgisayarlardan önceki karton otomasyonlar) üzerinden okudukları verileri alıp yazıcıdan şık, temiz ve hizalanmış sütünlardan oluşan "Muhasebe Kağıdı/Raporlar" basabilmek amacıyla tasarlanan, ve çok ilginç biçimde devasa mutasyonlar geçirerek (Bugün RPG IV/ILE RPG) modern IBM i (AS/400) kurumsal sunucularının omurgası olarak hâlâ çılgınca kullanılan bir Kurumsal-Sütunlu dildir.
 
 ## Nedir ve Ne İşe Yarar?
-1960'larda ve 70'lerde Fabrikalar, Lojistik ambarlar ya da Maaş dağıtan muhasebeler "Ekrana bir Menü / Web Sitesi" çıkarma derdinde DEĞİLDi. Tek aranan şey; Günün sonunda binlerce depocudan gelen sayıları bilgisayarın (IBM Mainframe) veritabanına atıp bunu "Line-Printer" (Dev Nokta Vuruşlu Yazıcılar) larına kusursuz Sütunlarla Hizalayarak "Rapor" çıkarabilmekti.
+1960'larda ve 70'lerde Fabrikalar, Lojistik ambarlar ya da Maaş dağıtan muhasebeler "Ekrana bir Menü / Web Sitesi" çıkarma derdinde DEĞİLDİ. Tek aranan şey; Günün sonunda binlerce depocudan gelen sayıları bilgisayarın (IBM Mainframe) veritabanına atıp bunu "Line-Printer" (Dev Nokta Vuruşlu Yazıcılar) larına kusursuz Sütunlarla Hizalayarak "Rapor" çıkarabilmekti.
 
 IBM RPG'yi tam bunun için kurdu: Veritabanı (DB2 vb) bağla -> Veriyi İşle -> Kağıda Şık Karakterlerle Yazdır! 
 
@@ -26,7 +26,7 @@ Sütun fantezisini bırakıp modernleştirilmiş, ancak ruhunu hala IBM'in AS/40
 ```rpgle
 **FREE
 // İŞTE MUCİZE ! İlk satıra '**FREE' kelimesi yazılarak IBM derleyicisine
-// "Eski RPG gibi Kodumda Sütun/Hiza bekleme, C/Java gibi özgür okucaksın!" emri ulaştırılır.
+// "Eski RPG gibi Kodumda Sütun/Hiza bekleme, C/Java gibi özgür okuyacaksın!" emri ulaştırılır.
 // // ile baslanan çift slash yorum manasındadır.
 
 // 1. ADIM (F - File/Dosya Spesifikasyonları yerine) Modern Dosya Tanimlamasi:
@@ -41,7 +41,7 @@ DCL-S KalanBorc PACKED(7:2) INZ(0);
 // Program ASIL Buradan "Calismaya / Engine" donmeye baslar!
 DSPLY '---- GUNLUK MUSTERI BAKIYE RAPORU ----';
 
-// Dosyayi (Mustrei.db) Hafizaya Ac ve Okumaya Basla:
+// Dosyayi (Musteri.db) Hafizaya Ac ve Okumaya Basla:
 OPEN Musteriler;
 
 // READ Koduyla veritabanindan tek kayit Cek (Dogrudan dilin Kalbine Gomulu DB entegrasyonu!)
@@ -59,7 +59,7 @@ DOW NOT %EOF(Musteriler);
         DSPLY (Must_Adi + ' ---> Borc Miktari: ' + %CHAR(Bakiye));
     ENDIF;
     
-    // Sonraki Saıtri Oku
+    // Sonraki Satırı Oku
     READ Katalog;
 ENDDO;
 
@@ -67,7 +67,7 @@ ENDDO;
 CLOSE Musteriler;
 DSPLY ('TOPLAM FIRMA ALACAGI: ' + %CHAR(KalanBorc));
 
-// LRM Kapatilmasi (IBM Mainframe Sistemine Programin bittigini soylemek, bellegi temzilemek *INLR)
+// LRM Kapatilmasi (IBM Mainframe Sistemine Programin bittigini soylemek, bellegi temizlemek *INLR)
 *INLR = *ON; 
 ```
 
@@ -75,5 +75,5 @@ Dünyanın yarısını çeviren eski nesil COBOL kodları neyse, Milyarca Lojist
 
 ## Kimler Kullanır?
 * Evinde oturan veya "Mobil uygulama" yapan kimse kullanmaz. 
-* Dünyada hala "AS/400 (Şimdi IBM i Series deniyor)" adındaki Mainframe devasa donanımları şirketlerinde ısrarla koşturan (Çünkü hiç donmuyor, çökmiyor, 30 yıllık Legacy kodu saniyesinde okuyor); büyük Lojistik filoları, Zincir Marketler, Dağıtım ağı yöneten Enterprise firmalar bünyelerinde maaşlı **"RPG IV Developer"** istihdam eder. 
+* Dünyada hala "AS/400 (Şimdi IBM i Series deniyor)" adındaki Mainframe devasa donanımları şirketlerinde ısrarla koşturan (Çünkü hiç donmuyor, çökmüyor, 30 yıllık Legacy kodu saniyesinde okuyor); büyük Lojistik filoları, Zincir Marketler, Dağıtım ağı yöneten Enterprise firmalar bünyelerinde maaşlı **"RPG IV Developer"** istihdam eder. 
 * Gençler bu efsane dilden kaçtığı için, günümüzde iyi bir RPG yazılımcısı ABD ve Avrupa'da inanılmaz yüksek dolar karşılığı transfer rakamlarıyla kapışılır.

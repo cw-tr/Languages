@@ -13,12 +13,12 @@ Smalltalk (Smalltalk-80); 1970'lerde Xerox PARC (Palo Alto Research Center) labo
 * **Canlı Kodlama (Live Programming) ve IDE'nin İcadı:** Siz C dilini yazar, derler, hata olunca tekrar yazar tekrar derlersiniz. Smalltalk bir "Dil" değil bir **Canlı Ekosistemdir**. Program (Image) çalışırken kodun içindeki butona tıklar; "Koduna Git" der ve O SANİYE motoru durdurmadan kodu düzeltirsiniz; buton anında düzelir! Günümüzdeki modern Debugging (Canlı hata ayıklama / IDE) kavramını programlamaya ilk bunlar armağan etmiştir.
 
 ## Dilin Mantığı ve Kod Yapısı
-Çizdiği kurgu devrimsel ve günümüz geleneklerine aykırıdır: Fonksiyon(Function) VEYA Prosedür diye bir kavram yoktur! Onun yerine sadece **Kalıplar(Sınıflar)**, ondan fırlatılmış **Nesneler(Objeler)** ve objelerin birbirlerinin içindeki kalkanlı duvarlarına gönderdiği **"Mesajlaşma (Message Passing)"** mekanizmasına dayalıdır! İki nesne birbirleriyle hücre gibi sinyal/mesaj yollyarak konuşur.
+Çizdiği kurgu devrimsel ve günümüz geleneklerine aykırıdır: Fonksiyon(Function) VEYA Prosedür diye bir kavram yoktur! Onun yerine sadece **Kalıplar(Sınıflar)**, ondan fırlatılmış **Nesneler(Objeler)** ve objelerin birbirlerinin içindeki kalkanlı duvarlarına gönderdiği **"Mesajlaşma (Message Passing)"** mekanizmasına dayalıdır! İki nesne birbirleriyle hücre gibi sinyal/mesaj yollayarak konuşur.
 
 Sözdizimi aşırı farklıdır. Çağrılar `Parametre: Deger` keyword harflerle yapılır. Atamalar matematikteki ok `:=` sembolüyle aktarılır ve kod satırları blok blok değil nokta `.` sembolüyle Aristo cümlesi gibi biter.
 
 **Örnek İşleyiş (Sembolik Olarak):**
-Örneğin `5 + 3` yazarsanız modern programcı bunun Operatörlü matematik işlemi sanır. Smalltalk derleyicisi ise `5` Objtesine, "Bana içindeki `+` isimli metodu çalıştır! Sana mesaj/yük olarak `3` objesini gönderiyorum, yolla bana" diye bağırır. `if` komutu ifadeden sonraki (Boolean) Objesine yazılan bir *MESAJDIR!*. 
+Örneğin `5 + 3` yazarsanız modern programcı bunun Operatörlü matematik işlemi sanır. Smalltalk derleyicisi ise `5` Objesine, "Bana içindeki `+` isimli metodu çalıştır! Sana mesaj/yük olarak `3` objesini gönderiyorum, yolla bana" diye bağırır. `if` komutu ifadeden sonraki (Boolean) Objesine yazılan bir *MESAJDIR!*. 
 
 ### Örnek Bir Smalltalk Kodu: Sınıf ve Mesaj Yollama (Nesne Devrimi)
 Her şeyin bir Sınıf/Nesne kabul edildiği ve metodların boşluk bırakılarak "Mesaj Fırlatması" yapıldığı çok okunabilir ve estetik Pure OOP Cümle(Syntax) yapısı:
@@ -29,7 +29,7 @@ Her şeyin bir Sınıf/Nesne kabul edildiği ve metodların boşluk bırakılara
 " === MESAJ PASLAŞMASI (MESSAGE PASSING) ZEKASI === "
 
 " Basit Mesaj (Unary Message - Objenin Kedine Yollanmasi):
-  Matematik Sinificaki(Float) 'Pi' nesnesine git ve o Objeye, bana kendi 'cos' metodunu calistir diye ishal yolla:"
+  Matematik Sinificaki(Float) 'Pi' nesnesine git ve o Objeye, bana kendi 'cos' metodunu calistir diye mesaj yolla:"
 Float pi cos.  " (Java'da bu `Math.cos(Math.PI);` diye yazilirdi) "
 
 

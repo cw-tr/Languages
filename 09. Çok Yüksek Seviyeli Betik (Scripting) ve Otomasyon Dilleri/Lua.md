@@ -32,7 +32,7 @@ Lua'da özel `Class` vs gibi eziyetlerin olmaması, sadece süslü tablolarlar h
 -- İçine hem Dizi(Array), hem Degisken, Hem İsimli Anahtar ve Hem FONKSIYON alan Matrix.
 -- (Bunun içinden oyun motorundaki C/C++ verisine mudahale edicez).
 
-OyunAyarTablosi = {
+OyunAyarTablosu = {
     oyuncu_ismi = "Kovboy",       -- Key/Value Mantiği
     cani = 100,
     envanter = {"Silah", "İp", "At"}, -- Normal Dizi Mantiği (İç İçe array)
@@ -46,17 +46,17 @@ OyunAyarTablosi = {
 }
 
 -- Çagirma veya Okuma (Lua Programin arkasinda sessizce yorumlayicisindan saniyede gecer):
-print("Oyun Yuklendi: HOSGELDIN " .. OyunAyarTablosi.oyuncu_ismi)
+print("Oyun Yuklendi: HOSGELDIN " .. OyunAyarTablosu.oyuncu_ismi)
 
 -- Fonksiyonu Calistiriyoruz ( ':' (iki nokta) sözdizimi "self" yerine parametre kisaltmasidir):
-OyunAyarTablosi:hasar_al(25)
+OyunAyarTablosu:hasar_al(25)
 
 
 -- === LUA MANTIGI (INDEKSLER 1'DEN BASLAR) ===
 print("\n--- Envanter ---")
 
 -- pairs (Tablo Anahtari ceker) ve ipairs (Sirali Dizi Endeksi çeker):
-for i, esya in ipairs(OyunAyarTablosi.envanter) do
+for i, esya in ipairs(OyunAyarTablosu.envanter) do
     
     -- i (Index C++'in aksine Sifir(0) değil, BİR(1)'den başlar!):
     print("Esya No: " .. i .. " - İsim: " .. esya)

@@ -17,7 +17,7 @@ WebGL ile Javascript üzerinden Tarayıcıdaki `<canvas>` HTML etiketinin içine
 Dili; %100 oranında **JavaScript (Veya TypeScript)**'tir. 
 Yazılım Akışı (Mantığı) ise tamamen **OpenGL ES 2.0 (Ve 3.0)** C++ mantığının Saf Birebir JavaScript'e Çevrilmiş (Çakma C++) Kopyasıdır. (State Machine Mimarisi).
 
-Ancak WebGL ÇÇOOOOK Zor, uzun ve Amele(Boilerplate) bir sintaksa sahiptir. Siyah Rengi ayarlamak için bile 50 satır Güvenlik tamponu(Buffer) Javascripti yazmanız Gerekir.
+Ancak WebGL ÇÇOOOOK Zor, uzun ve Amele(Boilerplate) bir sözdizimine(sintaksa) sahiptir. Siyah Rengi ayarlamak için bile 50 satır Güvenlik tamponu(Buffer) Javascripti yazmanız Gerekir.
 
 Bu yüzden Geliştiricilerin %99'u Asla SIFIRDAN WebGL yazmaz! Bunun yerine WebGL'in karmaşıklığını "İnsancıl OOP/Sınıflara" çeviren meşhur **Three.js** Veya **Babylon.js** gibi Kütüphaneler/Oyun Motorları kullanırlar.
 
@@ -29,7 +29,7 @@ JS: `const gl = document.getElementById('oyunAlanim').getContext('webgl'); gl.cl
 Aşağıda "Boş(Vanilla)" WebGL (500 satır sürer) yerine; Milyonların WebGL'i kullanmak için sarıldığı Three.js Kütüphanesi ile yazılmış modern bir Browser 3D Render'ı Şöyledir:
 
 ```javascript
-// THREE.JS (WebGL'i kolaylaştıran Dünya Lideri Kütüphane) kullanarak Web Tarayicisinde DÜnya Olustyrmmak:
+// THREE.JS (WebGL'i kolaylaştıran Dünya Lideri Kütüphane) kullanarak Web Tarayicisinde Dünya Oluşturmak:
 
 // 1. SAHNE (WORLD) VE KAMERA (GOZ)
 // 3 Boyutlu Karanlik uzayi (Sahne) yaratiyoruz

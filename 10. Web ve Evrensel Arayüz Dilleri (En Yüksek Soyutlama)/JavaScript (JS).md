@@ -35,7 +35,7 @@ Herhangi bir kurulum gerektirmeyen (F12 ye basıp Chrome'da bile yazılan) Web s
 const kayitButonu = document.getElementById("uyeOl");
 
 /* 2. ADIM: Olay Dinleyicisi (Event Listener). 
-   JS Asla sayfayi veya Tıklamayi beklemez! Butona "Sana basilana kadar arkada uyu, Basilinca(click) şu foksiyonu tetikle" der. */
+   JS Asla sayfayi veya Tıklamayi beklemez! Butona "Sana basilana kadar arkada uyu, Basilinca(click) şu fonksiyonu tetikle" der. */
 kayitButonu.addEventListener("click", ayniAndaBirdenFazlaIslemYap);
 
 
@@ -66,7 +66,7 @@ async function ayniAndaBirdenFazlaIslemYap() {
     } catch (hata) {
         
         // Coktu mu? İnternet mi koptu? Asla Kirmizi ölüm mesaji çikarma, Temizce buraya düş.
-        console.error("Malesef baglanti kurulamadi: ", hata);
+        console.error("Maalesef baglanti kurulamadi: ", hata);
         alert("Sunucu çöktü canım, sonra gel.");
         
     }

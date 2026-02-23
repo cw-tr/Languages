@@ -40,7 +40,7 @@ VAR
     isim: String;
     gecerMi: Boolean;
 
-{ PROSEDÜRLER (Void Func) Veya FOKSYONLAR }
+{ PROSEDÜRLER (Void Func) Veya FONKSİYONLAR }
 PROCEDURE NotuKontrolEt(notDegeri: Integer);
 BEGIN
     { Atama Mimarisi ( := ) ve Kıyaslama Mimarisi ( = veya >, < ) }
@@ -52,7 +52,7 @@ BEGIN
     ELSE
         BEGIN
             gecerMi := False;
-            Writeln('Malesef kaldiniz. Gelecek seneye bekleriz.');
+            Writeln('Maalesef kaldiniz. Gelecek seneye bekleriz.');
         END;
 END;
 

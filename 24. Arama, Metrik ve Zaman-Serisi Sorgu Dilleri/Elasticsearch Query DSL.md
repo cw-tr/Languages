@@ -10,30 +10,30 @@ AMA! Eğer Netflix, Trendyol veya Wikipedia gibi: İçerisinde Trilyonlarca Cüm
 Elasticsearch Dedi Ki: Bütün Bilişimci Arkadaşlarımız! Beni Sadece Bir REST(Okuma) API'si olarak Görün. Bana HTTP İsteği ile Bir **JSON Zarfı (Query DSL)** Fırlatın. Ben İçerideki Trilyonlarca Metin Dosyasını (Ters İndeksleme - Inverted Index Motoruyla) Tarayıp, Saniyenin Milyonda Birinde "İhtimal/Puan (Score)" Sırasına Göre Dizilmiş En alakalı 10 Ürünü Size Fırlatacağım!
 
 **Ne İşe Yarar?**
-* **Akıllı Ürün Araması (Full-Text Search):** Her e-ticaret sitesinde arama Çubuğu nun Arka Planı (Elasticsearch/Lucene) 'dur. 
-* **Skorlama (Alaka Düzeyi - Relevancy):** Siz Arama Yaptıiğnzda Gelen Ürünlerin Neden İlk Sırada Geldiği Rastgele DEğildir! "Başlığında Geçiyorsa 5 Puan Ver, Açıklamasnda Gecyosrsa 2 Puan Ver Ama Rengi Mavi İse Ekstra 10 Puan KOY!" Diye Programlama Dilini Esnetir...
+* **Akıllı Ürün Araması (Full-Text Search):** Her e-ticaret sitesinde arama çubuğunun Arka Planı (Elasticsearch/Lucene)'dur. 
+* **Skorlama (Alaka Düzeyi - Relevancy):** Siz Arama Yaptığınızda Gelen Ürünlerin Neden İlk Sırada Geldiği Rastgele Değildir! "Başlığında Geçiyorsa 5 Puan Ver, Açıklamasında Geçiyorsa 2 Puan Ver Ama Rengi Mavi İse Ekstra 10 Puan KOY!" Diye Programlama Dilini Esnetir...
 
 ## Dilin Mantığı ve Kod Yapısı
 Sintaksı Tamamen Bir **JSON (JavaScript Object Notation)** Objesidir. 
-Tüm Kelimeler (Query, Match, Term, Bool, Filter) Belirli Düğüm (Node) Kuralarına Göre İçe İçe (Nested) Geçeçek Şekilde Kurulur. Programcı Okurken Adeta "Çam Ağacı" gibi genişleyen Bir İkna (Boolean) Meknaizması Yaratır.
+Tüm Kelimeler (Query, Match, Term, Bool, Filter) Belirli Düğüm (Node) Kurallarına Göre İçe İçe (Nested) Geçecek Şekilde Kurulur. Programcı Okurken Adeta "Çam Ağacı" gibi genişleyen Bir İkna (Boolean) Mekanizması Yaratır.
 
 ### Örnek Bir Elasticsearch Query DSL Kodu: (Netflix/E-Ticaret Usta Arama Motoru Sorgusu!)
 Bir kullanıcının "Bilgisayar" Arattığı; AMA "Apple" Markası olanları ve "5000 TL den Büyük Olanları" İSTEYİP "Tablet" olanları Dışladığı O İnanılmaz Puanlama Sorgusu:
 
 ```json
-/* BU BIR ELASTICSEARCH QUERY DSL (JSON FORMATNDA ARMA) KODUDUR : */
-/* Sunuccuya Sadece Bu Zarf Yollahhir!! */
+/* BU BIR ELASTICSEARCH QUERY DSL (JSON FORMATINDA ARAMA) KODUDUR : */
+/* Sunucuya Sadece Bu Zarf Yollanır!! */
 {
   "query": {
       
-    // 1. BUYUK (BOOL) KAPSAYICI = Icerise Giren Sartlarin HEpsini Harmanla!
+    // 1. BÜYÜK (BOOL) KAPSAYICI = İçerisine Giren Şartların Hepsini Harmanla!
     "bool": {
         
-      // A) KESINLIKLE OLMASI GEREKENLER (MUST = SQL'in AND İ!)
+      // A) KESİNLİKLE OLMASI GEREKENLER (MUST = SQL'in AND'i!)
       "must": [
         {
-          // METIN ARAMASI (Match) : Başlik Kisminda "Oyuncu Bilgisayari" Gecmeli 
-          // (Fuzzy: Eger Kulancia 'Bılgisyar' Die Yanlis yazdiya Otomatik DUZELTERK BUL!!)
+          // METİN ARAMASI (Match) : Başlık Kısmında "Oyuncu Bilgisayarı" Geçmeli 
+          // (Fuzzy: Eğer Kullanıcı 'Bılgisyar' Diye Yanlış yazdıysa Otomatik DÜZELTEREK BUL!!)
           "match": {
             "title": {
               "query": "oyuncu bilgisayarı",
@@ -43,7 +43,7 @@ Bir kullanıcının "Bilgisayar" Arattığı; AMA "Apple" Markası olanları ve 
         }
       ],
       
-      // B) OLMASSA DA OLUR AMA OLURSA DA EN UST SIRAYA TASIMA PUANII(SHOULD)
+      // B) OLMASA DA OLUR AMA OLURSA DA EN ÜST SIRAYA TAŞIMA PUANI (SHOULD)
       // Müşteri Apple sever, Brand Kismi Appleyse O Urunlere +10 Skor Atar! 
       "should": [
         {
@@ -53,33 +53,33 @@ Bir kullanıcının "Bilgisayar" Arattığı; AMA "Apple" Markası olanları ve 
         }
       ],
       
-      // C) DISLAMA (MUST_NOT = Bunlari GetrMe!)
+      // C) DIŞLAMA (MUST_NOT = Bunları Getirme!)
       "must_not": [
         {
           "match": {
-            "category": "Tablet" // Tabledler Aramadan Silinsiiin!
+            "category": "Tablet" // Tabletler Aramadan Silinsin!
           }
         }
       ],
       
-      // D) FILTRELEME (FILTER) => Skorpu (Puanlamyi Etkielmeden) Duuz Matematksi Kesim:
+      // D) FİLTRELEME (FILTER) => Skoru (Puanlamayı Etkilemeden) Düz Matematiksel Kesim:
       "filter": [
         {
           "range": {
             "price": {
-              "gte": 5000,   // Greater Than Equuall(>500) Fiyati Buyku Olanlarki Gtr)
-              "lte": 25000   // Lessa Than ( < 25000 Tl)
+              "gte": 5000,   // Greater Than Equal (>=500) Fiyatı Büyük Olanları Getir)
+              "lte": 25000   // Less Than ( < 25000 TL)
             }
           }
         }
       ]
       
-    } // BOolo Cikis( BİTİs)
+    } // Bool Çıkış (Bitiş)
   }
 }
 ```
-Şu Yukarıdaki JSON bloğunu SQL dilinde Yazsaydınız; Hata toleransı(Fuzzy) gibi özellikler Cihazı Çökertirdi, Üstelik SQL'de "Puanlama(Should)" KAvarmı olmadığı İçin Ürünleri Size "Siparişe Veya isme gÖre" Alakasız Sıralardı. DSL Query, Arananı Bulup "En çok Benzeyenden En Az Benzeyene" Puanlayarak Veren Devrimi Tamamlamkıtır.
+Şu Yukarıdaki JSON bloğunu SQL dilinde Yazsaydınız; Hata toleransı (Fuzzy) gibi özellikler Cihazı Çökertirdi, Üstelik SQL'de "Puanlama (Should)" Kavramı olmadığı İçin Ürünleri Size "Siparişe Veya İsme Göre" Alakasız Sıralardı. DSL Query, Arananı Bulup "En çok Benzeyenden En Az Benzeyene" Puanlayarak Veren Devrimi Tamamlamıştır.
 
 ## Kimler Kullanır?
-* Milyonlarca Kullanıcının Hergnen "Arama (Search)" Yaptığı Tüm Büyük Sistemlerin (Vikipedi , Uber, GitHub vs) **Arka Plan(Gelişmiş Backend) Geliştiricileri ve Arama Mühendisleri**.
-* Sunucu Cökelmerini İzleeeyen Siber Güveonmıkçiller; Binlrce Log (Hata Rpaırun) icinden  Sadeece "Fatal ERoor" yzyAnallrai Bu json Diline Filtirlekekrk Günenlik Zaiyefftei Tespiti yaapparlar.. Dünyyanın JSON Tabanli En zengion Dileklerinden Bidiri.
+* Milyonlarca Kullanıcının Her gün "Arama (Search)" Yaptığı Tüm Büyük Sistemlerin (Vikipedi, Uber, GitHub vs) **Arka Plan (Gelişmiş Backend) Geliştiricileri ve Arama Mühendisleri**.
+* Sunucu Çökmelerini İzleyen Siber Güvenlikçiler; Binlerce Log (Hata Raporu) içinden Sadece "Fatal Error" yazanları Bu JSON Diline Filtreleyerek Güvenlik Zafiyeti Tespiti yaparlar. Dünyanın JSON Tabanlı En zengin Dillerinden Biridir.

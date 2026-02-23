@@ -6,7 +6,7 @@ T-SQL (Transact-SQL); Oracle'ın (PL/SQL ile) veritabanı dünyasını domine et
 ## Nedir ve Ne İşe Yarar?
 Oracle'ın PL/SQL'i bir Pascal klonuyken, Microsoft veritabanı dünyasına hakim olmak için Sybase firmasıyla ortak bir "Dil Eklentisi" üretti. O da standart zayıf SQL'in sonuna "Transact (İşlem-Geçirimli)" kelimesini koyan T-SQL'di. 
 
-Siz C#'ta (Web sitenizde veya Windows Form'unuzda) "Ahmet'ten Mehmet'e para transferi et" düğmesine bastığınızda; C# bunu veritabanına sadece "SQL Emri Atarak" geçirmez. Para yollama algoritmasını Database'in ta içine, MSSQL Sunucusundaki bir **T-SQL Saklı Prosedürüne (Stored Procedure)** fırtlatırsınız. T-SQL Ahmet'in parasını çeker(Select), "EGER (IF)" yeterliyse çeker(Update), Hata çıkarsa(Try/Catch) işlemi Geri Alır (Rollbcak). Yani tam teşekkülü bir programı doğrudan HDD/RAM olan MS Sunucusunda yürütür.
+Siz C#'ta (Web sitenizde veya Windows Form'unuzda) "Ahmet'ten Mehmet'e para transferi et" düğmesine bastığınızda; C# bunu veritabanına sadece "SQL Emri Atarak" geçirmez. Para yollama algoritmasını Database'in ta içine, MSSQL Sunucusundaki bir **T-SQL Saklı Prosedürüne (Stored Procedure)** fırlatırsınız. T-SQL Ahmet'in parasını çeker(Select), "EGER (IF)" yeterliyse çeker(Update), Hata çıkarsa(Try/Catch) işlemi Geri Alır (Rollback). Yani tam teşekküllü bir programı doğrudan HDD/RAM olan MS Sunucusunda yürütür.
 
 **Ne İşe Yarar?**
 * **Microsoft ASP.NET / C# Ekosisteminin Arkabahçesi:** Windows sunucularındaki web sitelerin arka planında koşturan (Örn: Hepsiburada, Yemeksepeti eski mimarisi gibi Windows ağırlıklı Devlerin/KOBİ'lerin) devasa E-Ticaret Stok Sepeti algoritmaları direkt T-SQL komut paketleriyle yazılmıştır.
@@ -47,25 +47,25 @@ BEGIN
     -- MODERN HATA YAKALAMA ZIRHI (C# ile ayni felsefe)
     BEGIN TRY
         
-        -- ISLEM(TRANSACTION) MUCUZESINI BASLAT: 
+        -- ISLEM(TRANSACTION) MUCİZESİNİ BASLAT: 
         -- "Ya Hep Ya Hic" demektir. Yariya kadar islem yapip elektrik kesilirse iptal eder.
-        BEGIN TRANSACTION ParaTransaferiHarekati;
+        BEGIN TRANSACTION ParaTransferiHarekati;
 
         -- 1. ADIM: Gonderenin Parasini Bul (Select ile degiskene aktar)
         SELECT @GonderenGuncelBakiye = Bakiye_Miktari 
         FROM BankaHesaplari 
         WHERE MusteriID = @GonderenMusteriID;
 
-        -- 2. IF/ELSE SROGULAMASI (Para Yetiyor Mu?)
+        -- 2. IF/ELSE SORGULAMASI (Para Yetiyor Mu?)
         IF (@GonderenGuncelBakiye < @YollanacakTutar)
         BEGIN
             -- RAISERROR: Sistemin disina (C#'a) Hata Firlat/Patlat 
-            RAISERROR ('HATA: Musterinin Bakiyesi Yetesizdir. Islem Kesildi!', 16, 1);
+            RAISERROR ('HATA: Musterinin Bakiyesi Yetersizdir. Islem Kesildi!', 16, 1);
             -- 'Return' komutuyla proseduru aninda terk et 
             RETURN;
         END
 
-        -- EGER BAKIYE YETERLIYSE -> NORMAL YAZILM MATEMATIGI:
+        -- EGER BAKIYE YETERLIYSE -> NORMAL YAZILIM MATEMATIGI:
         
         -- Gonderen Kisinin Anasindan Dus (Update!)
         UPDATE BankaHesaplari 
@@ -78,7 +78,7 @@ BEGIN
         WHERE MusteriID = @AliciMusteriID;
 
         -- HER SEY 10 NUMARAYSA IŞLEMI VE COMMIT(KAYDET)!
-        COMMIT TRANSACTION ParaTransaferiHarekati;
+        COMMIT TRANSACTION ParaTransferiHarekati;
         
         -- Console'a(Messages) yazi firlat
         PRINT CSTR(@YollanacakTutar) + ' TL basariyla Havale Edildi.';
@@ -89,10 +89,10 @@ BEGIN
     -- EGER IF'TEKI RAISERROR TETIKLENIRSE VEYA SISTEM COKERSE : BURAYA DUS!
     BEGIN CATCH
         
-        -- CATCH BLOGUNA DUSTUYS: İşlemi sonsuza kadar İptal et (Geri Makarasini Sar!)
+        -- CATCH BLOGUNA DÜŞTÜYSE: İşlemi sonsuza kadar İptal et (Geri Makarasini Sar!)
         -- Bu sayede paranin yarisinin hesaptan dusup ötekine gitmeme Sacmaligi ÖNLENİR
         IF @@TRANCOUNT > 0
-            ROLLBACK TRANSACTION ParaTransaferiHarekati;
+            ROLLBACK TRANSACTION ParaTransferiHarekati;
             
         -- Hatanin nedenini Log/Kayıt olarak ekrana veya tabloya bas
         DECLARE @HataNedeni NVARCHAR(4000) = ERROR_MESSAGE();
@@ -102,7 +102,7 @@ BEGIN
 
 END
 ```
-T-SQL Dünyası; Satır-satır (Cursor) döngülerinden çok nefret eder. Eğer 50 milyon kişiyi `WHILE` döngüsüyle T-SQL kullanarak taramaya kalkarsanız Microsoft SQL Sunucunuz yanar (Yüzlerce saniye sürer). Bunun nedeni; MSSQL'in "Kümelerle (Set-Based)" (UPDATE Users SET maas = maas * 1.5) ile blok olarak çok hızlı çalışmasına göre modellenmesidir. T-SQL Coder'ı; Döngülerden tamamen kaçan ve "Tek emirlik Küklere/Update'lere" sığınan bir Cerrahtır (Aksi halde veritabanını felç eder).
+T-SQL Dünyası; Satır-satır (Cursor) döngülerinden çok nefret eder. Eğer 50 milyon kişiyi `WHILE` döngüsüyle T-SQL kullanarak taramaya kalkarsanız Microsoft SQL Sunucunuz yanar (Yüzlerce saniye sürer). Bunun nedeni; MSSQL'in "Kümelerle (Set-Based)" (UPDATE Users SET maas = maas * 1.5) ile blok olarak çok hızlı çalışmasına göre modellenmesidir. T-SQL Coder'ı; Döngülerden tamamen kaçan ve "Tek emirlik Kümelere/Update'lere" sığınan bir Cerrahtır (Aksi halde veritabanını felç eder).
 
 ## Kimler Kullanır?
 * Evrendeki bütün şirketler ağı olan .NET ve Microsoft Kurumsal geliştiricilerinin (Windows Server, IIS, C# MVC siteleri) ana Veritabanı Yöneticileri **(SQL Server DBA = Database Administrator)**.

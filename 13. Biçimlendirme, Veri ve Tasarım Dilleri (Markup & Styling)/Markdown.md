@@ -12,14 +12,14 @@ Yani siz dümdüz bir `.md` dosyası açar, başlığın önüne Sadece Diyez/Ha
 
 **Ne İşe Yarar?**
 * **Yazılım Belgeleri Merkezi (GitHub Readme Krallığı):** GitHub gibi kod depolarında (Repository), her projenin girişinde bizi karşılayan devasa ve şık Açıklama Sayfaları (README.md dosyaları) %100 Oranda Markdown ile yazılmak Zorundadır. Geliştiriciler Dökümantasyon/Doc yazıtlarını (Python kütüphanelerinin kitapları vb) sadece HTML yazmadan Markdown'la derler.
-* **Modern Not Uygulamaları ve AI Asistanları (ChatGPT vs):** Obsidian, Notion gibi devasa verimlilik not tutma yazılımları, Discord, Slack ve Yapay Zeka (ChatGPT) sohbetlerinin ekranınıza fırlattığı  **O Siyah/Gri arka planlı KOD Pencereleri** ve Tablolar tamame Markdown gücüyle saniyesinde çevrilir! 
+* **Modern Not Uygulamaları ve AI Asistanları (ChatGPT vs):** Obsidian, Notion gibi devasa verimlilik not tutma yazılımları, Discord, Slack ve Yapay Zeka (ChatGPT) sohbetlerinin ekranınıza fırlattığı  **O Siyah/Gri arka planlı KOD Pencereleri** ve Tablolar tamamen Markdown gücüyle saniyesinde çevrilir! 
 
 ## Dilin Mantığı ve Kod Yapısı
 Çok Basit, Ezberlemesi sadece 5 dakika Sürer!
 - **Başlık (Header):** 1 Diyez `# Başlık 1 (Devasa)`. İki diyez `## Başlık 2 (Orta)`, Altı Diyez `###### Minik`.
 - **Kalın/İtalik (Bold):** Metni VURGULAMAK için iki yıldız veya Cizgi içine al: `**Çok Kalın**` Veya `*Hafif Yatık (Italic)*`
 - **Liste (List):** Alt alta çikolata, peynir yazmak için HTML deki UL ler yerine cümlenin başına Düz Cizgi (`-`)veya Yıldız (`*`) at: `- Peynir`
-- **Köprü (Hyperlink/Tıklama):** Köşeli paranteze METNI, Normal Paranteze LINLKI ver. Şov: `[Ekle Beni](google.com)`
+- **Köprü (Hyperlink/Tıklama):** Köşeli paranteze METNİ, Normal Paranteze LİNKİ ver. Şov: `[Ekle Beni](google.com)`
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Yazdığınız (Raw) Markdown Metni : `# Olay! Ben **CyberWorld** den selam ile...`
@@ -43,11 +43,11 @@ Sistemler klasör klasör seviyelere ayırılmıştır.
 * Level 11: Ezoterik (Cehennem Zihniyetli) Diller
 
 ### Uyarı Metin BLoğu (Blockquote)
-Birilerine nasihat vereceğiniz o muazzam alıntı kutusu Büyüktür İsareti (`>`) ile akar:
+Birilerine nasihat vereceğiniz o muazzam alıntı kutusu Büyüktür İşareti (`>`) ile akar:
 > "Sistemde çalışmayan kod değil, okunmayan kod kötüdür!" - Efsane Atasözü
 
 ## 💻 Nasıl Kullanılır? (Kod Bloğu/Syntax Highlighting)
-Eger belgenize "İncelenecek bir Terminal C++ vb KODU / Siyah EKRAN Kutusu" çizeceksiniz En büyük Sihir 3 Tane Ters-Tırnaktır (Backtick `  ) :
+Eger belgenize "İncelenecek bir Terminal C++ vb KODU / Siyah EKRAN Kutusu" çizeceksiniz En büyük Sihir 3 Tane Ters-Tırnaktır (Backtick `) :
 
 ```python
 # Kullanım Baslangici Test 
@@ -57,7 +57,7 @@ def uzayi_kesfet():
 uzayi_kesfet()
 ```   <- (Uc adet tirnak bitirir)
 
-Eğer sadece kelimenen ortasındayse ufacık `print` yazısı gibi tek ters-tırnağa Alınarak gölgelendirilir (Inline code).
+Eğer sadece kelimenin ortasındaysa ufacık `print` yazısı gibi tek ters-tırnağa Alınarak gölgelendirilir (Inline code).
 
 ## 🗂️ Veri Tablosu Çizmek 
 HTML'deki o igrenc (tr, td) kodlarına inat, Boru çizgisiyle (Pipe | ) Excel şeması yap:
@@ -70,7 +70,7 @@ HTML'deki o igrenc (tr, td) kodlarına inat, Boru çizgisiyle (Pipe | ) Excel ş
 
 --- (Uc Tire(---) sayfayi bastan sona Kesen bir Ayirici Yatay Çizgi (HR) atar!)
 ```
-İşte bu metni bir Markdown okuyucusuyla Açarsanız karşınızda Resimli, tıklanabiir linkli, gölgeli dev bir modern Dergi sayfası parlar.
+İşte bu metni bir Markdown okuyucusuyla Açarsanız karşınızda Resimli, tıklanabilir linkli, gölgeli dev bir modern Dergi sayfası parlar.
 
 ## Kimler Kullanır?
 * Evrendeki bütün **Tüm Profesyonel Geliştiriciler (Programcı / Software Engineers)** Projenin dökümantasyonunu GitHub Readme üzerinden açıklamak ve Kod İncelemeleri (Code Review) yapmak için Markdown kullanır.

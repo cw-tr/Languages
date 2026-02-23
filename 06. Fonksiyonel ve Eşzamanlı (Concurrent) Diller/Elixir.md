@@ -1,7 +1,7 @@
 # Elixir
 
 ## Özet
-Elixir; 2011 yılında José Valim (Ruby on Rails'in efsanevi çekirdek geliştiricilerinden) tarafından yaratılan, Erlang'ın "dünyayı taşıyan ama kodu çok eski/çirkin olan" BEAM sanal makinesi üzerine Ruby dilinin zarifliğini, esnekliğini ve modern modern web yeteneklerini giydirmek için inşa edilmiş modern bir Eşzamanlı (Concurrent) Fonksiyonel dildir. 
+Elixir; 2011 yılında José Valim (Ruby on Rails'in efsanevi çekirdek geliştiricilerinden) tarafından yaratılan, Erlang'ın "dünyayı taşıyan ama kodu çok eski/çirkin olan" BEAM sanal makinesi üzerine Ruby dilinin zarifliğini, esnekliğini ve modern web yeteneklerini giydirmek için inşa edilmiş modern bir Eşzamanlı (Concurrent) Fonksiyonel dildir. 
 
 ## Nedir ve Ne İşe Yarar?
 1986 yapımı Erlang efsanevi bir dil olmasına rağmen 90'lı yıllardan kalma Prolog benzeri tuhaf ve öğrenmesi eziyetli bir sözdizimine (Syntax) sahipti. Yeni nesil Web geliştiricileri saniyede milyarlarca WebSocket (Canlı mesaj/bildirim) bağlantısını çökmeyen Erlang'in BEAM sanal makinesinde yapmak istiyor ama Erlang kodlamaktan nefret ediyordu.
@@ -64,7 +64,7 @@ IO.puts VeriİslemMerkezi.temizle_ve_sifrele("  sifReM  ")
 IO.puts VeriİslemMerkezi.temizle_ve_sifrele(" NormalParola ")
 # Çıktısı: GECERSİZ_VARSAYILAN_normalparola
 ```
-Bu kadar pürüssüz bir metin yazarsınız, ancak "Compile" (Derle) dediğiniz an arka planda en az C kadar sağlam ve asenkron (Paralel) olarak binlerce aboneyi çökmeyen o BEAM mimarisinde çalıştıran bir canavara dönüşür. (Not: Ruby gibi hissetirir ama arkasında OOP yatmaz).
+Bu kadar pürüzsüz bir metin yazarsınız, ancak "Compile" (Derle) dediğiniz an arka planda en az C kadar sağlam ve asenkron (Paralel) olarak binlerce aboneyi çökmeyen o BEAM mimarisinde çalıştıran bir canavara dönüşür. (Not: Ruby gibi hissettirir ama arkasında OOP yatmaz).
 
 ## Kimler Kullanır?
 * Discord platformunda saniyede Milyonlarca sesi ve mesaj paketini, CPU'yu %10 kullanacak şekilde 100 bin kanallı devasa sunucularda kitlenmeden (Concurrency) dağıtan Çekirdek Mühendisleri.

@@ -4,7 +4,7 @@
 HCL (HashiCorp Configuration Language); 2014 yılında HashiCorp firması (Terraform'un yaratıcıları) tarafından icat edilen, şirketlerin devasa Bulut Bilişim (AWS, Google Cloud, Azure) altyapılarını farenizle (Mouse) tıklayıp kurarak değil, **"Kod Yazarak Kurmanızı (IaC - Infrastructure as Code)"** sağlayan, JSON'un yapısal mantığını YAML'ın okunabilirliğiyle birleştiren modern Altyapı ve Sistem Mimarisi Dilidir.
 
 ## Nedir ve Ne İşe Yarar?
-Eskiden Amazon (AWS) üzerinde bir şirket sunucusu kurmak için, sistem yöneticisi (SysAdmin) AWS paneline tarayıcıdan girerdi. "Yeni Makine Oluştur" düğmesine basar, RAM'ini 16GB seçer, Güvenlik Duvarı kurallarını tık tık fareyle ayarlardı. Lakin yanlışlıkla bir ayarı(Mouse'la) sildiğinde Tün sistem çökerdi ve Sistem Mimarisi aslından silindiği için "Geri Dönüş (CTRL+Z)" şansı olmazdı!
+Eskiden Amazon (AWS) üzerinde bir şirket sunucusu kurmak için, sistem yöneticisi (SysAdmin) AWS paneline tarayıcıdan girerdi. "Yeni Makine Oluştur" düğmesine basar, RAM'ini 16GB seçer, Güvenlik Duvarı kurallarını tık tık fareyle ayarlardı. Lakin yanlışlıkla bir ayarı(Mouse'la) sildiğinde Tüm sistem çökerdi ve Sistem Mimarisi aslından silindiği için "Geri Dönüş (CTRL+Z)" şansı olmazdı!
 
 Terraform (ve Dili HCL) dediki: **Altyapıyı Kodlayalım! (IaC)** 
 Artık mühendis bilgisayarına `sunucu.tf` diye kod dosyası yazar: "Bana 2 Adet 16GB Ram'li Sunucu Ver. Bir de Önüne Yük Dengeleyici (Load Balancer) Koy". Sonra terminale `terraform apply` yazar. Birkaç saniye içinde Milyar dolarlık Amazon tesisinde Sizin fiziksel sunucularınız çalışıp Ayağa Kalkar! Eğer o kodu silerseniz, Amazon'dan silinirler.
@@ -20,7 +20,7 @@ Kod bloklarla tasarlanır. C++ gibi For veya While fonskiyonlarından çok, **`r
 Siz Terraform'a "Şu An Nasılsın?" veya "Nasıl yapacaksın?" demezsiniz. Sadece "NE ISTEDIĞINIZI" HCL ile beyan edersiniz, O gidip AWS'nin apisini Çekip o şekli Alır(State Machine Mimarisi).
 
 ### Örnek Bir HCL Kodu (Terraform ile AWS Sunucusu Kiralamak)
-Aşağıda Bir Finans şirketinin Amazon'a Emir Vererek ("Mause ile tıklamadan") Kendi Veritabanı Bulutunu Satın Alma/Kiralama Kodu `main.tf`:
+Aşağıda Bir Finans şirketinin Amazon'a Emir Vererek ("Mouse ile tıklamadan") Kendi Veritabanı Bulutunu Satın Alma/Kiralama Kodu `main.tf`:
 
 ```hcl
 /* BU BIR HCL (Terraform) ALTYAPI KODUDUR */
@@ -30,13 +30,13 @@ Aşağıda Bir Finans şirketinin Amazon'a Emir Vererek ("Mause ile tıklamadan"
 provider "aws" {
   region     = "us-east-1"      # Makineleri Nerede Kuracak? Amerikanin Dogusunda!
   access_key = "BENIM_GIZLI_AWS_IDM"
-  secret_key = "COOOOK_GIBLI_SIFREM"
+  secret_key = "COOOOK_GIZLI_SIFREM"
 }
 
 # 1. KAYNAK (RESOURCE): Yeni Bir Fiziksel/Sanal Sunucu (EC2) Istiyoruz!
 resource "aws_instance" "benim_dev_sunucum" {
     
-  # Hangi İşletim Sitemi Kursun? (Ubuntu 20.04'un AWS deki Kodu)
+  # Hangi İşletim Sistemi Kursun? (Ubuntu 20.04'un AWS deki Kodu)
   ami           = "ami-04505e74c0741db8d" 
   
   # Makinenin Gucu Ne Olsun? t2.micro (1 GB Ram, Ucretsiz Deneme Surumu Mimarisi)
@@ -63,7 +63,7 @@ resource "aws_security_group" "ssh_izni" {
 }
 ```
 
-Bu `main.tf` dosyasını Kaydedip, CMD'ye `terraform apply` Yazdıp "Yes" Dediğiniz saniye, Amazon şirketinin sunucularıyla (API) haberleşilir ve Saniyeler içinde Amerika'da Taptaze, IP numarası olan Bir Bilgisayarınız Başlatılmış Olur. O Cihazın Bedeli (Faturası) Ay sonunda Kredi Kartınıza yansır. İşiniz bittiğinde `terraform destroy` yazdığınız an, Amazon o Makinenin fişini (Sildiğini) Onaylar. Fare (Mause) ve Eziyet Yoktur!
+Bu `main.tf` dosyasını Kaydedip, CMD'ye `terraform apply` Yazıp "Yes" Dediğiniz saniye, Amazon şirketinin sunucularıyla (API) haberleşilir ve Saniyeler içinde Amerika'da Taptaze, IP numarası olan Bir Bilgisayarınız Başlatılmış Olur. O Cihazın Bedeli (Faturası) Ay sonunda Kredi Kartınıza yansır. İşiniz bittiğinde `terraform destroy` yazdığınız an, Amazon o Makinenin fişini (Sildiğini) Onaylar. Fare (Mouse) ve Eziyet Yoktur!
 
 ## Kimler Kullanır?
 * Bütün Büyük Kurumsal Şirketlerin **Cloud (Bulut) Mimarları ve DevOps / DevSecOps** Mühendisleri. (Trendyol, Spotify, Yemeksepeti, Netflix altyapıları Kodu olmadan Yaşayamaz).

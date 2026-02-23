@@ -19,7 +19,7 @@ Tamamen Kendi Özel, Büyük Harflerle (MAJUSKÜL) ve Emirlerle Yazılan Yönerg
 1. **`FROM`**: Hangi İşletim Sistemi üzerine İnşa edelim? (Örn: Alpine Linux, Ubuntu 20.04)
 2. **`WORKDIR`**: Bilgisayarın İçindeki Sanal Kutuda Hangi Klasörde Duracağız?
 3. **`COPY`**: Senin Kendi C Diskinde Tutan Kodu, -> Kutunun İçine Kopyala / Enjekte Et!
-4. **`RUN`**: Kutunun Içinde İnterneten Uygulamanin Bagimliliklarini Indir (Kurulum Yap).
+4. **`RUN`**: Kutunun Içinde İnternetten Uygulamanin Bagimliliklarini Indir (Kurulum Yap).
 5. **`CMD`**: Bu konteyner (Kutu) Müşteride Açıldığı anda (RUNlandığında) Hangi Düğmeye Basıp Projeyi Ayağa Kaldırayım?
 
 ### Örnek Bir Dockerfile Kodu: Bir Node.js Web Uygulamasının Zırha (Konteynere) Alınması!
@@ -27,20 +27,20 @@ Diyelim ki bir Web Siteniz(API) var. Bunu Canlı Sunucuya(AWS) taşımak için P
 
 ```dockerfile
 # 1. TEMEL ALTYAPI (ISLETIM SISTEMI SECIMI)
-# Kutumuzun (Isletim sisteminin) Kalbi, Iceisinde Hazir Nodejs(18. Surumu) Kurulmus Alpine Linux Olsun! 
-# (Alpine inanilmaz hafiftir, Sadce 5 Megabyte Isletim Sistmeridir).
+# Kutumuzun (Isletim sisteminin) Kalbi, İçerisinde Hazir Nodejs(18. Surumu) Kurulmus Alpine Linux Olsun! 
+# (Alpine inanilmaz hafiftir, Sadece 5 Megabyte Isletim Sistemidir).
 FROM node:18-alpine
 
 # 2. CALISMA ALANI 
 # Kutunun icindeki Sanal Bilgisayarda, Su klasore gec! (Eger yoksa kendi yaratir).
 WORKDIR /app
 
-# 3. ICERI VERI KOPYALMA 
+# 3. İCERİ VERİ KOPYALAMA 
 # Senin (Gercek Masaustundeki) Paket ayar dosyani(package.json) -> Kutunun Icine(.) Kopyala!
 COPY package*.json ./
 
-# 4. UZAY KUTUSUYLA(LINUXLA) ETIKLESIIM, BINDEMELERI(NPM KUTUPHANESINI) KUR.
-# Bu kod imaj derlenirken ccalisir. İhtiyaclar Icene gomülür.
+# 4. UZAY KUTUSUYLA(LINUXLA) ETKİLEŞİM, BAĞIMLILIKLARI KUR.
+# Bu kod imaj derlenirken çalışır. İhtiyaclar Icene gomülür.
 RUN npm install
 
 # 5. GERI KALAN HER SEYI (Senin JS Kodlarini/HTML'lerini vs) KUTUYA YIG!
@@ -51,7 +51,7 @@ COPY . .
 EXPOSE 3000
 
 # 7. BASLAMA DUGMESI (KOMUT)
-# Müşteri (Veya Bulut Sunucusu) bu Kutuyu Satın Alip Çalistitgirdignda Cekilecek En Son TETIK (CMD):
+# Müşteri (Veya Bulut Sunucusu) bu Kutuyu Satın Alip Çalıştırdığında Cekilecek En Son TETIK (CMD):
 CMD ["node", "app.js"]
 
 ```
@@ -60,4 +60,4 @@ Yazılımcı Bu Dosyayı Yazıp Terminalde `docker build -t benimuygulamam .` De
 
 ## Kimler Kullanır?
 * Gezegendeki İstisnasız Tüm **DevOps Mimarları, Full-Stack Yazılımcıları, Sunucu Yöneticileri**.
-* Dockerfile'lar, **Kubernetes (K8s)** Dedigimiz Devasa Orkestranın Askerleridir. Kubernetes (Limandaki Kaptan), Binlerce Dockerfile Cıktısı olan (Konteyneri/Kutuyu) Gemiye Aynı ANDA Uyuma sokup cemaatyapan Google Çıkışlı Sistemin Adıdır. Her Yazılım Mühendisi Ölmeden Önce Konteyner Mimarisine Mecbur Veda Edecektir.
+* Dockerfile'lar, **Kubernetes (K8s)** Dedigimiz Devasa Orkestranın Askerleridir. Kubernetes (Limandaki Kaptan), Binlerce Dockerfile Cıktısı olan (Konteyneri/Kutuyu) Gemiye Aynı ANDA Uyuma sokup yöneten Google Çıkışlı Sistemin Adıdır. Her Yazılım Mühendisi Ölmeden Önce Konteyner Mimarisine Mecbur Veda Edecektir.

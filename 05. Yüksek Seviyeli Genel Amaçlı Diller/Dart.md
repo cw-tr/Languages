@@ -8,7 +8,7 @@ Dart; 2011 yılında Google tarafından, ilk başlarda JavaScript'in tahtını e
 
 **Ne İşe Yarar?**
 * **Tek Kodla Tüm Dünyaya (Cross-Platform):** Dart diliyle (Flutter kullanarak) tek bir kez yazdığınız tasarım/arayüz projesi saniyeler içinde doğrudan çalıştırılabilir; bir **Android uygulamasına (APK)**, bir **iOS Uygulamasına (IPA)**, aynı anda **Windows/Mac masaüstü (.exe/.dmg)** programına ve o haliyle anında **Web Sitesine** dönüşür. (Tek Kod = 4 Ayrı Platform).
-* **Güzel Renederlanan (Arayüzlü) Uygulamalar:** eBay, Google Pay, BMW, Alibaba gibi dev şirketler mobil uygulamalarını ayrı ayrı Java (Android) veya Swift (iOS) yazılım ekipleriyle harcayarak 2 yılda yapmak yerine, tek bir Dart yazılım ekibiyle 6 ayda %100 aynı performanslı (Grafik motoru Skia sayesinde) Flutter ile çizer.
+* **Güzel Renderlanan (Arayüzlü) Uygulamalar:** eBay, Google Pay, BMW, Alibaba gibi dev şirketler mobil uygulamalarını ayrı ayrı Java (Android) veya Swift (iOS) yazılım ekipleriyle harcayarak 2 yılda yapmak yerine, tek bir Dart yazılım ekibiyle 6 ayda %100 aynı performanslı (Grafik motoru Skia sayesinde) Flutter ile çizer.
 * **Hot Reload Sihri:** Mobil geliştiriciler on yıllarca küçük bir butonun rengini kırmızı yapmak için C++ Veya Java'nın 2-3 dakika derlemesini ekrana boş boş bakarak beklerdi. Dart (Flutter), ekranda rengi değiştirip CTRL+S yaptığınız anda milisaniyede butonu telefonda kırmızı yapar (Hot Reload).
 
 ## Dilin Mantığı ve Kod Yapısı
@@ -83,4 +83,4 @@ class BenimButonum extends StatelessWidget {
 
 ## Kimler Kullanır?
 * Evrendeki milyonlarca iOS ve Android geliştiren çapraz-platform (Cross-Platform) Mobil Uygulama yazılımcıları. Freelancer'lar (Aynı anda iki dilde öğrenmek yerine tek Dart diliyle tek başlarına koca uygulamaları yayınlayan Front-end devleri).
-* Kurumsal firmaların (Örn: Alibaba, Google Pay) hem Web, Hem Masaüstü (Windows) hem Uygulamadaki (Apple/Google) arayüzlerini ve kodo tabanını tek bir ekiple eşitleyen (Code Reusability) Şirket mimarları.
+* Kurumsal firmaların (Örn: Alibaba, Google Pay) hem Web, Hem Masaüstü (Windows) hem Uygulamadaki (Apple/Google) arayüzlerini ve kod tabanını tek bir ekiple eşitleyen (Code Reusability) Şirket mimarları.

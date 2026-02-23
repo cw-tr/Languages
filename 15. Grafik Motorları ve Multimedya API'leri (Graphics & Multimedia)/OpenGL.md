@@ -7,7 +7,7 @@ OpenGL (Open Graphics Library); 1992 yılında Silicon Graphics (SGI) tarafında
 1990'ların başında, 3 Boyutlu bir oyun veya CAD (Tasarım) programı yazıyorsanız, ekran kartına (Örn: 3Dfx Voodoo ya da S3 Graphics) piksel çizdirmek için O ekran kartının *kendi özel ve garip* Assembly/C kablolarını bilmeniz gerekiyordu. Oyununuz bir kartta çalışırken diğerinde çöküyordu.
 
 Silicon Graphics dedi ki: "Bütün Ekran Kartı üreticilerine ve Yazılımcılara Ortak Bir Sözlük yazalım. Adı OpenGL olsun".
-Siz C++ ile `glBegin(GL_TRIANGLES); glVertex3f(0.0, 1.0, 0.0); glEnd();` dediğinizde, bilgisayardaki ekran kartı Nvidia da olsa, AMD de olsa, Intel de olsa o fonskiyonu anlıyor ve donanım hızlandırmasıyla (CPU'yu yormadan) monitöre o üçgeni milyarlarca renk opsiyonuyla boyuyordu.
+Siz C++ ile `glBegin(GL_TRIANGLES); glVertex3f(0.0, 1.0, 0.0); glEnd();` dediğinizde, bilgisayardaki ekran kartı Nvidia da olsa, AMD de olsa, Intel de olsa o fonksiyonu anlıyor ve donanım hızlandırmasıyla (CPU'yu yormadan) monitöre o üçgeni milyarlarca renk opsiyonuyla boyuyordu.
 
 **Ne İşe Yarar?**
 * **Oyun Motorları ve 3D Yazılımlar:** Klasik Minecraft (Java sürümü), Counter-Strike 1.6, Blender 3D, Maya ve eski Unity oyunlarının altında (Render makinesi olarak) mutlak suretle OpenGL yatar. Windows'a özel olan DirectX'in tarihteki (ve günümüzdeki) en büyük Evrensel (Linux/Mac/Windows) rakibi OpenGL'dir.
@@ -29,7 +29,7 @@ OpenGL'in kalbi Matris (Matrix) matematiğidir. Kamerayı kaydırmak bile, Kamer
 
 #include <GL/glut.h> // Pencere ve OpenGL baglantisini kuran arac kutuphanesi
 
-// Ekran Her Cizileceginde (Saniyede 60 Kere= 60 FPS) Bu fonskiyon Cagirilir:
+// Ekran Her Cizileceginde (Saniyede 60 Kere= 60 FPS) Bu fonksiyon Cagirilir:
 void ekranCiz(void) {
     
     // 1. EKRANI TEMİZLE (Eski Frameden(Kareden) kalan copleri boya)
@@ -39,7 +39,7 @@ void ekranCiz(void) {
     // 2. OPENGL DURUMUNU (STATE) DEGISTIR: Fircayi KIRMIZI (R=1, G=0, B=0) Rengine bandir!
     glColor3f(1.0f, 0.0f, 0.0f);
     
-    // 3. EKRANA CIZIM BASLATT: BEN BIR UCGENT(TRIANGLE) Cizecegim diyoruz!
+    // 3. EKRANA CIZIM BASLAT: BEN BIR UCGEN(TRIANGLE) Cizecegim diyoruz!
     glBegin(GL_TRIANGLES);
         
         // Ucgenin Birinci Kosesi (UST NOKTA - X,Y,Z kordinatlari 3D)

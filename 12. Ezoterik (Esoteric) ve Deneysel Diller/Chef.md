@@ -9,7 +9,7 @@ Eğer derleyiciye (Chef interpreter) gönderilen metin Gerçekten mantıklı bir
 
 **Ne İşe Yarar?**
 * İnanılmaz Eğlencelidir (Satirical / Parodi Dili).
-* Kodu okuyan kişi programın Cıktısının bir Fibonacci Sayısı dizisi mi (Matematik), yoksa Çikolotalı Kek mi olduğunu ayırt edemez.
+* Kodu okuyan kişi programın Cıktısının bir Fibonacci Sayısı dizisi mi (Matematik), yoksa Çikolatalı Kek mi olduğunu ayırt edemez.
 * Stack (Yığın) veri belleğinin, "Mutfak Kaseleri (Mixing Bowls)" ve "Fırın Tepsisi (Baking Dishes)" olarak öğretilmesi için harika bir pedagojik mizah parçasıdır.
 
 ## Dilin Mantığı ve Kod Yapısı

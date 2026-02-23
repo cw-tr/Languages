@@ -9,7 +9,7 @@ AppleScript; 1993 yılında Apple tarafından Mac OS (Classic ve Modern macOS) i
 Apple, "Application Sözlükleri (AppleEvents)" adı verilen bir teknoloji çıkardı. Kendi programlarının (Finder, Safari, Mail, Photoshop) kalbine dinleyici kancalar taktı. AppleScript de kelimenin tam anlamıyla "İngilizce Düz Yazı" yazarak sisteme şöyle emredebilmenin yoluydu: *Tell application "Finder" to open folder "Fotograflar"*. (Gidip Finder programına söyle de Fotoğraflarımı bir açsın hele!). Okuması C'den çok düz lise makalesine benzer.
 
 **Ne İşe Yarar?**
-* **Mac Kullanıcı Otomasyonları (Makrolar):** Automator veya yeni adıyla Shortcuts(Kısayollar) uygulamasının arka plan eylemlerinin en kompleks versiyonları. iTunes(Apple Music)'u aç, sıradaki şarkıya geç ve şarkının ismini Twitter/Mesaj olarak at! gibi GUI (Grafik) programları bir nevi arka planda "Cereyanla / Kukla İpleriyle" birbirine bağlayam araçtır.
+* **Mac Kullanıcı Otomasyonları (Makrolar):** Automator veya yeni adıyla Shortcuts(Kısayollar) uygulamasının arka plan eylemlerinin en kompleks versiyonları. iTunes(Apple Music)'u aç, sıradaki şarkıya geç ve şarkının ismini Twitter/Mesaj olarak at! gibi GUI (Grafik) programlarını bir nevi arka planda "Cereyanla / Kukla İpleriyle" birbirine bağlayan araçtır.
 * Yayıncılık (Publishing/Print) ve Medya sektörlerinde, (Geliştirici veya yazılımcı olmayan sıradan kreatif editörlerin) iş akışı (Workflow) borusu olarak kullanılır.
 
 ## Dilin Mantığı ve Kod Yapısı
@@ -19,14 +19,14 @@ Döngüler `for x in` değil; İngilizcedeki tekrarlama kelimesi **`repeat`** ke
 Bütün otomasyonlar **`tell ... end tell` (Söyle... Söylemeyi Bitir)** bloklarının içine gömülüdür. Çünkü sistem "Kime ne emredeceğini" AppleEvent aracılığıyla bilmek ister. 
 
 **Örnek İşleyiş (Sembolik Olarak):**
-Python: `os.system('osascript -e ...')` (C işletim sistemi bağılılığı).
+Python: `os.system('osascript -e ...')` (C işletim sistemi bağımlılığı).
 AppleScript: `tell application "Safari" to activate` (Safari uygulamasını atla (Kuklaya) ve aktif et(Öne getir)).
 
 ### Örnek Bir AppleScript Kodu: Safariyi Açıp Mac Masaüstüne Pop-Up Uyarısı Attırmak
 Tipik bir Mac OS Kullanıcısının (Visual Code / Terminal yerine Apple'ın gömülü "Script Editor" uygulamasına yazdığı) o hikaye anlatan kurgu (Tell bloğu):
 
 ```applescript
--- AppleScript Yorum Satirlari Iki Tire (--) İle gosterilir (Veya Hashtag # kabul ediir)
+-- AppleScript Yorum Satirlari Iki Tire (--) İle gosterilir (Veya Hashtag # kabul edilir)
 
 -- 1. DEĞİŞKEN (STRING) ATAMALARI
 -- 'Set (Ayarla)' kelimesi yine VB'deki gibi basimizda (Tiptesiz bir dildir, Varianttir)
@@ -34,21 +34,21 @@ set karsilamaMesaji to "Sayin Tasarimci, Sabah Mesainiz Basliyor!"
 set donguSayisi to 3
 
 
--- 2. DÖNDÜ VE SESLI OKUMA (Bir İnsanla Fısıltıgibi konuşmak)
+-- 2. DÖNGÜ VE SESLI OKUMA (Bir İnsanla Fısıltı gibi konuşmak)
 -- Donguler "Repeat [Sayi] times" Olarak C dilindeki o int'leri reddeder:
 repeat donguSayisi times
     
     -- Mac İşletim Sisteminin kalbindeki SES(Text-to-Speech) Motorunu tetikle! (say)
     -- "Bip" (Beep) Sesi Cikart ve Siri'nin Sesiyle bunu Yüksek Sesle Oku:
     beep
-    -- say "Sistem uyanıyor" -- (Eger yorumi cevirisenir Siri konusur)
+    -- say "Sistem uyanıyor" -- (Eger yorumu cevirirseniz Siri konusur)
     
 end repeat
 
 
 -- 3. KUKLALARI (UYGULAMALARI) İPİNDEN OYNATMA: TELL BLOKLARI
 
--- "System Events (Mac Os Cekirdegi)" ine Soyle ki: Benim ekrana Dialog Çizssin!
+-- "System Events (Mac Os Cekirdegi)" ine Soyle ki: Benim ekrana Dialog Çizsin!
 tell application "System Events"
     
     -- Pop up'in İcine (Mesajimiz degiskenini) koy, Baslik ekle , Ve İkonu Cark yap!
@@ -70,7 +70,7 @@ tell application "Safari"
     
 end tell
 
--- Sonunda Her ikisine birden Emrettik ve bitt (Istersen Photoshop'u tell edip Firca buyutebilirsin)
+-- Sonunda Her ikisine birden Emrettik ve bitti (Istersen Photoshop'u tell edip Firca buyutebilirsin)
 ```
 Bu AppleScript Editor'ünden veya Mac Terminalinden `osascript dosya.scpt` (Derlenmiş script) olarak çalıştırıldığında işletim sisteminde şizofrenik bir şeyler olur. Fare kendiliğinden pencereleri açar, Safari zıplar ve siteye gider! Sistemler arası (Inter-Process Communication) eziyeti sadece "Söyle (Tell)" kelimesiyle parçalamıştır.
 

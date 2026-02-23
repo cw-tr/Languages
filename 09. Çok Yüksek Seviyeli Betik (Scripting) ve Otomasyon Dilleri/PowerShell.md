@@ -10,7 +10,7 @@ Microsoft, tamamen devrimsel olan kendi Kabuk (Shell) programını yazdı. En kr
 
 **Ne İşe Yarar?**
 * **Windows Sunucu / Active Directory Yönetimi:** Milyon dolarlık şirketlerin, 5 bin çalışana tek seferde hesap açma, eposta dağıtımı yetkilendirme ve Exchange sunucularındaki binlerce Windows ayarını (Registry) saniyeler içinde sadece `.ps1` uzantılı PowerShell komutlarıyla otomatikleştirmesi.
-* **Hibrit ve Bulut Altyapı:** Azure (Microsoft) Cloud sunucularının yaratılması veya kapatılması, Windows Cihaz Güvenliği/Antivirüslerinin kurumsal dağıtımı tamamen PowerShell Scriptleri kullanılarak Cihaz Politika Kuralları ile fırlatılır. (Ayrıca "PowerShell Core" ile artık Linux ve macOS sistemlerinde bile nativ olarak çalışır hale gelmiştir).
+* **Hibrit ve Bulut Altyapı:** Azure (Microsoft) Cloud sunucularının yaratılması veya kapatılması, Windows Cihaz Güvenliği/Antivirüslerinin kurumsal dağıtımı tamamen PowerShell Scriptleri kullanılarak Cihaz Politika Kuralları ile fırlatılır. (Ayrıca "PowerShell Core" ile artık Linux ve macOS sistemlerinde bile native olarak çalışır hale gelmiştir).
 
 ## Dilin Mantığı ve Kod Yapısı
 Çok belirgin, dünyadaki tüm dillerden farklı, aşırı "Sözlü, Kuralcı" bir "Borumlama (Cmdlet)" tarzı vardır.
@@ -20,7 +20,7 @@ Tüm ana fonksiyon adları (Cmdlet denir) kesinlikle bir **Fiil-İsim (Verb-Noun
 - Veri Üret = `New-Item`
 - İşlemi Durdur = `Stop-Process`
 
-Bu yüzden (Bash'in `ls`, `grep` gibi kısaltmalarına kıyasla) uzundur ancak inanılmaz anlaşılır ve İngilizce okur gibi çözülür. Daha önceden bahsettiğim gibi Değişkenler `$` ile döner ancak Linux'taki gibi Cümleleri `(sed / awk)` ile regex'e parçalamak eziyeti bitmiştir. Objenin ismini `Get-Process | Where-Object { $_.Name -eq "chrome" }` diye anında çekebilirsiniz (Nesne Gümbürtüsü).
+Bu yüzden (Bash'in `ls`, `grep` gibi kısaltmalarına kıyasla) uzundur ancak inanılmaz anlaşılır ve İngilizce okur gibi çözülür. Daha önceden bahsettiğim gibi Değişkenler `$` ile döner ancak Linux'taki gibi Cümleleri `(sed / awk)` ile regex'e parçalama eziyeti bitmiştir. Objenin ismini `Get-Process | Where-Object { $_.Name -eq "chrome" }` diye anında çekebilirsiniz (Nesne Gümbürtüsü).
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Örneğin Çalışan tüm uygulamaları Listelediniz (`Get-Process`). Liste aşağı akarken Linux bunu saf Metin yazısı sanır. PowerShell'in bunu obje olarak tutması şuna izin verir: "İçinde Chrome geçen nesnenin `.Kill()` metodunu tetikle". Yazılımı komut ekranına gömmüştür.
@@ -74,4 +74,4 @@ Koca Windows Core sistemi bu komut ağaçlarının (Cmdlets) .NET mimarisinden a
 
 ## Kimler Kullanır?
 * Milyarlarca dolarlık Şirket Ağlarındaki Kurumsal IT Yöneticileri, Windows Sistem ve Active Directory Administrator'ları (Microsoft ekosisteminde).
-* Son yıllarda Hacker'lar (Siber Güvenlik/Pentester). Güvenlik duvarları PowerShello'i "Resmi İşletim sistemi kalbi" saydığı için, Hackerlar Antivirüslere takılmadan RAM içine sızabilmek amacıyla zararlı (.exe) dosyalar üretmek yerine "Dosyasız Zararlılar (Fileless Malware)" diye tabir edilen sızmaları dümdüz uçan PowerShell scriptleri (`Invoke-WebRequest`) üzerinden yürütürler.
+* Son yıllarda Hacker'lar (Siber Güvenlik/Pentester). Güvenlik duvarları PowerShell'i "Resmi İşletim sistemi kalbi" saydığı için, Hackerlar Antivirüslere takılmadan RAM içine sızabilmek amacıyla zararlı (.exe) dosyalar üretmek yerine "Dosyasız Zararlılar (Fileless Malware)" diye tabir edilen sızmaları dümdüz uçan PowerShell scriptleri (`Invoke-WebRequest`) üzerinden yürütürler.

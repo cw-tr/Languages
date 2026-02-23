@@ -10,7 +10,7 @@ Makale yayınlandı (eval/apply mekanizmaları makalesi), McCarthy'nin öğrenci
 
 **Ne İşe Yarar?**
 * **Tarihi Kökenli Yapay Zeka (AI) Algoritmaları:** Robotik planlama sistemleri, Satranç analizörleri ve İnsan gramerini çözen ağlar, Lisp'in listeleri tarayan ve KENDİ KENDİNE YENİ KOD oluşturabilen (Metaprogramlama / Macros) mimarisiyle yazıldı. Emacs Editörü Lisp ile çalışır (Emacs Lisp).
-* **Uzay Programları ve Sembolik Denklemler:** NASA'nın 1990'lardaki devasa uzay denetimcileri (Remote Agent) Lisp kodu atıyordu. Hatta Lisp öylesine büyüseldi ki sistem uzayda hata verdiğinde, NASA mühendisleri "Dünyadan Uzay Aracına Canlı Debugding (Müdahale)" yaparak program yayındayken kilitleri aşmışlardır.
+* **Uzay Programları ve Sembolik Denklemler:** NASA'nın 1990'lardaki devasa uzay denetimcileri (Remote Agent) Lisp kodu atıyordu. Hatta Lisp öylesine büyüseldi ki sistem uzayda hata verdiğinde, NASA mühendisleri "Dünyadan Uzay Aracına Canlı Debugging (Müdahale)" yaparak program yayındayken kilitleri aşmışlardır.
 
 ## Dilin Mantığı ve Kod Yapısı
 Evrende gördüğü en önemli ve yegâne şey **PARANTEZDİR `(...)`** ve Lists (Listelerdir). Java'daki For, C'deki If, Assembly'deki Goto.. Hepsi eziyettir. Lisp (Kendisinin modern versiyonlarından biri olan Common Lisp); her bir bloğu Parantezlerle böler.
@@ -24,7 +24,7 @@ Python'da siz bir dizi listesi yapıp tersine çevirip ve en büyük sayıyı d�
 Lisp: `(max (reverse (1 2 3 4)))`. İşlev, içteki parçaya dalıp oradan dışarı doğru balon gibi genleşir. Matematikteki tam fonksiyonel bir ifadedir $(f(g(x)))$.
 
 ### Örnek Bir Lisp (Common Lisp) Kodu: Parantez Şaheseri (Fonksiyon, Öz Yineleme ve Listeler)
-Geleneksel hiçbir döngünün yer alamadığı (Loop/While bulunmaz), her şeyin Parantezin en başına "Fonksiyon İsimi fırlatarak" Recursive (Kendini Çağırma) mantığıyla yürüdüğü klasik bir Liste İşleme Kod Dizkini:
+Geleneksel hiçbir döngünün yer alamadığı (Loop/While bulunmaz), her şeyin Parantezin en başına "Fonksiyon İsimi fırlatarak" Recursive (Kendini Çağırma) mantığıyla yürüdüğü klasik bir Liste İşleme Kod Dizilimi:
 
 ```lisp
 ;; Lisp Dilinde yorumlar (Noktali virgul) ';' ile başlar.
@@ -40,7 +40,7 @@ Geleneksel hiçbir döngünün yer alamadığı (Loop/While bulunmaz), her şeyi
 
 ;; 2. RECURSIVE (KENDİNİ YİNELEYEN) YAPAY ZEKAA KOKAN FONK.(Defun):
 ;; Lisp'in gucu For döngüsünde degildir, Bir dizideki Listenin uzunlugunu
-;; matematiksel bir ishal gibi yakan "Cagirici" Lisp (Ozyineleme) fonskiyonudur: 
+;; matematiksel bir şelale gibi akan "Cagirici" Lisp (Ozyineleme) fonskiyonudur: 
 
 (defun listemin-uzunlugu (gelen_liste)
   
@@ -50,18 +50,18 @@ Geleneksel hiçbir döngünün yer alamadığı (Loop/While bulunmaz), her şeyi
       
       ;; EGER BOS DEGILSE, DEVAM EDİYORUZ:!
       ;; LISP'IN IKI MUCİZE KELİMESİ: CAR(ilk veri) ve CDR(kuyruktaki kalan veri).
-      ;; "Bana 1 Ekle (+ 1) -> Ve Kuyrukturki kalani tekrar ayni foksiyona ListeminUzunluguna yolla"
+      ;; "Bana 1 Ekle (+ 1) -> Ve Kuyruktaki kalanı tekrar ayni foksiyona ListeminUzunluguna yolla"
       
       (+ 1 (listemin-uzunlugu (cdr gelen_liste))))) 
 
 
 ;; === SİSTEMİN İŞLETİLMESİ (Fonksiyonu Çagırma ve Listeler) ===
 
-;; Bir LİSTE Verisi Yaratiyoruz (İçine elma objeside, Sayi da konabilir, Dinamiktir):
+;; Bir LİSTE Verisi Yaratiyoruz (İçine elma objesi de, Sayi da konabilir, Dinamiktir):
 ;; Tirnak Isareti '()  (Quote) lisp'in listeyi calıstırma degil sadece VERI olarak saklamasini soyler
 (defvar cantam '(kılıc kalkan iksir 100_altin binek_at))
 
-;; Matematik Fonksiyonunda En başa kendi foksiyonumuzu ve icine kargoyu verip Konsola dök(print):
+;; Matematik Fonksiyonunda En başa kendi fonksiyonumuzu ve icine kargoyu verip Konsola dök(print):
 (print "Çantamdaki Nesne Sayısı Analizi Başlıyor..")
 (print (listemin-uzunlugu cantam))
 

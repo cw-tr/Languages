@@ -15,7 +15,7 @@ Ancak Ruby asıl şöhretini 2004 yılında, David Heinemeier Hansson'un Ruby ü
 ## Dilin Mantığı ve Kod Yapısı
 Ruby **HER ŞEY BİR NESNEDİR (Everything is an Object)** ideolojisinin kralıdır. Sadece bir metin veya oluşturduğunuz sınıf değil, dümdüz `5` sayısı kalemi bile bir objedir!
 
-Bir Ruby uygulamasında hiçbir yerde int, float yazmazsınız (Dinamic Typing). Noktalı virgül (`;`) nadiren kullanılır. Satırları bitiren süslü parantezler yerine şık ve konuşkan `end` kelimeleri blok kapatır. Parantez kullanımı metot çağrılarında bile opsiyoneldir (Parantezsiz kullanıp şiir gibi yazmanız alkışlanır). Meta-programlama yeteneği öylesine büyüseldir ki (Örn: metot isimlerini program yayındayken koda yazdırabilirsiniz), RoR'un "Nasıl çalışıyor inanamıyorum (Magic)" hissiyatını buradan gelir.
+Bir Ruby uygulamasında hiçbir yerde int, float yazmazsınız (Dynamic Typing). Noktalı virgül (`;`) nadiren kullanılır. Satırları bitiren süslü parantezler yerine şık ve konuşkan `end` kelimeleri blok kapatır. Parantez kullanımı metot çağrılarında bile opsiyoneldir (Parantezsiz kullanıp şiir gibi yazmanız alkışlanır). Meta-programlama yeteneği öylesine büyüseldir ki (Örn: metot isimlerini program yayındayken koda yazdırabilirsiniz), RoR'un "Nasıl çalışıyor inanamıyorum (Magic)" hissiyatı buradan gelir.
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Örneğin Java veya C#'da ekrana "Merhaba" kelimesini 5 Kere yazdırmak için: `for(int i=0; i<5; i++) { print("Merhaba") }` dersiniz.
@@ -36,13 +36,13 @@ class SiparisKutusu
 
   # "initialize", Constructor (Yapılandırıcı) anlamindadir.
   def initialize(isim, fiyat, hazir_durumu = false)
-    @urun_ismi = isim # "@" (At Isareti) bunun bir Class_Özelliği (Instance Variabe) oldugunu gosterir
+    @urun_ismi = isim # "@" (At Isareti) bunun bir Class_Özelliği (Instance Variable) oldugunu gosterir
     @fiyat = fiyat
     @hazir_mi = hazir_durumu
   end
 
   # Soru Isaretli Metodlar (!?): Ruby, eger bir metot sadece "EVET / HAYIR (Boolean)" donecekse 
-  # metodun adinin sonuna Soru ISareti (?) koymaniza izin verir! Tamamen Düz Yazi.
+  # metodun adinin sonuna Soru Isareti (?) koymaniza izin verir! Tamamen Düz Yazi.
   def kargo_yapilabilir_mi?
     @hazir_mi && @fiyat > 0
   end
@@ -60,7 +60,7 @@ benim_siparisim.hazir_mi = true
 # 'Unless (Bu değilse)' diye bir kelimem var senin icin!
 
 unless benim_siparisim.kargo_yapilabilir_mi?
-  puts "Malesef henuz kutulanmadi, depoda bekliyor."
+  puts "Maalesef henuz kutulanmadi, depoda bekliyor."
 else
   # "puts" Put String komutu, Console.WriteLine eziyetinin kolayidir:
   puts "Siparisiniz Kuryeye Verildi: #{benim_siparisim.urun_ismi}" 
@@ -71,7 +71,7 @@ end
 
 puts "--- Geri Sayim Basladi ---"
 
-# Geleneksel C/Java/PHP tarzi intialized for dongulerine GEREK YOKTUR.
+# Geleneksel C/Java/PHP tarzi initialized for dongulerine GEREK YOKTUR.
 # "10 sayisi(Objesi), Kendinden başlayarak Geriye dogru (Downto), 1 Sayısına(Objesine) ulasana kadar.. donguye(do) gir!"
 
 10.downto(1) do |sayi|
@@ -85,5 +85,5 @@ Programcının İngilizce gramerini satırlara yedirip (Örn: `10.downto(1)`) mu
 
 ## Kimler Kullanır?
 * Tüm "Start-Up" dünyası: Silikon Vadisindeki bir şirketi ertesi sabah kurup (Kredi kartı veritabanı hazır, HTML viewlar hazır şekilde) dünyanın önüne sunmak isteyen Hızlı-Web Geliştiricileri (RoR Mimarları).
-* Stripe veya Shopify altyapısındaki finansal otomatizasyon eklentilerini (Gem'leri) entegre eden Backend mühendisleri.
-* DevOps altyapısı kuran, sanal makine ve sunuculardaki dosyaları ve network güvenlik kalkanlarını `Puppet` veya `Chef` (Konfigürasyon betikleri) vasıtasıyla kodlara döken Sistem/Ağ güvenliği (Penesetrasyon uzmanı Hacker) ekipleri.
+* Stripe veya Shopify altyapısındaki finansal otomasyon eklentilerini (Gem'leri) entegre eden Backend mühendisleri.
+* DevOps altyapısı kuran, sanal makine ve sunuculardaki dosyaları ve network güvenlik kalkanlarını `Puppet` veya `Chef` (Konfigürasyon betikleri) vasıtasıyla kodlara döken Sistem/Ağ güvenliği (Penetrasyon uzmanı Hacker) ekipleri.

@@ -45,13 +45,13 @@ pong() ->
             
         % Eger mektubun uzerinde BİTİR(finished) formati varsa hücresel olarak İntihar/Sonlanma gerceklesir.
         finished ->
-            io:format("PONG Hucresi: Elvada dunya, yorulup isimi bitiriyorum!~n")
+            io:format("PONG Hucresi: Elveda dunya, yorulup isimi bitiriyorum!~n")
     end.
 
 
 % Ping (Gönderen Müşteri) Hücresi/Aktörü
 ping(0, Pong_Adres_Hucresi) ->
-    % Eger deneme şarijimiz bittiyse (0 olduysa) Mektuba "Bitir" yazip Karşı Tarafa fırlat (Kapat).
+    % Eger deneme şarjımız bittiyse (0 olduysa) Mektuba "Bitir" yazip Karşı Tarafa fırlat (Kapat).
     Pong_Adres_Hucresi ! finished,
     io:format("PING Hucresi: Isimi bitirdim ve kapandim.~n");
 
@@ -71,7 +71,7 @@ start() ->
     % 'spawn' (Yumurtla/Üret) komutu BEAM sanal makinesinde yepyeni, tamamen izole agirliksiz bi islemci(Aktör) uyandirir.
     Pong_Hucresinin_PIDsi = spawn(pingpong, pong, []),
     
-    % Asil ping isini (3 tur pinpon oynayacak sekilde) yine yep yeni bi izole islemciyle baslat!
+    % Asil ping isini (3 tur pinpon oynayacak sekilde) yine yepyeni bi izole islemciyle baslat!
     spawn(pingpong, ping, [3, Pong_Hucresinin_PIDsi]).
 ```
 

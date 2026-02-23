@@ -4,7 +4,7 @@
 Scheme; 1975 yılında M.I.T'den Guy L. Steele ve Gerald Jay Sussman tarafından yaratılan, orijinal "Lisp" dilinin inanılmaz karmaşık ve büyük yapısını **temizleyip en minimal, en pürüzsüz ve en zarif** haline getiren, yazılım eğitiminde (metaprogramlama ve derleyici mantığında) evrendeki en kült fonksiyonel (Dialect) dillerden biridir.
 
 ## Nedir ve Ne İşe Yarar?
-Orjinal Lisp (Common Lisp) 1970'lerde o kadar çok özellik ile şişmişti ki (Aynı isme sahip hem fonksiyon hem değişken olabiliyordu, makrolar karmaşıktı), yeni programlamaya başlayan öğrenciler Lisp makinalarında boğuluyordu. 
+Orijinal Lisp (Common Lisp) 1970'lerde o kadar çok özellik ile şişmişti ki (Aynı isme sahip hem fonksiyon hem değişken olabiliyordu, makrolar karmaşıktı), yeni programlamaya başlayan öğrenciler Lisp makinalarında boğuluyordu. 
 
 Scheme, "Dili 50 sayfalık bir sözdizimi kitabına indirelim" diyerek çıktı. Sadece 5-10 tane ana (ilkel/primitive) kural barındıran muazzam temiz bir çekirdek Lisp'tir. En büyük devrimi ise **Tail-Call Optimization (Kuyruk Çağrısı Optimizasyonu)** kuralını evrene ilk getiren ve standartlaştıran dil olmasıdır. (Yani kendi kendini çağıran/Recursive bir fonksiyon, For döngüsü kadar RAM'de az yer kaplasın diye hafızayı otomatik temizler).
 
@@ -41,7 +41,7 @@ Sihirbaz Kitabından kopup gelmiş, C dilindeki çirkin "While/For" döngüleri 
         
         anlik_sonuc ;; True: Sonucu patlat ve Geri don (Return)
         
-        ;; FALSE ise: FOKSIYONU KENDİ İÇİNDE BİR DAHA ÇAGIR (Recursion Mutasyonu!)
+        ;; FALSE ise: FONKSİYONU KENDİ İÇİNDE BİR DAHA ÇAGIR (Recursion Mutasyonu!)
         ;; (Sayaci 1 artir, Sonucu sayacla carpip Parametreyi GÜNCELLE!)
         (dongu-isçisi (+ sayac 1) 
                       (* anlik_sonuc sayac))))
@@ -54,7 +54,7 @@ Sihirbaz Kitabından kopup gelmiş, C dilindeki çirkin "While/For" döngüleri 
 (display (faktoryel-hesapla 5))
 (newline)
 
-;; Cikincida Konsolda: "5 Faktoriyel'in Sonucu: 120"
+;; Ciktisi Konsolda: "5 Faktoriyel'in Sonucu: 120"
 ```
 Bu koddaki `(dongu-isçisi)` mekanizması C#'da on bin kere yapılsa Hafıza Patlaması/Memory Exception verir. Lakin Scheme bunu "Döngü Optimizasyonuna (Goto gibi)" dönüştürüp hiç RAM doldurmadan çalıştıracak o efsanevi Standart Akademik kurala bağlıdır.
 

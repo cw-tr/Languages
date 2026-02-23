@@ -6,7 +6,7 @@ GLSL (OpenGL Shading Language); 2004 yılında Khronos Grubu ve 3DLab firması (
 ## Nedir ve Ne İşe Yarar?
 Eskiden (90'lı yıllarda) 3 Boyutlu (3D) bir oyunda arabanın gölgesinin duvara yansıması veya suyun (okyanusun) dalgalanma ışığı gibi grafik operasyonları "Ekran Kartının içine Lehimlenmiş (Sabit) bir kural (Fixed Pipeline)" ile gelirdi. Programcılar ("Ben okyanusu mor yansıtmak, arabanın demirini çizikli parlatmak istiyorum") dediğinde hiçbir esneklik yoktu.
 
-OpenGL Mimarları, C dilinden (Syntax olarak) ilham aldılar ancak "Bu kodu Normal İşlemcide (CPU'da) tek sıra değil; Ekran Kartının (GPU) 10.000 Çekirdeğinde paralel C dili kodları gibi Eşzamanlı Derletelim" dediler. Ortaya Shader/GLSL çıktı. Artık yazılımcılar; Suyun kırılma açısını (Fragment) VEYA 3 Boyutlu Köşelerin Kordinatlarını (Vertex) kendi C-Komutlarıyla ekranda piksellere basabiliyordu!
+OpenGL Mimarları, C dilinden (Syntax olarak) ilham aldılar ancak "Bu kodu Normal İşlemcide (CPU'da) tek sıra değil; Ekran Kartının (GPU) 10.000 Çekirdeğinde paralel C dili kodları gibi Eşzamanlı Derletelim" dediler. Ortaya Shader/GLSL çıktı. Artık yazılımcılar; Suyun kırılma açısını (Fragment) VEYA 3 Boyutlu Köşelerin Koordinatlarını (Vertex) kendi C-Komutlarıyla ekranda piksellere basabiliyordu!
 
 **Ne İşe Yarar?**
 * **3D Oyun Motorları (Unity, Unreal, Custom C++ Oyunlar):** Oynadığınız o mükemmel grafikli bilgisayar oyunlarındaki "Yanan Alev efektleri, Okyanus Köpükleri, veya Mat/Metal Parlama gölgelendirmeleri" %100 Oranda ekran kartının içinde bu dille (GLSL veya DX HLSL ile) derlenir / yırtılır. (Oyun motoru arkaplanda GLSL Shader atar).
@@ -23,12 +23,12 @@ Program ÇEKİRDEKTEN ikiye ayrılır (Ayrı ayrı derlenen iki Dosyadır/Progra
 Ana C/Java Motoru ekran kartına `draw()` komutu yollar (Milyonlarca vertex).
 GPU'daki `Fragment Shader (GLSL)` o noktalara tek tek ışık matematiği (`dot(parilti, isikAcisi)`) yollar! Düşükse siyaha, yüksekse Bembeyaz (Parlama) vurur.
 
-### Örnek Bir GLSL (Fragment Shader) Kodu: Ekranda Sürekli Dalgalanan/Dönen Renkler (Gökkuşağı Shader'ı Bösterimi)!
+### Örnek Bir GLSL (Fragment Shader) Kodu: Ekranda Sürekli Dalgalanan/Dönen Renkler (Gökkuşağı Shader'ı Gösterimi)!
 Oyunların sularındaki o animasyonlu parlamanın ta kendisi (Her bir pikselde bağımsız çalışan Vector(Renk Red-Green-Blue-Alpha[RGBA]) Hesaplayıcı Işık zekası!
 
 ```glsl
 // GLSL Dili klasik C // veya /* */ Yorum Satirlarini Kullanir.
-// Ozel ve Çok Güçlü Bir Fragment(Piksel-Renk) Kodudur. Ekran kartindaki HER TANE PİKSEL oyu calistitir!
+// Ozel ve Çok Güçlü Bir Fragment(Piksel-Renk) Kodudur. Ekran kartindaki HER TANE PİKSEL onu calistirir!
 
 // "Precision" : GPU'ya Matematik Kusuru Ver! 
 //(Telefonda hizli calissin diye Float(ondaliklilar) orta-kalitede(mediump) tutulsun):
@@ -39,32 +39,32 @@ precision mediump float;
 // Her piksel icin bu (zaman) ortaktir:
 uniform float uZamanAkisi; 
 
-// Ekranda (X, Y) olarak şu an tam oalrak hangi Kordinattaki Piksli boyuyoruz bilgisı: (Input)
+// Ekranda (X, Y) olarak şu an tam olarak hangi Kordinattaki Pikseli boyuyoruz bilgisı: (Input)
 varying vec2 vDokunmaKordinati; 
 
-// 2. MAIN(KOTRAK FOKSIYON): Ekrandaki Trilyon Pikslein Rengine ne puskurteyim?
+// 2. MAIN(KONTRAKT FOKSIYON): Ekrandaki Trilyon Pikselin Rengine ne puskurteyim?
 void main() {
     
     // Uzerinde Gezindigim Piksel(Vektor Noktam): Sifir(Sol) ile Bir(Sag/Ust) arasindadir (Uv kordinati)
     // Suna (vDokunmaKordinati) diyelm X:0.5 , Y:0.5 (Yani Ekranin Tam Ortasini ciziyor! GPU!)
     vec2 pos = vDokunmaKordinati;
     
-    // MUCZİE SİNUS MATEMATİGİ: (Dalgalanma Ruju)
-    // Piksein Kırmızı Rengini (R) Zamana gore Dalgalandır (-1 ile +1 arasinda Doner)
+    // MUCİZE SİNUS MATEMATİGİ: (Dalgalanma Ruju)
+    // Pikselin Kırmızı Rengini (R) Zamana gore Dalgalandır (-1 ile +1 arasinda Doner)
     float R_KırmızıGucu = sin(pos.x * 10.0 + uZamanAkisi);
     
-    // Pikslein Mavi ve Yeşil rengini baska kordinatlarla karıştır
+    // Pikselin Mavi ve Yeşil rengini baska kordinatlarla karıştır
     float G_YesilGucu   = sin(pos.y * 10.0 - uZamanAkisi);
     float B_MaviGucu    = 0.5; // Sabit donuk mavi rengi ver.
     
-    /* IŞIK ve KONTRAST AYARI: (Sinus Eksi de cikailir, -1 ile 1 arasini -> Gorsel Renkleri Olan 0.0 - 1.0 araligina normalize et ki Siyah patlamasi olmasin!)
+    /* IŞIK ve KONTRAST AYARI: (Sinus Eksi de cikabilir, -1 ile 1 arasini -> Gorsel Renkleri Olan 0.0 - 1.0 araligina normalize et ki Siyah patlamasi olmasin!)
        Rakamı 0.5 ile topla ve ikiye bol! C/C++ matematiksel matris gucu!
     */
     R_KırmızıGucu = R_KırmızıGucu * 0.5 + 0.5;
     G_YesilGucu   = G_YesilGucu * 0.5 + 0.5;
     
     
-    // GL_FRAGCOLOR: SIHIRLI SÖZCÜK! BU PİKSELE KANA BOYA (Vector4 -> R, G, B, Alfa/Gorunurluk Saydamiigi)
+    // GL_FRAGCOLOR: SIHIRLI SÖZCÜK! BU PİKSELE KANA BOYA (Vector4 -> R, G, B, Alfa/Gorunurluk Saydamligi)
     // Alfa (A)= 1.0 (Yani tam kati boya(Saydam degil)).
     gl_FragColor = vec4(R_KırmızıGucu, G_YesilGucu, B_MaviGucu, 1.0);
 }
@@ -74,5 +74,5 @@ void main() {
 C ve C++ geliştiricisi, "Kılıç" kutusunun modelini diske yazar, oyun oynanırken GPU bu "C-Kodu formundaki Şeytanı" Derler atar; ve O Kılıç kutusunun üzerinde Güneş Parlaması / Kana Bulama Vektör Matris operasyonları harikulade pürüzsüz animasyonlarla hesaplanır.
 
 ## Kimler Kullanır?
-* Evrendeki bütün **C++ / Oyun Grafik Donanım Mühendisleri (Graphics Programmers)**. Oyun motorlarına Işık Hüzmesi / Motion Blur (Haretket bulanıklığı) vb Custom FX yamanlar.
+* Evrendeki bütün **C++ / Oyun Grafik Donanım Mühendisleri (Graphics Programmers)**. Oyun motorlarına Işık Hüzmesi / Motion Blur (Hareket bulanıklığı) vb Custom FX yamanlar.
 * **Three.js , WebGL veya WebGPU Web Tasarım/Animatörleri / Creative Coders:** "Shadertoy.com" üzerinde sadece Yukarıdaki gibi matematik/sinüs formüllerini dizip Akıl almaz Kara Delik Simülasyonları tasarlayan Sanat/Matematik Uzmanları (Creative Coder Felsefecileri). C, Javascript, Python projelerine tutkal komut/metin olarak gömüldüğü için bağımsız çalıştırılamaz "GPU'nun Eklentisidir".

@@ -16,48 +16,48 @@ Frontend tasarımıcısı HTML'e sadece Boş Kutular(Bıyıklar) koyar `{{ yazar
 ## Dilin Mantığı ve Kod Yapısı
 Tamamen Çift Süslü Parantez YANİ **Bıyıklar (Mustaches `{{ }}` )** üzerine kuruludur (Adını bu Sembolün Yan Yatan Bir bıyığa benzemesinden alır). Handlebars(Gidonlar) ise Bu Bıyıkların Gelişmişini(Helperlerini) Eklediği İcib bu ismi Almıştır.
 
-İçinde Sadece `{{#if}}` Veya `{{#each}}` Olarak Block(Kapsayucu) Basit Açmalar VAardır, Ancak (Özellilkle Mustache'de) "x > 5 İse" Gibi Matematikler VEYA Mantik Taraması KEsilniikle HTML de Yapilmaz! 
+İçinde Sadece `{{#if}}` Veya `{{#each}}` Olarak Block (Kapsayıcı) Basit Açmalar Vardır, Ancak (Özellikle Mustache'de) "x > 5 İse" Gibi Matematikler VEYA Mantık Taraması Kesinlikle HTML'de Yapılmaz! 
 
 ### Örnek Bir Handlebars Kodu (Mantıktan Arındırılmış Saf Veri Beslemesi)
 
-Tasarımcının Yazdığı Pürzzsuz, Gözü Hiç yomrayaan `.hbs` (Html) Şablon Mimarisi:
+Tasarımcının Yazdığı Pürüzsüz, Gözü Hiç yormayan `.hbs` (HTML) Şablon Mimarisi:
 
 ```html
 <!-- BU BIR HANDLEBARS (.hbs) SABLONUDUR! -->
 
-<!-- Normal Degisknelree Gömme (Mustache) -->
-<h1>Kullanici Profili : {{ profil.isim }}</h1>
+<!-- 1. Normal Değişkenler Gömme (Mustache) -->
+<h1>Kullanıcı Profili: {{ profil.isim }}</h1>
 
-<!-- Eger Kullanicin Biografyasi HTML iseee UC BIyik ILE (Güvenliyi Ezipp) GOM: -->
-<!-- (Eger {{ }} ikli olsadydi XSS saldiriismna Karsi Kodlari Stringe ceviriddi!) -->
-<p>Hakkinda: {{{ profil.html_biyografi }}} </p>
+<!-- Eğer Kullanıcının Biyografisi HTML ise ÜÇ Bıyık İLE (Güvenliği Ezip) GÖM: -->
+<!-- (Eğer {{ }} ikili olsaydı XSS saldırısına Karşı Kodları Stringe çevirirdi!) -->
+<p>Hakkında: {{{ profil.html_biyografi }}} </p>
 
 
-<!-- #EACH => For Dongusnun Saf Verisyosonu (Liste) -->
-<!-- Gelen JSON'daki 'arkadaslar' Dizisinin(Arraynin) Icineee Girr  -->
+<!-- #EACH => For Döngüsünün Saf Versiyonu (Liste) -->
+<!-- Gelen JSON'daki 'arkadaslar' Dizisinin (Arrayin) İçine Gir  -->
 <ul class="arkadas_listesi">
   
   {{#each arkadaslar}}
-    <!-- Su An Arrayin icindeyiz! This = Arrakdaki O anki Objee -->
+    <!-- Şu An Arrayin içindeyiz! This = Arkadaki O anki Obje -->
     <li>
          Profil Foto: <img src="{{this.fotograf_url}}"> <br>
-         Adi: {{this.isim}} 
+         Adı: {{this.isim}} 
     </li>
   {{/each}}
   
 </ul>
 
-<!-- NOT Dİkkat: Jinja daki gibi {{#if arkdalar.isim == "ali"}} YAZAMAYNIIZ!
-     Mantiksial(Matemtaiksl Karsilattsirma Yoktturett! Siz Sadece JSONA 
-    'alimMi' Diye Bi R Boolaon/Sart Verisini Javascriptte HESLPLYAIP Saboona Haziz Verirsiininuzz-->
+<!-- NOT Dikkat: Jinja'daki gibi {{#if arkadaslar.isim == "ali"}} YAZAMAZSINIZ!
+     Mantıksal (Matematiksel Karşılaştırma) Yoktur! Siz Sadece JSON'A 
+    'aliMi' Diye Bir Boolean/Şart Verisini JavaScript'te HESAPLAYIP Şablona Hazır Verirsiniz -->
 ```
 *(Arka Plan JavaScript Kodu şöyledir)*:
 ```javascript
-var sablon = Handlebars.compile("Yukraidaki Html Metni");
+var sablon = Handlebars.compile("Yukarıdaki HTML Metni");
 var veri_jsonu = { profil: {isim: "Berk"}, arkadaslar: [{isim: "Ayse", ...}] };
-var bitmis_html = sablon(veri_jsonu); // EKRANAA VURACAK METIN CIKKARO
+var bitmis_html = sablon(veri_jsonu); // EKRANA VURACAK METİN ÇIKARIR
 ```
 
 ## Kimler Kullanır?
-* Evrenndekki **Node.js (Backend JS)** Geliiştiricleiri ve Statik Site JS Jeneratörleri. (Örnek Express.js suncularinada Görntuye/Ekrana WebSİtreisi Atmak Icin En Çok Kullanilna Şaplon Motorodurr HBS).
-* React Ve Vue'nun Çılgındnaşığindan (Ve Ağırlığında) Kaçıp; Saf, Eksi Usül ama Hızlı Server-Side HTML üretmek İsteyen Eskitoprk (Veteran) Mimarlar. "Bize Logic-Less (Aptal Şablon) Verin, Kafamiz Raaat EttnstiM!" Dİyeyn Front-end/Design Ekipleerniin Can simidi, Kod/Tsarım Ayrrliğinini Pirmamşnidiir.
+* Evrendeki **Node.js (Backend JS)** Geliştiricileri ve Statik Site JS Jeneratörleri. (Örnek Express.js sunucularında Görüntüye/Ekrana Web sitesi Atmak İçin En Çok Kullanılan Şablon Motorudur HBS).
+* React Ve Vue'nun Çılgınlığından (Ve Ağırlığından) Kaçıp; Saf, Eski Usul ama Hızlı Server-Side HTML üretmek İsteyen Eski toprak (Veteran) Mimarlar. "Bize Logic-Less (Aptal Şablon) Verin, Kafamız Rahat Etsin!" Diyen Front-end/Design Ekiplerinin Can simidi, Kod/Tasarım Ayrılığının Piridir.

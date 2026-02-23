@@ -16,14 +16,14 @@ Håkon Wium Lie (W3C), "Neden Görselliği(Estetiği) ve Yapıyı(HTML) birbirin
 Tam bir "**Seçici (Selector) ve Kural (Rule)**" sözlüğüdür. Kimi boyayacağını seçersin `{}`, içine kuralını `Özellik: Değer;` olarak iki nokta üst üste ile (Key:Value) atarsın.
 
 1. **Tag (Eleman) Seçici:** Sadece ismini yaz `button { }` (Sitedeki her butonu boyar).
-2. **Klass (Sınıf) Seçici:** Başına Nokta (.) koy `.uyari-yazisi { }` (HTML'de class="uyari-yazisi" olanları Özel olarak boyar).
+2. **Klas (Sınıf) Seçici:** Başına Nokta (.) koy `.uyari-yazisi { }` (HTML'de class="uyari-yazisi" olanları Özel olarak boyar).
 3. **ID (Kimlik) Seçici:** Başına Diyez (#) koy `#ana-baslik { }` (Sayfada sadece Tek Bir Özel Elemanı boyar).
 
 Adındaki "Cascading (Basamaklı)" felsefesi: Aşağı satırdaki yazılan kodun, Yukarıdakini "Ezmesi (Override)" prensibidir! Renkleri çelişirse, En Son okunan emir geçerli sayılır (Hiyerarşi silsilesi). 
 
 **Örnek İşleyiş:**
 HTML'deki Kodun: `<p class="haber">Ali geldi</p>`
-Bunun CSS Dosyasındaki Karşılık (Boya) Emiri: `.haber { color: red; font-size: 20px; }`
+Bunun CSS Dosyasındaki Karşılık (Boya) Emri: `.haber { color: red; font-size: 20px; }`
 
 ### Örnek Bir CSS Kodu: Estetik Bir Buton Çizmek ve Hover Animasyonu
 Girdiğiniz janjanlı E-Ticaret / Modern Web sitelerinde o farenin altında süzülen muazzam "Cam/Yumuşak" butonların arkaplan sırrı: 
@@ -63,7 +63,7 @@ body {
     cursor: pointer;            /* Fareyle ustune gelince ok, 'Zıplayan el(El_Isareti)' olsun! */
     
     /* ANIMASYON GECISI (TRANSITION) ZEKASI!: Eger bu butona bir hal/durum deigimi gelirse
-       Aniden (0 saniyede Cat!) diye deismek yerine, Degisimi 0.3 Saniyeye yayarak süzül (Ease)!
+       Aniden (0 saniyede Cat!) diye degismek yerine, Degisimi 0.3 Saniyeye yayarak süzül (Ease)!
     */
     transition: all 0.3s ease; 
 }
@@ -75,10 +75,10 @@ body {
     
     background-color: #7C4DFF; /* Rengi biraz Acik Mor/Parlama yapp */
     
-    /* Buton Zzıpılamak iin TRANSFORM KORDİNATLARİNIN (Scale) Boyunu %5 bbuyut (1.05) ve Yukarı(Y eksenı) 3 px tasi (-3px)  */
+    /* Buton Ziplamak icin TRANSFORM KORDINATLARININ (Scale) Boyunu %5 buyut (1.05) ve Yukarı(Y ekseni) 3 px tasi (-3px)  */
     transform: translateY(-3px) scale(1.05);
     
-    /* Gölgeyi daha geniş ve belirigin yap ki butun Ekranda Havalanmis gibi sussun! */
+    /* Gölgeyi daha geniş ve belirgin yap ki butun Ekranda Havalanmis gibi dursun! */
     box-shadow: 0px 8px 25px rgba(98, 0, 234, 0.7);
 }
 ```
@@ -87,4 +87,4 @@ Bu kod HTML içine (`<link rel="stylesheet">` ile) yüklendiği ve HTML'ye `<but
 
 ## Kimler Kullanır?
 * Yine ve Mutlaka Evrendeki Tüm **Front-End (Önyüz/Arayüz) Mühendisleri ve UI(Arayüz)/UX(Kullanıcı Deneyimi) Tasarımcıları**.
-* Günümüzde Vanilla (Saf) CSS yazmak dosya kalabalığı yarattığı için programcılar **SASS/SCSS** denilen (İçinde if/else, döngü yapabildiğiniz sahte CSS-Programlama dillerine) VEYA **TailwindCSS / Bootstrap** denen (Siz CSS yazmayın klas atın hazır fırlasın) kütüphanelere bağımlıdır. Fakat o devasa Frameworklerin hepsi, Chrome'un kalbine düşerken (Compile olduğunda) yine kusursuz SAF/ÇIPLAK CSS (.css) metinlerine dönüşmek ZORUNLULUĞUNA mahkumdurlar. Çarkın dişlisidir.
+* Günümüzde Vanilla (Saf) CSS yazmak dosya kalabalığı yarattığı için programcılar **SASS/SCSS** denilen (İçinde if/else, döngü yapabildiğiniz sahte CSS-Programlama dillerine) VEYA **TailwindCSS / Bootstrap** denen (Siz CSS yazmayın klas atın hazır fırlasın) kütüphanelere bağımlıdır. Fakat o devasa Frameworklerin hepsi, Chrome'un kalbine düşerken (Compile olduğunda) yine kusursuz SAF/ÇIPLAK CSS (.css) metinlerine dönüşmek ZORUNDALIKLARINA mahkumdurlar. Çarkın dişlisidir.

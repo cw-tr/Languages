@@ -19,7 +19,7 @@ Fakat, insanlar 2000 sonrasında "Ben algoritmayı ve If Else döngüsünü `<cf
 
 **Örnek İşleyiş (Sembolik Olarak):**
 PHP Kodu (Kısalık felsefesi): `<?php echo "Mevcut Gun: " . date("Y/m/d"); ?>`
-ColdFusion Kodu (HTML Tag Felsefesi): `<cfoutput> Mevcut Gun: #DateFormat(Now(), "YYYY/MM/DD")# </cfoutput>` (Buradaki `#` (Diyez) sembolü HTML'nin içindeki o Değişkenin / Methodun Ekran çıktısına vurulmasını (Output) temsil eden Coldfusionun yegane can damarıdır!).
+ColdFusion Kodu (HTML Tag Felsefesi): `<cfoutput> Mevcut Gun: #DateFormat(Now(), "YYYY/MM/DD")# </cfoutput>` (Buradaki `#` (Diyez) sembolü HTML'nin içindeki o Değişkenin / Methodun Ekran çıktısına vurulmasını (Output) temsil eden ColdFusion'ın yegane can damarıdır!).
 
 ### Örnek Bir ColdFusion Kodu: Tıklamayla HTML içine SQL Bagıntı (Query) Enjeksiyonu!
 1997'de bir tasarımcıya bile Veritabanı hackerı muamelesi çektiren O efsanevi (Günümüzde artık Terk Edilen ama saygıyla anılan) CFML Tag Engine mimarisi. (Veritabanından Haberleri Çekip Listeleme):
@@ -34,10 +34,10 @@ ColdFusion Kodu (HTML Tag Felsefesi): `<cfoutput> Mevcut Gun: #DateFormat(Now(),
 
     <h2>Bu ayki Guncel Calisan Haberleri</h2>
     
-    <!-- 1. CF MUCİLESİ: SERVER'IN KALBİNE BIR ETIKET AÇ (<cfquery>) -->
+    <!-- 1. CF MUCİZESİ: SERVER'IN KALBİNE BIR ETIKET AÇ (<cfquery>) -->
     <!-- Name=Sorgunun_Ismı (Bunu Asagida Dongu icin kullanicaz!),  datasource: Sqlveritabani_Ip_Ayarimizin Ismı! -->
     
-    <cfquery name="HaberSorgusu" datasource="SirkeyOracleVeritabani">
+    <cfquery name="HaberSorgusu" datasource="SirketOracleVeritabani">
         
         <!-- YALNIZCA KURALSIZ, DUZ SAF SQL YAZ! ARkasi CF'ye Aittir: -->
         SELECT HaberBasligi, Yazar, YayinlanmaTarihi 
@@ -56,7 +56,7 @@ ColdFusion Kodu (HTML Tag Felsefesi): `<cfoutput> Mevcut Gun: #DateFormat(Now(),
     
     <cfoutput query="HaberSorgusu">
         
-        <!-- DİYEZ (#) İŞARETİ COBDFUSİON İÇİN RAM'DEKİ/SQL'DEKİ DEĞİŞKENİ TEMSİL EDER! -->
+        <!-- DİYEZ (#) İŞARETİ COLDFUSION İÇİN RAM'DEKİ/SQL'DEKİ DEĞİŞKENİ TEMSİL EDER! -->
         <!-- Sütun Isimlerini Diyezlerin Icine Yaziyoruz: -->
         <li>
             <b>#HaberBasligi#</b> <br/>
@@ -67,7 +67,7 @@ ColdFusion Kodu (HTML Tag Felsefesi): `<cfoutput> Mevcut Gun: #DateFormat(Now(),
     
     </ul>
     
-    <!-- Eger Hic Haber Bulunmadiysa (If Kontrolu - Tag olarah!) -->
+    <!-- Eger Hic Haber Bulunmadiysa (If Kontrolu - Tag olarak!) -->
     <cfif HaberSorgusu.RecordCount EQ 0>
        <p style="color:red;">Henuz Hic Haber Girilmemiş.</p>
     </cfif>

@@ -9,20 +9,20 @@ Veri Bilimcisi gelip Python'a Şunu yazar: **"Bana SADECE Yaşı 25 olan İnsanl
 Eğer O 500 Gblık Dosya CSV veya JSON olursa; Makine 1.Satırdan (İsim, Şehir, Yaş) Başlar. Sonra 2. Satırı Okur (İsim Şehir, Yaş)... **Halbuki İsim ve Şehir umurumuzda Değil!** Boşu Boşuna o 500 GB Diske Sürürtüp Okunduğu İçin Cevabın gelmesi 40 Dakika Sürer!
 
 Parquet Dediki: **Kardeşim, Verileri İnsan Okur Gibi Yan Yana (Satır Satır) Değil, AŞAĞIYA DOĞRU (SÜTUN SÜTUN) Parçalayarak Diske Kaydedelim!**
-İsimlerin hepsi Bir Yerde "Zip"lensin. Şehirler Bir Yerde Sıkıştırılsın! Yaş Sütunu (18, 20, 25, 25, 25) Yan Yana Sıkıştırılsın! (Madem hepsi Rakam, O rakamlar birbirriin aynısı olcucağı için Çok deli SIKISIR - Snappy Compression).
+İsimlerin hepsi Bir Yerde "Zip"lensin. Şehirler Bir Yerde Sıkıştırılsın! Yaş Sütunu (18, 20, 25, 25, 25) Yan Yana Sıkıştırılsın! (Madem hepsi Rakam, O rakamlar birbirinin aynısı olacağı için Çok deli SIKIŞIR - Snappy Compression).
 
-Sonuç? Veribilimcisi "Yaşları Oku" deyince Parquet, Dosyadaki İsimlerve ve Şehirler Blopunu (Chunk) HİÇ UYANDIRMAZ (Disk IO = 0). Sadece Küçücük "Yaş" blogunu 1 Saniyede Rama Çeker. 500 Gb CSV'nin Yaptığı İŞi **10 GB Parquet Formatı, 2 Saniyede Çözer!**
+Sonuç? Veribilimcisi "Yaşları Oku" deyince Parquet, Dosyadaki İsimler ve Şehirler Bloğunu (Chunk) HİÇ UYANDIRMAZ (Disk IO = 0). Sadece Küçücük "Yaş" bloğunu 1 Saniyede RAM'e Çeker. 500 Gb CSV'nin Yaptığı İŞi **10 GB Parquet Formatı, 2 Saniyede Çözer!**
 
 **Ne İşe Yarar?**
-* **Big Data (Apache Spark / Hadoop):** Eğer Dünya Çapında Bir Firmaysanız(Trendyol, Netflix, Facebook), Veri Havuzunuza (Data Lake) Akan Satışların / Tıklamlaarın Kaydını Amazon Bulklarına Excel veya JSON Olarak  Atmazsınız(Fakirleştirirsiniz). Milyarları PARQUET formunda Çevrip Saklarsınız; Bulut Faturanız Milyon Dolarladan Bin Dolara Düşer.
-* Kendi Kendini Anlatan Şema (Self-Describing): CSV dosyrlarında Sütunun Tipi belli Değlmdir. Parquet'nin içine ŞemasI(Metadatasi) Da Kodlanır "Bu suütan INT. Susa String" Gibi Güvenlidir.
+* **Big Data (Apache Spark / Hadoop):** Eğer Dünya Çapında Bir Firmaysanız (Trendyol, Netflix, Facebook), Veri Havuzunuza (Data Lake) Akan Satışların / Tıklamaların Kaydını Amazon Bulklarına Excel veya JSON Olarak Atmazsınız (Fakirleştirirsiniz). Milyarları PARQUET formunda Çevirip Saklarsınız; Bulut Faturanız Milyon Dolarlardan Bin Dolara Düşer.
+* Kendi Kendini Anlatan Şema (Self-Describing): CSV dosyalarında Sütunun Tipi belli Değildir. Parquet'nin içine Şeması (Metadatası) Da Kodlanır "Bu sütun INT, Şu String" Gibi Güvenlidir.
 
 ## Dilin Mantığı ve Kod Yapısı
-Parquet Sizn Oturup Elinilze (Notpad'den) Okuyabileğeniz Bir "Metin Dili" Değildir. O İkili (Binary) Ve devasa Sıkıştırılmış bir Makine Formatırdır.
-Onu Üretmek İçin (Python, Scala, Java veya SQL) Dillerini Kullaanrak "Bu Dataframa'i PARQUET OLARAK DİSKE CIKART!" Diye Emrredrinsiiz.
+Parquet Sizin Oturup Elinizle (Notepad'den) Okuyabileceğiniz Bir "Metin Dili" Değildir. O İkili (Binary) Ve devasa Sıkıştırılmış bir Makine Formatıdır.
+Onu Üretmek İçin (Python, Scala, Java veya SQL) Dillerini Kullanarak "Bu DataFrame'i PARQUET OLARAK DİSKE ÇIKART!" Diye Emredersiniz.
 
-### Örnek Bir Parquet Mimarisi: (Python Pandas İle Devolası Hızda Sıkıştırma Kaydı)
-Aşağıda Bir Veri Bilimcisinin İğrenç Derecede Yavaş Çalışan O CSV veri Setini (Kanseri), Evrenin En Hızlı Çekireklerinden Biri Olan Parquet Kod Formatına PÜsküttüğü Çeviiri OPerasyonu:
+### Örnek Bir Parquet Mimarisi: (Python Pandas İle Devasa Hızda Sıkıştırma Kaydı)
+Aşağıda Bir Veri Bilimcisinin İğrenç Derecede Yavaş Çalışan O CSV veri Setini (Kanseri), Evrenin En Hızlı Çekirdeklerinden Biri Olan Parquet Kod Formatına Püskürttüğü Çeviri Operasyonu:
 
 ```python
 # BU BIR PYTHON PANDAS / PYARROW KODUDUR 
@@ -34,28 +34,28 @@ import pandas as pd
 yavas_veri = pd.read_csv("musetri_harcamalari.csv") 
 
 
-# 2. DEVASA YENILIK: CSV'YI AL VE ONUD DİSKE "PARQUET" (.parquet) OLAAK FİRLAT!!
-# Parquet Motoru (engine='pyarrow') Kullanarak Sutunlari Parcalayipp Matematiksel zipe Sorarcaklar!
+# 2. DEVASA YENİLİK: CSV'Yİ AL VE ONU DİSKE "PARQUET" (.parquet) OLARAK FIRLAT!!
+# Parquet Motoru (engine='pyarrow') Kullanarak Sütunları Parçalayıp Matematiksel Zipe Sokacaklar!
 yavas_veri.to_parquet(
     "isik_hizinda_musteriler.parquet", 
     engine='pyarrow', 
-    compression='snappy' # Google'in Isci Ziplayicisi Snappy ile Skistr (GigaBytelar MegaByta Dussunn)
+    compression='snappy' # Google'ın Hızlı Zippleyicisi Snappy ile Sıkıştır (GigaBytelar MegaByta Düşsün)
 )
 
 
 # -------------------------------------------------------------
-# 3. YARİN GELİP AYNİ DOSYAYİ OKUDGUNDA ALACGIN IHTSIAM(PERFORMANS)!
-# Veri Bilmcisi: "Bana O Milyoanarca Adamdan SADECE 'ulkesi_id' si 5 Olanlarin Maasii Cek!"
+# 3. YARIN GELİP AYNI DOSYAYI OKUDUĞUNDA ALACAĞIN İHTİŞAM (PERFORMANS)!
+# Veri Bilimcisi: "Bana O Milyonlarca Adamdan SADECE 'ulkesi_id' si 5 Olanların Maaşını Çek!"
 
-# Parquet SİHRİ: COLUMNS KAVSRAMI(Sudece İlgilei Surunltari Oku!! Gerisini Elleem!!!!)
+# Parquet SİHRİ: COLUMNS KAVRAMI (Sadece İlgili Sütunları Oku!! Gerisini Elleme!!!!)
 hizli_cevap = pd.read_parquet(
     "isik_hizinda_musteriler.parquet",
-    columns=['il_id', 'aylik_harcama']  # Parquet Olarak Yaziidigi İçin Dosyanin Tamamini TARAMAZ!!.
-)                                       # Sadece O diskedeki 2 Sütüna Nokta Atişi Ucar Ve Sanaiuyede doner!
+    columns=['il_id', 'aylik_harcama']  # Parquet Olarak Yazıldığı İçin Dosyanın Tamamını TARAMAZ!!.
+)                                       # Sadece O diskteki 2 Sütuna Nokta Atışı Uçar Ve Saniyede Döner!
 
 ```
-Görüldüğü gibi Parquet "Aptal bir String (Metin)" Dosyası Olmaktan Ziyade, Disk Üzerinde Çalışan Bir **Veritabanı Motoru Gibi** Davaranır (Hangi sütunun Nerede başladını, Nerde bittignii ve Maksiumam Minumum değerleirni İçinde Metadaa olarak Tutar).
+Görüldüğü gibi Parquet "Aptal bir String (Metin)" Dosyası Olmaktan Ziyade, Disk Üzerinde Çalışan Bir **Veritabanı Motoru Gibi** Davranır (Hangi sütunun Nerede başladığını, Nerde bittiğini ve Maksimum Minimum değerlerini İçinde Metadata olarak Tutar).
 
 ## Kimler Kullanır?
-* Evrendeki bütün (100 Mb'dan büyük verilerler uğarşan) **Veri Mühendisleri (Data Engineers), Big Data (Hadoop/Spark) Mimarları ve Apache İşçileri**.
-* Büyük şirketlerde (Günde Milyonlaraca Log Akan Sunucularda) Depolama maliyetlerinden (AWS S3) Yüzde 80 Tasarruf Ettirdiği Ve BI (Business Intelligneee) Araçlarına Süper Hız Sağladıpıçın JSON'un Tahtını Veri Ambarında(DataWarehosue) Gözünü kırpadan Yıkan Yüce Bir Standattr. İstisasıx Her veri bilimcisi Hayatına Parquet İle Mühürliyecektiri!
+* Evrendeki bütün (100 Mb'dan büyük verilerle uğraşan) **Veri Mühendisleri (Data Engineers), Big Data (Hadoop/Spark) Mimarları ve Apache İşçileri**.
+* Büyük şirketlerde (Günde Milyonlarca Log Akan Sunucularda) Depolama maliyetlerinden (AWS S3) Yüzde 80 Tasarruf Ettirdiği Ve BI (Business Intelligence) Araçlarına Süper Hız Sağladığı İçin JSON'un Tahtını Veri Ambarında (Data Warehouse) Gözünü kırpmadan Yıkan Yüce Bir Standarttır. İstisnasız her veri bilimcisi hayatını Parquet ile mühürleyecektir!

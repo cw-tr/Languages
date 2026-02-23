@@ -4,7 +4,7 @@
 Julia; 2012'de MIT (Massachusetts Institute of Technology) bilim insanları tarafından, Python'un yavaşlığını, R'ın hantallığını ve C++'ın yazım zorluğunu aynı anda çöpe atarak; **"Python kadar kolay yazılsın, ama C kadar donanım hızında çalışsın"** manifestosuyla yaratılan yüksek başarılı (High-Performance) modern Veri Bilimi ve Hesaplamalı Bilim dilidir.
 
 ## Nedir ve Ne İşe Yarar?
-Veri Bilimciler için yıllarca çözülemeyen "Two-Language Problem" (İki Dil Sorunu) denilen bir bela vardı. Bir bilim insanı, uçak kanadının rüzgâr simülasyonunu önce "Python" veya "Maltab" ile yavaşça yazardı (Çünkü hızlı kodlanabiliyordu). Sonra proje devasa boyuta ulaştığında bu yavaş diller yetmez, şirketin C++ mühendisleri gelip aylar boyunca o bilimsel formülleri hızlı makine makinesi diline (C++) tamamen baştan çevirirdi. Araştırmacı C++, yazılımcı ise Formül bilmiyordu, tam bir kabustu.
+Veri Bilimciler için yıllarca çözülemeyen "Two-Language Problem" (İki Dil Sorunu) denilen bir bela vardı. Bir bilim insanı, uçak kanadının rüzgâr simülasyonunu önce "Python" veya "Matlab" ile yavaşça yazardı (Çünkü hızlı kodlanabiliyordu). Sonra proje devasa boyuta ulaştığında bu yavaş diller yetmez, şirketin C++ mühendisleri gelip aylar boyunca o bilimsel formülleri hızlı makine diline (C++) tamamen baştan çevirirdi. Araştırmacı C++, yazılımcı ise Formül bilmiyordu, tam bir kabustu.
 
 MIT profesörleri Julia'yı geliştirdi. **İki Dil Sorununu bitirdi**: Siz aynen Python gibi süslü parantez bile olmadan dümdüz matematik formülünü yazarsınız. Julia, C kodu gibi "AHEAD / JUST IN TIME" (LLVM motoru) ile o tertemiz kodu saniyede saf makine gücüne (0 ve 1'lere) çeker. Tıpkı C veya Fortran hızı elde edilir.
 

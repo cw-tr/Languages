@@ -4,13 +4,13 @@
 Delphi (Asıl Dili: Object Pascal); 1995 yılında Borland şirketi (baş mimarı Anders Hejlsberg) tarafından geliştirilen, eski/katı Pascal diline Nesne Yönelimli Programlama (OOP) ve muazzam bir Grafiksel Bileşen Mimarisi (VCL) ekleyerek, Windows masaüstü uygulamalarını "Sürükle-Bırak" (RAD) mantığıyla saniyeler içinde yaratan 90'lı yılların "Efsanevi" sistem dilidir.
 
 ## Nedir ve Ne İşe Yarar?
-1990'ların ortalarında Windows işletim sistemine (Windows 95) grafiksel bir program yazmak C++ ile aylar süren bir işkenceydi. Pointerlar, hafıza açıklar, ekrana buton çizmek için yüzlerce satır API (Win32) kodu dökmek gerekiyordu. Visual Basic vardı ama o da hız olarak felaket derecede yavaştı (Interpreted).
+1990'ların ortalarında Windows işletim sistemine (Windows 95) grafiksel bir program yazmak C++ ile aylar süren bir işkenceydi. Pointerlar, hafıza açıkları, ekrana buton çizmek için yüzlerce satır API (Win32) kodu dökmek gerekiyordu. Visual Basic vardı ama o da hız olarak felaket derecede yavaştı (Interpreted).
 
 İşte Delphi, dünyadaki C++ hızını "Görsel Geliştirme (Visual Basic) rahatlığıyla" birleştiren bir cennet oldu. Ekrana bir Button sürükleyip bırakıyordunuz, üzerine çift tıklayıp `Object Pascal` dilinde arkasına `ShowMessage('Merhaba');` yazıyordunuz ve program saliseler içinde Native (Saf EXE makine koduna) derleniyordu. Hiçbir DLL kütüphanesine veya JVM sanal makinesine ihtiyaç duymadan, saf hızda, saniyeler içinde program üretiyordu. (RAD - Hızlı Uygulama Geliştirme krallığı).
 
 **Ne İşe Yarar?**
-* **Windows Masaüstü Windows (UI) Mimarisi:** Muhasebe programları, Hastane Otomasyonları, Stok-Kasa barkod yazılımları, Kütüphane takip sistemleri. Türkiye'deki ve dünyadaki küçük/orta işletme (KOBİ) masaüstü yazılım tarihinin %80'i Delphi (ve onun kütüphanesi VCL - Visual Component Library) ile inşa edilmiştir.
-* **Veritabanı (BDE/ADO) Krallığı:** Delphi; SQL, DBase, Paradox veya Oracle gibi uzak/yerel veritabanlarına sadece 2 komponenet tıklatarak muazzam bir şık tablo (DBGrid) ile anında (0 kod ile bile) veri bağlayabilirdi.
+* **Windows Masaüstü (UI) Mimarisi:** Muhasebe programları, Hastane Otomasyonları, Stok-Kasa barkod yazılımları, Kütüphane takip sistemleri. Türkiye'deki ve dünyadaki küçük/orta işletme (KOBİ) masaüstü yazılım tarihinin %80'i Delphi (ve onun kütüphanesi VCL - Visual Component Library) ile inşa edilmiştir.
+* **Veritabanı (BDE/ADO) Krallığı:** Delphi; SQL, DBase, Paradox veya Oracle gibi uzak/yerel veritabanlarına sadece 2 bileşen tıklatarak muazzam bir şık tablo (DBGrid) ile anında (0 kod ile bile) veri bağlayabilirdi.
 
 ## Dilin Mantığı ve Kod Yapısı
 Temel dil **Object Pascal**'dır. Yani standard Pascal'ın (`var`, `begin...end`, `:=` atamaları) o katı bloklarına; modern yazılımın anahtarları olan Classes (Sınıflar), Properties (Özellikler) ve Exceptions (Hata Ayıklama Try/Except) zırhları giydirilmiştir.
@@ -59,7 +59,7 @@ var
 { BURASI KODUN UYGULAMAYA GECTIGI ASIL BÖLÜM (IMPLEMENTATION) }
 implementation
 
-{$R *.dfm} { Bu .dfm Formun gorsel (Butonun x ve y kordinati vb) cizim dosyasini arkaplanda baglar }
+{$R *.dfm} { Bu .dfm Formun gorsel (Butonuz x ve y koordinatı vb) cizim dosyasini arkaplanda baglar }
 
 { Prosedürün Govdesi (Form1 sınıfına ait oldugu TForm1. seklinde Sahiplenilmis) }
 procedure TForm1.HosgeldinButonuClick(Sender: TObject);
@@ -68,18 +68,18 @@ var
    hesaplama: Integer;
 begin
     
-    { Sınıfın (MusteriAdi) niteligine, := atamasıyla deger yeleştiriyoruz }
+    { Sınıfın (MusteriAdi) niteligine, := atamasıyla deger yerleştiriyoruz }
     MusteriAdi := 'Sayın Siber CEO';
     
     hesaplama := 10 * 5;
 
     { Delphi Kütüphanesinin (VCL) O muazzam ozellikleri: 
       Sonuc etiketinin 'Yazi (Caption)' Objesine sız ve Ekrani saniyesinde yenile! 
-      (IntToStr -> Sayisi metne cevirir, aksi taktirde Pascal anında hata basar ve derlemez) }
+      (IntToStr -> Sayisi metne cevirir, aksi takdirde Pascal anında hata basar ve derlemez) }
       
     SonucEtiketi.Caption := 'Hosgeldiniz ' + MusteriAdi + '! Sonuc = ' + IntToStr(hesaplama);
     
-    { Ekrana Pop-Up MessageBox Firlat! (Win32 Çagırısıdır amam Delphi Cok Basite İndirger) }
+    { Ekrana Pop-Up MessageBox Firlat! (Win32 Çağrısıdır ama Delphi Çok Basite İndirger) }
     ShowMessage('Sistem Basariyla Guncellendi!');
 
 end;
@@ -89,6 +89,6 @@ end. { Nokta ile Kapanis, o Unit(Dosyanin) bittiginin Muhurudur. }
 Siz "Run / F9" tuşuna bastığınızda bu devasa Object Pascal yığını tek bir EXE dosyasına sıkıştırılır (Sadece 2-3 Megabyte eder). Kurulum gerekmeden FlashDisk ile bir Windows'a atıp takır takır çalıştırırsınız.
 
 ## Kimler Kullanır?
-* Evrendeki bütün KOBİ, Muhasebe (Türkiye'de Logo, Mikro, Akınsoft vbn yazılımlarının çoğu), Stok ve Restoran Adisyon uygulamalarının "Eski Toprak" 90'lar/2000'ler nesli geliştiricileri.
+* Evrendeki bütün KOBİ, Muhasebe (Türkiye'de Logo, Mikro, Akınsoft vb. yazılımlarının çoğu), Stok ve Restoran Adisyon uygulamalarının "Eski Toprak" 90'lar/2000'ler nesli geliştiricileri.
 * Günümüzde **Embarcadero Delphi** ismiyle dev bir ekosistem olarak satılmaya devam eder ancak eski şöhreti kalmamıştır (Çünkü C#/.NET ve Web (Javascript) dünyası masaüstü sektörünü paramparça etmiştir).
-* Delphi'nin yaracıtısı Anders Hejlsberg şirket batmaya doğru gidince Microsoft'a transfer olmuş, ve C++ dilini "Delphi Görselliği ve RAD mantığıyla" birleştirip bildiğiniz **C#** (ve visual studio'yu) icat ederek dünyayı ele geçirmiştir.
+* Delphi'nin yaratıcısı Anders Hejlsberg şirket batmaya doğru gidince Microsoft'a transfer olmuş, ve C++ dilini "Delphi Görselliği ve RAD mantığıyla" birleştirip bildiğiniz **C#** (ve visual studio'yu) icat ederek dünyayı ele geçirmiştir.

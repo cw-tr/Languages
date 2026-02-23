@@ -27,7 +27,7 @@ Bir dosyayı okumak veya basit bir Obje (DTO) üretmek istediğinizde, C#/Java'n
 
 ```groovy
 // Groovy Yorumlari C/Java gibi // ile yapilir
-// Not: Ayni dosyaya 1'r 1 Java kodu yazsaniz da Groovy derler. Bu JVM'in ozgurlugudur!
+// Not: Ayni dosyaya 1'e 1 Java kodu yazsaniz da Groovy derler. Bu JVM'in ozgurlugudur!
 
 /* 1. MUCİZE MÜLAKAT: SINIF (CLASS) VE OTOMATİK GETTER/SETTER */
 // "Java'da bu sadece sınıf icin 30 satır Getter/Setter kodu isterdi!"
@@ -47,11 +47,11 @@ println "--- GROOVY ORDU BİLGİ SİSTEMİ ---"
 def ilkAsker = new Asker(isim: "Murat", rutbe: 10) // Otomatik Yapici (Constructor) !
 def ikinciAsker = new Asker(isim: "Hakan", rutbe: 5)
 
-// Listeleri Java'daki gibi Array kütüphanesi sömürere değil Köşeli(JSON gibi) bas:
+// Listeleri Java'daki gibi Array kütüphanesi sömürerek değil Köşeli(JSON gibi) bas:
 def orduListesi = [ilkAsker, ikinciAsker]
 
 // MUCİZE FONKSİYONEL DÖNGÜ (Ruby Klonu - Closures)
-// '.each' metoduyle listenin icinde dön ve Kapanis Blogu(Süslü icindeki 'it') a basla:
+// '.each' metoduyla listenin icinde dön ve Kapanis Bloguna (Süslü icindeki 'it') basla:
 orduListesi.each { it ->  
     
     // String İçi Değişken Enjeksiyonu ($ isareti - Java bunu 15 yil sonra zor yapabildi)

@@ -29,14 +29,14 @@ Menü kullanmadan devasa bir Siyasi/Psikolojik anketi hızla (Programlama felsef
 * "BİR SEYI DEGISTIR (COMPUTE/RECODE) O HALDE ONU OYLE KAYDET (EXECUTE)" felsefesinin kalbi.
 
 * 1. VERİ TEMİZLİĞİ: "COMPUTE" ILE YENİ BİR DEĞİŞKEN (Sütun) YARAT
-* Anketörün girdiği "Boy" ve "Kilo" sutunlarindan, formülle BMI (Vücut Kitle Indeksi) Sutunu hesapla ve Dosyaya Ekle:
+* Anketörün girdiği "Boy" ve "Kilo" sutunlarindan, formülle BMI (Vücut Kitle Indeksi) Sütunu hesapla ve Dosyaya Ekle:
 COMPUTE VucutKitleIndeksi = Kilo / ((Boy/100) * (Boy/100)) .
 EXECUTE .
 
 
 * 2. RECODE (YENİDEN KODLAMA) - Efsanevi Kategorik Kesici!
-* Elimizdeki "Yas" sutunun daki (Sayisal verileri), Anket Gruplarina(1 Genc, 2 Yasli) cevir!
-* Eger 18'den kucukse (Thru 18) ona 1 degeri ver. 19 ile 35 arasina 2 de. Sonra Bunu YENI BIR STUNA (YasGrubu) aktar.
+* Elimizdeki "Yas" sutunundaki (Sayisal verileri), Anket Gruplarina(1 Genc, 2 Yasli) cevir!
+* Eger 18'den kucukse (Thru 18) ona 1 degeri ver. 19 ile 35 arasina 2 de. Sonra Bunu YENI BIR SÜTUNA (YasGrubu) aktar.
 RECODE Yas 
   (LOWEST THRU 18 = 1) 
   (19 THRU 35 = 2) 
@@ -63,7 +63,7 @@ FREQUENCIES VARIABLES=YasGrubu Cinsiyet
 
 
 * CROSSTABS (ÇAPRAZ TABLO VE KI-KARE TESTI!)
-* Cinsiyet ile Secim_Oy_Davranisi arasinda "İstatistiksel olarak Anlamli fark/Ilıski var mi?" diye Test et (Kikare / Chisq yolla)
+* Cinsiyet ile Secim_Oy_Davranisi arasinda "İstatistiksel olarak Anlamli fark/Ilıski var mi?" diye Test et (Kikare / Chi-square yolla)
 CROSSTABS
   /TABLES=Cinsiyet BY Oy_Verdigi_Parti
   /STATISTICS=CHISQ .

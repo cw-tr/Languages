@@ -1,7 +1,7 @@
 # CUDA
 
 ## Özet
-CUDA (Compute Unified Device Architecture), NVDIA tarafından yaratılmış olan, dünyanın ilk C tabanlı ve doğrudan Ekran Kartı (GPU) çekirdeklerini programlamaya yarayan devrimsel **Paralel Hesaplama** platformu ve yazılım dilidir.
+CUDA (Compute Unified Device Architecture), NVIDIA tarafından yaratılmış olan, dünyanın ilk C tabanlı ve doğrudan Ekran Kartı (GPU) çekirdeklerini programlamaya yarayan devrimsel **Paralel Hesaplama** platformu ve yazılım dilidir.
 
 ## Nedir ve Ne İşe Yarar?
 2000'li yıllara kadar bilgisayar programları sadece Merkezi İşlem Birimi (CPU) denilen 4 veya 8 çekirdekli beyinler üzerinde çalıştırılabiliyordu. Ancak grafik işlemleri için üretilmiş devasa ekran kartları (GPU) o sırada binlerce "küçük ve aptal" çekirdek barındırıyordu. 
@@ -16,7 +16,7 @@ CUDA (Compute Unified Device Architecture), NVDIA tarafından yaratılmış olan
 ## Dilin Mantığı ve Kod Yapısı
 Aslında CUDA yepyeni fantastik bir sözdizimi değildir. Tamamen C/C++ dillerinin üzerine (eklenti gibi) giydirilmiş özel komutlardan ve derleyici direktiflerinden oluşur. `nvcc` adlı NVIDIA derleyicisi tarafından derlenir.
 
-Yazılımcı, kodunu normal bir C dosyası gibi yazar ancak, Ekran Kartında çalışmasını istediği ağır hesaplama fonksiyonunun başına özel bir kelime ekler: `__global__` (Global Kernel Fonction).
+Yazılımcı, kodunu normal bir C dosyası gibi yazar ancak, Ekran Kartında çalışmasını istediği ağır hesaplama fonksiyonunun başına özel bir kelime ekler: `__global__` (Global Kernel Function).
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Elinizde 1 Milyon elemanlı iki dev dizi (Vektör) var ve bunları toplayacaksınız: `A + B = C`. C veya Java dili olsaydı `for` döngüsü 1 milyondan 0'a inene kadar beklerdiniz (1 Tekil çekirdek). CUDA ile ekran kartına "1 Milyon tane farklı işçi çekirdek(Thread) uyanın! Herkes 1 tane indeks toplasın!" dersiniz. Döngü anında **tek saatte** saniyeler sürmeden (Tek Komut, Çok Veri - SIMD) hesaplanıp size geri döner.

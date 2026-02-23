@@ -17,7 +17,7 @@ Bu dilin mantığı; bildiğiniz tüm if/else ve döngü algoritmalarını "Neza
 
 1. **"PLEASE" (Lütfen) Kısıtlaması:** Eğer INTERCAL'de kod yazarken sisteme `DO` deyip emrederseniz belli bir süre sonra dil SİZİ REDDEDER (Çalışmayı Durur). Kodların arasına rastgele (Her komutun önüne değil, ama ortalama olarak her 5-6 komutta bir) **`PLEASE (Lutfen)`** yazmanız gerekir.
 2. **Aşırı Nazik Olmak Suçtur:** Eğer aklınızı kullanıp "Her satıra PLEASE yazayım da işi garantiye alayım" derseniz... Compiler bunu anlar ve *"HATA: YOU ARE TOO POLITE (Aşırı Naziksiniz, Güven Vermiyorsunuz)"* diyerek programı Çökertir! (Lütfen oranının gizli ve dengeli bir matematiği/olasılığı vardır).
-3. **COME FROM (Buradan Gel!):** Dünyadaki her kavgaya ve kötü koda sebep olan `GOTO (Oraya Git)` komutuyla dalga geçmek için INTERCAL `COME FROM`'u çıkarmıştır. Sİz bir satıra çalışsın diye kod yazmazsınız, O koda "Satır 14'ten Bana Gel!" dersiniz. Kod nerede tetikleneceğini bilmeden mayın gibi saklanır (Tersine Spagetti).
+3. **COME FROM (Buradan Gel!):** Dünyadaki her kavgaya ve kötü koda sebep olan `GOTO (Oraya Git)` komutuyla dalga geçmek için INTERCAL `COME FROM`'u çıkarmıştır. Siz bir satıra çalışsın diye kod yazmazsınız, O koda "Satır 14'ten Bana Gel!" dersiniz. Kod nerede tetikleneceğini bilmeden mayın gibi saklanır (Tersine Spagetti).
 
 **Örnek İşleyiş:** Değişken Tipi veya sayı belirlerken Sembol C şovudur: `.`(Spot/Nokta), `:`(İki nokta).
 

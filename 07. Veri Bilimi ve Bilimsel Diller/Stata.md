@@ -4,7 +4,7 @@
 Stata; 1985 yılında StataCorp kurucusu William Gould tarafından yaratılan, tamamen **Ekonometri**, Tıbbi Epidemiyoloji (Hastalık yayılması) ve Sosyal Politik Bilimlerdeki devasa istatistiksel veri analizlerini, "Zarif tek-satırlık ezberlenebilir emir komutlarıyla (Command-Line Driven)" milisaniyeler içinde yapan muazzam sektörel İstatistik Analiz dili ve aracıdır.
 
 ## Nedir ve Ne İşe Yarar?
-1980'lerde ve 90'larda SPSS fare (GUI) ile menüden araştırma yapıyor, SAS devasa 10-Sayfalık "Data/Proc" sunucu kodlarıyla çalışıyordu. Siyaset Bilimciler ise (örn: Seçim etkileri istatistikleri, Hastalık ilaç ölüm oranları hesaplayan Epidemiyologlar) "Biz fare(Bunu amatörler yapar) tıklamak istemiyoruz, aşırı uzun SAS kodlarını makaslamak da istemiyoruz! Bize Terminalden/Komuttan anında emir verebileceğimiz; `regress (Regresyon Al) Muaas Egitim Cinsiyet` yazdığımızda şak diye tablosunu veren bir kod lazım" diyordu.
+1980'lerde ve 90'larda SPSS fare (GUI) ile menüden araştırma yapıyor, SAS devasa 10-Sayfalık "Data/Proc" sunucu kodlarıyla çalışıyordu. Siyaset Bilimciler ise (örn: Seçim etkileri istatistikleri, Hastalık ilaç ölüm oranları hesaplayan Epidemiyologlar) "Biz fare(Bunu amatörler yapar) tıklamak istemiyoruz, aşırı uzun SAS kodlarını makaslamak da istemiyoruz! Bize Terminalden/Komuttan anında emir verebileceğimiz; `regress (Regresyon Al) Maas Egitim Cinsiyet` yazdığımızda şak diye tablosunu veren bir kod lazım" diyordu.
 
 Stata tam olarak bu eksiği bir komut kılıcı gibi tamamladı. Hem Menüsü vardır (Fareyle tıklanabilir) lakin Stata'nın gerçek gücü **Stata "Do-File" (.do)** (Yap Dosyası) dediğimiz devasa Komut betik dilleridir. Stata, bir makro-ekonomistin tek saniyede grafiği bulup ekrana sabitlediği niş/kült veri bilimi makinesidir.
 
@@ -15,10 +15,10 @@ Stata tam olarak bu eksiği bir komut kılıcı gibi tamamladı. Hem Menüsü va
 ## Dilin Mantığı ve Kod Yapısı
 Tam bir **Pragmatist Emir (Command-Driven)** dilidir. Hafızasında DAİMA tek bir büyük Aktif (Mevcut) Tablo / Dataset bulunur (R'daki gibi aynı anda 50 Tablomu (Dataframe) olsun diyemezsiniz (Eskiden böyleydi modern stata bunu biraz kırdı)). Programcı veriyi çeker (`use`), komutları sıralar ve kapatır. Tüm komutların kısaltılmış bir harf hali vardır (Regression için sadece `reg` yazabilirsiniz).
 
-Her komut genellikle `emir hedef_değişkenler, secenekler` şablonuna uyar. En büyük felsefesi: **Tüm işlemler virgülle ( , ) ikiye bölünür**. Virgülün Solu Emiri ve sütunları(Örn y ve x kordinatları), Virgülün SAĞI ise (Ayrıntıları, Opsiyonları: Standart hata yapsın mı? Grafiğin rengi ne olsun?) işaret eder!
+Her komut genellikle `emir hedef_değişkenler, secenekler` şablonuna uyar. En büyük felsefesi: **Tüm işlemler virgülle ( , ) ikiye bölünür**. Virgülün Solu Emiri ve sütunları(Örn y ve x koordinatları), Virgülün SAĞI ise (Ayrıntıları, Opsiyonları: Standart hata yapsın mı? Grafiğin rengi ne olsun?) işaret eder!
 
 **Örnek İşleyiş (Sembolik Olarak):**
-Python'da Regresyon: `model = sm.OLS(y, X); sonuc = model.fit(); print(sonuc.summary())` (Amelelige bakin)
+Python'da Regresyon: `model = sm.OLS(y, X); sonuc = model.fit(); print(sonuc.summary())` (Ameleliğe bakin)
 Stata'da: `regress Maasi Egitimi Yas_Yili` (Bitti!)
 
 ### Örnek Bir Stata (Do-File) Kodu: Ekonometrik Maaş-Eğitim "Linear Regresyon" Formülünü Sökmek
@@ -41,10 +41,10 @@ sysuse auto, clear
 summarize price mpg weight
 
 // YENI BIR SÜTUN(DEĞİŞKEN) YARAT (Generate komutu veya kisaltmasiyla 'gen' !)
-// Arabanin Agirligininkaresini Yeni Stun yap:
+// Arabanin Agirliginin karesini Yeni Sütun yap:
 gen weight_sq = weight^2
 
-// Filitreleme: Mil/Galon Miktarı (mpg) 30'dan kucuk olan Arabalari SİSTMDEN TAMAMEN SIL(Drop):
+// Filitreleme: Mil/Galon Miktarı (mpg) 30'dan kucuk olan Arabalari SISTEMDEN TAMAMEN SIL(Drop):
 drop if mpg < 30
 
 
@@ -59,7 +59,7 @@ regress price weight foreign, robust
 
 // 4. KAPANIŞ: GÖRSELLESTİRME (GRAFİK ÜRETIMI)
 // Scatter (Nokta Grafik Ciz: Y=Price, X=Weight)
-// İcine bir tane Dogrusal(lfit - Linear Fit OLS cigzizi) firlat, Renkgi/Efsanelesini virgulle ayarla:
+// İcine bir tane Dogrusal(lfit - Linear Fit OLS cigzizi) firlat, Rengini/Efsanesini virgulle ayarla:
 
 twoway (scatter price weight) (lfit price weight), ///
     title("Araba Fiyatları vs Agirlik OLS Çizgisi") ///  

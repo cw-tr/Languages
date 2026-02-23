@@ -17,7 +17,7 @@ Tam bir tiyatro akışıdır. Kodun Bölümleri şöyledir:
 - **Title (Başlık):** Oyunun (Programın) amacı.
 - **Dramatis Personae (Karakter Kataloğu):** Değişkenlerin Tanımlanması! (Romeo, Juliet, Hamlet vs) Her değişkene shakespeare oyunundan bir isim verilmek ZORUNDADIR.
 - **Act I, Scene I (Perde 1, Sahne 1):** Kodun Gövdesi, If-Else Bloklarına (Sahnelerin giriş ve çıkışları) isim verilir (Örn Label'ler 'Goto Scene III' yani Sahne Üçü Oyna).
-- **Enter / Exit / Exeunt:** Karakterlerin Sahneye girmesi (Hafızaya Alınma - Push) ve Sahnoden Cikmasi (Memory Free). (Aynı anda sadece 2 karakter sahnede Konuşabilir - Hafıza Limiti).
+- **Enter / Exit / Exeunt:** Karakterlerin Sahneye girmesi (Hafızaya Alınma - Push) ve Sahneden Çıkması (Memory Free). (Aynı anda sadece 2 karakter sahnede Konuşabilir - Hafıza Limiti).
 
 **Önerme (Hakaret = Eksi (Negatif Veri), Övgü = Artı (Positiv Veri))**
 - "A flower" (Çiçek) : Değeri = 1.

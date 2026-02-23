@@ -8,10 +8,10 @@ YAML; 2001 yılında Clark Evans tarafından icat edilen, JSON'un o kalabalık (
 ## Nedir ve Ne İşe Yarar?
 Eğer bir Programın/Sunucunun Ayarlarını JSON ile yazarsanız (`{ "port": 8080 }`), araya yorum (Comment) satırı ekleyemezsiniz ve sürekli Süslü Parantezleri `{ }` unutup Hata(Crash) çıkarırsınız. Bu Bilgisayarla (DevOps) Sunucu mimarisi Kuran Sistem Yöneticileri içi Kabustur.
 
-YAML Dedi ki: Bütün Tırnakları, Virügülleri, Parantezleri silin! Sadece Boşluk Bırakırsanız Sistemi hiyerarşik (İnner/İçeri) Soktuğunuzu anlarım. Ortaya O kadar güzel ve Temiz bir "Ayar (Config) Dosyası" Çıktı ki, DevOps(Sunucu Mimarisi) mühendisleri ona aşık oldu.
+YAML Dedi ki: Bütün Tırnakları, Virgülleri, Parantezleri silin! Sadece Boşluk Bırakırsanız Sistemi hiyerarşik (İnner/İçeri) Soktuğunuzu anlarım. Ortaya O kadar güzel ve Temiz bir "Ayar (Config) Dosyası" Çıktı ki, DevOps(Sunucu Mimarisi) mühendisleri ona aşık oldu.
 
 **Ne İşe Yarar?**
-* **DevOps Ve CI/CD (Sürekli Entegrasyon) Ayarları:** Docker Compose (`docker-compose.yml`), Kubernetes Manifestoları, GitHub Actions (`.github/workflows/main.yml`) ve GitLab CI sistemlerinin Tamamı YAML üzerine kuruludur. Bir Sunucuya "Bana 2Tane Ubuntu Linux Kur" demek 2 satır Yaml kodudur!
+* **DevOps Ve CI/CD (Sürekli Entegrasyon) Ayarları:** Docker Compose (`docker-compose.yml`), Kubernetes Manifestoları, GitHub Actions (`.github/workflows/main.yml`) ve GitLab CI sistemlerinin Tamamı YAML üzerine kuruludur. Bir Sunucuya "Bana 2" Tane Ubuntu Linux Kur demek 2 satır Yaml kodudur!
 * Her şeyden öte; İçine **Yorum Satırı (`#`)** Konabildiği için (JSON'da Bu yoktur) Konfigürasyonların En Vazgeçilmez Yaratıcısıdır.
 
 ## Dilin Mantığı ve Kod Yapısı
@@ -22,7 +22,7 @@ Hiçbir Parantez Yoktur. Tamamen Girinti (Indentation) sistemidir (Akrepler/Boş
 3. İç ice giren Objelerde Sadece Satır Altına geçip 2 Kere (Space) Boşluğa basmak Yeterlidir.
 
 ### Örnek Bir YAML Kodu: Kubernetes veya GitHub Action (Sunucu Komutu) Ayar Dosyası Mimarisi!
-Bir Programcı (veya DevOps) Uzaktaki bir Bulut (AWS) Sunucusuna "Hangi makineleri ne sırayla kaldıracagını" Su siirsel Yaml formatıyla Emir verir:
+Bir Programcı (veya DevOps) Uzaktaki bir Bulut (AWS) Sunucusuna "Hangi makineleri ne sırayla kaldıracagını" Su şiirsel Yaml formatıyla Emir verir:
 
 ```yaml
 # BU BIR YAML (AYAR/CONFIG) DOSYASIDIR. (Yorum satirlari Python Gibidir)
@@ -43,7 +43,7 @@ services:
 
   # 2. MAKINE: VERITABANIM (Yandaki Makine)
   veritabani_sistemi:
-    image: mysql:8.0          # MySQL'in En gunce ve hazir Verisonunu Yukle
+    image: mysql:8.0          # MySQL'in En guncel ve hazir Versiyonunu Yukle
     container_name: cyber_db_mysql
     restart: always           # Eger Sunucu cokersen Otomatik Resest At!
     volumes:

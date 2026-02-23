@@ -1,7 +1,7 @@
 # Standard ML
 
 ## Özet
-Standard ML (SML - Standard Meta Language); 1980'lerde, Lisp felsefesinin o "Parantez Karmaşasını" çöpe atan ama fonksiyonelliğin saf gücünü saklayarak Tip Güvenliğini (Hindley-Milner Types) matematiksel ispatlarıyla evrene getiren, OCaml ve Haskell gibi devasa endüstri fonksyonel dillerinin ana temeli/kök Atası olan harikulade Fonksiyonel Programlama dilidir.
+Standard ML (SML - Standard Meta Language); 1980'lerde, Lisp felsefesinin o "Parantez Karmaşasını" çöpe atan ama fonksiyonelliğin saf gücünü saklayarak Tip Güvenliğini (Hindley-Milner Types) matematiksel ispatlarıyla evrene getiren, OCaml ve Haskell gibi devasa endüstri fonksiyonel dillerinin ana temeli/kök Atası olan harikulade Fonksiyonel Programlama dilidir.
 
 ## Nedir ve Ne İşe Yarar?
 1970'lerde Edinburgh Üniversitesi'ndeki Robin Milner adındaki bir dahi, otomatik teorem ispatlayan ("Acaba bu bilgisayar fonksiyonunda matematiksel bir hata var mıdır" diye kendi kendine kanıtlama yapan) "LCF" adında bir yapay zeka programı yazıyordu. O programı daha hızlı ve mantıklı kontrol etmek için "Meta Language - LCF" adıyla bir dil icat etti. 
@@ -63,7 +63,7 @@ val _ = print ("Ormandaki Dallarin Toplam Degeri: " ^ Int.toString(asil_sonuc) ^
 
 (* Cikti: "Ormandaki Dallarin Toplam Degeri: 16" (5+3+8) *)  
 ```
-Bu programı derlerken `SML/NJ` derleyicisi size derki: `val agac_dallari_toplasi : fonskyon (agac tipinden -> int tipine dondurucu)`. Sizin satır satır "Bu float mi? int mi?" yazmanıza gerek kalmaz, ML derleyicisi C# ve Java derleyicisinden bin kat zeki matematik algoritmasına (Hindley-Milner çıkarım bulutuna) sahiptir.
+Bu programı derlerken `SML/NJ` derleyicisi size der ki: `val agac_dallari_toplasi : fonksiyon (agac tipinden -> int tipine dondurucu)`. Sizin satır satır "Bu float mi? int mi?" yazmanıza gerek kalmaz, ML derleyicisi C# ve Java derleyicisinden bin kat zeki matematik algoritmasına (Hindley-Milner çıkarım bulutuna) sahiptir.
 
 ## Kimler Kullanır?
 * "Ben C programı derleyicisine güvenmem, matematikle bu kodun Asla Çökmeyeceğini ispat etmeliyim" diyen Aşırı Elit Avrupalı/Amerikalı Akademik Teorem mühendisleri. 

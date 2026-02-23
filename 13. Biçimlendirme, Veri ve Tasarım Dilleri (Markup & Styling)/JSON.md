@@ -15,14 +15,14 @@ Douglas Crockford, JavaScript dilinin içindeki (Obje yaratma parantezleri olan)
 ## Dilin Mantığı ve Kod Yapısı
 Çook katı ama bir o kadar Basit 4 Kuralı vardır:
 1. Veriler Anahtar/Değer (Key/Value) İkilisi halindedir: `"Sehir": "Ankara"`
-2. Anahtarlar (Sol Taraf) HER ZAMAN **Çitf Tırnak (" ")** içinde olmalıdır. (JavaScript'te tırnak gerekmez ama JSON katıdır).
+2. Anahtarlar (Sol Taraf) HER ZAMAN **Çift Tırnak (" ")** içinde olmalıdır. (JavaScript'te tırnak gerekmez ama JSON katıdır).
 3. Objeler / Nesneler **Kıvırcık Parantez `{ }`** Araya virgül (,) konularak dizilir.
 4. Listeler / Arrayler **Köşeli Parantez `[ ]`** ile dizilir.
 
 Asla içinde Fonksiyon (`function()`) veya Yorum Satırı (`// Yorum`) Barındıramaz! O sadece Saf bir Datalık Bagaj/Valiz dir. Yorum satırı koyarsanız Derleyici Patlar.
 
 ### Örnek Bir JSON Kodu: İki Sistem Arasındaki İletişim Paketi (Kargo)
-E-Ticaret sitenizin Arkaplanı (Nodejs/Python), Müşterinin Tarayıcısına (React/Ekrana) Alışveriş Sepetini yollarken Şöyle Kargo(JSON) Pakteler:
+E-Ticaret sitenizin Arkaplanı (Node.js/Python), Müşterinin Tarayıcısına (React/Ekrana) Alışveriş Sepetini yollarken Şöyle Kargo (JSON) Paketler:
 
 ```json
 {

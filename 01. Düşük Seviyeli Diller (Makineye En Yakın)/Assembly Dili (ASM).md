@@ -38,11 +38,11 @@ _start:
     MOV EBX, 25         ; Hemen yanındaki EBX yazmacına da 25 tam sayısını yükle.
 
     ; Şimdi asıl İşlemi yapalım
-    ADD EAX, EBX        ; EAX ile EBX içinde ne varsa matematiksel topla, neticeyi ilk yazlan olan EAX'e kaydet.
+    ADD EAX, EBX        ; EAX ile EBX içinde ne varsa matematiksel topla, neticeyi ilk yazılan olan EAX'e kaydet.
                         ; Artık matematik dünyasında EAX yazmacının içi donanımsal olarak 40 değeri oldu.
 
     ; Programı düzgün şekilde sonlandırmak ve kitlememek için işletim sistemine haber ver: 
-    MOV EAX, 1          ; Sistem çağırısı (Syscall) kodu: 1 (Exit / Çıkış anlamına gelir Linux x86'da)
+    MOV EAX, 1          ; Sistem çağrısı (Syscall) kodu: 1 (Exit / Çıkış anlamına gelir Linux x86'da)
     MOV EBX, 0          ; Program hatasız bitti durum kodu: 0 (Return Zero)
     INT 0x80            ; Linux işletim sistemi çekirdeğine "kesme/interrupt" atıp 'bitir işimi' diye uyar.
 ```

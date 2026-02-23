@@ -14,7 +14,7 @@ Rasmus Lerdorf, kendi özgeçmişini ve web sitesine girenleri saymak için "Ki�
 * Modern dev E-Ticaret (Magento) altyapılarının ve Laravel kodlama çatısının (Framework) resmi dilidir.
 
 ## Dilin Mantığı ve Kod Yapısı
-En temel özelliği, **HTML'in tam içine gömülebilen bir Parazit (veya Simbiyotik) dil** olmasıdır. Dümdüz tasarımı edilmiş bir HTML web sayfası dosyasının (.php uzantılı) herhangi bir kelimesinin ortasına `<?php ... ?>` açıp içine Veritabanı sorgusu çakıp anında o kutuyu dinamik hale getirebilirsiniz.
+En temel özelliği, **HTML'in tam içine gömülebilen bir Parazit (veya Simbiyotik) dil** olmasıdır. Dümdüz tasarlanmış bir HTML web sayfası dosyasının (.php uzantılı) herhangi bir kelimesinin ortasına `<?php ... ?>` açıp içine Veritabanı sorgusu çakıp anında o kutuyu dinamik hale getirebilirsiniz.
 
 Dilin en belirgin estetik kuralı, bütün değişkenlerin başında tartışmasız bir şekilde Dolar (`$`) işareti olması mecburiyetidir. `x = 5;` diyemezsiniz, mecburen `$x = 5;` dersiniz. Tüm bloklar `{ }` ile kapanır ve komutlar bitişi (`;`) ister. 
 

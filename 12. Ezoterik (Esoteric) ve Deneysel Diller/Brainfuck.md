@@ -1,7 +1,7 @@
 # Brainfuck
 
 ## Özet
-Brainfuck; 1993 yılında Urban Müller tarafından, "Dünyadaki en küçük Derleyiciyi (Compiler) yazmak (Sadece 240 Byte Amiga OS derleyicisi)" amacıyla icat edilen, evrendo sadece ve sadece **8 Tane Noktalama İşareti (`> < + - . , [ ]`)** kullanarak "Turing Complete" (Her türlü matematiksel algoritmayı çözebilen) olma unvanını taşıyan, yazması ve okuması tam bir beyin yakan şizofrenik **Ezoterik (Mizahi/Deneysel)** programlama dilidir.
+Brainfuck; 1993 yılında Urban Müller tarafından, "Dünyadaki en küçük Derleyiciyi (Compiler) yazmak (Sadece 240 Byte Amiga OS derleyicisi)" amacıyla icat edilen, evrende sadece ve sadece **8 Tane Noktalama İşareti (`> < + - . , [ ]`)** kullanarak "Turing Complete" (Her türlü matematiksel algoritmayı çözebilen) olma unvanını taşıyan, yazması ve okuması tam bir beyin yakan şizofrenik **Ezoterik (Mizahi/Deneysel)** programlama dilidir.
 
 ## Nedir ve Ne İşe Yarar?
 1993'lerde ezoterik (kullanım amacı olmayan, sadece felsefi ve sanatsal sınırlar zorlayan) diller popüler olmaya başlıyordu. Urban Müller, makinenin ne kadar az kuralla bir bilgisayar olabileceğini kanıtlamak istedi. C veya Python'daki değişkenler `int x = 5` yoktur. Onun yerine dümdüz sıfırlardan oluşan **30.000 Hücrelik Bir Şerit (Bellek/RAM Array)** ve bu şeridin üstünde ileri geri giden minik bir "Veri İşaretçisi (Pointer)" vardır.
@@ -21,7 +21,7 @@ Brainfuck'ın o minimal, vahşi ve saf matematik kokan tam 8 adet kutsal komutu 
 3. `+` : Üzerinde bulunduğun kutudaki sayıyı 1 Arttır.
 4. `-` : Üzerinde bulunduğun kutudaki sayıyı 1 Azalt.
 5. `.` : Kutudaki sayının "ASCII (Harf)" Karşılığını Ekrana Bas! (Örn: 65 ise ekrana 'A' basar).
-6. `,` : Kullanıcıdan (Klavyeden) 1 Haraf Al ve kutuya at.
+6. `,` : Kullanıcıdan (Klavyeden) 1 Harf Al ve kutuya at.
 7. `[` : Eğer Kutudaki Sayı "0" ise; Dongüyü kır (Kapanış parantezine git). Değilse ICERI GİR (WHILE Döngüsü Başlangıcı).
 8. `]` : Döngü bitişi. Oku tekrar başa `[` çevir.
 
@@ -33,7 +33,7 @@ Zeki birisi; Sayıyı döngü ile Çarpar! "5 kere 13 yap".
 Ekrana sadece `Hello World!` yazısını basmak için, hafıza hücrelerini birbiriyle çarparak ASCII tablosundaki 72(H), 101(e) numaralarına ulaşmaya çalışan o daktilo terörü:
 
 ```brainfuck
-Bu kisimlar serbest metindir. Derleyici sadece matematiseal 8 isarete bakar.
+Bu kisimlar serbest metindir. Derleyici sadece matematiksel 8 isarete bakar.
 
 +++++ +++++             # 0 numarali Hucreyi 10 yap (DONGU SAYACIMIZ)
 [                       # 0 Numarali hucre sifir olana kadar Don (10 Kere):

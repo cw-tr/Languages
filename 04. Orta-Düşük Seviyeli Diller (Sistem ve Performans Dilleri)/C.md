@@ -17,7 +17,7 @@ C dilinin ana felsefesi programcıya sonsuz güç, ancak "Sıfır Güvenlik ağ�
 En kritik özelliği **Göstericiler (Pointers)** teknolojisidir. Size RAM üzerinde herhangi bir adrese (Örn: `0x7FFF56A4`) doğrudan okuma ve yazma fiziksel iznini verir. Ayrıca bellek bilgisayar tarafından otomatik temizlenmez; `malloc` ile ondan 5 MB RAM istersiniz, sonra işiniz bitince `free` komutuyla o bellek alanını işletim sistemine o blok numarasını bizzat geri iade etmek **zorundasınız**. Eğer unutursanız "Memory Leak" (Bellek Sızıntısı) oluşur ve cihaz kitlenir.
 
 **Örnek İşleyiş (Sembolik Olarak):**
-Java veya Python'da `x = 5` dersiniz, değişken sizin içim korumalı bir sandığa konur. C dilinde ise `*ptr = 5` yazdığınızda bilgisayara şu emri verirsiniz: "Hafızadaki şu fiziksel koordinata git, oradaki baytları doğrudan yak ve 00000101 yap!".
+Java veya Python'da `x = 5` dersiniz, değişken sizin için korumalı bir sandığa konur. C dilinde ise `*ptr = 5` yazdığınızda bilgisayara şu emri verirsiniz: "Hafızadaki şu fiziksel koordinata git, oradaki baytları doğrudan yak ve 00000101 yap!".
 
 ### Örnek Bir C Kodu: Pointer Görüntüleme
 Klasik olarak hafızadan yer isteyip, veri yükleyip o verinin bellek adresini ekrana basan bir çekirdek konsept:
@@ -31,7 +31,7 @@ int main() {
     int *gizliAdres = (int*) malloc(sizeof(int));
 
     if (gizliAdres == NULL) {
-        printf("Sistem RAM'de yer vermedi! Cokuldu.");
+        printf("Sistem RAM'de yer vermedi! Çöktü.");
         return 1;
     }
 

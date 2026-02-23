@@ -10,7 +10,7 @@ Dilde `Sınıf (Class)` kavramı yoktur. `Kalıtım (Inheritance)` hiç yoktur. 
 
 **Ne İşe Yarar?**
 * **Gezegenin Bulut ve Sunucu Ağı (Cloud Backend):** İnternetin çalışmasını sağlayan arka plan devasa bulut araçları (Docker, Kubernetes, Terraform) baştan aşağıya sadece GO dilinde yazılmıştır.
-* **Eşzamanlılık - Aynanda Milyon İşlem (Concurrency):** 1.000.000 abonenin aynı anda bağlandığı bir WebSocket sunucusu (Mesajlaşma uygulaması) yazdığınızda Java veya C++ bunu eski usul ağır iş dizileriyle (Thread) çözerken kitlenir. Go, "Goroutine" adında kuş tüyü hafifsiklet sanal işçiler (işlemciler) kullanır. Milyonlarcası uyanıp aynı anda çalışırken sisteminizin yüzüne bakıp çay içebilirsiniz.
+* **Eşzamanlılık - Aynı Anda Milyon İşlem (Concurrency):** 1.000.000 abonenin aynı anda bağlandığı bir WebSocket sunucusu (Mesajlaşma uygulaması) yazdığınızda Java veya C++ bunu eski usul ağır iş dizileriyle (Thread) çözerken kilitlenir. Go, "Goroutine" adında kuş tüyü hafifsiklet sanal işçiler (işlemciler) kullanır. Milyonlarcası uyanıp aynı anda çalışırken sisteminizin yüzüne bakıp çay içebilirsiniz.
 * **Mikroservis Mimarisi (Microservices):** Büyük E-Ticaret ve yemek sipariş firmalarının "Arama", "Sepet", "Fatura" kısımlarının ayrı ayrı küçük sunucular olması eyleminin en pratik uygulama dili oldu. Hızından dolayı sunucuya çok geç yüklenmez.
 
 ## Dilin Mantığı ve Kod Yapısı

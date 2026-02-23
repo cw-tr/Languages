@@ -1,7 +1,7 @@
 # TypeScript (TS)
 
 ## Özet
-TypeScript (TS); 2012 yılında Microsoft (ve Anders Hejlsberg, C#'ın yaratıcısı) tarafından geliştirilen, JavaScript dilinin o kaotik "Zayıf, Tipsiz ve Kuralsız" yapasını tıpkı bir Java veya C++ kadar disiplinli, Milyon Satırlık (Kurumsal) Katı OOP projelerine dönüştüren, nihayetindeyse kodunu tekrar Makine diline değil "Saf JavaScript'e (Derleyen/Transpile eden)" süper bir JS üst-kümesidir (Superset).
+TypeScript (TS); 2012 yılında Microsoft (ve Anders Hejlsberg, C#'ın yaratıcısı) tarafından geliştirilen, JavaScript dilinin o kaotik "Zayıf, Tipsiz ve Kuralsız" yapısını tıpkı bir Java veya C++ kadar disiplinli, Milyon Satırlık (Kurumsal) Katı OOP projelerine dönüştüren, nihayetindeyse kodunu tekrar Makine diline değil "Saf JavaScript'e (Derleyen/Transpile eden)" süper bir JS üst-kümesidir (Superset).
 
 ## Nedir ve Ne İşe Yarar?
 JavaScript ile bir hesap makinesi veya haber sitesinin kayar panosunu (Slider) yazmak kolaydır. 150 Satır sürer. Ancak Facebook, Microsoft Teams veya VS Code gibi 5 Milyon satırlık devasa bir proje yazdığınızda, binlerce farklı çalışanın yazdığı binlerce fonksiyon birbirine girer. 
@@ -21,10 +21,10 @@ TS'de Interface'ler (Arayüzler Şablonu) ve Type Alias (Tip kısaltmaları) ina
 
 **Örnek İşleyiş (Sembolik Olarak):**
 JS'de: `function harca(Miktar) { return Miktar * 2 }` -> Biri Miktar yerine "Elma" yazarsa program `NaN` (Sayı Değil) hatasına bulanarak çalışmaya devam eder, kilitlenir.
-TS'de: `function harca(Miktar: number): number { ... }` -> Biri "Elma" stringini yazmaya kaktığı o ilk an, Satır kırmızıya döner ve yazılımcıya "Verilen argüman 'number' türüne uygulanamaz" tokatı atar.
+TS'de: `function harca(Miktar: number): number { ... }` -> Biri "Elma" stringini yazmaya kalktığı o ilk an, Satır kırmızıya döner ve yazılımcıya "Verilen argüman 'number' türüne uygulanamaz" tokatı atar.
 
 ### Örnek Bir TypeScript Kodu: Arayüz (Interface) Zırhı ile Hatasız Front-end
-Görünümü Java veya C#'ı andıran, ancak en nihayetinde (çıktı alındığında) o Tip kalkanlarının uçup saf tertemiz JS'e dönüştütüldüğü Modern/Kurumsal TypeScript (React benzeri API Veri Katmanı) Mimarisi:
+Görünümü Java veya C#'ı andıran, ancak en nihayetinde (çıktı alındığında) o Tip kalkanlarının uçup saf tertemiz JS'e dönüştürüldüğü Modern/Kurumsal TypeScript (React benzeri API Veri Katmanı) Mimarisi:
 
 ```typescript
 // === TS MUCİZESİ: "INTERFACE (ARAYÜZ ZIRHI)" Tipi ===
@@ -87,7 +87,7 @@ const vitrine_urun_ciz = (urunler: UrunSemasi[]): void => {
 veriTabanindanUrunleriGetir("https://shop.com/api/v1/products")
     .then((liste) => vitrine_urun_ciz(liste));
 ```
-*(Bu kod çalışmaya / browser'a gitmeye hazırlandığında "tsc (TypeScript Compiler)" sayesinde içindeki bütün `number`, `string`, `interface` kelimeleri Jilet gibi silinir ve geriye çok güvenli / hata ayııklanmış o efsanevi çıplak Javascript mantığı kalır).*
+*(Bu kod çalışmaya / browser'a gitmeye hazırlandığında "tsc (TypeScript Compiler)" sayesinde içindeki bütün `number`, `string`, `interface` kelimeleri Jilet gibi silinir ve geriye çok güvenli / hata ayıklanmış o efsanevi çıplak Javascript mantığı kalır).*
 
 ## Kimler Kullanır?
 * Angular (Zaten direk TS ile yazılmıştır), React.js ve Vue.js ile devasa, şirket-içi (Enterprise), 10.000+ dosyalı yazılım modülleri üreten ve hata payını sıfırlamak isteyen Büyük Front-end (Ön yüz / Web UI) Geliştirici Orduları.

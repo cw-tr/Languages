@@ -44,7 +44,7 @@ quicksort (p:xs) =
     -- b) Pivot'tan BÜYÜK olan tüm sayıları (y'leri) filtrele ve kendi içinde quicksort et.
     let buyukler = quicksort [y | y <- xs, y > p]
     
-    -- c) Sonuç: Sıralanmış küçükler LİSTESİ + Pivotun kendisi + Sıralanmış Büyüykler LİSTESİ. (Alttaki in bloğu)
+    -- c) Sonuç: Sıralanmış küçükler LİSTESİ + Pivotun kendisi + Sıralanmış Büyükler LİSTESİ. (Alttaki in bloğu)
     in  kucukler ++ [p] ++ buyukler
 
 

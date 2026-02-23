@@ -11,7 +11,7 @@ Siz Java (veya Python) kodu yazdığınızda Arka planda bir `Bytecode` Üretili
 Çünkü İçerdeki JRE(Sanal Makine), Bytecode'u okuyup onu gerçek anlık(JIT) İşlemci diline Tercüme Eder. Evrensel Çalışabilirlik (Write Once, Run Anywhere) budur.
 
 **Ne İşe Yarar?**
-* **Çapraz Platform (Evrensellik):** Python'da yazdığınız Kodu Arkadaşınıza attığnıızda, Python derleyicisi Onu Gizlice `__pycache__` klasörüne (Ekranda gözükmeyen .pyc koduna-Bytecode) dönüştürür. Bu Sayede Pyhton Mac'te de Windows'ta da AYNI Bytecode üzerinden hızla Akmasını (İşlenmesini) sağlar.
+* **Çapraz Platform (Evrensellik):** Python'da yazdığınız Kodu Arkadaşınıza attığınızda, Python derleyicisi Onu Gizlice `__pycache__` klasörüne (Ekranda gözükmeyen .pyc koduna-Bytecode) dönüştürür. Bu Sayede Python Mac'te de Windows'ta da AYNI Bytecode üzerinden hızla Akmasını (İşlenmesini) sağlar.
 
 ## Dilin Mantığı ve Kod Yapısı
 Siz Bytecode Yazmazsınız. Compiler Bunu Kusar. Aslında Assembly dilinin (MOV, PUSH, POP) Aynısıdır, ANCAK fiziksel İşlemci (Hardware) Mimarisi (Yazmaçlar-Registers) Yerine; RAM üzerinde **Yığın (Stack)** Bazlı Suni(Sanal) Bir Makine için Dizilmiş Emirlerdir!
@@ -20,12 +20,12 @@ Siz Bytecode Yazmazsınız. Compiler Bunu Kusar. Aslında Assembly dilinin (MOV,
 Java'da siz İki Sayıyı Toplayan `int c = a + b;` Kodunu yazdığınızda, O kod `.class` (Bytecode) dsosyasının içince Kısacık (İnsan Gözüyle Çok ucube olan) Tek byte'lık Emirlere Düşer:
 
 JVM Bytecode Dizilimi Böyle Yakar (Sayiyla / Opcode İle Temsil):
-* `0x1B`: (Bunun Anlamı LLOAD_1 dir -> Stack'teki(Masadaki) 1 Numaralı Degişkeni Hafzıaya Al!).
-* `0x1C`: (LLOAD_2 -> Masadaki 2 numarali Degiskeni Hafizeya Al!).
-* `0x60`: (IADD -> ALınanan O İki Rakamı TOLA!).
-* `0x3C`: (ISTORE_3 -> Toplanan Sonucu 3 Numaralı Çekmeceye(Deigsene) Geri Koy!!). 
+* `0x1B`: (Bunun Anlamı LLOAD_1 dir -> Stack'teki (Masadaki) 1 Numaralı Değişkeni Hafızaya Al!).
+* `0x1C`: (LLOAD_2 -> Masadaki 2 Numaralı Değişkeni Hafızaya Al!).
+* `0x60`: (IADD -> Alınan O İki Rakamı TOPLA!).
+* `0x3C`: (ISTORE_3 -> Toplanan Sonucu 3 Numaralı Çekmeceye (Değişkene) Geri Koy!!). 
 
-Pythonda Siz Terminalee Şunu Yazarsanız Pyhtonun Beyninin(Byteocodunn) Icine Girerresiniz : `import dis; dis.dis("a = 2 + 2")` 
+Python'da Siz Terminale Şunu Yazarsanız Python'un Beyninin (Bytecode'unun) İçine Girersiniz: `import dis; dis.dis("a = 2 + 2")` 
 Makinenin Şunu(Bytecode) Yaptığını Görürsünüz:
 ```text
   1           0 LOAD_CONST               0 (4)  <-- Python Akillidir, Kodu onceden ezmis, DIREK (4)u hazilrais.
@@ -34,8 +34,8 @@ Makinenin Şunu(Bytecode) Yaptığını Görürsünüz:
               6 RETURN_VALUE 
 ```
 
-Gerçek CPU (İntel) İşlemcisi bu "LOAD_CONST" yazan şeyi Çalıtıramaz. Pthyton(Cpython Sanal Makinesi - Yabancı Elçi) onu Alır.. Pıtı Pıtı İşelmcniin dilien CEvrrir.. Istr Bu 2. Katmana Ara Kod(Byteccoce) Denir!
+Gerçek CPU (İntel) İşlemcisi bu "LOAD_CONST" yazan şeyi Çalıştıramaz. Python (CPython Sanal Makinesi - Yabancı Elçi) onu Alır.. Pıtı Pıtı işlemcinin diline çevirir.. İşte Bu 2. Katmana Ara Kod (Bytecode) Denir!
 
 ## Kimler Kullanır?
-* Kendi Programlama Dilini Yaratan (Tasarımcı) **Derleyici (Compiler) Mühendisleri**. Eğer Siz bir Dilicat ederseniz Bütün Intel ve AMD Cİhazların 70 Yıllık Komut stetleerinii Öğrneemzsiiniz. Dersnizki "Ben Kendi Bytecodumu yaratiyioyurm (LLVM İle)" O gidin HAngi islmciyie İstyorsa Kendii donsun!
-* Programların Tersine Mühedisliğini Yapan Hackerlar(Java .jar veya Android .Apk kırarken o Dex Bytecodlerinii Okuyarark Gİzli Sifreyi CöZElrler. Programlamnini ArA-Araf'idir.
+* Kendi Programlama Dilini Yaratan (Tasarımcı) **Derleyici (Compiler) Mühendisleri**. Eğer Siz bir dil icat ederseniz Bütün Intel ve AMD Cihazların 70 Yıllık Komut setlerini öğrenemezsiniz. Dersiniz ki "Ben Kendi Bytecode'umu yaratıyorum (LLVM İle)" O gitsin Hangi işlemciyi istiyorsa Kendine dönsün!
+* Programların Tersine Mühendisliğini Yapan Hackerlar (Java .jar veya Android .apk kırarken o Dex Bytecode'larını Okuyarak Gizli Şifreyi Çözerler). Programlamanın Ara-Araf'ıdır.

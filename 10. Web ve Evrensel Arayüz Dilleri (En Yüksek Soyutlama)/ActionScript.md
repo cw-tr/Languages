@@ -16,7 +16,7 @@ Flash programında grafikerler Çizim Çiziyor (Timeline'a keyframe atıyordu). 
 ## Dilin Mantığı ve Kod Yapısı
 Tam bir **ECMAScript (JavaScript Kardeşi)** klonudur! Zaten kökeni, JavaScript'in kurallarına bağlıdır. Lakin Apple'ın ve HTML5'in Flash'a açtığı savaş yüzünden, ActionScript (Özellikle ActionScript 3.0 ile) kendini tamamen **Saf, Ciddi, Strict Typeli Nesne Yönelimli Bir Gelişmiş Dile (OOP Java/C# formuna)** çevirmiş, asil bir "Arayüz Dili" olmuştur.
 
-AS3'te (ActionScript 3), Tip atamaları İki Nokta Üst üste (`var yas:int = 5`) ile deklare edilir (ki TypeScrip aslında bu yazım tarzını ActionScriptten arakalayarak dünyada ünlü olmuştur!).  Güçlü "Display List (Ekran Objeleri Listesi)" sistemiyle Ekrana Grafik Ekler (`addChild`) veya çıkarır (`removeChild`).
+AS3'te (ActionScript 3), Tip atamaları İki Nokta Üst üste (`var yas:int = 5`) ile deklare edilir (ki TypeScript aslında bu yazım tarzını ActionScript'ten arakalayarak dünyada ünlü olmuştur!).  Güçlü "Display List (Ekran Objeleri Listesi)" sistemiyle Ekrana Grafik Ekler (`addChild`) veya çıkarır (`removeChild`).
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Butona tıklandığında bir iş yapmak!
@@ -43,7 +43,7 @@ package komutlarim {
         private var yerCekimi:Number = 2.5;
         private var karakterHiziY:Number = 0; // Yukari/Asagi (Y Eksen) ivmesi
 
-        // CONSTRUCTOR (Otomatik Kurucu, Flash Ekrana Geldıgınde Uyanir):
+        // CONSTRUCTOR (Otomatik Kurucu, Flash Ekrana Geldıginde Uyanir):
         public function OyunZemini() {
             
             // Ekranda cizili "sahnedeki_karakter" isimli kutuya Dinleyici Tıkla kancasi tak:
@@ -63,7 +63,7 @@ package komutlarim {
             karakterHiziY = ziplamaGucu;
             
             // Console (IDE) ekranina yazi firlat:
-            trace("Uciyoruz Kaptan!"); 
+            trace("Ucuyoruz Kaptan!"); 
         }
 
         // HER SANIYE (60 Kere) MOTOR GIBI DONEN FIZIK HESAPLAMASI (GRAVITY YASALARI)
@@ -75,7 +75,7 @@ package komutlarim {
             // Karakteri Ekranda (Y_Ekseni Pikseli olarak) Oyle ciz (Hareket Ettir!)
             sahnedeki_karakter.y += karakterHiziY;
             
-            // Eger Karakter ekranin Dibine Vurduysa (Orn: 500 ncu Pikselt) Duraklama yap:
+            // Eger Karakter ekranin Dibine Vurduysa (Orn: 500 ncu Pikselde) Duraklama yap:
             if (sahnedeki_karakter.y > 500) {
                 sahnedeki_karakter.y = 500; // Cukura Dustu Kaldi
                 karakterHiziY = 0; // Hiz Puanini Sifirla

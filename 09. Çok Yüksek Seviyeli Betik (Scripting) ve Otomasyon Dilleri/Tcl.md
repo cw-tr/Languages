@@ -6,7 +6,7 @@ Tcl (Tool Command Language - *Tıkıl* veya *Ti-Si-El* olarak okunur); 1988 yıl
 ## Nedir ve Ne İşe Yarar?
 1980'lerde programcılar harika C uygulamaları yazıyordu (Örneğin bir veritabanı veya bir Çizim Aracı) lakin bu programların kullanıcının yazılarıyla etkileşime gireceği "Dinamik bir Terminal/Komut (Script)" sistemi yoktu. Herkes kendi C programına uyduruk, kötü if/else komut okuyucuları yazıyordu.
 
-John Ousterhout, "Size çok hafif, sadece metinleri ve komutları okuyan bir (Engine/Motor) vereyim, bunu C uygulamanızın içine Gömün (Embed)" dedi. Böylece "Tcl" doğdu. O kadar hafif ve harikaydı ki, ağ (Networking) cihazlarına (Örn: Cisco yönlendiricileri) gömüldü. Ama Tcl'in dünyayı asıl fethi, çok gariptir ki kendisi değil "Kardeşi" yüzünden oldu. Tcl için geliştirilen **Tk (Tool Kit)** arayüz pakedi; Bir C/Python/Perl kullanıcısının ekrana bir "Button" ve "Sayfa" basmasının evrendeki EN KOLAY yolu olduğu için Tcl/Tk bir efsaneye dönüştü. (Bugün bile Python indirdiğinizde gelen *Tkinter* aslında Tcl/Tk'dır!).
+John Ousterhout, "Size çok hafif, sadece metinleri ve komutları okuyan bir (Engine/Motor) vereyim, bunu C uygulamanızın içine Gömün (Embed)" dedi. Böylece "Tcl" doğdu. O kadar hafif ve harikaydı ki, ağ (Networking) cihazlarına (Örn: Cisco yönlendiricileri) gömüldü. Ama Tcl'in dünyayı asıl fethi, çok gariptir ki kendisi değil "Kardeşi" yüzünden oldu. Tcl için geliştirilen **Tk (Tool Kit)** arayüz paketi; Bir C/Python/Perl kullanıcısının ekrana bir "Button" ve "Sayfa" basmasının evrendeki EN KOLAY yolu olduğu için Tcl/Tk bir efsaneye dönüştü. (Bugün bile Python indirdiğinizde gelen *Tkinter* aslında Tcl/Tk'dır!).
 
 **Ne İşe Yarar?**
 * **Elektronik Tasarım Otomasyonu (EDA) Cihazları:** Dünyadaki Çip (CPU/FPGA) tasarım donanım uygulamalarının (Synopsys, Xilinx, Cadence) içinde çiplere komut veren (Script) %90 "Tek Dil" vardır: Tcl. Hızlı elektronik endüstrisinin betik anahtarıdır.
@@ -14,9 +14,9 @@ John Ousterhout, "Size çok hafif, sadece metinleri ve komutları okuyan bir (En
 
 ## Dilin Mantığı ve Kod Yapısı
 Tcl, bir programlama dili gibi değil; bir **"Komut Dosyası (Command Shell)"** gibi davranır. Her şey Boşluklarla (Space) ayrılmış komutlardır. (Lisp gibidir ama parantezsizdir).
-En korkunç (Radikal) felsefesi: *Tcl'de TİP (Type) yoktur. "15" sayısı, 15 değildir, "1", "5" harflerinden oluşan şaf bir Düz Yazıdır (String)*. Matematiksel işlem görene kadar Tcl dünyayı metin olarak görür (Everything is a string).
+En korkunç (Radikal) felsefesi: *Tcl'de TİP (Type) yoktur. "15" sayısı, 15 değildir, "1", "5" harflerinden oluşan saf bir Düz Yazıdır (String)*. Matematiksel işlem görene kadar Tcl dünyayı metin olarak görür (Everything is a string).
 
-Köşeli parantezler `[ ]` içine yazılan komutu "Çalıştırıp Çıktısını Al (Command Substitution)", Dolar işareti `$` ise "Değişkenin İçiniOku" manasına gelir.
+Köşeli parantezler `[ ]` içine yazılan komutu "Çalıştırıp Çıktısını Al (Command Substitution)", Dolar işareti `$` ise "Değişkenin İçini Oku" manasına gelir.
 
 **Örnek İşleyiş (Sembolik Olarak):**
 Python'da Mat: `x = 5 + 5; print(x)`
@@ -42,7 +42,7 @@ puts "Merhaba, $kullanici! Sistem Testi Basladi. Hesap= $sonuc"
 
 
 # 3. KOSULLAR (IF) VE KIVIRCIK PARANTEZLER (GECİKME)
-# Tcl'de if'in yanindaki Kivrircik Parantez {} kod blogu degil; 
+# Tcl'de if'in yanindaki Kıvırcık Parantez {} kod blogu degil; 
 # C'deki/Lisp'teki gibi "Icindeki kodlari String Olarak DONDUR(Suspend), Ihtiyac aninda calistir" anlamindadir!
 if {$sonuc > 100} {
     puts "Sonuc 100'den Buyuk. Gise Hatasiz."
@@ -64,7 +64,7 @@ label .mesaj -text "Çip Testi Tamamlanıyor $kullanici!" -foreground "blue"
 # command -> Butona basilinca Hangi TCL Kodunu çalistirsin? "exit" kodu:
 button .buton_cikis -text "Testi Bitir (Kapat)" -command { exit }
 
-# PACK MİMARISI: Olusturulan widgetlari Pencerin icine Ust Uste Pakitle (Sigdir)
+# PACK MİMARISI: Olusturulan widgetlari Pencerin icine Ust Uste Paketle (Sigdir)
 pack .mesaj .buton_cikis -padx 20 -pady 20
 
 # Bu kod Calisince Ortada Masmavi yazili, altinda Buton olan 2x2 Cok islevli bir Uygulama aninda Acilir.

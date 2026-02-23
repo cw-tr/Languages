@@ -7,42 +7,42 @@ Papyrus; Bethesda Game Studios (Tamriel evreninin yaratıcıları) tarafından t
 1990'larda ve 2000'lerde Oyun yapmak "Hardcore C++" kodlamaktı. Ancak Skyrim gibi Devasa bir RPG oyununda; 1000'den fazla yan görev, 5000'den NPC (Karakter) ve 100.000'den fazla etkileşimli nesne (Kılıçlar, Tabaklar, Peynirler) vardı. Motor Geliştiricileri (C++ mühendisleri) Oturup Tüm bu Görevleri(Questleri) kendileir yazamazdı. Bu işi "Görev Tasarımcılarına (Level Designers)" Bırakmalılardı.
 
 Bethesda Dedi Ki: "Biz Kendi C++ Motorumuzun (Creation Engine) üstüne Çok Daha Basit, Olay-Güdümlü (Event-Driven) ve 'Sandık Açıldıysa İçinden Peynir Çıkar' mantığını İngilizce gibi yazdıracak bir Dil olan Papyrus'u İcat ediyoruz!"
-Papyrus Derlendiğinde kendi C++ arkajplanina (.pex uzantısına) dönusur Ve Skyrim in İcinE sızar.
+Papyrus Derlendiğinde kendi C++ arka planına (.pex uzantısına) dönüşür Ve Skyrim'in içine sızar.
 
 **Ne İşe Yarar?**
-* **Davranış (Behavior) Kodlama:** Oyunda Üzerine basınca Ateş Fırlatan bir Tuzak mı var? Tuzağın `Trigger (Tetikleyici)` Olayına (Event) Papyrus Kodu yazılır: "Eger Oyucncu Buraya Bastyısa Oyuncunun canını 50 Azalt!.
-* **Modding Efsanelesi:** NexusMods'da Gördüğünüz Bütün O "Uçan Trenler, Yeni Hikayeler, Değişik Büyüler(Spells)" Yapan Bütün Kullanıcılar (Milyonlarca modcu) Istısnasiyzz PAPYRUS kodlariylaa O Urukleri Yaratıllrar. Dünuyanun EN buyyk "Kullancii Taraflis Oyun MOdlama" DIILiddiri. 
+* **Davranış (Behavior) Kodlama:** Oyunda Üzerine basınca Ateş Fırlatan bir Tuzak mı var? Tuzağın `Trigger (Tetikleyici)` Olayına (Event) Papyrus Kodu yazılır: "Eğer Oyuncu Buraya Bastıysa Oyuncunun canını 50 Azalt!"
+* **Modding Efsanelesi:** NexusMods'da Gördüğünüz Bütün O "Uçan Trenler, Yeni Hikayeler, Değişik Büyüler (Spells)" Yapan Bütün Kullanıcılar (Milyonlarca modcu) İstisnasız PAPYRUS kodlarıyla o ürünleri yaratırlar. Dünyanın en büyük "Kullanıcı Taraflı Oyun Modlama" dilidir. 
 
 ## Dilin Mantığı ve Kod Yapısı
-Tamamen **Event-Driven (Olaya Dayalı)** ve Nesne Yönelimii Bir Yapisi vardır.
-Oyun icindeki He rsey(Kılıc, NPC, Görev, Sehir) Bir **Object (Form)** Dir.
-Papyrusun Kalbibndea `Event` (Sartllar) YAtaaar. Oyun Motoru size "Kilic KIniindan Ceiklşiyse", "Ok Vurduuysae", "Kitap OkuNmusyasae" Gibi Evenrleerİ Szin PAPYRUS Kodunziaa Fisildaar!
+Tamamen **Event-Driven (Olaya Dayalı)** ve Nesne Yönelimli Bir yapısı vardır.
+Oyun içindeki her şey (Kılıç, NPC, Görev, Şehir) Bir **Object (Form)**dir.
+Papyrus'un kalbinde `Event` (Şartlar) yatar. Oyun Motoru size "Kılıç Kınından Çekildiyse", "Ok Vurduysa", "Kitap Okunduysa" Gibi eventleri sizin PAPYRUS kodunuza fısıldar!
 
 ### Örnek Bir Papyrus Kodu: Oyuncuyu Zehirleyen Şeytani Bir Kılıç Modu Yapmak
-Eğer bir Oyuncu (Oyuncu dışindkakieaNPC dEhill) Bu Tılsımlı kılıCı Eline Alip Kusanniirsa, CAninin 100 saniye Boyumnucaa YavasYavsaaDüsecesininiy Sagglyann Modkoduud:
+Eğer bir Oyuncu (Oyuncu dışındaki NPC değil) Bu Tılsımlı kılıcı Eline Alıp Kuşanırsa, Canının 100 saniye boyunca yavaş yavaş düşmesini sağlayan mod kodu:
 
 ```papyrus
-; BU BIR PAPYRUS (Skyrim/Fallout) KODUDUR (NoktaliviVirglu Youırundur)
+; BU BİR PAPYRUS (Skyrim/Fallout) KODUDUR (Noktalı virgül yorumdur)
 
-; 1. SINIF TEMELİ (Hangi Tur Nesneyizi? - Biz Bir SILAH'iz (Weapon))
+; 1. SINIF TEMELİ (Hangi Tür Nesneyiz? - Biz Bir SİLAH'ız (Weapon))
 Scriptname SeytaniZehirliKilic extends Weapon 
 
-; 2. OZELLIK(PROPERTY) TANIMLA  
-; Zehir buyusuunu (Spell) Oyun icindeen FareylE Sceebilmke İcin Pncderee Ac!
+; 2. ÖZELLİK (PROPERTY) TANIMLA  
+; Zehir büyüsünü (Spell) Oyun içinden Fareyle Seçebilmek İçin Pencere Aç!
 Spell Property ZehirBuyusu Auto 
 
 
-; 3. EVENT(OLAY) YAKALAYICA : NESNE KUŞANILDIĞINDA (OnEquipped) CALISACAK KOD
-; (Actor = Kusanann Kİisİ Oyunuc Mu Npc Mİii?)
+; 3. EVENT (OLAY) YAKALAYICI: NESNE KUŞANILDIĞINDA (OnEquipped) ÇALIŞACAK KOD
+; (Actor = Kuşanan Kişi Oyuncu mu NPC mi?)
 Event OnEquipped(Actor akActor)
     
-    ; a) Eger Kilici Kusanann Kİsi "Ana Oyuuncu (Player)" İSE!! (NpcLeriZehirlee!!m)
+    ; a) Eğer Kılıcı Kuşanan Kişi "Ana Oyuncu (Player)" İSE!! (NPC'leri Zehirleme!!)
     if akActor == Game.GetPlayer()
         
-        ; Sag Ustte Kullanicidya Bir MESAAJJ YYOOOLLAAA!
-        Debug.Notification("Bu Kilic Yabancilarib Elini Yakar... Laneti HİSSET!!")
+        ; Sağ Üstte Kullanıcıya Bir MESAJ YOLLA!
+        Debug.Notification("Bu Kılıç Yabancıların Elini Yakar... Laneti HİSSET!!")
         
-        ; c) Oyuncuynun Üzerine Zehi BüyünüSü Ekle Ve CAslsistir (Casttt Et!)
+        ; c) Oyuncunun Üzerine Zehir Büyüsünü Ekle Ve Çalıştır (Cast Et!)
         ZehirBuyusu.Cast(akActor, akActor)
         
     endif
@@ -50,20 +50,20 @@ Event OnEquipped(Actor akActor)
 EndEvent
 
 
-; 4. EVENT(OLAY) CİKARTILDIIGINDA (Kilic Kilifa Sokutlgudna/ Yere ATtiLgdniaaa)
+; 4. EVENT (OLAY) ÇIKARTILDIĞINDA (Kılıç Kınına Sokulduğunda / Yere Atıldığında)
 Event OnUnequipped(Actor akActor)
 
     if akActor == Game.GetPlayer()
-        ; Buyueyu Oyounvcuddannn İpptal L EETT(Dispell)!
+        ; Büyüyü Oyuncudan İptal ET (Dispel)!
         akActor.DispelSpell(ZehirBuyusu)
-        Debug.Notification("Lanet Kalkti...")
+        Debug.Notification("Lanet Kalktı...")
     endif
     
 EndEvent
 ```
 
-Skyrim/Fallout'un En Güçlü yanninı Buduur. Siz Bir "Kilic" cizersinise, Üstüne bu `.psc` (PapyrsuScript) dosyaini Sürükle Bİrka Yparsiniz. Artik O Kilıc Canslidir!. Eger Siz BU kodu ÇokAğrir(While dögnuusiuye Saniudeyu 100Kere calisakGİbeI) YApatsainiaziz, Oynuun Frameraaeteesi (FPSS) Düşrr Ve OyunCTrashes (CökererE). CünküPapyruse C++ In UYstnendeki Cok YüKsslek Bir YKAtanmnaadir.
+Skyrim/Fallout'un En Güçlü yanını Budur. Siz Bir "Kılıç" çizersiniz, Üstüne bu `.psc` (PapyrusScript) dosyasını Sürükle Bırak yaparsınız. Artık o kılıç canlıdır!. Eğer siz bu kodu çok ağır (While döngüsüyle saniyede 100 kere çalışacak gibi) yaparsanız, oyunun kare hızı (FPS) düşer ve oyun çöker. Çünkü Papyrus, C++'ın üstündeki çok yüksek bir katmandır.
 
 ## Kimler Kullanır?
-* Milyonalraccssatana **Bethesda (Elder Scrolls / Fallout / Starfield)** SErileriıIN Kkendi iÇeriseridekii YÜzleeercei **Level Designer (GÖörevv TAasrimcilaAri)** Ve "Tekniukk SanattıiclaRi".
-* Ve Dünyanneniinnn Ebn BÜyyük (Ve En Tutkuluşuk) OyunTopluluululugu olan **Modifikasyon (Modder / NexusMods) Geliştiricileri**. Skyrim'in 15 Yldir Hala en Çok OynannaN OlYUn Olmasinsniini Tek Sebebebi, BU dililen Oynuuaan Herseyinniin BükülbbilmlelsyisdirI. BÜyük VRe İihTiSSamli BiR Mimariddidir.
+* Milyonlarca satan **Bethesda (Elder Scrolls / Fallout / Starfield)** serilerinin kendi içerisindeki yüzlerce **Görev Tasarımcısı (Level Designer)** Ve "Teknik Sanatçılar".
+* Ve Dünyanın en büyük (Ve en tutkulu) oyun topluluğu olan **Modifikasyon (Modder / NexusMods) Geliştiricileri**. Skyrim'in 15 yıldır hala en çok oynanan oyun olmasının tek sebebi, bu dille oyunun her şeyinin bükülebilmesidir. İhtişamlı bir mimaridir.

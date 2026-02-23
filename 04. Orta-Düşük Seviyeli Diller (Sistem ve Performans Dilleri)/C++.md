@@ -9,7 +9,7 @@ C++, efsanevi C dilinin makineye olan mutlak yakınlığını ve saf hızını a
 **Ne İşe Yarar?**
 * **AAA Kalite Oyun Motorları:** Hızın mikrosaniyelere bölündüğü, milyarlarca poligonun işlendiği tüm büyük oyun motorları (Unreal Engine, CryEngine, Frostbite vb.) ve modern konsol, bilgisayar oyunları tamamen C++ ile yazılır.
 * **Yüksek Performanslı Masaüstü Yazılımları:** Adobe Photoshop, Autodesk AutoCAD, Google Chrome (V8 Motoru) ve web tarayıcıları, kaynak tüketimi çok ağır olduğu için gücü doğrudan donanımdan çekmek adına C++ kullanır.
-* **Finansal (HFT) Ticaret:** Borsalarda (Wall Street) nanisaniye hızında milyonlarca dolarlık alış-satış yapan otomatik ticaret botları, Java veya C#'ın "Çöp Toplayıcısı"nın duraksamasından (Garbage Collector Pause) nefret ettiği için sıfır gecikmeli C++'a muhtaçtır.
+* **Finansal (HFT) Ticaret:** Borsalarda (Wall Street) nanosaniye hızında milyonlarca dolarlık alış-satış yapan otomatik ticaret botları, Java veya C#'ın "Çöp Toplayıcısı"nın duraksamasından (Garbage Collector Pause) nefret ettiği için sıfır gecikmeli C++'a muhtaçtır.
 
 ## Dilin Mantığı ve Kod Yapısı
 C++ tamamen C ile geriye dönük uyumludur; yani eski C kodlarını da derler, C'deki o tehlikeli *Pointer* ve *Manuel Bellek (`new`/`delete` veya `malloc`/`free`)* çılgınlığını korur. 

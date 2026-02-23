@@ -38,4 +38,4 @@ Ancak insanlar, 0 ve 1'lerden oluşan sonsuz bir denize bakmaktan kaçınmak ve 
 ## Kimler Kullanır?
 * Evrendeki hiçbir programcı baştan aşağı "0 ve 1'ler (yada Hex) dizerek" bir oyun stüdyosunda oyun çıkarmaz veya muhasebe yazılımı yapmaz. (Sadece 1940-50'lerde ENIAC dönemindeki anaokul dâhileri, bilgisayarlara anahtarlarla manuel voltaj vererek programlama yapıyordu.)
 * **Derleyiciler:** Makine dilinin temel ustası derleyicilerdir (örneğin GCC, Clang). Yüksek seviye dilleri (C++) bu seviyeye onlar tercüme eder.
-* **Tersine Mühendisler (Reverse Engineers):** Crackers, siber güvenlik analistleri ve antivirüs zarılım avcıları incelenecek şüpheli bir exe'nin hexadecimal dizilerine bakarak onun ne işler karıştırdığını anlarlar.
+* **Tersine Mühendisler (Reverse Engineers):** Crackers, siber güvenlik analistleri ve zararlı yazılım avcıları incelenecek şüpheli bir exe'nin hexadecimal dizilerine bakarak onun ne işler karıştırdığını anlarlar.

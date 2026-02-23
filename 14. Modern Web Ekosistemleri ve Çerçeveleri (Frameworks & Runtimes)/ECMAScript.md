@@ -49,7 +49,7 @@ const gemim = new UzayGemisi("Apollo");
 const API_VeriCek = async () => {   // Ok Isareti (Arrow Function -> ES6)
     
     try {
-        // 'await' Kelimesi kodu asagi salmaz. Inmesini Bekler (Sleep gibi deil C# Taski gibi)
+        // 'await' Kelimesi kodu asagi salmaz. Inmesini Bekler (Sleep gibi degil C# Taski gibi)
         const yanit = await fetch('https://api.uzaycilar.com/data'); 
         
         // Gelen Datayi JSON Formatina Cikar
@@ -64,7 +64,7 @@ const API_VeriCek = async () => {   // Ok Isareti (Arrow Function -> ES6)
     }
 }
 ```
-Buradaki tüm yenilikler (`class`, `const`, `=>`, `async`, `$()`) spesifik olarak "ECMAScript Yürütme Komitesi (TC39)" tarafından toplantılarla yıllarca oylanıp dile resmi eklenti olarak dahil edilen Evrensel standatlardır.
+Buradaki tüm yenilikler (`class`, `const`, `=>`, `async`, `$()`) spesifik olarak "ECMAScript Yürütme Komitesi (TC39)" tarafından toplantılarla yıllarca oylanıp dile resmi eklenti olarak dahil edilen Evrensel standartlardır.
 
 ## Kimler Kullanır?
 * Evrendeki bütün **Tarayıcı Motoru Üreticileri (Google V8, Mozilla, Apple WebKit)**, bu standartname'yi (Ecma-262) alıp her yıl güncellenen JS Engine C++ kodlarını yazan Mühendislerdir.

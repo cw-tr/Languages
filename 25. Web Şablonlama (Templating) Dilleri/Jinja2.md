@@ -26,34 +26,34 @@ Python (Flask) Sunucusundan "Ali, Veli, Ayşe" isimli liste geldiği senaryoda, 
 
 <html>
 <head>
-    <!-- 1. DEGISKEN YAZDIRMA (Variable Print)  {{ }} -->
-    <title> Hosgeldin {{ kullanici.isim|capitalize }}! </title> <!-- capitalize = Jinja Filtresidir, ilk harfi BWyutrrir -->
+    <!-- 1. DEĞİŞKEN YAZDIRMA (Variable Print)  {{ }} -->
+    <title> Hoş geldin {{ kullanici.isim|capitalize }}! </title> <!-- capitalize = Jinja Filtresidir, ilk harfi Büyütür -->
 </head>
 <body>
 
-    <!-- 2. IF KONTROLU (Sayfaya Sadece VIP olanlar Girebilsin!) {% %} -->
+    <!-- 2. IF KONTROLÜ (Sayfaya Sadece VIP olanlar Girebilsin!) {% %} -->
     {% if kullanici.vip_mi == True %}
-        <h1 style="color: gold;">Sarayimiza Hosgeldiniz Sayin {{ kullanici.isim }}!</h1>
+        <h1 style="color: gold;">Sarayımıza Hoş geldiniz Sayın {{ kullanici.isim }}!</h1>
     {% else %}
-        <h1>Standart Kullanici Arayuzu</h1>
-    {% endif %} <!-- Unutmayin HTML aptal oldugu icin END_IF Dİe jinja'yi kapatmaliyiz! -->
+        <h1>Standart Kullanıcı Arayüzü</h1>
+    {% endif %} <!-- Unutmayın HTML aptal olduğu için END_IF Diye jinja'yı kapatmalıyız! -->
 
 
-    <h2>Alisveris Sepetiniz:</h2>
+    <h2>Alışveriş Sepetiniz:</h2>
     <ul>
-        <!-- 3. FOR DONGUSU (Sepetterki Tum Verileri Lİsteye Vur!) {% for %} -->
+        <!-- 3. FOR DÖNGÜSÜ (Sepetteki Tüm Verileri Listeye Vur!) {% for %} -->
         {% for urun in sepetteki_urunler %}
         
-            <!-- Eger Urunn Kalmassa HTML sinifi(Stili) Degissiin Zekasi: -->
+            <!-- Eğer Ürün Kalmazsa HTML sınıfı (Stili) Değişsin Zekası: -->
             <li class="{% if urun.stok == 0 %}tukenmis{% else %}stokta{% endif %}">
                 
                 {{ urun.ad }} - {{ urun.fiyat }} TL
                 
             </li>
             
-        <!-- Listen Bos MU Geldi? Eger 'Sepet Urunlari' icinde Hiiic veri yOONk sa, Asasigi COalıştiri(Mukkemel Jiinja ozelleihir)-->
+        <!-- Liste Boş MU Geldi? Eğer 'Sepet Ürünleri' içinde Hiç veri yoksa, Aşağıyı çalıştırır (Mükemmel Jinja özelliğidir) -->
         {% else %}
-            <li>Sepetiniz Bombos! Lutfen Bir Seylee rAlin!</li>
+            <li>Sepetiniz Bomboş! Lütfen Bir Şeyler Alın!</li>
             
         {% endfor %}
     </ul>
@@ -61,9 +61,9 @@ Python (Flask) Sunucusundan "Ali, Veli, Ayşe" isimli liste geldiği senaryoda, 
 </body>
 </html>
 ```
-Eğer kullanıcı "VIP" değilse, O altın renkli `<h1>` etiketi **Müşterinin Tarayıcısına (Chrome'a) ASLA GİTMEZ!** Çünkü kod Sunucuda (Server-Side) Render (Bükülme) aşamasında iken Jinja Tarafından Kesilip Atılmıştır (Güvenlik). Html Tarayıcıya Sadece Dümdüz Bir Metin Olarak(Son Halilye) ulaşır. Müşteri Arkada Çalışan Python kodunu(Yada For dongusunu) Ekranda Göremez F12 ye basssa Bile!.
+Eğer kullanıcı "VIP" değilse, O altın renkli `<h1>` etiketi **Müşterinin Tarayıcısına (Chrome'a) ASLA GİTMEZ!** Çünkü kod Sunucuda (Server-Side) Render (Bükülme) aşamasında iken Jinja Tarafından Kesilip Atılmıştır (Güvenlik). HTML Tarayıcıya Sadece Dümdüz Bir Metin Olarak (Son Haliyle) ulaşır. Müşteri Arkada Çalışan Python kodunu (Yada For döngüsünü) Ekranda Göremez F12'ye bassa Bile!.
 
 ## Kimler Kullanır?
 * Python Dünyasındaki (Flask, FastAPI, Django) Bütün **Backend (Arka Yüz) ve Full-Stack Geliştiricileri**.
-* Otomatik Mail Atma Sistemleri Yazanlar: "Sayın {{musteri_Ad}} Kargonuz Yoladiri!" (Mail taslakaklariı heep Jıinja Veta Mıustacheedirr).
-* **DevOps Muhendisleri**: Macro Yazar gbi, Sistem konnfigurasyonlarini Jinja "Template (Sablon)" Lerilye bükerek Binlercer SunuCuhyya Kusursuz Atarla r(Ansiklpedimiizndeki ASnsible Tarafina Bakiniix). Python Varsa Jinja Yanindadair.
+* Otomatik Mail Atma Sistemleri Yazanlar: "Sayın {{musteri_adi}} Kargonuz Yollanmıştır!" (Mail taslakları hep Jinja veya Mustache'dir).
+* **DevOps Mühendisleri**: Makro Yazar gibi, Sistem konfigürasyonlarını Jinja "Template (Şablon)" leriyle bükerek Binlerce Sunucuya Kusursuz Atarlar (Ansiklopedimizdeki Ansible Tarafına Bakınız). Python Varsa Jinja Yanındadır.

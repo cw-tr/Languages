@@ -19,7 +19,7 @@ Godot'nun temeli olan **Düğüm (Node)** hiyerarşisiyle yaşar. Her betik(scri
 
 **Önemli Fonksiyonları:**
 * `_ready()`: Oyun (veya Düğüm) ekranda doğduğu (İlk saniye) an Sadece 1 Kere tetiklenir (Kurulumlar).
-* `_process(delta)`: Oyun çalıştığı sürece Saniyede 60 Kere (Her Frame) tetiklenir. Karakterin sürekli Yürümesi/Düşmesi bura yazılır.
+* `_process(delta)`: Oyun çalıştığı sürece Saniyede 60 Kere (Her Frame) tetiklenir. Karakterin sürekli Yürümesi/Düşmesi buraya yazılır.
 
 ### Örnek Bir GDScript Kodu: Bir Karakteri Yürütmek ve Zıplatmak
 Godot oyun motorunda "Oyuncu (KinematicBody2D)" karakterinin içine atılmış klasik bir 2 Boyutlu (Platformer - Mario) yürüme Kodu:
@@ -40,7 +40,7 @@ var yon_vektoru = Vector2.ZERO   # X ve Y yonlerindeki Guncel Ivmemiz(Hızımız
 # Saniyede 60 Kare(Frame) Calisan OYUN DONGUSU(Physics Process):
 func _physics_process(delta):
     
-    # Kendi Ivmemizi (Y Eksenini) Yer Cekimine Gorue Asagi(Arti) Cek! Puan duselim
+    # Kendi Ivmemizi (Y Eksenini) Yer Cekimine Göre Asagi(Artı) Cek! Puan duselim
     yon_vektoru.y += yer_cekimi * delta
 
     # Sag/Sol Tusuna Basma Kontrolu (Mantikli Input Algilamasi)
@@ -55,8 +55,8 @@ func _physics_process(delta):
     if is_on_floor() and Input.is_action_just_pressed("ui_up"):
         yon_vektoru.y = ziplama_gucu
 
-    # GODOT FIZIK MOTORUNU TETIKLE: Karakteri Farki Hesaplayarak Haraket Etir! 
-    # (Duvara carptimi diye Kendi Fizik motoru cözer!)
+    # GODOT FIZIK MOTORUNU TETIKLE: Karakteri Farki Hesaplayarak Hareket Ettir! 
+    # (Duvara çarptı mı diye Kendi Fizik motoru cözer!)
     yon_vektoru = move_and_slide(yon_vektoru, Vector2.UP)
 ```
 

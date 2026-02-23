@@ -15,7 +15,7 @@ Ama bir noktada "Ferrari (Mesela otomobil bayi) firması" dedi ki; "Müşteri li
 ## Dilin Mantığı ve Kod Yapısı
 Apex'in sözdizimi, **Java'nın bir çatalı (Fork)** gibidir. Java (veya C#) biliyorsanız Apex öğrenmeniz sadece yarım saatinizi alır (Süslü parantezler, `public static void`, `List<String>`). Lakin çok ölümcül farklı KISITLARI vardır:
 
-1. **Multitenant (Çoklu-Kiracı) Kalkanı - ÇILDIRTAN LİMİTLER (Governor Limits):** Siz kodunuzu kendi bilgisayarınızda değil, Binlerce diğer şirketle (Müşteriyle) cùng bir Bulut Ortak-İşlemcisinde (Salesforce Pod) çalıştırırsınız. Bu yüzden Apex size şöyle bir kural koyar: "Eğer döngünün içinde veritabanı sorgusu (SOQL) atarsan, veya kodun X saniyeyi aşarsa Kodunu (İPİNİ) acımadan Kılıçla Keserim (Exception fırlatarak sistemi öldürürüm)". 1 Kodda maksimum 100 kere Veritabanı sorgu Hakkınız vardır. O yüzden kodunuzu Toplu(Bulkified) yazmak zorundasınız.
+1. **Multitenant (Çoklu-Kiracı) Kalkanı - ÇILDIRTAN LİMİTLER (Governor Limits):** Siz kodunuzu kendi bilgisayarınızda değil, Binlerce diğer şirketle (Müşteriyle) aynı bir Bulut Ortak-İşlemcisinde (Salesforce Pod) çalıştırırsınız. Bu yüzden Apex size şöyle bir kural koyar: "Eğer döngünün içinde veritabanı sorgusu (SOQL) atarsan, veya kodun X saniyeyi aşarsa Kodunu (İPİNİ) acımadan Kılıçla Keserim (Exception fırlatarak sistemi öldürürüm)". 1 Kodda maksimum 100 kere Veritabanı sorgu Hakkınız vardır. O yüzden kodunuzu Toplu(Bulkified) yazmak zorundasınız.
 2. **Kendi SQL'ini İçinde Taşır (SOQL):** PL/SQL'deki gibi SQL'i string (metin `"` `"` ) olarak yazmazsınız. Direkt Java listesine iter gibi `List<Contact> kisiler = [SELECT Id FROM Contact]` diyerek Java kodunun ta içine Köşeli Parantez `[]` ile Database dilini (SOQL - Salesforce Object Query Language) GÖMEBİLİRSİNİZ.
 
 ### Örnek Bir Apex Kodu: 100 Tane Müşteriyi (Account) Aynı Anda Bulup VIP Yapmak (Bulkification Zekası)
@@ -39,7 +39,7 @@ public class MusteriIslemleri {
 
         // 2. DOĞRUSU: BULKIFICATION (TOPTANCI ALIMI VE KÖŞELİ SOQL (!))
         // Diyoruz ki: Yollanan ID Listesindeki Bütün Müşterileri TEK SEFERDE SQL(SOQL) ile Listeye cek!
-        // DİKKAT: Apex'te String yazmadan, Sınıfın ta ıçıne [SELECT ...] yazılabılır (Inline SOQL)
+        // DİKKAT: Apex'te String yazmadan, Sınıfın ta içine [SELECT ...] yazılabilir (Inline SOQL)
         // ':' (iki nokta), Apex degiskenini Database kodunun icine(Bind Var) Sokar!
         List<Account> incelenecekMusteriler = [
             SELECT Id, Name, VIP_Status__c, AnnualRevenue 
@@ -53,8 +53,8 @@ public class MusteriIslemleri {
         // 3. EKRANDAN ÇEKİLEN VERİLERİN ÜZERİNDE GEZ (OOP / Java mantığı For-Each)
         for (Account iterasyonMusteri : incelenecekMusteriler) {
             
-            // Eger Musterinin 'Yillik Geliri' 1 Milyin'u aşıyorsa
-            // (Salesforce'da özel oluşturulan verigaba Sütunlari _c ile biter(Custom!))
+            // Eger Musterinin 'Yillik Geliri' 1 Milyon'u aşıyorsa
+            // (Salesforce'da özel oluşturulan veritabanı Sütunlari _c ile biter(Custom!))
             if (iterasyonMusteri.AnnualRevenue > 1000000) {
                 
                 // Müşteri Statusünü VIP'ye Cek! YILDIZLA!
@@ -85,7 +85,7 @@ public class MusteriIslemleri {
 }
 ```
 
-Apex programcıları Java kodunun asilliğiyle Database sorgusunun o keskin bıçağını sürekli aynı Class (Sınıf) içinde harmanlayan Toptancı esnafı gibi (Bulkuification) yaşarlar.
+Apex programcıları Java kodunun asilliğiyle Database sorgusunun o keskin bıçağını sürekli aynı Class (Sınıf) içinde harmanlayan Toptancı esnafı gibi (Bulkification) yaşarlar.
 
 ## Kimler Kullanır?
 * Evrendeki sadece ve sadece **Salesforce Geliştiricileri (Salesforce Developers)**.

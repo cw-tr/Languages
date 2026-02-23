@@ -25,15 +25,15 @@ Aşağıda Google'ın o Ünlü Protobuf Sözleşmesinde, İki Sunucu "Kişi (Per
 // Kural 1: Modern Protobuf Versiyon 3 u Kullaniyoruz!
 syntax = "proto3";
 
-// Bu Sözlesmeden Otomatık java veya C# Çikrtmak İstiyorsaan Paket/Namespace tanımı:
+// Bu Sözlesmeden Otomatik java veya C# Çikartmak İstiyorsan Paket/Namespace tanımı:
 package KullaniciIslemleriAPI;
 
 // 1. SÖZLEŞME NESNESI (Message: Java'daki CLASS veya JSONdaki Obje):
 message Kisi {
   
-  // Degisken Tipi | Degisken ISmi | ESITTIR RAKAM(Sira Numnarasi) 
+  // Degisken Tipi | Degisken Ismi | ESITTIR RAKAM(Sira Numarasi) 
   
-  string isim = 1;        // Veri sıkıstırlirken bu 1. Siradaki(Slot) Veridir Ekrana İsim vs diye kelime atilmaz! 1 diye Gomer Gecer.
+  string isim = 1;        // Veri sıkıştırılırken bu 1. Siradaki(Slot) Veridir Ekrana İsim vs diye kelime atilmaz! 1 diye Gomer Gecer.
   int32 id_numarasi = 2;  // Rakam (32 bit Int). 2 Sirayi Alir
   string e_posta = 3;     // Kisisinin Maili, 3. Sirayi Alir.
   
@@ -41,7 +41,7 @@ message Kisi {
   repeated TelefonNumarasi numaralar = 4;
 }
 
-// 2. Alt/Içice Baska BIir SOZLESME (Enumeration ve Nested Clas)
+// 2. Alt/Içice Baska Bir SOZLESME (Enumeration ve Nested Clas)
 message TelefonNumarasi {
   string numara_tel = 1;
   
@@ -59,5 +59,5 @@ message TelefonNumarasi {
 Eğer bir Adamın Verisini Çekerseniz. Protobuf Bunu Ağa(İnternet kablosuna) Şu Halde basar: `0x12 0x07 0x41 0x6c 0x69 0x22 ...`.  Bu yüzden Bir İnsanın Bunu Okuması İMKANSIZDIR. Fakat Ekran Kartının/İşlemcinin (CPU) bu Binary Formattaki Yapıyı Parçalaması (UnZip) JSON Stringine Göre Yüzlerce Defa hızlıdır. Ve bu Google'ın Ayakta Kalma Sırrıdır.
 
 ## Kimler Kullanır?
-* Evrendeki bütün (Kendi Sunucularının Arka Planda Kendi Kendisiyle Konuştuğu Ağlardda / REST Dışı API'lerde) **Usta Backend Geliştiricileri (Java, Go, C# Mimarları)**.
+* Evrendeki bütün (Kendi Sunucularının Arka Planda Kendi Kendisiyle Konuştuğu Ağlarda / REST Dışı API'lerde) **Usta Backend Geliştiricileri (Java, Go, C# Mimarları)**.
 * Oyun Sunucuları: Online Oyunlarda (FPS vs) "Mermiyi sıktı X=Y=Z koordinatları" gibi saniyede Milyonlarca Datayı Karşıya (Sunucuya) Şutlarken Oyuncu Gecikme (Ping) yaşamasın diye Bütün Multiplayer Ağ İstekleri JSON yerine Binary (Örn. Protobuf) mimarisiyle kodlanır. Endüstrinin Uç Uça Demir köprüsüdür.

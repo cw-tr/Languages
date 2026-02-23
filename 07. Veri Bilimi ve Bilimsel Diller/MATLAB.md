@@ -40,7 +40,7 @@ gurultu_sinyali = hedef_sinyal + 0.3 * randn(size(zaman));
 
 
 % === MATEMATİKSİZ SADECE YAPAY ZEKAYI CAGRİMA GUCU ===
-% MATLAB'in kendi gömülü pürüssüzlüsturme "smooth" (Filtreleme) fonksiyonu asil algoritma gizleyicisidir.
+% MATLAB'in kendi gömülü pürüzsüzleştirme "smooth" (Filtreleme) fonksiyonu asil algoritma gizleyicisidir.
 temizlenmis_sinyal = smooth(gurultu_sinyali, 20); 
 
 % === EKRANA DEVASA GRAFIKLERI BASMA (FIGURE) ===

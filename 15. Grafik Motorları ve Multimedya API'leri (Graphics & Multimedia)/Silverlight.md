@@ -1,22 +1,22 @@
 # Silverlight
 
 ## Özet
-Microsoft Silverlight; 2007 yılında Microsoft firması tarafından, Adobe Flash'in (Bir üstteki belgedeki) Küresel Hükümdarlığına/Tekeline **"Rakip Olmak, Flash'i Kendi Zemininde Ezerek İnternetin Yeni Zengin(Zengin İçerikli-Önyüz / RIA) Medya Eklentisi Oymak"** amacıyla inanılmaz Bir Bütçeyle Piyasaya Sürülen; Arka planda .NET Dillerini (C# / VB) Ve **XAML** Tasarım Yapısını koşturan, Fakat Tıpkı Flash Gibi HTML5 Dalgalarında Boğularak 2021(ve 2012 lerde)'lerde Çöpe Atılan/Sonlandırılan Devasa Bir Teknolojik Hayal Kırıklığıdır.
+Microsoft Silverlight; 2007 yılında Microsoft firması tarafından, Adobe Flash'in (Bir üstteki belgedeki) Küresel Hükümdarlığına/Tekeline **"Rakip Olmak, Flash'i Kendi Zemininde Ezerek İnternetin Yeni Zengin(Zengin İçerikli-Önyüz / RIA) Medya Eklentisi Olmak"** amacıyla inanılmaz Bir Bütçeyle Piyasaya Sürülen; Arka planda .NET Dillerini (C# / VB) Ve **XAML** Tasarım Yapısını koşturan, Fakat Tıpkı Flash Gibi HTML5 Dalgalarında Boğularak 2021(ve 2012 lerde)'lerde Çöpe Atılan/Sonlandırılan Devasa Bir Teknolojik Hayal Kırıklığıdır.
 
 ## Nedir ve Ne İşe Yarar?
 2007 Yılında Microsoft (Dünyanın Yazılım Deviydi) Ancak "İnternet Tarayıcısı Ortamında" (YouTube videoları, Web Oyunları Oynatmakta) İp Adobe'un(Flash'ın) elindeydi. Geliştiriciler Flash'ın ActionScript dilini ve Arayüzünü Seviyordu. Microsoft PC dünyasındaki C# Dominasyonunu WEB'e Çekmek İstedi.
 
-"Silverlight Eklentisini(GümüşIşık)" çıkardı. İnternete giren Müşterilere (Flash gibi) 5-10 Megabytel'ik bir ".EXE / Eklenti" indirtti ki InternetExplorer(IE) veya Firefox Üzerinde Silverlight Videoları, Menüleri Mükkemel Grafiklerle, HD(yüksek çözünülürkük) Videolarla Oynasın.
+"Silverlight Eklentisini(GümüşIşık)" çıkardı. İnternete giren Müşterilere (Flash gibi) 5-10 Megabaytlık bir ".EXE / Eklenti" indirtti ki InternetExplorer(IE) veya Firefox Üzerinde Silverlight Videoları, Menüleri Mükemmel Grafiklerle, HD(yüksek çözünürlük) Videolarla Oynasın.
 
 **Ne İşe Yarar? (Zamanındaki Umutları):**
 * **Zengin İnternet Uygulamaları (RIA - Rich Internet Applications):** Browserda Excel klonları yazmak, Borsacıların Bilgisayara İndirmeden (Tarayıcıda) pürüzsüz Takip Çizgilerini İzlediği Banka Menüleri Yaratmak.
 * **Premium Medya Stream (Netflix Yayıncılığı):** Microsoft, Silverlight'ı özellikle DRM (Kopyalama koruması) Ve Yüksek Çözünürlüklü Yayıncılıkla güçlendirdi. Hatta **NETFLIX**, Uzun bir Dönem Boyunca Kullanıcılarına Film İzletebilmek İçin Tüm Web Altyapısında MAC ve PC'lerde "SILVERLIGHT" Çerçevesini ve Playerını Kullanarak Dünyaya Yayın yaptı!(En büyük başarısıydı). 
 
 ## Dilin Mantığı ve Kod Yapısı
-Microsoft'un Windows Masaüstünde (WPF Teknolojisi - Windows Presentation Foundation) Ne varsa, Alıp %100 Birebir Tarayıcı içine Gömülmüş C# Mimarısıydi.
+Microsoft'un Windows Masaüstünde (WPF Teknolojisi - Windows Presentation Foundation) Ne varsa, Alıp %100 Birebir Tarayıcı içine Gömülmüş C# Mimarisiydi.
 
 1. **Önyüz Tasarımı Çizmek (Amelelik-XAML):** Tasarımlar XML dilinin modifiyesi olan **XAML (eXtensible Application Markup Language)** İle Tıpa Tıp Android Studio kodlar gibi Şişik kodlarla (Buton Width vs) yazılırdı. 
-2. **ArkaPlan Mantığı ve Düğme Davranışı (Code-Behind):** XAML daki Butona Basınca Çalışacak Kodlar Safkan **C#** Veya **Visual Basic .NET** Diliyle Daktilo Edilrir (Arka Planda Exeye/DLL) Compile Edilirdi). 
+2. **ArkaPlan Mantığı ve Düğme Davranışı (Code-Behind):** XAML daki Butona Basınca Çalışacak Kodlar Safkan **C#** Veya **Visual Basic .NET** Diliyle Daktilo Edilir (Arka Planda Exeye/DLL) Compile Edilirdi). 
 3. Dosyalar .SWF yerine **`.XAP`** Formatında Ziplenip Müşteriye Fırlatılırdı.
 
 **Örnek İşleyiş:** Çok kurumsal , C# Alışkın Abilerin (Masaüstü yazılımcılarının) Şok geçirmeden 2 Günde Web Sitesi Çizebimesidir.
@@ -86,6 +86,6 @@ Programcılar "Vay Canına Taraycıda C# .NET Yazıyoruz, HTML ve PHP eziyetleri
 ## Neden Öldü? Milyar Dolarlık İnadın Çöküşü 
 1. Microsoft; Dünyadaki Milyarlarca Kullanıcısını *"Şu Silverlight Player'ı lütfen Bilgisayarına İndir de Sistemlerin Çalışsın Lütfen"* diye İkna Edemedi! Herkes Zaten Flash Kurmuştu, 2. bir Zımpırtıya Gerek Yoktu (Pazarın Yüzde 70'i Umursamadı).
 2. Apple (iPhone)'da ASLA Çalışmıyordu ve Mobil Piyasada Sıfır Çekti.
-3. Flash ile Aynı Anda (HTML5 Çıkartması ve `<video>` Canavarıyla) Render yeteneklerinin Javascript Tarafından(Vuejs/React Tarafından) ele Geçirilemsiyle Son Buldu. Netflix Biile Onu Terkettiğinde Fişi Çekilip Gömüldü.
+3. Flash ile Aynı Anda (HTML5 Çıkartması ve `<video>` Canavarıyla) Render yeteneklerinin Javascript Tarafından(Vuejs/React Tarafından) ele Geçirilmesiyle Son Buldu. Netflix Bile Onu Terkettiğinde Fişi Çekilip Gömüldü.
 
-**Rönesansı (Günümüz Yeniden Doğumu - BLAZOR):** Microsoft pes Etmedi. Günümüzde (WebAssembly Teknolojsi icat Edilince) Yıllar Sonra "Abi Eklenti İndirmeden Chrome'da C# Çalıştırıyoruz" DIYEREK **Blazor (WebAssembly)** Teknolojsini Cıkartti Ve Su Anda Silverlightin Ruhunu Muhteşem Modern Bir Yapıyla (Yeniden C#'ı Webe Sızdırarak) canlandırttı. Silverlight Ölse de Ruhu Yaşamaya Yeniden Microsoft ile Dirildi.
+**Rönesansı (Günümüz Yeniden Doğumu - BLAZOR):** Microsoft pes Etmedi. Günümüzde (WebAssembly Teknolojisi icat Edilince) Yıllar Sonra "Abi Eklenti İndirmeden Chrome'da C# Çalıştırıyoruz" DIYEREK **Blazor (WebAssembly)** Teknolojisini Cıkartti Ve Su Anda Silverlightin Ruhunu Muhteşem Modern Bir Yapıyla (Yeniden C#'ı Webe Sızdırarak) canlandırttı. Silverlight Ölse de Ruhu Yaşamaya Yeniden Microsoft ile Dirildi.

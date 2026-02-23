@@ -16,23 +16,23 @@ Oyun dünyasındaki "Kılıç" eşyası gibidir. Bir kılıcınız varsa, onu ay
 ## Dilin Mantığı ve Kod Yapısı
 Move dili altyapı olarak **Rust** dilinden mükemmel esinlenmeler taşır. 
 Rust'ın meşhur (Ve Çok sinir bozucu) olan **Sahiplik (Ownership) ve Ödünç Alma (Borrowing)** kavgası; Move'un kalbidir. 
-Eğer Ali bir "Altın Coin" yaratırsa O Coin Ali'nindir. O Coin'i harcadığı an, Bellekten (O Fonksiyondan) Çıkarılır. İki kere harcama komutu yazarşanız Derleyici HATA fırlatır!
+Eğer Ali bir "Altın Coin" yaratırsa O Coin Ali'nindir. O Coin'i harcadığı an, Bellekten (O Fonksiyondan) Çıkarılır. İki kere harcama komutu yazarsanız Derleyici HATA fırlatır!
 
 Kavramsal Temeller:
-* `struct`: Her şeyin kalbidir ama sıradan bir Cruct değildir. Ona `has key`, `has store`, `has drop` gibi Fiziksel Büyüler (Abilities) Basılır.
+* `struct`: Her şeyin kalbidir ama sıradan bir Struct değildir. Ona `has key`, `has store`, `has drop` gibi Fiziksel Büyüler (Abilities) Basılır.
   - Eğer `has drop` demezseniz, o Obje hafızadan silinemez! Mutlaka birine devredilmesi gerekir. Bu sayede "Müşterinin parası kod içinde kayboldu" bug'ı YAŞANAMAZ.
 
 ### Örnek Bir Move Kodu: Kopyalanamaz ve Silinemez Bir Altın Sikke (Token) Tasarlamak
 Aşağıda, Sadece tek bir Kişinin(Admin) yaratabildiği ve "Çoğaltılamayan / Kopyalanamayan" Efsanevi Move Resource (Para) Mimarisi:
 
 ```move
-/* BU BIR MOVE (Aptos/Sui Akilil Kontrati) KODUDUR */
+/* BU BIR MOVE (Aptos/Sui Akıllı Kontratı) KODUDUR */
 
 module BenimProjem::SikkeFabrikasi {
     
     // 1. BUYULU STRUCT (RESOURCE/Fiziksel Esya Kavrami)
     // Sadece 'store' (Sandikta/Cuzdanda Saklanabilir) becerisi verdik.
-    // 'copy' Beceresi VERMEDIGIMIZ icin bu sikke KOPYALANIP COGALTILAMAZ! Hacker bunu yapamaz.
+    // 'copy' Becerisi VERMEDIGIMIZ icin bu sikke KOPYALANIP COGALTILAMAZ! Hacker bunu yapamaz.
     // 'drop' Becerisi VERMEDIGIMIZ icin bu sikke Yere Atilip Yok Edilemez(Adam magdur edilemez)!
     struct AltinSikke has store {
         deger: u64
@@ -49,15 +49,15 @@ module BenimProjem::SikkeFabrikasi {
     }
 
     // 3. IKI SIKKEYI BIRLESTIREREK TEK SIKKE YAPMA (Eritme Okeyi)
-    // Fonskiyona 2 tane fiziksel Sikke objesi SOKULMAK ZORUNDA (Referans degil Vucut olarak gircek)!
+    // Fonksiyona 2 tane fiziksel Sikke objesi SOKULMAK ZORUNDA (Referans degil Vucut olarak girecek)!
     public fun sikkeleri_birlestir(sikke1: AltinSikke, sikke2: AltinSikke): AltinSikke {
         
-        // O İki Sikkeyi Alip Parcalayalim (Destructuring Yapiyoruz, Icindeki Rakamiklari Al)
+        // O İki Sikkeyi Alip Parcalayalim (Destructuring Yapiyoruz, Icindeki Rakamları Al)
         // DİKKAT: Burada sikke1 ve sikke2 PARCALANDIGI ICIN EVRENDEN YOK OLUR!
         let AltinSikke { deger: deger1 } = sikke1;
         let AltinSikke { deger: deger2 } = sikke2;
         
-        // Yepyeni Tek(1) Bir Sİkke yaratip degerlerini toplayalim Ve Adam VErcek
+        // Yepyeni Tek(1) Bir Sİkke yaratip degerlerini toplayalim Ve Adam Verecek
         return AltinSikke { deger: deger1 + deger2 };
     }
 }
@@ -66,4 +66,4 @@ Yukarıdaki kod Solidity'de İnanılmaz zordur. Mesela bir kullanıcı `sikkeler
 
 ## Kimler Kullanır?
 * Geleceğin Güvenli DeFi Mimarisini Yapan The Move-Ecosystem **Web3 Rust Mühendisleri**. 
-* Şu An **Aptos (APT)** ve **Sui (SUI)** Adlı Devasa Ve Trilyonlarca İşlemci (TPS) Rekoru kıran Blokzincirlerin Yegane Dili oLarak Evrendeki Gücünü kanıtlamaktadır. Güvenliğin (Ve Kriptolojinin) Rust ile Evlenmesidir.
+* Şu An **Aptos (APT)** ve **Sui (SUI)** Adlı Devasa Ve Trilyonlarca İşlemci (TPS) Rekoru kıran Blokzincirlerin Yegane Dili olarak Evrendeki Gücünü kanıtlamaktadır. Güvenliğin (Ve Kriptolojinin) Rust ile Evlenmesidir.

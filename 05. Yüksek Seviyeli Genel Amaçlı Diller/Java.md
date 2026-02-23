@@ -23,7 +23,7 @@ Java'da "Araba" adında bir Kalıp (Class) çizersiniz. Araba klasının "Motor(
 Bir oyun veya banka hesabındaki "Karakter" ya da "Kullanıcı" profilinin saf nesneye dönüştürülmesi ve ekrana bastırılması (Derleme değil, Bytecode mantığı hakimdir):
 
 ```java
-// JAVA FARKI: Dosya adı ile ana sınıfın adı (OrnekZirh) TAM AMANLA aynı olmak ZORUNDADIR.
+// JAVA FARKI: Dosya adı ile ana sınıfın adı (OrnekZirh) TAM ANLAMIYLA aynı olmak ZORUNDADIR.
 public class OrnekZirh {
     
     // GİZLİ VERİ (Encapsulation): Sadece bu sınıf görebilir (private), 

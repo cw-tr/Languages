@@ -6,11 +6,11 @@ OCaml (Objective Caml); 1996 yılında Fransa'daki INRIA enstitüsü tarafından
 ## Nedir ve Ne İşe Yarar?
 1990'larda Fonksiyonel diller (Lisp, Haskell, ML) genellikle sadece üniversite akademisyenlerinin "Yan Etkisiz (Side-Effect Free) Matematik İspatlamak" için kullandığı elit dillerdi. Şirketler ise "Bize hızlı çalışan, C gibi döngü atabilen ama Haskell gibi Tip-Güvenliği / Bug (Hata) geçirmeyen pratik bir dil lazım" diyordu.
 
-INRIA, klasik 'ML (Meta Language)' dilinin üzerine Nesne Yönelimli (Sınıflar/Objeler) yetenekleri ekledi. OCaml doğdu. Siz OCaml ile tıpkı Haskell gibi mükemmel bir matematiksel fonskiyon yazabilirsiniz, ama canınız isterse "Ben bunu for döngüsüne sokup değişkenin değerini +1 yapacağım" da diyebilirsiniz (Impure). C'den biraz yavaş, Java'dan çok daha hızlıdır ve evrendeki en güçlü Tip Çıkarım (Type Inference) motorlarından birine sahiptir.
+INRIA, klasik 'ML (Meta Language)' dilinin üzerine Nesne Yönelimli (Sınıflar/Objeler) yetenekleri ekledi. OCaml doğdu. Siz OCaml ile tıpkı Haskell gibi mükemmel bir matematiksel fonksiyon yazabilirsiniz, ama canınız isterse "Ben bunu for döngüsüne sokup değişkenin değerini +1 yapacağım" da diyebilirsiniz (Impure). C'den biraz yavaş, Java'dan çok daha hızlıdır ve evrendeki en güçlü Tip Çıkarım (Type Inference) motorlarından birine sahiptir.
 
 **Ne İşe Yarar?**
 * **Finansal Algoritma Sistemleri (Quant):** Jane Street gibi Wall Street'te saniyede milyarlarca dolarlık borsa işlemi (HFT - High Frequency Trading) yapan dev şirketler, "Eğer kodda hata çıkarsa milyar dolar kaybederiz" korkusuyla Bütün sistemlerini %100 oranında (Böcek/Bug yasaklayan) OCaml ile yazmıştır!
-* **Derleyici (Compiler) Üretimi:** Facebook'un yarattığı Hack(PHP C++) derleyicileri, Rust dilinin ilk orjinal Derleyicisi ve Ethereum Akıllı Kontrat derleyicileri ilk başta OCaml ile yazılmıştır. Yeni dillerin kurallarını kodlamak için en iyi 'Meta-Dildir'.
+* **Derleyici (Compiler) Üretimi:** Facebook'un yarattığı Hack(PHP C++) derleyicileri, Rust dilinin ilk orijinal Derleyicisi ve Ethereum Akıllı Kontrat derleyicileri ilk başta OCaml ile yazılmıştır. Yeni dillerin kurallarını kodlamak için en iyi 'Meta-Dildir'.
 
 ## Dilin Mantığı ve Kod Yapısı
 OCaml, katı ve güçlü tiplidir (Strict/Static Typed). Ama Java gibi sizden `int x = 5` diye tip dilenmez. `let x = 5` yazarsınız, OCaml derleyicisi (Hindley-Milner Algoritması) "Ah, 5 bir tam sayıdır, o halde x hayatı boyunca 'int' olmak zorundadır" diye fısıldayarak Değişkeni ebediyyen kilitler. OCaml ile yazılıp "Compile(Derle)" tuşundan geçen bir kodun, çalışma esnasında (Runtime) patlama veya çökme ihtimali neredeyse SIFIRDIR.

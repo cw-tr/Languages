@@ -20,7 +20,7 @@ Normal Array veya Veri yığını yerine ekran kartları "Eşzamanlı Parça Ak�
 Değişkenlerin sonlarına `.f32` (32 bit Float), `.s32` (Signed Int) veya donanıma özgü adres boşlukları (Örn: Ekran Kartı Ana Rami mi? Kendi iç Küçük Önbelleği mi? -> `.global`, `.shared`) gibi aşırı spesifik ekran kartı ayar ekleri koyarak emir verirsiniz. 
 
 **Örnek İşleyiş (Sembolik Olarak):**
-Siz C/CUDA'da iki satır matris eklersiniz. PTX kodu: GPU'nun "Bir Global hafızadaki" bloğu (.global) "Kendi Çekirgeklerindeki Odaya (.shared)" çekip, orada Vektör (.v4) matematiği atıp Çarpıp tekrar anakarta fırlatmasıdır. Bütün bunlar tekil 0/1 Makine kodundan bir satır önce (Driver taraflı) oluşur.
+Siz C/CUDA'da iki satır matris eklersiniz. PTX kodu: GPU'nun "Bir Global hafızadaki" bloğu (.global) "Kendi Çekirdeklerindeki Odaya (.shared)" çekip, orada Vektör (.v4) matematiği atıp Çarpıp tekrar anakarta fırlatmasıdır. Bütün bunlar tekil 0/1 Makine kodundan bir satır önce (Driver taraflı) oluşur.
 
 ### Örnek Bir PTX Kodu: İki Sayıyı Toplayan Ekran Kartı İşlemi
 NVIDIA Driver (Sürücüsü) tarafından havada okunup anında Çip'e (Silicona) şırınga edilen o meşhur CUDA-Ara Kod mimarisinin en okunabilir hali:

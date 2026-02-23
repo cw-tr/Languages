@@ -9,7 +9,7 @@ SystemVerilog (SV); 2005 yılında IEEE tarafından standartlaştırılan, eski 
 SystemVerilog bu sorunu çözmek için icat edildi. C dilindeki Sınıf (Class), Struct, Enum gibi karmaşık Yapıları (Data Structures) Verilog'un içine entegre etti. 
 
 **Ne İşe Yarar?**
-* **Devasa Çip Doğrulaması (Verification):** Geliştirilen bir çiplerin, fabrikaya "Silikon basımına" gönderilmeden önce sanal ortamda milyarlarca farklı sinyal ihtimaline karşı %100 kusursuz test edilmesini sağlar. Buna sektörel olarak UVM (Universal Verification Methodology) denir ve tamamen SystemVerilog içindeki OOP kütüphanelerine dayanır.
+* **Devasa Çip Doğrulaması (Verification):** Geliştirilen çiplerin, fabrikaya "Silikon basımına" gönderilmeden önce sanal ortamda milyarlarca farklı sinyal ihtimaline karşı %100 kusursuz test edilmesini sağlar. Buna sektörel olarak UVM (Universal Verification Methodology) denir ve tamamen SystemVerilog içindeki OOP kütüphanelerine dayanır.
 * **Tasarım (Design RTL):** Klasik Verilog'daki "Bu kablo nerede kopuyordu?" belirsizliğini `logic` anahtar kelimesiyle çözer, devrenin (D-Flip Flop vb) yazımını çok daha güvenli hale getirir. 
 
 ## Dilin Mantığı ve Kod Yapısı
@@ -53,7 +53,7 @@ class AğPaketi;
 endclass
 
 
-// UYGULAMAYI / TESTİ BAŞLATMA ZAMANI DOĞSAYI(İşletim Blogu)
+// UYGULAMAYI / TESTİ BAŞLATMA ZAMANI (İşletim Bloğu)
 module test_sistemi;
 
     // Sınıftan bir KOPYA (Object/Handle) yaratıyoruz

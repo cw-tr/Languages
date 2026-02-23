@@ -10,10 +10,10 @@ Haxe'i indirdiniz. Bir kod (Oyun veya Yazılım) yazdınız. Sonra Haxe'in siyah
 
 **Ne İşe Yarar?**
 * **Çoklu Platform (Cross-Platform) Oyun Motorları:** Bağımsız (Indie) oyun geliştiricilerin kalesi olan *Dead Cells*, *Northgard* veya *Paper Please* gibi efsanevi milyonlar satan oyunlar Haxe diliyle yazılmıştır. (Heaps.io veya OpenFL oyun motoru kullanılarak).
-* **Bir Kodu Asla İki Kere Yazmama (Code Re-use):** Büyük bir şirketin arka-yüzündeki(Server) veritabanı kodları ile, Cep telefonudandaki (Client/App) hesaplama kodlarını aynı dil (Haxe) ile yazar; Haxe Server için `PHP/NodeJS` kodu üretirken, Client için Java/C++ çıktısı oluşturur. Proje asla çelişmez ve bug barındırmaz.
+* **Bir Kodu Asla İki Kere Yazmama (Code Re-use):** Büyük bir şirketin arka yüzündeki (Server) veritabanı kodları ile, Cep telefonundaki (Client/App) hesaplama kodlarını aynı dil (Haxe) ile yazar; Haxe Server için `PHP/NodeJS` kodu üretirken, Client için Java/C++ çıktısı oluşturur. Proje asla çelişmez ve bug barındırmaz.
 
 ## Dilin Mantığı ve Kod Yapısı
-Tam bir ActionScript ve ECMAScript (Yeni Nesil Java/C# melezleri) kopyasıdır. Tamamen Katı Tiplidir (Strict-Type) `var isim:String`. Nesne Yönelimli Programlamanın kurallarına DörtDörtlük uyar (Sınıflar, Miras, Interface, Generics). Neden Pürüssüz derecede kurallı OOP kullanır? Çünkü ancak kurala tam binen ve hafızası şaşmayan bir DİLİ alıp, hiç hata yapmadan C++ gibi ölümcül sistemlere C-Kodu olarak kopyalayabilir (Transpile) edersiniz.
+Tam bir ActionScript ve ECMAScript (Yeni Nesil Java/C# melezleri) kopyasıdır. Tamamen Katı Tiplidir (Strict-Type) `var isim:String`. Nesne Yönelimli Programlamanın kurallarına DörtDörtlük uyar (Sınıflar, Miras, Interface, Generics). Neden Pürüzsüz derecede kurallı OOP kullanır? Çünkü ancak kurala tam binen ve hafızası şaşmayan bir DİLİ alıp, hiç hata yapmadan C++ gibi ölümcül sistemlere C-Kodu olarak kopyalayabilir (Transpile) edersiniz.
 
 Ayrıca dünyadaki en kusursuz ve en büyük "Makro (Macros)" yeteneğine sahip betiklerdendir. Derlenirken (Örneğin C++'a çevrilmeye başlandığı an), siz "Benim yerime veritabanı sınıfını otomatik kopyala oluştur sonrada C++'a çevir" emri verirsiniz ve işi yapar.
 
@@ -30,7 +30,7 @@ Bir oyunun Karakter sınıfının Haxe formatında yazımı. Bu kod, Windows'a `
 // Haxe dili C-bazli (Java/JS/C#) yorum satirlari (//) ve bloklari kullanir
 
 // PAKET / SINIF TANIMLAMA
-// Dosyanin ana kontrol Blogu (OOP miamrisi sarttir, dümdüz script yazılamazsın)
+// Dosyanin ana kontrol Blogu (OOP mimarisi sarttir, dümdüz script yazamazsınız)
 class Kahraman {
     
     // TIPI KATI (STRICT TYPED) Değişken Tanimlamalari "isim : Tip" 
@@ -55,7 +55,7 @@ class Kahraman {
         // Klasik C / Java döngü yapısı tıkır tıkır işler:
         for (i in 0...3) { 
             // 0...3 (Sonda 3 Nokta): Haxe'e Ozel Harika Sirali Iterator (0, 1, 2 ceker)
-            trace("Ard arda Kiliç Darbesi: " + i); 
+            trace("Art arda Kiliç Darbesi: " + i); 
         }
     }
 }
@@ -72,7 +72,7 @@ class Main {
         
         // Platform Makrolari (SADECE C++ Ise sunu derle, HTML ise Oteki kütüphaneyi Çek! diye şizofrenik bir yetenegi vardiR):
         #if js
-            trace("Oyun Su an Tarayicida Callisiyor, Dom'a(Grafiklere) Erisim saglandi!");
+            trace("Oyun Su an Tarayicida Calisiyor, Dom'a(Grafiklere) Erisim saglandi!");
         #elseif cpp
             trace("Oyun Steam C++ Formatinda! OpenGL grafik Motorunu Calistir.");
         #elseif java

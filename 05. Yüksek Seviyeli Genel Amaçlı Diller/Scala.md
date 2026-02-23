@@ -4,7 +4,7 @@
 Scala (Scalable Language); 2004 yılında geliştirilen, Java Sanal Makinesi (JVM) üzerinde çalışan, tıpkı C++'ın makine ve donanım arasında köprü kurması gibi, evrendeki en zor iki programlama tarzını (**Kesin Nesne Yönelimli OOP** ile **Saf Fonksiyonel Programlamayı**) birbiriyle kusursuzca kaynaştırmak üzere yaratılmış çok devasa ve karmaşık bir Büyük Veri (Big Data) dilidir.
 
 ## Nedir ve Ne İşe Yarar?
-Eğer bir uygulama saniyede milyarlarca tweet veya banka işlem verisi alıyorsa, klasik (Stateful - değişkenlerin durmadan yeni rakamla güncellendiği) programlama (Java, C#) feci bir tıkanmaya sebep olur. "Fonksiyonel Programlamada" o anki veri (örneğin X=5 ise) **asla değişmez** (Immutability). Sayı değişecekse orjinal X kalır, yepyeni bir Y(6) yaratılır. Bu da milyarlarca verinin "Aman aynı anda iki kişi aynı veriye yazmaya kalktı silecek!" derdi (Data-Race) olmadan eşzamanlı trilyonlarca hesaplama sunmasını sağlar.
+Eğer bir uygulama saniyede milyarlarca tweet veya banka işlem verisi alıyorsa, klasik (Stateful - değişkenlerin durmadan yeni rakamla güncellendiği) programlama (Java, C#) feci bir tıkanmaya sebep olur. "Fonksiyonel Programlamada" o anki veri (örneğin X=5 ise) **asla değişmez** (Immutability). Sayı değişecekse orijinal X kalır, yepyeni bir Y(6) yaratılır. Bu da milyarlarca verinin "Aman aynı anda iki kişi aynı veriye yazmaya kalktı silecek!" derdi (Data-Race) olmadan eşzamanlı trilyonlarca hesaplama sunmasını sağlar.
 
 Scala, devasa şirketlere şunu vadetti: "Java'nın güçlü Class/Objelerine ve muazzam altyapısına dokunmayın o kalsın. Ama üzerine fonksiyonel dilin saf matematiksel veri akışını ekleyelim, sistemler sonsuz BÜYÜYEBİLSİN (Scalable)".
 

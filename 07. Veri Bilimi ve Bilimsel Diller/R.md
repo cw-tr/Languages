@@ -38,20 +38,20 @@ hasta_verisi <- data.frame(
 )
 
 # Lineer Regresyon Modellemesi (Tek satırlık şaheser):
-# '~' (Tilde) isareti R'in özel "Formül" sembolüdür.
+# '~' (Tilde) işareti R'ın özel "Formül" sembolüdür.
 # Anlamı: "Kan Basıncını etkileyen şeyin 'Yas' olduğunu farz et ve aralarındaki korelasyonu bul. Veri kaynağı = hasta_verisi".
 tansiyon_modeli <- lm(KanC_Basinci ~ Yas, data = hasta_verisi)
 
-# Sadece modelin istatistiksel, p-Value (Hata payi) vb. paha bicilmez odev ozetini ekrana basar:
+# Sadece modelin istatistiksel, p-Value (Hata payı) vb. paha biçilmez ödev özetini ekrana basar:
 summary(tansiyon_modeli)
 
-# YENI HASTA TAHMINI: Hastaneye 50 yaşinda yeni birisi geldi, 
+# YENİ HASTA TAHMİNİ: Hastaneye 50 yaşında yeni birisi geldi, 
 # Ürettiğimiz modele Soruyoruz: "Bu kisinin tahmini tansiyonu ne cikar?"
 yeni_hasta <- data.frame(Yas = c(50))
 tahmin_edilen_tansiyon <- predict(tansiyon_modeli, yeni_hasta)
 
-# R'ın console (ekran) basimi fonksiyonlari:
-cat("Modelin 50 yasindaki kişi icin tansiyon Tahmini: ", round(tahmin_edilen_tansiyon, 2), "\n")
+# R'ın console (ekran) basımı fonksiyonları:
+cat("Modelin 50 yaşındaki kişi icin tansiyon Tahmini: ", round(tahmin_edilen_tansiyon, 2), "\n")
 ```
 
 Sadece 4-5 satır kodla tıp veya finans dünyasının ana tahminsel aracı olan yapay zeka istatistiği hazır hale gelmiştir. Aynısını standart bir C#, C++ dilinde kodlarken sayfalarca Olasılık formülü gömmeniz gerekirdi.

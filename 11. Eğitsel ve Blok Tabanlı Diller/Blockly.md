@@ -15,7 +15,7 @@ Google, "Kodlamayı Blok (Puzzle) şeklinde yapma fikrini Açık Kaynak Kütüph
 ## Dilin Mantığı ve Kod Yapısı
 Tamamen (Blockly Kütüphanesinin JavaScript diliyle siteye entegrasyonu) "Blok Sürükleme" kurgusudur ancak arkasındaki en büyük Zekası: **Kod Üreticisidir (Code Generator)**. 
 
-Blockly'de bir "İF(Eğer)" bloğu alıp, İçine kırmızı "5" rakkamı, yanına eşitse Mavi Bir "X" çekerseniz;
+Blockly'de bir "İF(Eğer)" bloğu alıp, İçine kırmızı "5" rakamı, yanına eşitse Mavi Bir "X" çekerseniz;
 Blockly API'si saniyesinde size şunu fırlatır:
 - Javascript Olarak: `if (x == 5) { ... }`
 - Python Olarak: `if x == 5:`
@@ -47,15 +47,15 @@ Blockly.Blocks['akilli_lamba_yak'] = {
         .appendField("rengiyle Tumuyle Yak!");
         
     this.setPreviousStatement(true, null); // Uzerine Baska blok takilabilir
-    this.setNextStatement(true, null);     // Altina baska bok takilabilir
+    this.setNextStatement(true, null);     // Altina baska blok takilabilir
     this.setColour(160); // Yesilimsi Mavi Koyu Bir Blok Rengi
   }
 };
 
 
-// 2. KOD JENERATÖRÜ (O BLOK SÜRÜLENDİĞİNDE ARKA PLANDA ÇIKACAK OLAN SAF KOD!)
+// 2. KOD JENERATÖRÜ (O BLOK SÜRÜKLENDİĞİNDE ARKA PLANDA ÇIKACAK OLAN SAF KOD!)
 
-// Eger Projenizi PYHTON olarak Export aldiriyorsaniz:
+// Eger Projenizi PYTHON olarak Export aldiriyorsaniz:
 Blockly.Python['akilli_lamba_yak'] = function(block) {
   
   // Bloktan Kullanicinin Sectigi Rengi Çek!
@@ -67,7 +67,7 @@ Blockly.Python['akilli_lamba_yak'] = function(block) {
   return python_code_ciktisi;
 };
 
-// VEYA EGER Projenizi JAVASCRIPT Olarak Export aldiriyorsaniz (Aynu Ayna 2 Dil ureten fabrika!)
+// VEYA EGER Projenizi JAVASCRIPT Olarak Export aldiriyorsaniz (Ayni Anda 2 Dil ureten fabrika!)
 Blockly.JavaScript['akilli_lamba_yak'] = function(block) {
   var secilenRenk = block.getFieldValue('RENK');
   

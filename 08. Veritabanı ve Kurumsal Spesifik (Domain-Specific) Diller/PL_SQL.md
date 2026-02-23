@@ -16,7 +16,7 @@ Standart SQL (Level 7 başındaki SQL e bakınız) "Bildirimseldir (Declarative)
 Tam bir **Ada / Pascal** klonudur. Süslü Parantez `{}` asla göremezsiniz. Klasik "Blok Yapılıdır".
 Her PL/SQL kodu zorunlu **3 bloktan** birine uymalıdır:
 1. `DECLARE`: Değişkenlerin tanımlandığı bölge (Zorunlu değil).
-2. `BEGIN...END;`: Kodun(Döngülerin) asıl çalıştığı kalpgazi.
+2. `BEGIN...END;`: Kodun(Döngülerin) asıl çalıştığı kalbidir.
 3. `EXCEPTION`: Eğer sıfıra bölünme veya verinin bulunamaması (NO_DATA_FOUND) gibi bir felaket olursa sistemin çökmesini engelleyen kurtarma kalkanı.
 
 Değişken atamaları Pascal'daki gibi `:=(İki nokta üst üste eşittir)` ile yapılır. Satırlar noktalı virgülle biter. Ek olarak, içine dümdüz (Native) SQL satırlarını yazıp onu değişkenlere `INTO` kelimesiyle aktarabilirsiniz.
@@ -29,7 +29,7 @@ PL/SQL: `v_yas NUMBER := 25; BEGIN IF v_yas > 18 THEN DELETE FROM isciler; END I
 Milyonluk tablodaki tüm müşterileri tek tek For Döngüsüne (Cursor) alıp, Maaşına göre arkaplanda "Hata Çökmelerini de önleyerek" otomatik prim veren prosedür!
 
 ```sql
-/* PL/SQL dilindeyorumlar C-Tipi veya Cift-Tire (--) ile yapilir. */
+/* PL/SQL dilinde yorumlar C-Tipi veya Cift-Tire (--) ile yapilir. */
 -- Oracle Veritabanina Ozel Bir PL/SQL(Prosedur) Blok!
 
 DECLARE
@@ -67,7 +67,7 @@ BEGIN
         
      END LOOP;
      
-     -- Döngün Bitti, Hersey yolunda ise Veriyabanindaa Yapilanlari Onayla (COMMIT-KAYDET)
+     -- Döngü Bitti, Her şey yolunda ise Veritabanında Yapilanlari Onayla (COMMIT-KAYDET)
      COMMIT;
      DBMS_OUTPUT.PUT_LINE('Islem Hatasiz Bitti!');
 
@@ -78,15 +78,15 @@ EXCEPTION
     
     WHEN OTHERS THEN
         DBMS_OUTPUT.PUT_LINE('Sistem Hatasi Olustu, Islemler İptal Ediliyor.');
-        -- Olasi bir yarida kesilmede, Databasei bozmamak icin her seyi Sifirla (GERI AL):
+        -- Olasi bir yarıda kesilmede, Database'i bozmamak icin her şeyi Sifirla (GERI AL):
         ROLLBACK;
         
 END;
--- '/' Isareti Oracla'a "Blogun Derlemesini Bitir ve Calistir" demektir
+-- '/' Isareti Oracle'a "Blogun Derlemesini Bitir ve Calistir" demektir
 / 
 ```
 
-C# EntityFramework'ün ya da Node.js Sequelize'ın veritabanından 1 Milyon satırı "Ağ üstünden/TCP" Web Sunucusuna (RAM'e) çekene kadar Ağlatacağı o yavaşlığı; PL/SQL veritabanı diskinin kendi RAM'i içinde Pürüssüz Döngüleyerek Işık hızında bitirir.
+C# EntityFramework'ün ya da Node.js Sequelize'ın veritabanından 1 Milyon satırı "Ağ üstünden/TCP" Web Sunucusuna (RAM'e) çekene kadar Ağlatacağı o yavaşlığı; PL/SQL veritabanı diskinin kendi RAM'i içinde Pürüzsüz Döngüleyerek Işık hızında bitirir.
 
 ## Kimler Kullanır?
 * Finans, Telekom, Sigorta veya Havayolu rezervasyonu yapan devasa kurumlarda mimarinin tam kalbini (%100 Oracle Veritabanlarını) tutan **Oracle DB Admin (DBA) ve PL/SQL Geliştiricileri**.

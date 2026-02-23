@@ -29,7 +29,7 @@ Yığına(Bellek) "1" sayısını atmak: (1.Emir: Space) -> (2.Sayı İsareti: A
 Yani Toplamda "Boşluk, Boşluk, TAB, Enter" aklına basarsanız sisteme Gizli bir 1 rakamı atamış olursunuz.
 
 ### Örnek Bir Whitespace Kodu: C++ Kodunun İçine "Hello World" Virüsü Gömmek
-Aşağıdaki kodda Gözüken Harflerin (Print, int vs) HIÇBIR ANLAMI YOKTUR, Onlar Yorum Çöpüdür. Asıl çalışan şeyler, o harflerin sonundaki (Secerek ancak bilebileciğiniz) görünmez Boşluklardır.
+Aşağıdaki kodda Gözüken Harflerin (Print, int vs) HIÇBIR ANLAMI YOKTUR, Onlar Yorum Çöpüdür. Asıl çalışan şeyler, o harflerin sonundaki (Seçerek ancak bilebileceğiniz) görünmez Boşluklardır.
 *(Temsili Gösterim İçin: (S)pace , (T)ab, (L)ineFeed olarak yazılmıştır lakin aslı şeffaftır!)*
 
 ```whitespace

@@ -6,7 +6,7 @@ Vala; 2006 yılında Jürg Billeter ve Raffaele Sandrini tarafından (GNOME proj
 ## Nedir ve Ne İşe Yarar?
 Linux dünyasının en meşhur grafiksel arayüzlerinden biri olan GNOME ekranları (GTK+ arayüz serisi), tarih boyunca tamamen saf C dili ile ve "GObject (GLib)" denen korkunç ve manuel bir C-Nesneleştirme kütüphanesiyle yazıldı. 
 
-Ekrana bir buton eklemek ve o butonu C diliyle "C aslında Obiject Oriented degildir" yalanını kandırıp GObject makrolarıyla Class'mış gibi göstermek için sayfalarca rezalet kod dökülüyordu. C++ veya Java kullanamazlardı çünkü C'nin GNOME C-Kütüphaneleriyle milisaniyelik Native entegrasyonundan vazgeçmek istemiyorlardı.
+Ekrana bir buton eklemek ve o butonu C diliyle "C aslında Object Oriented degildir" yalanını kandırıp GObject makrolarıyla Class'mış gibi göstermek için sayfalarca rezalet kod dökülüyordu. C++ veya Java kullanamazlardı çünkü C'nin GNOME C-Kütüphaneleriyle milisaniyelik Native entegrasyonundan vazgeçmek istemiyorlardı.
 
 Vala ekibi; "Biz C# (Microsoft) dilinin sözdizimini (Syntax) direk kopyalayalım, C# o kadar rahat ve şık bir OOP dilidir ki geliştiriciler For/Class yazarken rahat etsin. Sonra o programı derlerken, biz onu arkaplanda gizlice **Açtıkları Class'ları Saf C (GObject) koduna** metin metin çeviririz, sonra da C derleyicisini(GCC) o çevrilen kodla çakar Saf makine Linux programına vururuz" dediler. Vala ortaya çıktı.
 
@@ -24,7 +24,7 @@ Siz Vala kodu yazarsınız: `class Araba { public int Hiz; }`
 Derleyici `valac`, arkadan onu alır ve şuna C dosyasına çevirir: `struct _Araba { int Hiz; ... }; void araba_yap(Araba* s);` (Bütün GObject C makrolarını sizin yerinize döşer ve gizler).
 
 ### Örnek Bir Vala Kodu: C#'tan Ayırt Edilemeyen "C / GTK Uygulaması"
-Linux grafik ekranı (GTK) kütüphanesini sanki C# Windows Form Applications kodluyormuşcasına Pürüssüz OOP Sınıflarına (Signals/Events) hapseden harika bir GNOME Arayüz kodu:
+Linux grafik ekranı (GTK) kütüphanesini sanki C# Windows Form Applications kodluyormuşcasına Pürüzsüz OOP Sınıflarına (Signals/Events) hapseden harika bir GNOME Arayüz kodu:
 
 ```vala
 // Vala dilinde yorum satirlari C# / C dilleri gibidir (// ve /*)
@@ -45,10 +45,10 @@ public class Pencerem : Window {
         this.border_width = 25;
         this.window_position = WindowPosition.CENTER;
         
-        // Ekrana Şık Bir Buton Objtesi Yaratiyoruz
+        // Ekrana Şık Bir Buton Objesi Yaratiyoruz
         var butonObjesi = new Button.with_label ("Beni Tikla Coder!");
 
-        // LINUX GTK SIGNAL(Event/Olay MİMARİSİ) ve LAMBDA FUNKSİYONLAR 
+        // LINUX GTK SIGNAL (Event/Olay MİMARİSİ) ve LAMBDA FONKSİYONLAR 
         // Sanki C# içindeki delegate / event'lar gibi yazılır
         butonObjesi.clicked.connect (() => {
             
@@ -85,7 +85,7 @@ static int main (string[] args) {
 }
 ```
 
-Bu döküm, Terminalden `valac --pkg gtk+-3.0 dosyam.vala` denildiği an kapalı kapılar ardında koca bir C kod yığınına dönüşür, ve gcc tarafından native sistem kompsitesine makine kodu olarak patlatılır.
+Bu döküm, Terminalden `valac --pkg gtk+-3.0 dosyam.vala` denildiği an kapalı kapılar ardında koca bir C kod yığınına dönüşür, ve gcc tarafından native sistem mimarisine makine kodu olarak patlatılır.
 
 ## Kimler Kullanır?
 * Evrendeki sadece **Linux Dağıtımcıları (Özellikle GTK/GNOME Grafik arayüzü masaüstü projeleri kodu mimarları)**. 
